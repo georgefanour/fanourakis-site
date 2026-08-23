@@ -1,0 +1,45 @@
+media:
+  input: assets/images
+  output: /assets/images
+  extensions:
+    - jpg
+    - jpeg
+    - png
+    - webp
+  rename: safe
+
+content:
+  - name: photos
+    label: Φωτογραφίες
+    type: collection
+    path: content/photos
+    filename: "{primary}.json"
+    primary: title
+    fields:
+      - name: title
+        label: Τίτλος
+        type: string
+        required: true
+      - name: image
+        label: Φωτογραφία
+        type: image
+        required: true
+      - name: alt
+        label: Περιγραφή εικόνας
+        type: string
+        required: true
+      - name: category
+        label: Κατηγορία
+        type: select
+        options:
+          values:
+            - live
+            - backstage
+            - portrait
+            - studio
+            - travel
+            - other
+      - name: featured
+        label: Προτεινόμενη φωτογραφία
+        type: boolean
+        default: false
