@@ -86,3 +86,50 @@ content:
         label: Προτεινόμενη κυκλοφορία
         type: boolean
         default: false
+
+  - name: live
+    label: Live
+    type: collection
+    path: content/live
+    filename: "{primary}.json"
+    primary: title
+    fields:
+      - name: title
+        label: Τίτλος εμφάνισης
+        type: string
+        required: true
+      - name: date
+        label: Ημερομηνία
+        type: date
+        required: true
+      - name: venue
+        label: Χώρος
+        type: string
+        required: true
+      - name: city
+        label: Πόλη
+        type: string
+        required: true
+      - name: image
+        label: Αφίσα ή φωτογραφία
+        type: image
+        required: true
+      - name: alt
+        label: Περιγραφή εικόνας
+        type: string
+        required: true
+      - name: ticket_url
+        label: Ticket ή event link
+        type: string
+      - name: status
+        label: Κατάσταση
+        type: select
+        required: true
+        options:
+          values:
+            - upcoming
+            - archive
+      - name: featured
+        label: Προτεινόμενο live
+        type: boolean
+        default: false
