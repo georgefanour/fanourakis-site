@@ -1,16 +1,20 @@
 {
-  "title": "Νέα κυκλοφορία",
+  "title": "Νηνεμία",
   "meta": "Single · 2024",
   "description": "Ένα τραγούδι για τη γαλήνη που έρχεται μετά την καταιγίδα.",
-  "cover": "",
+  "cover": "/assets/images/νηνεμια.webp",
   "links": [
     {
       "label": "Πληροφορίες",
       "url": "#"
     },
     {
-      "label": "Άκουσε",
-      "url": "#"
+      "label": "Άκουσε στο Spotify",
+      "url": "#https://open.spotify.com/album/0bpKQGHcyMhl6lrl0AzsDq?si=dNnSA2UvQNi-vZf3WM_WNQ"
+    },
+    {
+      "label": "Άκουσε στο YouTube",
+      "url": "#https://www.youtube.com/watch?v=LqbsU0f33Xo"
     }
   ]
 }
