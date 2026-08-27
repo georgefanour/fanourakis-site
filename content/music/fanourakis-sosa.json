@@ -1,8 +1,8 @@
 {
-  "title": "Fanourakis & Sosa",
+  "title": "Yiorgos Fanourakis & Nicolas Sosa",
   "meta": "2026",
   "description": "Μια συνάντηση δύο δημιουργών, δύο πόλεων και ενός κοινού μικρόκοσμου.",
-  "cover": "",
+  "cover": "/assets/images/microcosmos.png",
   "links": [
     {
       "label": "Πληροφορίες",
@@ -10,7 +10,7 @@
     },
     {
       "label": "Δες video",
-      "url": "#"
+      "url": "#https://www.youtube.com/watch?v=IF23sKsyXAA&pp=ygUWbWljcm9jb3Ntb3MgZmFub3VyYWtpc9IHCQkTDAGHKiGM7w%3D%3D"
     }
   ]
 }
