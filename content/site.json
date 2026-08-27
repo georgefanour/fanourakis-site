@@ -27,7 +27,7 @@
       "visible": true
     },
     {
-      "label": "Τύπος",
+      "label": "Απόψεις και σκέψεις",
       "target": "press",
       "visible": true
     },
@@ -41,7 +41,6 @@
     "kicker": "Τραγούδια, λέξεις και στιγμές",
     "title": "Γιώργος Φανουράκης",
     "text": "Τραγούδια που ταξιδεύουν από τη Θεσσαλονίκη στο Βερολίνο — και πίσω στους ανθρώπους.",
-    "image": "",
     "actions": [
       {
         "label": "Άκουσε τώρα",
@@ -82,19 +81,23 @@
     }
   },
   "contact": {
-    "text": "Booking: πρόσθεσε email · Press: πρόσθεσε email",
+    "text": "Booking · Press: georgefanour@gmail.com",
     "social": [
       {
         "label": "Instagram",
-        "url": "#"
+        "url": "#https://www.instagram.com/yiorgosfanourakis/"
       },
       {
         "label": "YouTube",
-        "url": "#"
+        "url": "#https://www.youtube.com/@yiorgosfanourakis"
       },
       {
         "label": "Spotify",
-        "url": "#"
+        "url": "#https://open.spotify.com/artist/5AO5jJ07JE6LSFT6itjeDN?si=oSbtG1BGS2KHZPXrFKvzhA"
+      },
+      {
+        "label": "TikTok",
+        "url": "#https://www.tiktok.com/@yiorgosfanourakis"
       }
     ]
   }
