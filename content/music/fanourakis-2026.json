@@ -1,16 +1,16 @@
 {
-  "title": "Γιώργος Φανουράκης",
+  "title": "Ροδάκινο",
   "meta": "2026",
   "description": "Νέο τραγούδι με μουσική και στίχους Δημήτρη Τομπάζη.",
-  "cover": "",
+  "cover": "/assets/images/ροδακινο.png",
   "links": [
     {
       "label": "Πληροφορίες",
       "url": "#"
     },
     {
-      "label": "Δες video",
-      "url": "#"
+      "label": "Άκουσε στο YouTube",
+      "url": "#https://www.youtube.com/watch?v=hY9z1iCwpHE&pp=ygUhz4HOv860zrHOus65zr3OvyDPhM6_zrzPgM6xzrbOt8-C"
     }
   ]
 }
