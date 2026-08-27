@@ -1,0 +1,101 @@
+{
+  "artistName": "Γιώργος Φανουράκης",
+  "navigation": [
+    {
+      "label": "Μουσική",
+      "target": "music",
+      "visible": true
+    },
+    {
+      "label": "Live",
+      "target": "live",
+      "visible": true
+    },
+    {
+      "label": "Βίντεο",
+      "target": "videos",
+      "visible": true
+    },
+    {
+      "label": "Φωτογραφίες",
+      "target": "photos",
+      "visible": true
+    },
+    {
+      "label": "Κείμενα",
+      "target": "texts",
+      "visible": true
+    },
+    {
+      "label": "Τύπος",
+      "target": "press",
+      "visible": true
+    },
+    {
+      "label": "Επικοινωνία",
+      "target": "contact",
+      "visible": true
+    }
+  ],
+  "hero": {
+    "kicker": "Τραγούδια, λέξεις και στιγμές",
+    "title": "Γιώργος Φανουράκης",
+    "text": "Τραγούδια που ταξιδεύουν από τη Θεσσαλονίκη στο Βερολίνο — και πίσω στους ανθρώπους.",
+    "image": "",
+    "actions": [
+      {
+        "label": "Άκουσε τώρα",
+        "url": "#music",
+        "primary": true
+      },
+      {
+        "label": "Επόμενα live",
+        "url": "#live",
+        "primary": false
+      }
+    ]
+  },
+  "sections": {
+    "music": {
+      "heading": "Δισκογραφία",
+      "intro": "Προσωπικά τραγούδια, συναντήσεις και ήχοι που ζητούν να μείνουν."
+    },
+    "live": {
+      "heading": "Live",
+      "intro": "Οι επόμενες συναντήσεις, σκηνές και διαδρομές."
+    },
+    "videos": {
+      "heading": "Βίντεο",
+      "intro": "Official videos, covers, live sessions και acoustic takes."
+    },
+    "photos": {
+      "heading": "Φωτογραφίες",
+      "intro": "Live, δρόμοι, πρόβες και όσα μένουν πίσω από μια μελωδία."
+    },
+    "texts": {
+      "heading": "Στίχοι & κείμενα",
+      "copy": "«Αν αισθάνεσαι ότι οι ψυχές μας συνδέθηκαν, τότε αυτός ο χώρος είναι και δικός σου.»"
+    },
+    "press": {
+      "heading": "Συνεντεύξεις & Τύπος",
+      "intro": "Συνεντεύξεις, podcasts, ραδιοφωνικές εμφανίσεις, άρθρα και reviews."
+    }
+  },
+  "contact": {
+    "text": "Booking: πρόσθεσε email · Press: πρόσθεσε email",
+    "social": [
+      {
+        "label": "Instagram",
+        "url": "#"
+      },
+      {
+        "label": "YouTube",
+        "url": "#"
+      },
+      {
+        "label": "Spotify",
+        "url": "#"
+      }
+    ]
+  }
+}
