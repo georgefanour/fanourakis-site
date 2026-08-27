@@ -1,0 +1,9 @@
+{
+  "title": "Outdoor live",
+  "image": "assets/images/DSC0314-2.jpg",
+  "alt": "Outdoor live",
+  "category": "live",
+  "order": 13,
+  "featured": false,
+  "notify_subscribers": false
+}

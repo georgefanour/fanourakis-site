@@ -1,0 +1,12 @@
+{
+  "title": "Podcast",
+  "type": "Podcast",
+  "outlet": "",
+  "date": "",
+  "excerpt": "Placeholder for an audio interview or radio segment.",
+  "image": "",
+  "url": "",
+  "featured": false,
+  "notify_subscribers": true,
+  "order": 2
+}
