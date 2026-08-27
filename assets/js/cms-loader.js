@@ -2,6 +2,14 @@
 (function () {
   'use strict';
 
+  function normalizePath(value) {
+    if (!value) return value;
+    var str = String(value);
+    if (/^https?:\/\//i.test(str)) return str;
+    if (str.indexOf('/') === 0) return str.slice(1);
+    return str;
+  }
+
   function escapeHtml(value) {
     return String(value == null ? '' : value).replace(/[&<>\"']/g, function (char) {
       return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '\"': '&quot;', "'": '&#39;' }[char];
@@ -73,10 +81,13 @@
   load('content/music.json', function (data) {
     if (!Array.isArray(data.items) || !data.items.length) return;
     render('.release-grid', ordered(data.items).map(function (item) {
-      var video = item.youtube_url ? '<a href=\"' + escapeHtml(item.youtube_url) + '\" target=\"_blank\" rel=\"noopener\">Δες video ↗</a>' : '';
-      var listen = item.spotify_url ? '<a href=\"' + escapeHtml(item.spotify_url) + '\" target=\"_blank\" rel=\"noopener\">Άκουσε ↗</a>' : '';
+      var cover = normalizePath(item.cover);
+      var youtube = normalizePath(item.youtube_url);
+      var spotify = normalizePath(item.spotify_url);
+      var video = youtube ? '<a href=\"' + escapeHtml(youtube) + '\" target=\"_blank\" rel=\"noopener\">Δες video ↗</a>' : '';
+      var listen = spotify ? '<a href=\"' + escapeHtml(spotify) + '\" target=\"_blank\" rel=\"noopener\">Άκουσε ↗</a>' : '';
       return '<article class=\"release-card reveal show\">' +
-        '<div class=\"release-art\"><img src=\"' + escapeHtml(item.cover) + '\" alt=\"' + escapeHtml(item.title) + '\"></div>' +
+        '<div class=\"release-art\"><img src=\"' + escapeHtml(cover) + '\" alt=\"' + escapeHtml(item.title) + '\"></div>' +
         '<div class=\"release-body\">' +
         (item.featured ? '<span class=\"badge\">Πιο πρόσφατη</span>' : '') +
         '<h3>' + escapeHtml(item.title) + '</h3>' +
@@ -88,8 +99,9 @@
   load('content/videos.json', function (data) {
     if (!Array.isArray(data.items) || !data.items.length) return;
     render('.video-grid', ordered(data.items).map(function (item) {
+      var embed = normalizePath(item.youtube_url);
       return '<article class=\"video-card reveal show\" data-category=\"' + escapeHtml(item.category || 'all') + '\">' +
-        '<div class=\"embed\"><iframe src=\"' + escapeHtml(item.youtube_url) + '\" title=\"' + escapeHtml(item.title) + '\" loading=\"lazy\" allowfullscreen></iframe></div>' +
+        '<div class=\"embed\"><iframe src=\"' + escapeHtml(embed) + '\" title=\"' + escapeHtml(item.title) + '\" loading=\"lazy\" allowfullscreen></iframe></div>' +
         '<div class=\"video-info\"><p class=\"eyebrow\">' + escapeHtml(item.category || '') + '</p><h3>' + escapeHtml(item.title) + '</h3><p>' + escapeHtml(item.description || '') + '</p></div></article>';
     }).join(''), 'videos');
   });
@@ -98,14 +110,16 @@
     if (!Array.isArray(data.items) || !data.items.length) return;
     render('.live-grid', ordered(data.items).map(function (item) {
       var detail = item.venue || item.city || item.date || item.status || 'Live';
-      return '<article class=\"live-card reveal show\"><img src=\"' + escapeHtml(item.image) + '\" alt=\"' + escapeHtml(item.alt || item.title) + '\"><div class=\"live-label\">' + escapeHtml(item.title) + '<small>' + escapeHtml(detail) + '</small></div></article>';
+      var image = normalizePath(item.image);
+      return '<article class=\"live-card reveal show\"><img src=\"' + escapeHtml(image) + '\" alt=\"' + escapeHtml(item.alt || item.title) + '\"><div class=\"live-label\">' + escapeHtml(item.title) + '<small>' + escapeHtml(detail) + '</small></div></article>';
     }).join(''), 'live');
   });
 
   load('content/press.json', function (data) {
     if (!Array.isArray(data.items) || !data.items.length) return;
     render('.press-grid', ordered(data.items).map(function (item) {
-      var link = item.url ? '<a href=\"' + escapeHtml(item.url) + '\" target=\"_blank\" rel=\"noopener\">Άνοιξε ↗</a>' : '';
+      var url = normalizePath(item.url);
+      var link = url ? '<a href=\"' + escapeHtml(url) + '\" target=\"_blank\" rel=\"noopener\">Άνοιξε ↗</a>' : '';
       return '<article class=\"press-card reveal show\"><div><span class=\"press-type\">' + escapeHtml(item.type || '') + '</span><h3>' + escapeHtml(item.title) + '</h3><p>' + escapeHtml(item.excerpt || '') + '</p></div>' + link + '</article>';
     }).join(''), 'press');
   });
@@ -113,7 +127,8 @@
   load('content/photos.json', function (data) {
     if (!Array.isArray(data.items) || !data.items.length) return;
     render('.masonry', ordered(data.items).map(function (item) {
-      return '<button class=\"photo\" type=\"button\" data-full=\"' + escapeHtml(item.image) + '\"><img loading=\"lazy\" src=\"' + escapeHtml(item.image) + '\" alt=\"' + escapeHtml(item.alt || item.title) + '\"></button>';
+      var image = normalizePath(item.image);
+      return '<button class=\"photo\" type=\"button\" data-full=\"' + escapeHtml(image) + '\"><img loading=\"lazy\" src=\"' + escapeHtml(image) + '\" alt=\"' + escapeHtml(item.alt || item.title) + '\"></button>';
     }).join(''), 'photos');
     bindPhotoLightbox();
   });
