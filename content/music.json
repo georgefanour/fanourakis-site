@@ -1,0 +1,8 @@
+{
+  "items": [
+    {"title":"Αρχέτυπα","cover":"assets/images/1679521660393-11.jpg","release_type":"LP","year":2023,"description":"Η πρώτη ολοκληρωμένη δισκογραφική δουλειά.","featured":false,"order":1},
+    {"title":"Νηνεμία","cover":"assets/images/Stigmiotupo-othones-2025-04-30-174901.jpg","release_type":"Single","year":2024,"description":"Ένα τραγούδι για τη γαλήνη που έρχεται μετά την καταιγίδα.","featured":false,"order":2},
+    {"title":"Ροδάκινο","cover":"assets/images/rodakino.jpg","release_type":"Single","year":2026,"youtube_url":"https://www.youtube.com/watch?v=hY9z1iCwpHE","featured":false,"order":3},
+    {"title":"Microcosmos","cover":"assets/images/microcosmos-2.jpg","release_type":"Single","year":2026,"description":"Μια συνάντηση δύο δημιουργών, δύο πόλεων και ενός κοινού μικρόκοσμου.","youtube_url":"https://www.youtube.com/watch?v=IF23sKsyXAA","featured":true,"order":4}
+  ]
+}
