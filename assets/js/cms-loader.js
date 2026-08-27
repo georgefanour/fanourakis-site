@@ -1,6 +1,12 @@
-/* CMS loader for fanourakis-site markup. Field names match .pages.yml (site-el/about-el/music/videos/live/press/photos/lyrics-el/writings-el). */
+/* CMS loader for fanourakis-site markup. Supports EL/EN via .lang toggle buttons. */
 (function () {
   'use strict';
+
+  function currentLang() {
+    var activeBtn = document.querySelector('.lang.active');
+    if (activeBtn && /en/i.test(activeBtn.textContent || '')) return 'en';
+    return 'el';
+  }
 
   function normalizePath(value) {
     if (!value) return value;
@@ -120,9 +126,30 @@
     });
   }
 
-  console.info('[CMS] Loader started');
+  function bindLyricsJump() {
+    document.querySelectorAll('[data-jump-lyrics]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        var wordsSection = document.getElementById('words');
+        var lyricsTab = document.querySelector('.tab[data-tab="lyrics"]');
+        if (lyricsTab) lyricsTab.click();
+        if (wordsSection) wordsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        var releaseTitle = this.getAttribute('data-jump-lyrics');
+        var match = Array.from(document.querySelectorAll('#lyrics-list button')).find(function (btn) {
+          return btn.getAttribute('data-cms-release') === releaseTitle;
+        });
+        if (match) setTimeout(function () { match.click(); }, 300);
+      });
+    });
+  }
 
-  load('content/el/site.json', function (data) {
+  var lang = currentLang();
+  var base = lang === 'en' ? 'content/en/' : 'content/el/';
+  var rootBase = lang === 'en' ? 'content/en/' : 'content/';
+
+  console.info('[CMS] Loader started, lang=' + lang);
+
+  load(base + 'site.json', function (data) {
     if (!data || !Object.keys(data).length) return;
     var heroSection = document.getElementById('home');
     if (heroSection) {
@@ -139,6 +166,12 @@
     if (data.ticker) {
       document.querySelectorAll('.ticker div span').forEach(function (span) { span.textContent = data.ticker; });
     }
+
+    var navMap = { nav_music: 'a[href="#music"]', nav_videos: 'a[href="#videos"]', nav_live: 'a[href="#live"]', nav_words: 'a[href="#words"]', nav_press: 'a[href="#press"]', nav_photos: 'a[href="#photos"]', nav_about: 'a[href="#about"]', nav_contact: 'a[href="#contact"]' };
+    Object.keys(navMap).forEach(function (key) {
+      if (!data[key]) return;
+      document.querySelectorAll('#links ' + navMap[key]).forEach(function (link) { link.textContent = data[key]; });
+    });
 
     var sectionMap = [
       ['#music', 'music_eyebrow', 'music_title', 'music_intro'],
@@ -162,14 +195,13 @@
       setText(wordsSection.querySelector('.eyebrow'), data.words_eyebrow);
       setHtml(wordsSection.querySelector('.quote'), data.words_quote);
     }
-    var pressNote = document.querySelector('.press-note');
-    setHtml(pressNote, data.press_note);
+    if (data.press_note) setHtml(document.querySelector('.press-note'), data.press_note);
+    else { var pn = document.querySelector('.press-note'); if (pn) pn.remove(); }
 
     var aboutSection = document.querySelector('#about');
     if (aboutSection) {
       setText(aboutSection.querySelector('.eyebrow'), data.about_eyebrow);
-      var aboutBtn = aboutSection.querySelector('a.btn');
-      setText(aboutBtn, data.about_button);
+      setText(aboutSection.querySelector('a.btn'), data.about_button);
     }
 
     var contactSection = document.querySelector('#contact');
@@ -179,22 +211,20 @@
       setHtml(contactSection.querySelector('.contact-grid > div > p'), data.contact_intro);
       var emailInput = contactSection.querySelector('#email');
       if (emailInput && data.newsletter_placeholder) emailInput.setAttribute('placeholder', data.newsletter_placeholder);
-      var subscribeBtn = contactSection.querySelector('.form button');
-      setText(subscribeBtn, data.newsletter_button);
+      setText(contactSection.querySelector('.form button'), data.newsletter_button);
     }
-    console.info('[CMS] Rendered site-el text');
+    console.info('[CMS] Rendered site text (' + lang + ')');
   });
 
-  load('content/el/about.json', function (data) {
+  load(base + 'about.json', function (data) {
     if (!data || !data.text) return;
-    var target = document.querySelector('.about-text');
-    setHtml(target, data.text);
+    setHtml(document.querySelector('.about-text'), data.text);
     var photo = document.querySelector('.about-photo img');
     if (photo && data.image) photo.src = normalizePath(data.image);
     console.info('[CMS] Rendered about');
   });
 
-  load('content/music.json', function (data) {
+  load(rootBase + 'music.json', function (data) {
     if (!Array.isArray(data.items) || !data.items.length) return;
     render('.release-grid', ordered(data.items).map(function (item) {
       var cover = normalizePath(item.cover) || 'assets/images/placeholder-cover.jpg';
@@ -205,7 +235,7 @@
       if (spotify) links.push('<a href="' + escapeHtml(spotify) + '" target="_blank" rel="noopener">Άκουσε ↗</a>');
       if (youtube) links.push('<a href="' + escapeHtml(youtube) + '" target="_blank" rel="noopener">Δες video ↗</a>');
       if (bandcamp) links.push('<a href="' + escapeHtml(bandcamp) + '" target="_blank" rel="noopener">Bandcamp ↗</a>');
-      if (!links.length) links.push('<span style="opacity:.55">Ερχονται links</span>');
+      links.push('<a href="#words" data-jump-lyrics="' + escapeHtml(item.title || '') + '">Δες στίχους ↗</a>');
       return '<article class="release-card reveal show">' +
         '<div class="release-art"><img src="' + escapeHtml(cover) + '" alt="' + escapeHtml(item.title || '') + '" loading="lazy" onerror="this.src=&quot;assets/images/placeholder-cover.jpg&quot;"></div>' +
         '<div class="release-body">' +
@@ -215,9 +245,10 @@
         (item.description ? '<p style="font-size:.74rem;color:#cabed0">' + renderMultiline(item.description) + '</p>' : '') +
         '<div class="release-actions">' + links.join('') + '</div></div></article>';
     }).join(''), 'music');
+    bindLyricsJump();
   });
 
-  load('content/videos.json', function (data) {
+  load(rootBase + 'videos.json', function (data) {
     if (!Array.isArray(data.items) || !data.items.length) return;
     render('.video-grid', ordered(data.items).map(function (item) {
       var rawUrl = normalizePath(item.youtube_url);
@@ -236,7 +267,7 @@
     bindVideoFilters();
   });
 
-  load('content/live.json', function (data) {
+  load(rootBase + 'live.json', function (data) {
     if (!Array.isArray(data.items) || !data.items.length) return;
     render('.live-grid', ordered(data.items).map(function (item) {
       var detail = item.venue || item.city || item.date || item.status || 'Live';
@@ -249,7 +280,7 @@
     }).join(''), 'live');
   });
 
-  load('content/press.json', function (data) {
+  load(rootBase + 'press.json', function (data) {
     if (!Array.isArray(data.items) || !data.items.length) return;
     render('.press-grid', ordered(data.items).map(function (item) {
       var url = normalizePath(item.url);
@@ -261,7 +292,7 @@
     }).join(''), 'press');
   });
 
-  load('content/photos.json', function (data) {
+  load(rootBase + 'photos.json', function (data) {
     if (!Array.isArray(data.items) || !data.items.length) return;
     render('.masonry', ordered(data.items).map(function (item) {
       var image = normalizePath(item.image);
@@ -279,18 +310,27 @@
     bindPhotoLightbox();
   });
 
-  load('content/el/texts.json', function (data) {
+  load(base + 'texts.json', function (data) {
     function list(selector, items) {
       if (!Array.isArray(items) || !items.length) return;
       var target = document.querySelector(selector);
       if (!target) return;
       target.innerHTML = ordered(items).map(function (item, index) {
-        return '<button type="button" data-cms-title="' + escapeHtml(item.title) + '" data-cms-body-html="' + escapeHtml(renderMultiline(item.body)) + '"><span>' + escapeHtml(item.title) + '</span><b>' + String(index + 1).padStart(2, '0') + ' ↗</b></button>';
+        return '<button type="button" data-cms-title="' + escapeHtml(item.title) + '" data-cms-release="' + escapeHtml(item.release || '') + '" data-cms-body-html="' + escapeHtml(renderMultiline(item.body)) + '"><span>' + escapeHtml(item.title) + (item.release ? ' <small style="opacity:.6;font-size:.65em">· ' + escapeHtml(item.release) + '</small>' : '') + '</span><b>' + String(index + 1).padStart(2, '0') + ' ↗</b></button>';
       }).join('');
     }
     list('#lyrics-list', data.lyrics);
     list('#writings-list', data.writings);
     bindWordPanels();
-    console.info('[CMS] Rendered texts');
+    bindLyricsJump();
+    console.info('[CMS] Rendered texts (' + lang + ')');
+  });
+
+  document.querySelectorAll('.lang').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.lang').forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      location.reload();
+    });
   });
 })();

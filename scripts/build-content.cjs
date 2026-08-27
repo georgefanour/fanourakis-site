@@ -74,6 +74,16 @@ try {
   const lyrics = collect('content/el/lyrics');
   const writings = collect('content/el/writings');
   writeJson('content/el/texts.json', { lyrics, writings });
+
+  buildCollection('content/en/music', 'content/en/music.json');
+  buildCollection('content/en/videos', 'content/en/videos.json');
+  buildCollection('content/en/live', 'content/en/live.json');
+  buildCollection('content/en/press', 'content/en/press.json');
+  buildCollection('content/en/photos', 'content/en/photos.json');
+
+  const lyricsEn = collect('content/en/lyrics');
+  const writingsEn = collect('content/en/writings');
+  writeJson('content/en/texts.json', { lyrics: lyricsEn, writings: writingsEn });
 } catch (error) {
   hadErrors = true;
   console.warn('Unexpected build error:', error.message);
