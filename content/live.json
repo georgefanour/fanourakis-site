@@ -1,0 +1,7 @@
+{
+  "items": [
+    {"title":"Μια νύχτα στη σκηνή","date":"","venue":"","city":"","image":"assets/images/IMG_2443-3.jpg","alt":"Γιώργος Φανουράκης σε live","status":"archive","order":1},
+    {"title":"Στο μικρόφωνο","image":"assets/images/IMG_2439-9.jpg","alt":"Κοντινό στη σκηνή","status":"archive","order":2},
+    {"title":"Χέρια και χορδές","image":"assets/images/IMG_2469-12.jpg","alt":"Κιθάρα στη σκηνή","status":"archive","order":3}
+  ]
+}

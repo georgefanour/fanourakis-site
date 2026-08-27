@@ -1,0 +1,7 @@
+{
+  "items": [
+    {"title":"Η επόμενη μεγάλη συζήτηση.","type":"Interview","excerpt":"Χώρος για την πιο πρόσφατη ή σημαντική συνέντευξη.","featured":true,"order":1},
+    {"title":"Podcast / Ραδιοφωνική εμφάνιση","type":"Podcast","excerpt":"Placeholder για audio interview ή ραδιοφωνικό segment.","order":2},
+    {"title":"Άρθρο ή κριτική","type":"Article","excerpt":"Placeholder για δημοσίευμα ή review νέας κυκλοφορίας.","order":3}
+  ]
+}
