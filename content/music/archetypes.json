@@ -2,15 +2,18 @@
   "title": "Αρχέτυπα",
   "meta": "LP · 2023",
   "description": "Η πρώτη ολοκληρωμένη δισκογραφική δουλειά: τραγούδια για τη μνήμη, τον έρωτα και την πόλη.",
-  "cover": "",
   "links": [
     {
       "label": "Πληροφορίες",
       "url": "#"
     },
     {
-      "label": "Άκουσε",
-      "url": "#"
+      "label": "Άκουσε στο Spotify",
+      "url": "#https://open.spotify.com/album/36vEpkXSDuHBjYMOi8cXf6?si=aAwVRX2VRfO75A38dwIq0Q"
+    },
+    {
+      "label": "Άκουσε στο YouTube",
+      "url": "#https://youtube.com/playlist?list=PLbQYAkdKqVk7rS9wjyNw7uAJJ8nblBk7s"
     }
   ]
 }
