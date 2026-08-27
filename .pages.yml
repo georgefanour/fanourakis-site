@@ -1,231 +1,655 @@
-media:
-  input: assets/images
-  output: /assets/images
-
+media: assets/images
 content:
-  - name: hero
-    label: "Hero (Αρχική οθόνη)"
+  - name: site-el
+    label: Ιστοσελίδα — Ελληνικά
     type: file
-    path: content/hero.json
+    path: content/el/site.json
     fields:
-      - name: tag
-        label: "Ετικέτα πάνω από τον τίτλο"
+      - name: nav_music
+        label: Μενού · Ιουσική
         type: string
-      - name: title_line1
-        label: "Τίτλος - πρώτη γραμμή"
+      - name: nav_videos
+        label: Μενού · Βίντεο
         type: string
-      - name: title_emphasis
-        label: "Τίτλος - έμφαση (italic)"
+      - name: nav_live
+        label: Μενού · Live
         type: string
-      - name: phrase
-        label: "Φράση κάτω από τον τίτλο"
+      - name: nav_words
+        label: Μενού · Στίχοι και Κείμενα
+        type: string
+      - name: nav_press
+        label: Μενού · Συνεντεύξεις και Τύπος
+        type: string
+      - name: nav_photos
+        label: Μενού · Φωτογραφίες
+        type: string
+      - name: nav_about
+        label: Μενού · Σχετικά
+        type: string
+      - name: nav_contact
+        label: Μενού · Επικοινωνία
+        type: string
+      - name: hero_tag
+        label: Αρχική · Μικρή ετικέτα
+        type: string
+      - name: hero_title_first
+        label: Αρχική · Όνομα
+        type: string
+      - name: hero_title_last
+        label: Αρχική · Επώνυμο
+        type: string
+      - name: hero_phrase
+        label: Αρχική · Κεντρικό κείμενο
         type: text
-      - name: background_image
-        label: "Φόντο Hero"
-        type: image
-      - name: primary_button_label
-        label: "Κείμενο κύριου κουμπιού"
+      - name: hero_music_cta
+        label: Αρχική · Κουμπί μουσικής
         type: string
-      - name: primary_button_url
-        label: "Σύνδεσμος κύριου κουμπιού"
+      - name: hero_live_cta
+        label: Αρχική · Κουμπί live
         type: string
-      - name: secondary_button_label
-        label: "Κείμενο δεύτερου κουμπιού"
+      - name: ticker
+        label: Κινούμενη μπάρα · Κείμενο
         type: string
-      - name: secondary_button_url
-        label: "Σύνδεσμος δεύτερου κουμπιού"
+      - name: featured_eyebrow
+        label: Προτεινόμενη κυκλοφορία · Ετικέτα
         type: string
-      - name: ticker_text
-        label: "Κείμενο κυλιόμενης λωρίδας (ticker)"
+      - name: music_eyebrow
+        label: Μουσική · Ετικέτα
+        type: string
+      - name: music_title
+        label: Μουσική · Τίτλος ενότητας
+        type: string
+      - name: music_intro
+        label: Μουσική · Εισαγωγικό κείμενο
+        type: text
+      - name: videos_eyebrow
+        label: Βίντεο · Ετικέτα
+        type: string
+      - name: videos_title
+        label: Βίντεο · Τίτλος ενότητας
+        type: string
+      - name: videos_intro
+        label: Βίντεο · Εισαγωγικό κείμενο
+        type: text
+      - name: live_eyebrow
+        label: Live · Ετικέτα
+        type: string
+      - name: live_title
+        label: Live · Τίτλος ενότητας
+        type: string
+      - name: live_intro
+        label: Live · Εισαγωγικό κείμενο
+        type: text
+      - name: words_eyebrow
+        label: Στίχοι και Κείμενα · Ετικέτα
+        type: string
+      - name: words_quote
+        label: Στίχοι και Κείμενα · Παράθεμα
+        type: text
+      - name: press_eyebrow
+        label: Τύπος · Ετικέτα
+        type: string
+      - name: press_title
+        label: Τύπος · Τίτλος ενότητας
+        type: string
+      - name: press_intro
+        label: Τύπος · Εισαγωγικό κείμενο
+        type: text
+      - name: press_note
+        label: Τύπος · Σημείωση
+        type: text
+      - name: photos_eyebrow
+        label: Φωτογραφίες · Ετικέτα
+        type: string
+      - name: photos_title
+        label: Φωτογραφίες · Τίτλος ενότητας
+        type: string
+      - name: photos_intro
+        label: Φωτογραφίες · Εισαγωγικό κείμενο
+        type: text
+      - name: about_eyebrow
+        label: Σχετικά · Ετικέτα
+        type: string
+      - name: about_button
+        label: Σχετικά · Κουμπί
+        type: string
+      - name: contact_eyebrow
+        label: Επικοινωνία · Ετικέτα
+        type: string
+      - name: contact_title
+        label: Επικοινωνία · Τίτλος
+        type: string
+      - name: contact_intro
+        label: Επικοινωνία · Κείμενο
+        type: text
+      - name: newsletter_placeholder
+        label: Newsletter · Placeholder email
+        type: string
+      - name: newsletter_button
+        label: Newsletter · Κουμπί
+        type: string
+      - name: booking_label
+        label: Επικοινωνία · Booking label
+        type: string
+      - name: booking_email
+        label: Επικοινωνία · Booking email
+        type: string
+      - name: press_email_label
+        label: Επικοινωνία · Press label
+        type: string
+      - name: press_email
+        label: Επικοινωνία · Press email
+        type: string
+      - name: instagram_url
+        label: Social · Instagram URL
+        type: string
+      - name: youtube_url
+        label: Social · YouTube URL
+        type: string
+      - name: spotify_url
+        label: Social · Spotify URL
+        type: string
+      - name: facebook_url
+        label: Social · Facebook URL
+        type: string
+      - name: tiktok_url
+        label: Social · TikTok URL
+        type: string
+      - name: footer_copyright
+        label: Footer · Copyright
         type: string
 
-  - name: about
-    label: "Σχετικά"
+  - name: site-en
+    label: Website — English
+    type: file
+    path: content/en/site.json
+    fields:
+      - name: nav_music
+        label: Menu · Music
+        type: string
+      - name: nav_videos
+        label: Menu · Videos
+        type: string
+      - name: nav_live
+        label: Menu · Live
+        type: string
+      - name: nav_words
+        label: Menu · Lyrics and Writings
+        type: string
+      - name: nav_press
+        label: Menu · Press
+        type: string
+      - name: nav_photos
+        label: Menu · Photos
+        type: string
+      - name: nav_about
+        label: Menu · About
+        type: string
+      - name: nav_contact
+        label: Menu · Contact
+        type: string
+      - name: hero_tag
+        label: Home · Small label
+        type: string
+      - name: hero_title_first
+        label: Home · First name
+        type: string
+      - name: hero_title_last
+        label: Home · Last name
+        type: string
+      - name: hero_phrase
+        label: Home · Main text
+        type: text
+      - name: hero_music_cta
+        label: Home · Music button
+        type: string
+      - name: hero_live_cta
+        label: Home · Live button
+        type: string
+      - name: ticker
+        label: Ticker · Text
+        type: string
+      - name: featured_eyebrow
+        label: Featured release · Label
+        type: string
+      - name: music_eyebrow
+        label: Music · Label
+        type: string
+      - name: music_title
+        label: Music · Section title
+        type: string
+      - name: music_intro
+        label: Music · Introduction
+        type: text
+      - name: videos_eyebrow
+        label: Videos · Label
+        type: string
+      - name: videos_title
+        label: Videos · Section title
+        type: string
+      - name: videos_intro
+        label: Videos · Introduction
+        type: text
+      - name: live_eyebrow
+        label: Live · Label
+        type: string
+      - name: live_title
+        label: Live · Section title
+        type: string
+      - name: live_intro
+        label: Live · Introduction
+        type: text
+      - name: words_eyebrow
+        label: Lyrics and writings · Label
+        type: string
+      - name: words_quote
+        label: Lyrics and writings · Quote
+        type: text
+      - name: press_eyebrow
+        label: Press · Label
+        type: string
+      - name: press_title
+        label: Press · Section title
+        type: string
+      - name: press_intro
+        label: Press · Introduction
+        type: text
+      - name: press_note
+        label: Press · Note
+        type: text
+      - name: photos_eyebrow
+        label: Photos · Label
+        type: string
+      - name: photos_title
+        label: Photos · Section title
+        type: string
+      - name: photos_intro
+        label: Photos · Introduction
+        type: text
+      - name: about_eyebrow
+        label: About · Label
+        type: string
+      - name: about_button
+        label: About · Button
+        type: string
+      - name: contact_eyebrow
+        label: Contact · Label
+        type: string
+      - name: contact_title
+        label: Contact · Title
+        type: string
+      - name: contact_intro
+        label: Contact · Text
+        type: text
+      - name: newsletter_placeholder
+        label: Newsletter · Email placeholder
+        type: string
+      - name: newsletter_button
+        label: Newsletter · Button
+        type: string
+      - name: booking_label
+        label: Contact · Booking label
+        type: string
+      - name: booking_email
+        label: Contact · Booking email
+        type: string
+      - name: press_email_label
+        label: Contact · Press label
+        type: string
+      - name: press_email
+        label: Contact · Press email
+        type: string
+      - name: instagram_url
+        label: Social · Instagram URL
+        type: string
+      - name: youtube_url
+        label: Social · YouTube URL
+        type: string
+      - name: spotify_url
+        label: Social · Spotify URL
+        type: string
+      - name: facebook_url
+        label: Social · Facebook URL
+        type: string
+      - name: tiktok_url
+        label: Social · TikTok URL
+        type: string
+      - name: footer_copyright
+        label: Footer · Copyright
+        type: string
+
+  - name: about-el
+    label: Σχετικά — Ελληνικά
     type: file
     path: content/el/about.json
     fields:
+      - name: title
+        label: Τίτλος
+        type: string
+        required: true
       - name: text
-        label: "Κείμενο Σχετικά"
+        label: Κείμενο Σχετικά
         type: text
-      - name: photo
-        label: "Φωτογραφία"
+        required: true
+      - name: image
+        label: Φωτογραφία Σχετικά
+        type: image
+
+  - name: about-en
+    label: About — English
+    type: file
+    path: content/en/about.json
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: text
+        label: About text
+        type: text
+        required: true
+      - name: image
+        label: About photo
         type: image
 
   - name: music
-    label: "Δισκογραφία"
+    label: Μουσική
     type: collection
     path: content/music
-    view:
-      fields: [title, year, release_type]
+    filename: "{primary}.json"
+    primary: title
     fields:
       - name: title
-        label: "Τίτλος"
+        label: Τίτλος
         type: string
-      - name: release_type
-        label: "Τύπος κυκλοφορίας"
-        type: string
-      - name: year
-        label: "Έτος"
-        type: string
+        required: true
       - name: cover
-        label: "Εξώφυλλο"
+        label: Εξώφυλλο
         type: image
-      - name: featured
-        label: "Πιο πρόσφατη κυκλοφορία"
-        type: boolean
-      - name: spotify_url
-        label: "Σύνδεσμος Spotify / streaming"
-        type: string
-      - name: youtube_url
-        label: "Σύνδεσμος YouTube"
-        type: string
+        required: true
+      - name: release_type
+        label: Τύπος κυκλοφορίας
+        type: select
+        required: true
+        options:
+          values:
+            - Single
+            - EP
+            - Album
+            - Collaboration
+      - name: year
+        label: Έτος
+        type: number
+        required: true
       - name: description
-        label: "Περιγραφή"
+        label: Περιγραφή
         type: text
+      - name: credits
+        label: Credits
+        type: text
+      - name: youtube_url
+        label: YouTube link
+        type: string
+      - name: spotify_url
+        label: Spotify link
+        type: string
+      - name: bandcamp_url
+        label: Bandcamp link
+        type: string
+      - name: featured
+        label: Προτεινόμενη κυκλοφορία
+        type: boolean
+        default: false
       - name: order
-        label: "Σειρά εμφάνισης"
+        label: Σειρά εμφάνισης
         type: number
 
   - name: videos
-    label: "Βίντεο"
+    label: Βίντεο
     type: collection
     path: content/videos
-    view:
-      fields: [title, category]
+    filename: "{primary}.json"
+    primary: title
     fields:
       - name: title
-        label: "Τίτλος"
+        label: Τίτλος
         type: string
+        required: true
       - name: category
-        label: "Κατηγορία"
+        label: Κατηγορία
         type: select
+        required: true
         options:
-          - { label: "Official", value: official }
-          - { label: "Cover", value: cover }
-          - { label: "Live session", value: live }
-          - { label: "Acoustic", value: acoustic }
-          - { label: "Studio", value: studio }
+          values:
+            - official
+            - cover
+            - live
+            - acoustic
+            - studio
       - name: youtube_url
-        label: "YouTube URL"
+        label: YouTube URL
         type: string
+        required: true
       - name: description
-        label: "Περιγραφή"
+        label: Περιγραφή
         type: text
+      - name: thumbnail
+        label: Thumbnail
+        type: image
       - name: order
-        label: "Σειρά εμφάνισης"
+        label: Σειρά εμφάνισης
         type: number
 
   - name: live
-    label: "Live αρχείο"
+    label: Live
     type: collection
     path: content/live
-    view:
-      fields: [title, venue]
+    filename: "{primary}.json"
+    primary: title
     fields:
       - name: title
-        label: "Τίτλος"
+        label: Τίτλος εμφάνισης
         type: string
-      - name: image
-        label: "Φωτογραφία"
-        type: image
-      - name: alt
-        label: "Περιγραφή εικόνας (alt)"
-        type: string
-      - name: venue
-        label: "Χώρος"
-        type: string
-      - name: city
-        label: "Πόλη"
-        type: string
+        required: true
       - name: date
-        label: "Ημερομηνία"
+        label: Ημερομηνία
+        type: date
+        required: true
+      - name: venue
+        label: Χώρος
+        type: string
+        required: true
+      - name: city
+        label: Πόλη
+        type: string
+        required: true
+      - name: image
+        label: Αφίσα ή φωτογραφία
+        type: image
+        required: true
+      - name: alt
+        label: Περιγραφή εικόνας
+        type: string
+        required: true
+      - name: ticket_url
+        label: Ticket ή event link
         type: string
       - name: status
-        label: "Κατάσταση / λεζάντα"
-        type: string
+        label: Κατάσταση
+        type: select
+        required: true
+        options:
+          values:
+            - upcoming
+            - archive
+      - name: featured
+        label: Προτεινόμενο live
+        type: boolean
+        default: false
       - name: order
-        label: "Σειρά εμφάνισης"
+        label: Σειρά εμφάνισης
         type: number
 
-  - name: press
-    label: "Συνεντεύξεις & Δύπος"
+  - name: lyrics-el
+    label: Στίχοι — Ελληνικά
     type: collection
-    path: content/press
-    view:
-      fields: [title, type]
+    path: content/el/lyrics
+    filename: "{primary}.json"
+    primary: title
     fields:
       - name: title
-        label: "Τίτλος"
+        label: Τίτλος
         type: string
-      - name: type
-        label: "Τύπος (π.χ. Podcast, Άρθρο)"
-        type: string
-      - name: image
-        label: "Εικόνα / thumbnail"
-        type: image
-      - name: excerpt
-        label: "Απόσπασμα"
+        required: true
+      - name: body
+        label: Στίχοι
         type: text
-      - name: url
-        label: "Εξωτερικός σύνδεσμος"
-        type: string
+        required: true
       - name: order
-        label: "Σειρά εμφάνισης"
+        label: Σειρά εμφάνισης
+        type: number
+        required: true
+
+  - name: writings-el
+    label: Κείμενα — Ελληνικά
+    type: collection
+    path: content/el/writings
+    filename: "{primary}.json"
+    primary: title
+    fields:
+      - name: title
+        label: Τίτλος
+        type: string
+        required: true
+      - name: body
+        label: Κείμενο
+        type: text
+        required: true
+      - name: order
+        label: Σειρά εμφάνισης
+        type: number
+        required: true
+
+  - name: lyrics-en
+    label: Lyrics — English
+    type: collection
+    path: content/en/lyrics
+    filename: "{primary}.json"
+    primary: title
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: body
+        label: Lyrics
+        type: text
+        required: true
+      - name: order
+        label: Display order
+        type: number
+        required: true
+
+  - name: writings-en
+    label: Writings — English
+    type: collection
+    path: content/en/writings
+    filename: "{primary}.json"
+    primary: title
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: body
+        label: Text
+        type: text
+        required: true
+      - name: order
+        label: Display order
+        type: number
+        required: true
+
+  - name: press
+    label: Συνεντεύξεις και Τύπος
+    type: collection
+    path: content/press
+    filename: "{primary}.json"
+    primary: title
+    fields:
+      - name: title
+        label: Τίτλος
+        type: string
+        required: true
+      - name: type
+        label: Τύπος
+        type: select
+        required: true
+        options:
+          values:
+            - Interview
+            - Podcast
+            - Radio
+            - Article
+            - Review
+            - Video interview
+      - name: outlet
+        label: Μέσο ή εκπομπή
+        type: string
+      - name: date
+        label: Ημερομηνία
+        type: date
+      - name: excerpt
+        label: Απόσπασμα
+        type: text
+      - name: image
+        label: Εικόνα ή logo
+        type: image
+      - name: url
+        label: Εξωτερικό link
+        type: string
+      - name: featured
+        label: Προτεινόμενο item
+        type: boolean
+        default: false
+      - name: order
+        label: Σειρά εμφάνισης
         type: number
 
   - name: photos
-    label: "Φωτογραφίες"
+    label: Φωτογραφίες
     type: collection
     path: content/photos
-    view:
-      fields: [title, caption]
+    filename: "{primary}.json"
+    primary: title
     fields:
       - name: title
-        label: "Τίτλος"
+        label: Τίτλος
         type: string
+        required: true
       - name: image
-        label: "Εικόνα"
+        label: Εικόνα
         type: image
-      - name: caption
-        label: "Λεζάντα"
-        type: text
+        required: true
       - name: alt
-        label: "Περιγραφή εικόνας (alt)"
+        label: Περιγραφή εικόνας
         type: string
+        required: true
+      - name: category
+        label: Κατηγορία
+        type: select
+        options:
+          values:
+            - live
+            - portrait
+            - rehearsal
+            - studio
+            - street
+            - other
       - name: order
-        label: "Σειρά εμφάνισης"
+        label: Σειρά εμφάνισης
         type: number
-
-  - name: lyrics
-    label: "Στίχοι"
-    type: collection
-    path: content/el/lyrics
-    view:
-      fields: [title]
-    fields:
-      - name: title
-        label: "Τίτλος"
-        type: string
-      - name: body
-        label: "Κείμενο"
-        type: text
-      - name: order
-        label: "Σειρά εμφάνισης"
-        type: number
-
-  - name: writings
-    label: "Κείμενα"
-    type: collection
-    path: content/el/writings
-    view:
-      fields: [title]
-    fields:
-      - name: title
-        label: "Τίτλος"
-        type: string
-      - name: body
-        label: "Κείμενο"
-        type: text
-      - name: order
-        label: "Σειρά εμφάνισης"
-        type: number
+      - name: featured
+        label: Προτεινόμενη φωτογραφία
+        type: boolean
+        default: false
