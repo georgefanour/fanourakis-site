@@ -1,363 +1,365 @@
 media: assets/images
 content:
   - name: site-el
-    label: Ιστοσελίδα — Ελληνικά
+    label: "🇬🇷 Ιστοσελίδα — Ελληνικά (κείμενα & τίτλοι)"
     type: file
     path: content/el/site.json
     fields:
       - name: nav_music
-        label: Μενού · Ιουσική
+        label: "Μενού πλοήγησης · κουμπί «Music»"
         type: string
       - name: nav_videos
-        label: Μενού · Βίντεο
+        label: "Μενού πλοήγησης · κουμπί «Videos»"
         type: string
       - name: nav_live
-        label: Μενού · Live
+        label: "Μενού πλοήγησης · κουμπί «Live»"
         type: string
       - name: nav_words
-        label: Μενού · Στίχοι και Κείμενα
+        label: "Μενού πλοήγησης · κουμπί «Στίχοι και Κείμενα»"
         type: string
       - name: nav_press
-        label: Μενού · Συνεντεύξεις και Τύπος
+        label: "Μενού πλοήγησης · κουμπί «Συνεντεύξεις και Τύπος»"
         type: string
       - name: nav_photos
-        label: Μενού · Φωτογραφίες
+        label: "Μενού πλοήγησης · κουμπί «Φωτογραφίες»"
         type: string
       - name: nav_about
-        label: Μενού · Σχετικά
+        label: "Μενού πλοήγησης · κουμπί «Σχετικά»"
         type: string
       - name: nav_contact
-        label: Μενού · Επικοινωνία
+        label: "Μενού πλοήγησης · κουμπί «Επικοινωνία»"
         type: string
       - name: hero_tag
-        label: Αρχική · Μικρή ετικέτα
+        label: "HERO (πρώτη κινούμενη οθόνη) · μικρή ετικέτα πάνω από τον τίτλο, π.χ. «ζωντανή μουσική»"
         type: string
       - name: hero_title_first
-        label: Αρχική · Όνομα
+        label: "HERO · Όνομα (πρώτη γραμμή τίτλου, κανονική γραφή)"
         type: string
       - name: hero_title_last
-        label: Αρχική · Επώνυμο
+        label: "HERO · Επώνυμο (δεύτερη γραμμή τίτλου, italic έμφαση)"
         type: string
       - name: hero_phrase
-        label: Αρχική · Κεντρικό κείμενο
+        label: "HERO · Φράση κάτω από τον τίτλο (η κινούμενη πρόταση)"
         type: text
       - name: hero_music_cta
-        label: Αρχική · Κουμπί μουσικής
+        label: "HERO · Κείμενο 1ου κουμπιού (οδηγεί στη Μουσική)"
         type: string
       - name: hero_live_cta
-        label: Αρχική · Κουμπί live
+        label: "HERO · Κείμενο 2ου κουμπιού (οδηγεί στο Live)"
         type: string
       - name: ticker
-        label: Κινούμενη μπάρα · Κείμενο
+        label: "Κυλιόμενη λωρίδα κάτω από το HERO · επαναλαμβανόμενο κείμενο"
         type: string
       - name: featured_eyebrow
-        label: Προτεινόμενη κυκλοφορία · Ετικέτα
+        label: "Ενότητα «Πιο πρόσφατη κυκλοφορία» · μικρή ετικέτα πάνω από τον τίτλο"
         type: string
       - name: music_eyebrow
-        label: Μουσική · Ετικέτα
+        label: "Ενότητα «Δισκογραφία» · μικρή ετικέτα πάνω από τον τίτλο"
         type: string
       - name: music_title
-        label: Μουσική · Τίτλος ενότητας
+        label: "Ενότητα «Δισκογραφία» · κύριος τίτλος"
         type: string
       - name: music_intro
-        label: Μουσική · Εισαγωγικό κείμενο
+        label: "Ενότητα «Δισκογραφία» · εισαγωγική παράγραφος"
         type: text
       - name: videos_eyebrow
-        label: Βίντεο · Ετικέτα
+        label: "Ενότητα «Βίντεο» · μικρή ετικέτα πάνω από τον τίτλο"
         type: string
       - name: videos_title
-        label: Βίντεο · Τίτλος ενότητας
+        label: "Ενότητα «Βίντεο» · κύριος τίτλος"
         type: string
       - name: videos_intro
-        label: Βίντεο · Εισαγωγικό κείμενο
+        label: "Ενότητα «Βίντεο» · εισαγωγική παράγραφος"
         type: text
       - name: live_eyebrow
-        label: Live · Ετικέτα
+        label: "Ενότητα «Live αρχείο» · μικρή ετικέτα πάνω από τον τίτλο"
         type: string
       - name: live_title
-        label: Live · Τίτλος ενότητας
+        label: "Ενότητα «Live αρχείο» · κύριος τίτλος"
         type: string
       - name: live_intro
-        label: Live · Εισαγωγικό κείμενο
+        label: "Ενότητα «Live αρχείο» · εισαγωγική παράγραφος"
         type: text
       - name: words_eyebrow
-        label: Στίχοι και Κείμενα · Ετικέτα
+        label: "Ενότητα «Στίχοι και Κείμενα» · μικρή ετικέτα πάνω από τον τίτλο"
         type: string
       - name: words_quote
-        label: Στίχοι και Κείμενα · Παράθεμα
+        label: "Ενότητα «Στίχοι και Κείμενα» · μεγάλο παράθεμα πάνω από τη λίστα"
         type: text
       - name: press_eyebrow
-        label: Τύπος · Ετικέτα
+        label: "Ενότητα «Συνεντεύξεις και Τύπος» · μικρή ετικέτα πάνω από τον τίτλο"
         type: string
       - name: press_title
-        label: Τύπος · Τίτλος ενότητας
+        label: "Ενότητα «Συνεντεύξεις και Τύπος» · κύριος τίτλος"
         type: string
       - name: press_intro
-        label: Τύπος · Εισαγωγικό κείμενο
+        label: "Ενότητα «Συνεντεύξεις και Τύπος» · εισαγωγική παράγραφος"
         type: text
       - name: press_note
-        label: Τύπος · Σημείωση
+        label: "Ενότητα «Συνεντεύξεις και Τύπος» · μικρή σημείωση στο τέλος της λίστας (αφήστε κενό για να μη φαίνεται)"
         type: text
       - name: photos_eyebrow
-        label: Φωτογραφίες · Ετικέτα
+        label: "Ενότητα «Φωτογραφίες» · μικρή ετικέτα πάνω από τον τίτλο"
         type: string
       - name: photos_title
-        label: Φωτογραφίες · Τίτλος ενότητας
+        label: "Ενότητα «Φωτογραφίες» · κύριος τίτλος"
         type: string
       - name: photos_intro
-        label: Φωτογραφίες · Εισαγωγικό κείμενο
+        label: "Ενότητα «Φωτογραφίες» · εισαγωγική παράγραφος"
         type: text
       - name: about_eyebrow
-        label: Σχετικά · Ετικέτα
+        label: "Ενότητα «Σχετικά» · μικρή ετικέτα πάνω από το κείμενο"
         type: string
       - name: about_button
-        label: Σχετικά · Κουμπί
+        label: "Ενότητα «Σχετικά» · κείμενο κουμπιού (οδηγεί στην Επικοινωνία)"
         type: string
       - name: contact_eyebrow
-        label: Επικοινωνία · Ετικέτα
+        label: "Ενότητα «Επικοινωνία» · μικρή ετικέτα πάνω από τον τίτλο"
         type: string
       - name: contact_title
-        label: Επικοινωνία · Τίτλος
+        label: "Ενότητα «Επικοινωνία» · κύριος τίτλος"
         type: string
       - name: contact_intro
-        label: Επικοινωνία · Κείμενο
+        label: "Ενότητα «Επικοινωνία» · κείμενο πάνω από τη φόρμα εγγραφής"
         type: text
       - name: newsletter_placeholder
-        label: Newsletter · Placeholder email
+        label: "Φόρμα εγγραφής · placeholder μέσα στο πεδίο email (γκρι υπόδειξη)"
         type: string
       - name: newsletter_button
-        label: Newsletter · Κουμπί
+        label: "Φόρμα εγγραφής · κείμενο κουμπιού υποβολής"
         type: string
       - name: booking_label
-        label: Επικοινωνία · Booking label
+        label: "Κάτω μέρος ενότητας Επικοινωνία · ετικέτα πριν το booking email, π.χ. «Booking:»"
         type: string
       - name: booking_email
-        label: Επικοινωνία · Booking email
+        label: "Κάτω μέρος ενότητας Επικοινωνία · email για κρατήσεις / booking"
         type: string
       - name: press_email_label
-        label: Επικοινωνία · Press label
+        label: "Κάτω μέρος ενότητας Επικοινωνία · ετικέτα πριν το press email, π.χ. «Press:»"
         type: string
       - name: press_email
-        label: Επικοινωνία · Press email
+        label: "Κάτω μέρος ενότητας Επικοινωνία · email για δημοσιογράφους / Τύπο"
         type: string
       - name: instagram_url
-        label: Social · Instagram URL
+        label: "Footer · σύνδεσμος Instagram"
         type: string
       - name: youtube_url
-        label: Social · YouTube URL
+        label: "Footer · σύνδεσμος YouTube"
         type: string
       - name: spotify_url
-        label: Social · Spotify URL
+        label: "Footer · σύνδεσμος Spotify"
         type: string
       - name: facebook_url
-        label: Social · Facebook URL
+        label: "Footer · σύνδεσμος Facebook"
         type: string
       - name: tiktok_url
-        label: Social · TikTok URL
+        label: "Footer · σύνδεσμος TikTok"
         type: string
       - name: footer_copyright
-        label: Footer · Copyright
+        label: "Footer · κείμενο copyright στο κάτω μέρος της σελίδας"
         type: string
 
   - name: site-en
-    label: Website — English
+    label: "🇬🇧 Website — English (all text & titles)"
     type: file
     path: content/en/site.json
     fields:
       - name: nav_music
-        label: Menu · Music
+        label: "Navigation menu · Music button"
         type: string
       - name: nav_videos
-        label: Menu · Videos
+        label: "Navigation menu · Videos button"
         type: string
       - name: nav_live
-        label: Menu · Live
+        label: "Navigation menu · Live button"
         type: string
       - name: nav_words
-        label: Menu · Lyrics and Writings
+        label: "Navigation menu · Lyrics and Writings button"
         type: string
       - name: nav_press
-        label: Menu · Press
+        label: "Navigation menu · Press button"
         type: string
       - name: nav_photos
-        label: Menu · Photos
+        label: "Navigation menu · Photos button"
         type: string
       - name: nav_about
-        label: Menu · About
+        label: "Navigation menu · About button"
         type: string
       - name: nav_contact
-        label: Menu · Contact
+        label: "Navigation menu · Contact button"
         type: string
       - name: hero_tag
-        label: Home · Small label
+        label: "HERO (first animated screen) · small label above the title"
         type: string
       - name: hero_title_first
-        label: Home · First name
+        label: "HERO · First name (first line of title, regular style)"
         type: string
       - name: hero_title_last
-        label: Home · Last name
+        label: "HERO · Last name (second line of title, italic)"
         type: string
       - name: hero_phrase
-        label: Home · Main text
+        label: "HERO · Phrase below the title (the moving sentence)"
         type: text
       - name: hero_music_cta
-        label: Home · Music button
+        label: "HERO · Text of 1st button (links to Music)"
         type: string
       - name: hero_live_cta
-        label: Home · Live button
+        label: "HERO · Text of 2nd button (links to Live)"
         type: string
       - name: ticker
-        label: Ticker · Text
+        label: "Scrolling ticker below HERO"
         type: string
       - name: featured_eyebrow
-        label: Featured release · Label
+        label: "\"Latest release\" section · small label"
         type: string
       - name: music_eyebrow
-        label: Music · Label
+        label: "\"Discography\" section · small label"
         type: string
       - name: music_title
-        label: Music · Section title
+        label: "\"Discography\" section · main title"
         type: string
       - name: music_intro
-        label: Music · Introduction
+        label: "\"Discography\" section · intro paragraph"
         type: text
       - name: videos_eyebrow
-        label: Videos · Label
+        label: "\"Videos\" section · small label"
         type: string
       - name: videos_title
-        label: Videos · Section title
+        label: "\"Videos\" section · main title"
         type: string
       - name: videos_intro
-        label: Videos · Introduction
+        label: "\"Videos\" section · intro paragraph"
         type: text
       - name: live_eyebrow
-        label: Live · Label
+        label: "\"Live archive\" section · small label"
         type: string
       - name: live_title
-        label: Live · Section title
+        label: "\"Live archive\" section · main title"
         type: string
       - name: live_intro
-        label: Live · Introduction
+        label: "\"Live archive\" section · intro paragraph"
         type: text
       - name: words_eyebrow
-        label: Lyrics and writings · Label
+        label: "\"Lyrics and Writings\" section · small label"
         type: string
       - name: words_quote
-        label: Lyrics and writings · Quote
+        label: "\"Lyrics and Writings\" section · large quote"
         type: text
       - name: press_eyebrow
-        label: Press · Label
+        label: "\"Press\" section · small label"
         type: string
       - name: press_title
-        label: Press · Section title
+        label: "\"Press\" section · main title"
         type: string
       - name: press_intro
-        label: Press · Introduction
+        label: "\"Press\" section · intro paragraph"
         type: text
       - name: press_note
-        label: Press · Note
+        label: "\"Press\" section · small note at bottom (leave empty to hide)"
         type: text
       - name: photos_eyebrow
-        label: Photos · Label
+        label: "\"Photos\" section · small label"
         type: string
       - name: photos_title
-        label: Photos · Section title
+        label: "\"Photos\" section · main title"
         type: string
       - name: photos_intro
-        label: Photos · Introduction
+        label: "\"Photos\" section · intro paragraph"
         type: text
       - name: about_eyebrow
-        label: About · Label
+        label: "\"About\" section · small label"
         type: string
       - name: about_button
-        label: About · Button
+        label: "\"About\" section · button text (links to Contact)"
         type: string
       - name: contact_eyebrow
-        label: Contact · Label
+        label: "\"Contact\" section · small label"
         type: string
       - name: contact_title
-        label: Contact · Title
+        label: "\"Contact\" section · main title"
         type: string
       - name: contact_intro
-        label: Contact · Text
+        label: "\"Contact\" section · text above the signup form"
         type: text
       - name: newsletter_placeholder
-        label: Newsletter · Email placeholder
+        label: "Signup form · placeholder inside email field"
         type: string
       - name: newsletter_button
-        label: Newsletter · Button
+        label: "Signup form · submit button text"
         type: string
       - name: booking_label
-        label: Contact · Booking label
+        label: "Bottom of Contact · label before booking email"
         type: string
       - name: booking_email
-        label: Contact · Booking email
+        label: "Bottom of Contact · booking email address"
         type: string
       - name: press_email_label
-        label: Contact · Press label
+        label: "Bottom of Contact · label before press email"
         type: string
       - name: press_email
-        label: Contact · Press email
+        label: "Bottom of Contact · press email address"
         type: string
       - name: instagram_url
-        label: Social · Instagram URL
+        label: "Footer · Instagram link"
         type: string
       - name: youtube_url
-        label: Social · YouTube URL
+        label: "Footer · YouTube link"
         type: string
       - name: spotify_url
-        label: Social · Spotify URL
+        label: "Footer · Spotify link"
         type: string
       - name: facebook_url
-        label: Social · Facebook URL
+        label: "Footer · Facebook link"
         type: string
       - name: tiktok_url
-        label: Social · TikTok URL
+        label: "Footer · TikTok link"
         type: string
       - name: footer_copyright
-        label: Footer · Copyright
+        label: "Footer · copyright text"
         type: string
 
   - name: about-el
-    label: Σχετικά — Ελληνικά
+    label: "🇬🇷 Σχετικά — Ελληνικά"
     type: file
     path: content/el/about.json
     fields:
       - name: title
-        label: Τίτλος
+        label: "Τίτλος (εσωτερική χρήση)"
         type: string
         required: true
       - name: text
-        label: Κείμενο Σχετικά
+        label: "Κείμενο ενότητας «Σχετικά»"
         type: text
         required: true
       - name: image
-        label: Φωτογραφία Σχετικά
+        label: "Φωτογραφία ενότητας «Σχετικά»"
         type: image
 
   - name: about-en
-    label: About — English
+    label: "🇬🇧 About — English"
     type: file
     path: content/en/about.json
     fields:
       - name: title
-        label: Title
+        label: "Title (internal use)"
         type: string
         required: true
       - name: text
-        label: About text
+        label: "About section text"
         type: text
         required: true
       - name: image
-        label: About photo
+        label: "About section photo"
         type: image
 
   - name: music
-    label: Μουσική
+    label: "🇬🇷 Δισκογραφία — Ελληνικά"
     type: collection
     path: content/music
     filename: "{primary}.json"
     primary: title
+    view:
+      fields: [title, year, release_type]
     fields:
       - name: title
         label: Τίτλος
@@ -372,11 +374,7 @@ content:
         type: select
         required: true
         options:
-          values:
-            - Single
-            - EP
-            - Album
-            - Collaboration
+          values: [Single, EP, Album, Collaboration]
       - name: year
         label: Έτος
         type: number
@@ -400,16 +398,76 @@ content:
         label: Προτεινόμενη κυκλοφορία
         type: boolean
         default: false
+      - name: notify_subscribers
+        label: "🔔 Ειδοποίηση συνδρομητών newsletter όταν δημοσιευτεί/ενημερωθεί"
+        type: boolean
+        default: true
       - name: order
         label: Σειρά εμφάνισης
         type: number
 
+  - name: music-en
+    label: "🇬🇧 Discography — English"
+    type: collection
+    path: content/en/music
+    filename: "{primary}.json"
+    primary: title
+    view:
+      fields: [title, year, release_type]
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: cover
+        label: Cover
+        type: image
+        required: true
+      - name: release_type
+        label: Release type
+        type: select
+        required: true
+        options:
+          values: [Single, EP, Album, Collaboration]
+      - name: year
+        label: Year
+        type: number
+        required: true
+      - name: description
+        label: Description
+        type: text
+      - name: credits
+        label: Credits
+        type: text
+      - name: youtube_url
+        label: YouTube link
+        type: string
+      - name: spotify_url
+        label: Spotify link
+        type: string
+      - name: bandcamp_url
+        label: Bandcamp link
+        type: string
+      - name: featured
+        label: Featured release
+        type: boolean
+        default: false
+      - name: notify_subscribers
+        label: "🔔 Notify newsletter subscribers when published/updated"
+        type: boolean
+        default: true
+      - name: order
+        label: Display order
+        type: number
+
   - name: videos
-    label: Βίντεο
+    label: "🇬🇷 Βίντεο — Ελληνικά"
     type: collection
     path: content/videos
     filename: "{primary}.json"
     primary: title
+    view:
+      fields: [title, category]
     fields:
       - name: title
         label: Τίτλος
@@ -420,12 +478,7 @@ content:
         type: select
         required: true
         options:
-          values:
-            - official
-            - cover
-            - live
-            - acoustic
-            - studio
+          values: [official, cover, live, acoustic, studio]
       - name: youtube_url
         label: YouTube URL
         type: string
@@ -436,16 +489,59 @@ content:
       - name: thumbnail
         label: Thumbnail
         type: image
+      - name: notify_subscribers
+        label: "🔔 Ειδοποίηση συνδρομητών newsletter όταν δημοσιευτεί/ενημερωθεί"
+        type: boolean
+        default: true
       - name: order
         label: Σειρά εμφάνισης
         type: number
 
+  - name: videos-en
+    label: "🇬🇧 Videos — English"
+    type: collection
+    path: content/en/videos
+    filename: "{primary}.json"
+    primary: title
+    view:
+      fields: [title, category]
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: category
+        label: Category
+        type: select
+        required: true
+        options:
+          values: [official, cover, live, acoustic, studio]
+      - name: youtube_url
+        label: YouTube URL
+        type: string
+        required: true
+      - name: description
+        label: Description
+        type: text
+      - name: thumbnail
+        label: Thumbnail
+        type: image
+      - name: notify_subscribers
+        label: "🔔 Notify newsletter subscribers when published/updated"
+        type: boolean
+        default: true
+      - name: order
+        label: Display order
+        type: number
+
   - name: live
-    label: Live
+    label: "🇬🇷 Live — Ελληνικά"
     type: collection
     path: content/live
     filename: "{primary}.json"
     primary: title
+    view:
+      fields: [title, venue]
     fields:
       - name: title
         label: Τίτλος εμφάνισης
@@ -479,28 +575,93 @@ content:
         type: select
         required: true
         options:
-          values:
-            - upcoming
-            - archive
+          values: [upcoming, archive]
       - name: featured
         label: Προτεινόμενο live
         type: boolean
         default: false
+      - name: notify_subscribers
+        label: "🔔 Ειδοποίηση συνδρομητών newsletter όταν δημοσιευτεί/ενημερωθεί"
+        type: boolean
+        default: true
       - name: order
         label: Σειρά εμφάνισης
         type: number
 
+  - name: live-en
+    label: "🇬🇧 Live — English"
+    type: collection
+    path: content/en/live
+    filename: "{primary}.json"
+    primary: title
+    view:
+      fields: [title, venue]
+    fields:
+      - name: title
+        label: Show title
+        type: string
+        required: true
+      - name: date
+        label: Date
+        type: date
+        required: true
+      - name: venue
+        label: Venue
+        type: string
+        required: true
+      - name: city
+        label: City
+        type: string
+        required: true
+      - name: image
+        label: Poster or photo
+        type: image
+        required: true
+      - name: alt
+        label: Image description
+        type: string
+        required: true
+      - name: ticket_url
+        label: Ticket or event link
+        type: string
+      - name: status
+        label: Status
+        type: select
+        required: true
+        options:
+          values: [upcoming, archive]
+      - name: featured
+        label: Featured show
+        type: boolean
+        default: false
+      - name: notify_subscribers
+        label: "🔔 Notify newsletter subscribers when published/updated"
+        type: boolean
+        default: true
+      - name: order
+        label: Display order
+        type: number
+
   - name: lyrics-el
-    label: Στίχοι — Ελληνικά
+    label: "🇬🇷 Στίχοι — Ελληνικά"
     type: collection
     path: content/el/lyrics
     filename: "{primary}.json"
     primary: title
+    view:
+      fields: [title, release]
     fields:
       - name: title
         label: Τίτλος
         type: string
         required: true
+      - name: release
+        label: "Ανήκει στη δισκογραφική δουλειά (επιλέξτε από τη Δισκογραφία)"
+        type: select
+        options:
+          source:
+            file: content/music
+            fields: [title]
       - name: body
         label: Στίχοι
         type: text
@@ -511,7 +672,7 @@ content:
         required: true
 
   - name: writings-el
-    label: Κείμενα — Ελληνικά
+    label: "🇬🇷 Κείμενα — Ελληνικά"
     type: collection
     path: content/el/writings
     filename: "{primary}.json"
@@ -531,16 +692,25 @@ content:
         required: true
 
   - name: lyrics-en
-    label: Lyrics — English
+    label: "🇬🇧 Lyrics — English"
     type: collection
     path: content/en/lyrics
     filename: "{primary}.json"
     primary: title
+    view:
+      fields: [title, release]
     fields:
       - name: title
         label: Title
         type: string
         required: true
+      - name: release
+        label: "Belongs to release (choose from Discography)"
+        type: select
+        options:
+          source:
+            file: content/en/music
+            fields: [title]
       - name: body
         label: Lyrics
         type: text
@@ -551,7 +721,7 @@ content:
         required: true
 
   - name: writings-en
-    label: Writings — English
+    label: "🇬🇧 Writings — English"
     type: collection
     path: content/en/writings
     filename: "{primary}.json"
@@ -571,11 +741,13 @@ content:
         required: true
 
   - name: press
-    label: Συνεντεύξεις και Τύπος
+    label: "🇬🇷 Συνεντεύξεις και Τύπος — Ελληνικά"
     type: collection
     path: content/press
     filename: "{primary}.json"
     primary: title
+    view:
+      fields: [title, type]
     fields:
       - name: title
         label: Τίτλος
@@ -586,13 +758,7 @@ content:
         type: select
         required: true
         options:
-          values:
-            - Interview
-            - Podcast
-            - Radio
-            - Article
-            - Review
-            - Video interview
+          values: [Interview, Podcast, Radio, Article, Review, "Video interview"]
       - name: outlet
         label: Μέσο ή εκπομπή
         type: string
@@ -612,16 +778,68 @@ content:
         label: Προτεινόμενο item
         type: boolean
         default: false
+      - name: notify_subscribers
+        label: "🔔 Ειδοποίηση συνδρομητών newsletter όταν δημοσιευτεί/ενημερωθεί"
+        type: boolean
+        default: true
       - name: order
         label: Σειρά εμφάνισης
         type: number
 
+  - name: press-en
+    label: "🇬🇧 Press — English"
+    type: collection
+    path: content/en/press
+    filename: "{primary}.json"
+    primary: title
+    view:
+      fields: [title, type]
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: type
+        label: Type
+        type: select
+        required: true
+        options:
+          values: [Interview, Podcast, Radio, Article, Review, "Video interview"]
+      - name: outlet
+        label: Outlet or show
+        type: string
+      - name: date
+        label: Date
+        type: date
+      - name: excerpt
+        label: Excerpt
+        type: text
+      - name: image
+        label: Image or logo
+        type: image
+      - name: url
+        label: External link
+        type: string
+      - name: featured
+        label: Featured item
+        type: boolean
+        default: false
+      - name: notify_subscribers
+        label: "🔔 Notify newsletter subscribers when published/updated"
+        type: boolean
+        default: true
+      - name: order
+        label: Display order
+        type: number
+
   - name: photos
-    label: Φωτογραφίες
+    label: "🇬🇷 Φωτογραφίες — Ελληνικά"
     type: collection
     path: content/photos
     filename: "{primary}.json"
     primary: title
+    view:
+      fields: [title, category]
     fields:
       - name: title
         label: Τίτλος
@@ -632,24 +850,60 @@ content:
         type: image
         required: true
       - name: alt
-        label: Περιγραφή εικόνας
-        type: string
+        label: "Λεζάντα / περιγραφή εικόνας (εμφανίζεται κάτω από τη φωτογραφία)"
+        type: text
         required: true
       - name: category
         label: Κατηγορία
         type: select
         options:
-          values:
-            - live
-            - portrait
-            - rehearsal
-            - studio
-            - street
-            - other
+          values: [live, portrait, rehearsal, studio, street, other]
       - name: order
         label: Σειρά εμφάνισης
         type: number
       - name: featured
         label: Προτεινόμενη φωτογραφία
+        type: boolean
+        default: false
+      - name: notify_subscribers
+        label: "🔔 Ειδοποίηση συνδρομητών newsletter όταν δημοσιευτεί/ενημερωθεί"
+        type: boolean
+        default: false
+
+  - name: photos-en
+    label: "🇬🇧 Photos — English"
+    type: collection
+    path: content/en/photos
+    filename: "{primary}.json"
+    primary: title
+    view:
+      fields: [title, category]
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: image
+        label: Image
+        type: image
+        required: true
+      - name: alt
+        label: "Caption / image description (shown below the photo)"
+        type: text
+        required: true
+      - name: category
+        label: Category
+        type: select
+        options:
+          values: [live, portrait, rehearsal, studio, street, other]
+      - name: order
+        label: Display order
+        type: number
+      - name: featured
+        label: Featured photo
+        type: boolean
+        default: false
+      - name: notify_subscribers
+        label: "🔔 Notify newsletter subscribers when published/updated"
         type: boolean
         default: false
