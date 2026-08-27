@@ -1,0 +1,14 @@
+{
+  "title": "Rodakino",
+  "cover": "assets/images/rodakino.jpg",
+  "release_type": "Single",
+  "year": 2026,
+  "description": "A new song written and composed by Dimitris Tompazis, performed by Yiorgos Fanourakis. Premiered August 18, 2026.",
+  "credits": "",
+  "youtube_url": "https://www.youtube.com/watch?v=hY9z1iCwpHE",
+  "spotify_url": "",
+  "bandcamp_url": "",
+  "featured": false,
+  "notify_subscribers": true,
+  "order": 3
+}
