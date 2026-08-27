@@ -1,0 +1,142 @@
+media:
+  input: assets/images
+  output: /assets/images
+
+content:
+  - name: site
+    label: Ρυθμίσεις ιστοσελίδας
+    type: file
+    path: content/site.json
+    format: json
+    fields:
+      - name: artistName
+        label: Όνομα καλλιτέχνη
+        type: string
+      - name: navigation
+        label: Καρτέλες / μενού
+        type: object
+        list: true
+        fields:
+          - { name: label, label: Τίτλος καρτέλας, type: string }
+          - { name: target, label: Σύνδεση ενότητας (π.χ. music), type: string }
+          - { name: visible, label: Εμφάνιση στο μενού, type: boolean, default: true }
+      - name: hero
+        label: Αρχική ενότητα
+        type: object
+        fields:
+          - { name: kicker, label: Μικρός τίτλος, type: string }
+          - { name: title, label: Κεντρικός τίτλος, type: string }
+          - { name: text, label: Περιγραφή, type: text }
+          - { name: image, label: Κεντρική φωτογραφία, type: image }
+          - name: actions
+            label: Κουμπιά
+            type: object
+            list: true
+            fields:
+              - { name: label, label: Κείμενο κουμπιού, type: string }
+              - { name: url, label: Σύνδεσμος, type: string }
+              - { name: primary, label: Σκούρο κουμπί, type: boolean, default: false }
+      - name: sections
+        label: Τίτλοι και εισαγωγές ενοτήτων
+        type: object
+        fields:
+          - name: music
+            label: Μουσική
+            type: object
+            fields: [ { name: heading, label: Τίτλος, type: string }, { name: intro, label: Εισαγωγή, type: text } ]
+          - name: live
+            label: Live
+            type: object
+            fields: [ { name: heading, label: Τίτλος, type: string }, { name: intro, label: Εισαγωγή, type: text } ]
+          - name: videos
+            label: Βίντεο
+            type: object
+            fields: [ { name: heading, label: Τίτλος, type: string }, { name: intro, label: Εισαγωγή, type: text } ]
+          - name: photos
+            label: Φωτογραφίες
+            type: object
+            fields: [ { name: heading, label: Τίτλος, type: string }, { name: intro, label: Εισαγωγή, type: text } ]
+          - name: texts
+            label: Κείμενα
+            type: object
+            fields: [ { name: heading, label: Τίτλος, type: string }, { name: copy, label: Κείμενο, type: text } ]
+          - name: press
+            label: Τύπος
+            type: object
+            fields: [ { name: heading, label: Τίτλος, type: string }, { name: intro, label: Εισαγωγή, type: text } ]
+      - name: contact
+        label: Επικοινωνία και social
+        type: object
+        fields:
+          - { name: text, label: Κείμενο επικοινωνίας, type: text }
+          - name: social
+            label: Social links
+            type: object
+            list: true
+            fields: [ { name: label, label: Πλατφόρμα, type: string }, { name: url, label: Σύνδεσμος, type: string } ]
+
+  - name: music
+    label: Μουσική / κυκλοφορίες
+    type: collection
+    path: content/music
+    format: json
+    filename: '{primary}.json'
+    fields:
+      - { name: title, label: Τίτλος, type: string, required: true }
+      - { name: meta, label: Format και έτος, type: string }
+      - { name: description, label: Περιγραφή, type: text }
+      - { name: cover, label: Εξώφυλλο, type: image }
+      - name: links
+        label: Σύνδεσμοι
+        type: object
+        list: true
+        fields: [ { name: label, label: Κείμενο, type: string }, { name: url, label: URL, type: string } ]
+
+  - name: live
+    label: Live εμφανίσεις
+    type: collection
+    path: content/live
+    format: json
+    filename: '{primary}.json'
+    fields:
+      - { name: date, label: Ημερομηνία, type: string, required: true }
+      - { name: title, label: Τίτλος εμφάνισης, type: string, required: true }
+      - { name: venue, label: Πόλη και χώρος, type: string }
+      - { name: ticketsLabel, label: Κείμενο συνδέσμου, type: string }
+      - { name: ticketsUrl, label: Ticket / πληροφορίες URL, type: string }
+      - { name: visible, label: Εμφάνιση στη σελίδα, type: boolean, default: true }
+
+  - name: videos
+    label: Βίντεο
+    type: collection
+    path: content/videos
+    format: json
+    filename: '{primary}.json'
+    fields:
+      - { name: category, label: Κατηγορία, type: string }
+      - { name: title, label: Τίτλος, type: string, required: true }
+      - { name: description, label: Περιγραφή, type: text }
+      - { name: youtubeUrl, label: YouTube URL, type: string }
+
+  - name: photos
+    label: Φωτογραφίες
+    type: collection
+    path: content/photos
+    format: json
+    filename: '{primary}.json'
+    fields:
+      - { name: image, label: Φωτογραφία, type: image, required: true }
+      - { name: caption, label: Λεζάντα, type: string }
+
+  - name: press
+    label: Τύπος και συνεντεύξεις
+    type: collection
+    path: content/press
+    format: json
+    filename: '{primary}.json'
+    fields:
+      - { name: type, label: Τύπος, type: string }
+      - { name: title, label: Τίτλος, type: string, required: true }
+      - { name: date, label: Ημερομηνία, type: string }
+      - { name: excerpt, label: Απόσπασμα, type: text }
+      - { name: url, label: Εξωτερικός σύνδεσμος, type: string }
