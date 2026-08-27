@@ -1,11 +1,23 @@
-/* CMS loader for fanourakis-site markup. Supports EL/EN via .lang toggle buttons. */
+/* CMS loader for fanourakis-site markup. Supports EL/EN via .lang toggle buttons with localStorage persistence. */
 (function () {
   'use strict';
 
+  var LANG_KEY = 'site_lang';
+
   function currentLang() {
-    var activeBtn = document.querySelector('.lang.active');
-    if (activeBtn && /en/i.test(activeBtn.textContent || '')) return 'en';
+    try {
+      var stored = localStorage.getItem(LANG_KEY);
+      if (stored === 'en' || stored === 'el') return stored;
+    } catch (e) {}
     return 'el';
+  }
+
+  function applyActiveLangButton(lang) {
+    document.querySelectorAll('.lang').forEach(function (btn) {
+      var isEn = /en/i.test(btn.textContent || '') || btn.getAttribute('data-lang') === 'en';
+      var isThis = lang === 'en' ? isEn : !isEn;
+      btn.classList.toggle('active', isThis);
+    });
   }
 
   function normalizePath(value) {
@@ -146,6 +158,9 @@
   var lang = currentLang();
   var base = lang === 'en' ? 'content/en/' : 'content/el/';
   var rootBase = lang === 'en' ? 'content/en/' : 'content/';
+
+  applyActiveLangButton(lang);
+  document.documentElement.setAttribute('lang', lang);
 
   console.info('[CMS] Loader started, lang=' + lang);
 
@@ -328,8 +343,9 @@
 
   document.querySelectorAll('.lang').forEach(function (btn) {
     btn.addEventListener('click', function () {
-      document.querySelectorAll('.lang').forEach(function (b) { b.classList.remove('active'); });
-      btn.classList.add('active');
+      var isEn = /en/i.test(btn.textContent || '') || btn.getAttribute('data-lang') === 'en';
+      var newLang = isEn ? 'en' : 'el';
+      try { localStorage.setItem(LANG_KEY, newLang); } catch (e) {}
       location.reload();
     });
   });

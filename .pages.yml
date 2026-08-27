@@ -1,15 +1,15 @@
 media: assets/images
 content:
   - name: site-el
-    label: "🇬🇷 Ιστοσελίδα — Ελληνικά (κείμενα & τίτλοι)"
+    label: "EL · Ιστοσελίδα — Ελληνικά (κείμενα & τίτλοι)"
     type: file
     path: content/el/site.json
     fields:
       - name: nav_music
-        label: "Μενού πλοήγησης · κουμπί «Music»"
+        label: "Μενού πλοήγησης · κουμπί «Μουσική»"
         type: string
       - name: nav_videos
-        label: "Μενού πλοήγησης · κουμπί «Videos»"
+        label: "Μενού πλοήγησης · κουμπί «Βίντεο»"
         type: string
       - name: nav_live
         label: "Μενού πλοήγησης · κουμπί «Live»"
@@ -160,7 +160,7 @@ content:
         type: string
 
   - name: site-en
-    label: "🇬🇧 Website — English (all text & titles)"
+    label: "EN · Website — English (all text & titles)"
     type: file
     path: content/en/site.json
     fields:
@@ -319,7 +319,7 @@ content:
         type: string
 
   - name: about-el
-    label: "🇬🇷 Σχετικά — Ελληνικά"
+    label: "EL · Σχετικά — Ελληνικά"
     type: file
     path: content/el/about.json
     fields:
@@ -336,7 +336,7 @@ content:
         type: image
 
   - name: about-en
-    label: "🇬🇧 About — English"
+    label: "EN · About — English"
     type: file
     path: content/en/about.json
     fields:
@@ -353,7 +353,7 @@ content:
         type: image
 
   - name: music
-    label: "🇬🇷 Δισκογραφία — Ελληνικά"
+    label: "EL · Δισκογραφία — Ελληνικά"
     type: collection
     path: content/music
     filename: "{primary}.json"
@@ -399,7 +399,7 @@ content:
         type: boolean
         default: false
       - name: notify_subscribers
-        label: "🔔 Ειδοποίηση συνδρομητών newsletter όταν δημοσιευτεί/ενημερωθεί"
+        label: "Ειδοποίηση συνδρομητών newsletter όταν δημοσιευτεί/ενημερωθεί"
         type: boolean
         default: true
       - name: order
@@ -407,7 +407,7 @@ content:
         type: number
 
   - name: music-en
-    label: "🇬🇧 Discography — English"
+    label: "EN · Discography — English"
     type: collection
     path: content/en/music
     filename: "{primary}.json"
@@ -453,7 +453,7 @@ content:
         type: boolean
         default: false
       - name: notify_subscribers
-        label: "🔔 Notify newsletter subscribers when published/updated"
+        label: "Notify newsletter subscribers when published/updated"
         type: boolean
         default: true
       - name: order
@@ -461,7 +461,7 @@ content:
         type: number
 
   - name: videos
-    label: "🇬🇷 Βίντεο — Ελληνικά"
+    label: "EL · Βίντεο — Ελληνικά"
     type: collection
     path: content/videos
     filename: "{primary}.json"
@@ -490,7 +490,7 @@ content:
         label: Thumbnail
         type: image
       - name: notify_subscribers
-        label: "🔔 Ειδοποίηση συνδρομητών newsletter όταν δημοσιευτεί/ενημερωθεί"
+        label: "Ειδοποίηση συνδρομητών newsletter όταν δημοσιευτεί/ενημερωθεί"
         type: boolean
         default: true
       - name: order
@@ -498,7 +498,7 @@ content:
         type: number
 
   - name: videos-en
-    label: "🇬🇧 Videos — English"
+    label: "EN · Videos — English"
     type: collection
     path: content/en/videos
     filename: "{primary}.json"
@@ -527,7 +527,7 @@ content:
         label: Thumbnail
         type: image
       - name: notify_subscribers
-        label: "🔔 Notify newsletter subscribers when published/updated"
+        label: "Notify newsletter subscribers when published/updated"
         type: boolean
         default: true
       - name: order
@@ -535,7 +535,7 @@ content:
         type: number
 
   - name: live
-    label: "🇬🇷 Live — Ελληνικά"
+    label: "EL · Live — Ελληνικά"
     type: collection
     path: content/live
     filename: "{primary}.json"
@@ -581,7 +581,7 @@ content:
         type: boolean
         default: false
       - name: notify_subscribers
-        label: "🔔 Ειδοποίηση συνδρομητών newsletter όταν δημοσιευτεί/ενημερωθεί"
+        label: "Ειδοποίηση συνδρομητών newsletter όταν δημοσιευτεί/ενημερωθεί"
         type: boolean
         default: true
       - name: order
@@ -589,7 +589,7 @@ content:
         type: number
 
   - name: live-en
-    label: "🇬🇧 Live — English"
+    label: "EN · Live — English"
     type: collection
     path: content/en/live
     filename: "{primary}.json"
@@ -635,7 +635,7 @@ content:
         type: boolean
         default: false
       - name: notify_subscribers
-        label: "🔔 Notify newsletter subscribers when published/updated"
+        label: "Notify newsletter subscribers when published/updated"
         type: boolean
         default: true
       - name: order
@@ -643,7 +643,7 @@ content:
         type: number
 
   - name: lyrics-el
-    label: "🇬🇷 Στίχοι — Ελληνικά"
+    label: "EL · Στίχοι — Ελληνικά"
     type: collection
     path: content/el/lyrics
     filename: "{primary}.json"
@@ -656,7 +656,7 @@ content:
         type: string
         required: true
       - name: release
-        label: "Ανήκει στη δισκογραφική δουλειά (επιλέξτε από τη Δισκογραφία)"
+        label: "Ανήκει στη δισκογραφική δουλεία (επιλέξτε από τη Δισκογραφία)"
         type: select
         options:
           source:
@@ -672,7 +672,7 @@ content:
         required: true
 
   - name: writings-el
-    label: "🇬🇷 Κείμενα — Ελληνικά"
+    label: "EL · Κείμενα — Ελληνικά"
     type: collection
     path: content/el/writings
     filename: "{primary}.json"
@@ -692,7 +692,7 @@ content:
         required: true
 
   - name: lyrics-en
-    label: "🇬🇧 Lyrics — English"
+    label: "EN · Lyrics — English"
     type: collection
     path: content/en/lyrics
     filename: "{primary}.json"
@@ -721,7 +721,7 @@ content:
         required: true
 
   - name: writings-en
-    label: "🇬🇧 Writings — English"
+    label: "EN · Writings — English"
     type: collection
     path: content/en/writings
     filename: "{primary}.json"
@@ -741,7 +741,7 @@ content:
         required: true
 
   - name: press
-    label: "🇬🇷 Συνεντεύξεις και Τύπος — Ελληνικά"
+    label: "EL · Συνεντεύξεις και Τύπος — Ελληνικά"
     type: collection
     path: content/press
     filename: "{primary}.json"
@@ -779,7 +779,7 @@ content:
         type: boolean
         default: false
       - name: notify_subscribers
-        label: "🔔 Ειδοποίηση συνδρομητών newsletter όταν δημοσιευτεί/ενημερωθεί"
+        label: "Ειδοποίηση συνδρομητών newsletter όταν δημοσιευτεί/ενημερωθεί"
         type: boolean
         default: true
       - name: order
@@ -787,7 +787,7 @@ content:
         type: number
 
   - name: press-en
-    label: "🇬🇧 Press — English"
+    label: "EN · Press — English"
     type: collection
     path: content/en/press
     filename: "{primary}.json"
@@ -825,7 +825,7 @@ content:
         type: boolean
         default: false
       - name: notify_subscribers
-        label: "🔔 Notify newsletter subscribers when published/updated"
+        label: "Notify newsletter subscribers when published/updated"
         type: boolean
         default: true
       - name: order
@@ -833,7 +833,7 @@ content:
         type: number
 
   - name: photos
-    label: "🇬🇷 Φωτογραφίες — Ελληνικά"
+    label: "EL · Φωτογραφίες — Ελληνικά"
     type: collection
     path: content/photos
     filename: "{primary}.json"
@@ -866,12 +866,12 @@ content:
         type: boolean
         default: false
       - name: notify_subscribers
-        label: "🔔 Ειδοποίηση συνδρομητών newsletter όταν δημοσιευτεί/ενημερωθεί"
+        label: "Ειδοποίηση συνδρομητών newsletter όταν δημοσιευτεί/ενημερωθεί"
         type: boolean
         default: false
 
   - name: photos-en
-    label: "🇬🇧 Photos — English"
+    label: "EN · Photos — English"
     type: collection
     path: content/en/photos
     filename: "{primary}.json"
@@ -904,6 +904,6 @@ content:
         type: boolean
         default: false
       - name: notify_subscribers
-        label: "🔔 Notify newsletter subscribers when published/updated"
+        label: "Notify newsletter subscribers when published/updated"
         type: boolean
         default: false
