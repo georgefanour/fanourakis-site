@@ -1,16 +1,9 @@
 {
-  "title": "Yiorgos Fanourakis & Nicolas Sosa",
-  "meta": "2026",
+  "title": "MICROCOSMOS - Yiorgos Fanourakis & Nicolas Sosa",
+  "cover": "/assets/images/microcosmos-2.jpg",
+  "release_type": "Single",
+  "year": 2026,
   "description": "Μια συνάντηση δύο δημιουργών, δύο πόλεων και ενός κοινού μικρόκοσμου.",
-  "cover": "/assets/images/microcosmos.png",
-  "links": [
-    {
-      "label": "Πληροφορίες",
-      "url": "#"
-    },
-    {
-      "label": "Δες video",
-      "url": "#https://www.youtube.com/watch?v=IF23sKsyXAA&pp=ygUWbWljcm9jb3Ntb3MgZmFub3VyYWtpc9IHCQkTDAGHKiGM7w%3D%3D"
-    }
-  ]
+  "youtube_url": "https://www.youtube.com/watch?v=IF23sKsyXAA",
+  "featured": true
 }
