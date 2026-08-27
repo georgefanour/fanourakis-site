@@ -1,0 +1,226 @@
+media: assets/images
+content:
+  - name: photos
+    label: Φωτογραφίες
+    type: collection
+    path: content/photos
+    filename: "{primary}.json"
+    primary: title
+    fields:
+      - name: title
+        label: Τίτλος
+        type: string
+        required: true
+      - name: image
+        label: Εικόνα
+        type: image
+        required: true
+      - name: alt
+        label: Περιγραφή εικόνας
+        type: string
+        required: true
+      - name: order
+        label: Σειρά εμφάνισης
+        type: number
+      - name: featured
+        label: Προτεινόμενη φωτογραφία
+        type: boolean
+        default: false
+
+  - name: music
+    label: Μουσική
+    type: collection
+    path: content/music
+    filename: "{primary}.json"
+    primary: title
+    fields:
+      - name: title
+        label: Τίτλος
+        type: string
+        required: true
+      - name: cover
+        label: Εξώφυλλο
+        type: image
+        required: true
+      - name: release_type
+        label: Τύπος κυκλοφορίας
+        type: select
+        required: true
+        options:
+          values:
+            - Single
+            - EP
+            - Album
+            - Collaboration
+      - name: year
+        label: Έτος
+        type: number
+        required: true
+      - name: description
+        label: Περιγραφή
+        type: text
+      - name: youtube_url
+        label: YouTube link
+        type: string
+      - name: spotify_url
+        label: Spotify link
+        type: string
+      - name: featured
+        label: Προτεινόμενη κυκλοφορία
+        type: boolean
+        default: false
+
+  - name: live
+    label: Live
+    type: collection
+    path: content/live
+    filename: "{primary}.json"
+    primary: title
+    fields:
+      - name: title
+        label: Τίτλος εμφάνισης
+        type: string
+        required: true
+      - name: date
+        label: Ημερομηνία
+        type: date
+        required: true
+      - name: venue
+        label: Χώρος
+        type: string
+        required: true
+      - name: city
+        label: Πόλη
+        type: string
+        required: true
+      - name: image
+        label: Αφίσα ή φωτογραφία
+        type: image
+        required: true
+      - name: alt
+        label: Περιγραφή εικόνας
+        type: string
+        required: true
+      - name: ticket_url
+        label: Ticket ή event link
+        type: string
+      - name: status
+        label: Κατάσταση
+        type: select
+        required: true
+        options:
+          values:
+            - upcoming
+            - archive
+      - name: featured
+        label: Προτεινόμενο live
+        type: boolean
+        default: false
+
+  - name: about-el
+    label: Σχετικά — Ελληνικά
+    type: file
+    path: content/el/about.json
+    fields:
+      - name: title
+        label: Τίτλος
+        type: string
+        required: true
+      - name: text
+        label: Κείμενο Σχετικά
+        type: text
+        required: true
+
+  - name: about-en
+    label: About — English
+    type: file
+    path: content/en/about.json
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: text
+        label: About text
+        type: text
+        required: true
+
+  - name: lyrics-el
+    label: Στίχοι — Ελληνικά
+    type: collection
+    path: content/el/lyrics
+    filename: "{primary}.json"
+    primary: title
+    fields:
+      - name: title
+        label: Τίτλος
+        type: string
+        required: true
+      - name: body
+        label: Στίχοι
+        type: text
+        required: true
+      - name: order
+        label: Σειρά εμφάνισης
+        type: number
+        required: true
+
+  - name: writings-el
+    label: Κείμενα — Ελληνικά
+    type: collection
+    path: content/el/writings
+    filename: "{primary}.json"
+    primary: title
+    fields:
+      - name: title
+        label: Τίτλος
+        type: string
+        required: true
+      - name: body
+        label: Κείμενο
+        type: text
+        required: true
+      - name: order
+        label: Σειρά εμφάνισης
+        type: number
+        required: true
+
+  - name: lyrics-en
+    label: Lyrics — English
+    type: collection
+    path: content/en/lyrics
+    filename: "{primary}.json"
+    primary: title
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: body
+        label: Lyrics
+        type: text
+        required: true
+      - name: order
+        label: Display order
+        type: number
+        required: true
+
+  - name: writings-en
+    label: Writings — English
+    type: collection
+    path: content/en/writings
+    filename: "{primary}.json"
+    primary: title
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: body
+        label: Text
+        type: text
+        required: true
+      - name: order
+        label: Display order
+        type: number
+        required: true
