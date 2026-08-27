@@ -1,4 +1,4 @@
-/* CMS loader for fanourakis-site markup. */
+/* CMS loader for fanourakis-site markup. Field names match .pages.yml (site-el/about-el/music/videos/live/press/photos/lyrics-el/writings-el). */
 (function () {
   'use strict';
 
@@ -47,6 +47,14 @@
     target.innerHTML = markup;
     console.info('[CMS] Rendered ' + label);
     return target;
+  }
+
+  function setText(el, value) {
+    if (el && value != null && value !== '') el.textContent = value;
+  }
+
+  function setHtml(el, value) {
+    if (el && value != null && value !== '') el.innerHTML = renderMultiline(value);
   }
 
   function load(path, callback) {
@@ -114,41 +122,76 @@
 
   console.info('[CMS] Loader started');
 
-  load('content/hero.json', function (data) {
+  load('content/el/site.json', function (data) {
     if (!data || !Object.keys(data).length) return;
     var heroSection = document.getElementById('home');
-    if (!heroSection) return;
-
-    if (data.background_image) {
-      var bg = heroSection.querySelector('.hero-bg');
-      if (bg) bg.style.backgroundImage = 'linear-gradient(90deg, rgba(10,7,18,.98), rgba(10,7,18,.53) 48%, rgba(10,7,18,.18)), linear-gradient(0deg, rgba(10,7,18,.93), transparent 60%), url(' + normalizePath(data.background_image) + ')';
+    if (heroSection) {
+      setText(heroSection.querySelector('.tag'), data.hero_tag);
+      var heading = heroSection.querySelector('h1');
+      if (heading && (data.hero_title_first || data.hero_title_last)) {
+        heading.innerHTML = escapeHtml(data.hero_title_first || '') + (data.hero_title_last ? ' <em>' + escapeHtml(data.hero_title_last) + '</em>' : '');
+      }
+      setHtml(heroSection.querySelector('.hero-phrase'), data.hero_phrase);
+      var actionLinks = heroSection.querySelectorAll('.actions a.btn');
+      setText(actionLinks[0], data.hero_music_cta);
+      setText(actionLinks[1], data.hero_live_cta);
     }
-    var tag = heroSection.querySelector('.tag');
-    if (tag && data.tag) tag.textContent = data.tag;
-
-    var heading = heroSection.querySelector('h1');
-    if (heading && (data.title_line1 || data.title_emphasis)) {
-      heading.innerHTML = escapeHtml(data.title_line1 || '') + (data.title_emphasis ? ' <em>' + escapeHtml(data.title_emphasis) + '</em>' : '');
-    }
-
-    var phrase = heroSection.querySelector('.hero-phrase');
-    if (phrase && data.phrase) phrase.innerHTML = renderMultiline(data.phrase);
-
-    var actionLinks = heroSection.querySelectorAll('.actions a.btn');
-    if (actionLinks[0] && data.primary_button_label) {
-      actionLinks[0].textContent = data.primary_button_label;
-      if (data.primary_button_url) actionLinks[0].setAttribute('href', data.primary_button_url);
-    }
-    if (actionLinks[1] && data.secondary_button_label) {
-      actionLinks[1].textContent = data.secondary_button_label;
-      if (data.secondary_button_url) actionLinks[1].setAttribute('href', data.secondary_button_url);
+    if (data.ticker) {
+      document.querySelectorAll('.ticker div span').forEach(function (span) { span.textContent = data.ticker; });
     }
 
-    if (data.ticker_text) {
-      var tickerSpans = document.querySelectorAll('.ticker div span');
-      tickerSpans.forEach(function (span) { span.textContent = data.ticker_text; });
+    var sectionMap = [
+      ['#music', 'music_eyebrow', 'music_title', 'music_intro'],
+      ['#videos', 'videos_eyebrow', 'videos_title', 'videos_intro'],
+      ['#live', 'live_eyebrow', 'live_title', 'live_intro'],
+      ['#press', 'press_eyebrow', 'press_title', 'press_intro'],
+      ['#photos', 'photos_eyebrow', 'photos_title', 'photos_intro']
+    ];
+    sectionMap.forEach(function (entry) {
+      var section = document.querySelector(entry[0]);
+      if (!section) return;
+      var head = section.querySelector('.head, .galleryhead');
+      if (!head) return;
+      setText(head.querySelector('.eyebrow'), data[entry[1]]);
+      setText(head.querySelector('.section-title'), data[entry[2]]);
+      setHtml(head.querySelector('.copy'), data[entry[3]]);
+    });
+
+    var wordsSection = document.querySelector('#words');
+    if (wordsSection) {
+      setText(wordsSection.querySelector('.eyebrow'), data.words_eyebrow);
+      setHtml(wordsSection.querySelector('.quote'), data.words_quote);
     }
-    console.info('[CMS] Rendered hero');
+    var pressNote = document.querySelector('.press-note');
+    setHtml(pressNote, data.press_note);
+
+    var aboutSection = document.querySelector('#about');
+    if (aboutSection) {
+      setText(aboutSection.querySelector('.eyebrow'), data.about_eyebrow);
+      var aboutBtn = aboutSection.querySelector('a.btn');
+      setText(aboutBtn, data.about_button);
+    }
+
+    var contactSection = document.querySelector('#contact');
+    if (contactSection) {
+      setText(contactSection.querySelector('.eyebrow'), data.contact_eyebrow);
+      setText(contactSection.querySelector('h2'), data.contact_title);
+      setHtml(contactSection.querySelector('.contact-grid > div > p'), data.contact_intro);
+      var emailInput = contactSection.querySelector('#email');
+      if (emailInput && data.newsletter_placeholder) emailInput.setAttribute('placeholder', data.newsletter_placeholder);
+      var subscribeBtn = contactSection.querySelector('.form button');
+      setText(subscribeBtn, data.newsletter_button);
+    }
+    console.info('[CMS] Rendered site-el text');
+  });
+
+  load('content/el/about.json', function (data) {
+    if (!data || !data.text) return;
+    var target = document.querySelector('.about-text');
+    setHtml(target, data.text);
+    var photo = document.querySelector('.about-photo img');
+    if (photo && data.image) photo.src = normalizePath(data.image);
+    console.info('[CMS] Rendered about');
   });
 
   load('content/music.json', function (data) {
@@ -157,9 +200,11 @@
       var cover = normalizePath(item.cover) || 'assets/images/placeholder-cover.jpg';
       var youtube = normalizePath(item.youtube_url);
       var spotify = normalizePath(item.spotify_url);
+      var bandcamp = normalizePath(item.bandcamp_url);
       var links = [];
       if (spotify) links.push('<a href="' + escapeHtml(spotify) + '" target="_blank" rel="noopener">Άκουσε ↗</a>');
       if (youtube) links.push('<a href="' + escapeHtml(youtube) + '" target="_blank" rel="noopener">Δες video ↗</a>');
+      if (bandcamp) links.push('<a href="' + escapeHtml(bandcamp) + '" target="_blank" rel="noopener">Bandcamp ↗</a>');
       if (!links.length) links.push('<span style="opacity:.55">Ερχονται links</span>');
       return '<article class="release-card reveal show">' +
         '<div class="release-art"><img src="' + escapeHtml(cover) + '" alt="' + escapeHtml(item.title || '') + '" loading="lazy" onerror="this.src=&quot;assets/images/placeholder-cover.jpg&quot;"></div>' +
@@ -167,7 +212,7 @@
         (item.featured ? '<span class="badge">Πιο πρόσφατη</span>' : '') +
         '<h3>' + escapeHtml(item.title || '') + '</h3>' +
         '<p>' + escapeHtml(item.release_type || '') + (item.year ? ' · ' + escapeHtml(item.year) : '') + '</p>' +
-        (item.description ? '<p style="font-size:.72rem;opacity:.75">' + renderMultiline(item.description) + '</p>' : '') +
+        (item.description ? '<p style="font-size:.74rem;color:#cabed0">' + renderMultiline(item.description) + '</p>' : '') +
         '<div class="release-actions">' + links.join('') + '</div></div></article>';
     }).join(''), 'music');
   });
@@ -181,7 +226,9 @@
       var category = escapeHtml(item.category || 'all');
       var body = embed
         ? '<div class="embed"><iframe src="' + escapeHtml(embed) + '" title="' + escapeHtml(item.title || '') + '" loading="lazy" allowfullscreen></iframe></div>'
-        : '<div class="placeholder"><div><b>' + escapeHtml(item.title || 'Προσθήκη σύντομα') + '</b><code>Πρόσθεσε νέο YouTube URL από το CMS</code></div></div>';
+        : (item.thumbnail
+          ? '<div class="embed"><img src="' + escapeHtml(normalizePath(item.thumbnail)) + '" alt="' + escapeHtml(item.title || '') + '" style="width:100%;height:100%;object-fit:cover"></div>'
+          : '<div class="placeholder"><div><b>' + escapeHtml(item.title || 'Προσθήκη σύντομα') + '</b><code>Πρόσθεσε νέο YouTube URL από το CMS</code></div></div>');
       return '<article class="video-card reveal show" data-category="' + category + '">' +
         body +
         '<div class="video-info"><p class="eyebrow">' + escapeHtml(item.category || '') + '</p><h3>' + escapeHtml(item.title || '') + '</h3><p>' + renderMultiline(item.description || '') + '</p></div></article>';
@@ -194,7 +241,11 @@
     render('.live-grid', ordered(data.items).map(function (item) {
       var detail = item.venue || item.city || item.date || item.status || 'Live';
       var image = normalizePath(item.image);
-      return '<article class="live-card reveal show"><img src="' + escapeHtml(image) + '" alt="' + escapeHtml(item.alt || item.title || '') + '" loading="lazy"><div class="live-label">' + escapeHtml(item.title || '') + '<small>' + escapeHtml(detail) + '</small></div></article>';
+      var card = '<img src="' + escapeHtml(image) + '" alt="' + escapeHtml(item.alt || item.title || '') + '" loading="lazy"><div class="live-label">' + escapeHtml(item.title || '') + '<small>' + escapeHtml(detail) + '</small></div>';
+      var url = normalizePath(item.ticket_url);
+      return url
+        ? '<a class="live-card reveal show" href="' + escapeHtml(url) + '" target="_blank" rel="noopener" style="display:block">' + card + '</a>'
+        : '<article class="live-card reveal show">' + card + '</article>';
     }).join(''), 'live');
   });
 
@@ -202,10 +253,11 @@
     if (!Array.isArray(data.items) || !data.items.length) return;
     render('.press-grid', ordered(data.items).map(function (item) {
       var url = normalizePath(item.url);
-      var thumb = normalizePath(item.image || item.logo);
+      var thumb = normalizePath(item.image);
       var link = url ? '<a href="' + escapeHtml(url) + '" target="_blank" rel="noopener">Άνοιξε ↗</a>' : '';
       var thumbMarkup = thumb ? '<img src="' + escapeHtml(thumb) + '" alt="' + escapeHtml(item.title || '') + '" loading="lazy" style="width:100%;border-radius:12px;margin-bottom:14px;object-fit:cover;aspect-ratio:16/9">' : '';
-      return '<article class="press-card reveal show"><div>' + thumbMarkup + '<span class="press-type">' + escapeHtml(item.type || '') + '</span><h3>' + escapeHtml(item.title || '') + '</h3><p>' + renderMultiline(item.excerpt || '') + '</p></div>' + link + '</article>';
+      var meta = [item.outlet, item.date].filter(Boolean).map(escapeHtml).join(' · ');
+      return '<article class="press-card reveal show"><div>' + thumbMarkup + '<span class="press-type">' + escapeHtml(item.type || '') + (meta ? ' · ' + meta : '') + '</span><h3>' + escapeHtml(item.title || '') + '</h3><p>' + renderMultiline(item.excerpt || '') + '</p></div>' + link + '</article>';
     }).join(''), 'press');
   });
 
@@ -213,10 +265,10 @@
     if (!Array.isArray(data.items) || !data.items.length) return;
     render('.masonry', ordered(data.items).map(function (item) {
       var image = normalizePath(item.image);
-      var captionSource = item.caption || item.alt || item.title || '';
+      var captionSource = item.alt || item.title || '';
       var captionHtml = captionSource ? renderMultiline(captionSource) : '';
       var captionMarkup = captionHtml ? '<span class="photo-caption">' + captionHtml + '</span>' : '';
-      return '<button class="photo" type="button" data-full="' + escapeHtml(image) + '"><img loading="lazy" src="' + escapeHtml(image) + '" alt="' + escapeHtml(captionSource) + '">' + captionMarkup + '</button>';
+      return '<button class="photo" type="button" data-full="' + escapeHtml(image) + '" data-category="' + escapeHtml(item.category || '') + '"><img loading="lazy" src="' + escapeHtml(image) + '" alt="' + escapeHtml(captionSource) + '">' + captionMarkup + '</button>';
     }).join(''), 'photos');
     if (!document.getElementById('cms-photo-caption-style')) {
       var style = document.createElement('style');
@@ -225,12 +277,6 @@
       document.head.appendChild(style);
     }
     bindPhotoLightbox();
-  });
-
-  load('content/el/about.json', function (data) {
-    if (!data.text) return;
-    var target = document.querySelector('.about-text');
-    if (target) { target.innerHTML = renderMultiline(data.text); console.info('[CMS] Rendered about'); }
   });
 
   load('content/el/texts.json', function (data) {
