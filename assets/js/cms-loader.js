@@ -197,13 +197,6 @@
     bindReleaseChips();
   }
 
-  /* ---------------------------------------------------------
-     DEPTH/STACK CAROUSEL
-     Larger cards (sized like the featured cover art), with a
-     subtle 3D depth effect: the active card sits forward (scale 1,
-     full opacity), neighbours are pushed slightly back (scale-down,
-     dimmed). Clicking an arrow animates the stack forward/backward.
-  --------------------------------------------------------- */
   function buildCarousel(containerSelector, itemSelector) {
     var container = document.querySelector(containerSelector);
     if (!container || container.dataset.carouselReady) return;
@@ -241,24 +234,36 @@
 
     var activeIndex = 0;
 
+    function nearestIndex() {
+      var center = container.scrollLeft + container.clientWidth / 2;
+      var closest = 0;
+      var closestDist = Infinity;
+      items.forEach(function (item, i) {
+        var itemCenter = item.offsetLeft + item.offsetWidth / 2;
+        var dist = Math.abs(itemCenter - center);
+        if (dist < closestDist) {
+          closestDist = dist;
+          closest = i;
+        }
+      });
+      return closest;
+    }
+
     function applyDepth() {
-      var scrollRatio = container.scrollWidth > container.clientWidth
-        ? container.scrollLeft / (container.scrollWidth - container.clientWidth)
-        : 0;
-      activeIndex = Math.round(scrollRatio * (items.length - 1));
+      activeIndex = nearestIndex();
       items.forEach(function (item, i) {
         var dist = Math.abs(i - activeIndex);
         if (dist === 0) {
-          item.style.transform = 'scale(1) translateZ(0)';
+          item.style.transform = 'scale(1)';
           item.style.opacity = '1';
           item.style.zIndex = '3';
         } else if (dist === 1) {
-          item.style.transform = 'scale(.92) translateZ(0)';
-          item.style.opacity = '.55';
+          item.style.transform = 'scale(.9)';
+          item.style.opacity = '.5';
           item.style.zIndex = '2';
         } else {
-          item.style.transform = 'scale(.86) translateZ(0)';
-          item.style.opacity = '.28';
+          item.style.transform = 'scale(.82)';
+          item.style.opacity = '.25';
           item.style.zIndex = '1';
         }
       });
@@ -287,7 +292,7 @@
     var scrollTimeout;
     container.addEventListener('scroll', function () {
       clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(applyDepth, 40);
+      scrollTimeout = setTimeout(applyDepth, 60);
     }, { passive: true });
 
     if (!document.getElementById('cms-carousel-style')) {
@@ -296,28 +301,27 @@
       style.textContent =
         '.cms-carousel-wrap{position:relative;display:flex;align-items:center;gap:10px}' +
         '.cms-carousel-track{display:flex !important;grid-template-columns:none !important;' +
-        'overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;' +
-        'gap:28px;padding:24px 8px;scrollbar-width:none;perspective:1200px}' +
+        'align-items:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;' +
+        '-webkit-overflow-scrolling:touch;gap:26px;padding:20px calc(50% - 110px) 30px;' +
+        'scrollbar-width:none}' +
         '.cms-carousel-track::-webkit-scrollbar{display:none}' +
         '.cms-carousel-track>*{scroll-snap-align:center;flex:0 0 auto;' +
-        'width:clamp(220px,60vw,340px);transition:transform .45s cubic-bezier(.22,.9,.32,1),opacity .45s ease;' +
+        'width:min(78vw,300px);transition:transform .45s cubic-bezier(.22,.9,.32,1),opacity .45s ease;' +
         'transform-origin:center center}' +
-        '.cms-carousel-track.masonry>*{width:clamp(200px,55vw,320px)}' +
-        '@media (min-width:640px){.cms-carousel-track>*{width:clamp(240px,38vw,300px)}' +
-        '.cms-carousel-track.masonry>*{width:clamp(220px,34vw,280px)}}' +
-        '@media (min-width:1024px){.cms-carousel-track>*{width:min(340px,26vw)}' +
-        '.cms-carousel-track.masonry>*{width:min(320px,24vw)}}' +
-        '.cms-carousel-track .release-art,.cms-carousel-track .release-card,' +
-        '.cms-carousel-track .press-card,.cms-carousel-track.masonry .photo{aspect-ratio:1;' +
-        'border-radius:18px;overflow:hidden}' +
-        '.cms-carousel-track .press-card{aspect-ratio:auto;min-height:280px}' +
+        '@media (min-width:640px){.cms-carousel-track{padding:24px calc(50% - 140px) 34px}' +
+        '.cms-carousel-track>*{width:min(58vw,300px)}}' +
+        '@media (min-width:1024px){.cms-carousel-track{padding:30px calc(50% - 160px) 40px}' +
+        '.cms-carousel-track>*{width:320px}}' +
+        '.cms-carousel-track .release-art{aspect-ratio:1;border-radius:16px;overflow:hidden}' +
+        '.cms-carousel-track.masonry .photo{aspect-ratio:1;border-radius:16px}' +
+        '.cms-carousel-track .press-card{min-height:280px}' +
         '.cms-carousel-arrow{flex:0 0 auto;position:relative;width:44px;height:44px;' +
         'border-radius:50%;border:0;background:var(--acid,#d8ff3e);color:var(--ink,#0a0712);' +
         'font-size:1.2rem;cursor:pointer;display:grid;place-items:center;z-index:5;' +
         'box-shadow:0 6px 16px rgba(0,0,0,.35);transition:transform .2s ease}' +
         '.cms-carousel-arrow:hover:not(:disabled){transform:scale(1.1)}' +
         '.cms-carousel-arrow:disabled{opacity:.25;cursor:default}' +
-        '.cms-carousel-dots{display:flex;gap:7px;justify-content:center;margin-top:14px}' +
+        '.cms-carousel-dots{display:flex;gap:7px;justify-content:center;margin-top:6px}' +
         '.cms-carousel-dot{width:8px;height:8px;border-radius:50%;background:rgba(10,7,18,.25);' +
         'cursor:pointer;transition:transform .2s ease,background .2s ease}' +
         '.cms-carousel-dot.active{background:var(--acid,#d8ff3e);transform:scale(1.35)}' +
@@ -325,7 +329,10 @@
       document.head.appendChild(style);
     }
 
-    requestAnimationFrame(applyDepth);
+    requestAnimationFrame(function () {
+      goTo(0);
+      setTimeout(applyDepth, 60);
+    });
     window.addEventListener('resize', function () {
       clearTimeout(window.__cmsCarouselResize);
       window.__cmsCarouselResize = setTimeout(applyDepth, 150);
