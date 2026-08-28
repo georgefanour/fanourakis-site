@@ -161,7 +161,7 @@
         chips.forEach(function (c) { c.classList.remove('active'); });
         chip.classList.add('active');
         var chosen = chip.getAttribute('data-release');
-        document.querySelectorAll('#lyrics-list button, #writings-list button').forEach(function (btn) {
+        document.querySelectorAll('#lyrics-list button').forEach(function (btn) {
           var rel = btn.getAttribute('data-cms-release') || '';
           btn.hidden = chosen !== 'all' && rel !== chosen;
         });
@@ -620,21 +620,100 @@ if (contactSection) {
     buildCarousel('.masonry', '.photo');
   });
 
-  load(base + 'texts.json', function (data) {
-    function list(selector, items) {
-      if (!Array.isArray(items) || !items.length) return;
-      var target = document.querySelector(selector);
-      if (!target) return;
-      target.innerHTML = ordered(items).map(function (item, index) {
-        return '<button type="button" data-cms-title="' + escapeHtml(item.title) + '" data-cms-release="' + escapeHtml(item.release || '') + '" data-cms-body-html="' + escapeHtml(renderMultiline(item.body)) + '"><span>' + escapeHtml(item.title) + (item.release ? ' <small style="opacity:.6;font-size:.65em">· ' + escapeHtml(item.release) + '</small>' : '') + '</span><b>' + String(index + 1).padStart(2, '0') + ' ↗</b></button>';
-      }).join('');
+    function renderTextList(selector, items, type) {
+    var target = document.querySelector(selector);
+    if (!target || !Array.isArray(items)) return;
+
+    target.innerHTML = ordered(items).map(function (item, index) {
+      var meta = type === 'lyrics' ? (item.release || '') : (item.date || '');
+      var release = type === 'lyrics' ? (item.release || '') : '';
+
+      return '<button type="button" ' +
+        'data-cms-title="' + escapeHtml(item.title || '') + '" ' +
+        'data-cms-meta="' + escapeHtml(meta) + '" ' +
+        'data-cms-release="' + escapeHtml(release) + '" ' +
+        'data-cms-body-html="' + escapeHtml(renderMultiline(item.body || '')) + '">' +
+        '<span>' + escapeHtml(item.title || '') +
+        (meta ? ' <small style="opacity:.6;font-size:.65em">· ' + escapeHtml(meta) + '</small>' : '') +
+        '</span>' +
+        '<b>' + String(index + 1).padStart(2, '0') + ' ↗</b>' +
+        '</button>';
+    }).join('');
+  }
+
+  function renderWordMetaStyle() {
+    if (document.getElementById('cms-word-meta-style')) return;
+
+    var style = document.createElement('style');
+    style.id = 'cms-word-meta-style';
+    style.textContent =
+      '#word-meta{' +
+      'margin:0 0 20px;' +
+      'font-family:var(--sans,Arial,sans-serif);' +
+      'font-size:.72rem;' +
+      'font-weight:700;' +
+      'letter-spacing:.11em;' +
+      'text-transform:uppercase;' +
+      'color:var(--acid,#d8ff3e)' +
+      '}' +
+      '#word-meta[hidden]{display:none!important}';
+    document.head.appendChild(style);
+  }
+
+  function bindSeparatedWordPanels() {
+    var panel = document.getElementById('word-panel');
+    var title = document.getElementById('word-title');
+    var body = document.getElementById('word-body');
+
+    if (!panel || !title || !body) return;
+
+    var meta = document.getElementById('word-meta');
+    if (!meta) {
+      meta = document.createElement('p');
+      meta.id = 'word-meta';
+      title.insertAdjacentElement('afterend', meta);
     }
-    list('#lyrics-list', data.lyrics);
-    list('#writings-list', data.writings);
-    renderReleaseChips(data.lyrics);
-    bindWordPanels();
+
+    document.querySelectorAll('#lyrics-list [data-cms-title], #writings-list [data-cms-title]').forEach(function (entry) {
+      entry.addEventListener('click', function () {
+        title.textContent = this.getAttribute('data-cms-title') || '';
+        body.innerHTML = this.getAttribute('data-cms-body-html') || '';
+
+        var value = this.getAttribute('data-cms-meta') || '';
+        if (value) {
+          meta.textContent = value;
+          meta.hidden = false;
+        } else {
+          meta.textContent = '';
+          meta.hidden = true;
+        }
+
+        panel.classList.add('open');
+        panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  }
+
+  load(base + 'lyrics.json', function (data) {
+    var items = Array.isArray(data.items) ? data.items : [];
+
+    renderTextList('#lyrics-list', items, 'lyrics');
+    renderReleaseChips(items);
+    bindReleaseChips();
+    bindSeparatedWordPanels();
     bindLyricsJump();
-    console.info('[CMS] Rendered texts (' + lang + ')');
+
+    console.info('[CMS] Rendered lyrics (' + lang + ')');
+  });
+
+  load(base + 'writings.json', function (data) {
+    var items = Array.isArray(data.items) ? data.items : [];
+
+    renderTextList('#writings-list', items, 'writings');
+    renderWordMetaStyle();
+    bindSeparatedWordPanels();
+
+    console.info('[CMS] Rendered writings (' + lang + ')');
   });
 
   document.querySelectorAll('.lang').forEach(function (btn) {
