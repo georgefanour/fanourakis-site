@@ -701,7 +701,7 @@ content:
     type: file
     path: content/en/writings.json
     fields:
-      -- name: items
+      - name: items
         label: "Writings"
         type: object
         list: true
