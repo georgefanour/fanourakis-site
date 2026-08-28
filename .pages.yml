@@ -358,6 +358,9 @@ content:
       - name: description
         label: Περιγραφή
         type: text
+      - name: artist_note
+        label: "Λίγα λόγια για την κυκλοφορία"
+        type: text
       - name: credits
         label: Credits
         type: text
@@ -407,6 +410,9 @@ content:
         required: true
       - name: description
         label: Description
+        type: text
+      - name: artist_note
+        label: "A few words about this release"
         type: text
       - name: credits
         label: Credits
@@ -594,108 +600,127 @@ content:
         label: Display order
         type: number
 
-  - name: lyrics-writings-el
-    label: "EL · Στίχοι και Κείμενα — Ελληνικά"
+    - name: lyrics-el
+    label: "EL · Στίχοι — Ελληνικά"
     type: file
-    path: content/el/texts.json
+    path: content/el/lyrics.json
     fields:
-      - name: lyrics
-        label: "Στίχοι (εμφανίζονται στην καρτέλα «Στίχοι»)"
+      - name: items
+        label: "Στίχοι"
         type: list
         fields:
           - name: id
-            label: "Μοναδικός κωδικός (μόνο λατινικά, χωρίς κενά, π.χ. an-den-eixa)"
+            label: "Μοναδικός κωδικός (μόνο λατινικά, χωρίς κενά)"
             type: string
             required: true
           - name: title
-            label: Τίτλος
+            label: "Τίτλος τραγουδιού"
             type: string
             required: true
           - name: release
-            label: "Ανήκει στη δισκογραφική δουλεία (επιλέξτε από τη Δισκογραφία)"
+            label: "Ανήκει στον δίσκο / την κυκλοφορία"
             type: select
+            required: true
             options:
               source:
                 file: content/music
                 fields: [title]
           - name: body
-            label: Στίχοι
+            label: "Στίχοι"
             type: text
             required: true
           - name: order
-            label: Σειρά εμφάνισης
-            type: number
-      - name: writings
-        label: "Κείμενα / Πεζά (εμφανίζονται στην καρτέλα «Κείμενα»)"
-        type: list
-        fields:
-          - name: id
-            label: "Μοναδικός κωδικός (μόνο λατινικά, χωρίς κενά, π.χ. peri-kymaton)"
-            type: string
-            required: true
-          - name: title
-            label: Τίτλος
-            type: string
-            required: true
-          - name: body
-            label: Κείμενο
-            type: text
-            required: true
-          - name: order
-            label: Σειρά εμφάνισης
+            label: "Σειρά εμφάνισης"
             type: number
 
-  - name: lyrics-writings-en
-    label: "EN · Lyrics and Writings — English"
+  - name: writings-el
+    label: "EL · Κείμενα / Πεζά — Ελληνικά"
     type: file
-    path: content/en/texts.json
+    path: content/el/writings.json
     fields:
-      - name: lyrics
-        label: "Lyrics (shown in the Lyrics tab)"
+      - name: items
+        label: "Κείμενα / Πεζά"
         type: list
         fields:
           - name: id
-            label: "Unique id (latin characters only, no spaces, e.g. an-den-eixa)"
+            label: "Μοναδικός κωδικός (μόνο λατινικά, χωρίς κενά)"
             type: string
             required: true
           - name: title
-            label: Title
+            label: "Τίτλος"
+            type: string
+            required: true
+          - name: date
+            label: "Ημερομηνία"
+            type: date
+          - name: body
+            label: "Κείμενο"
+            type: text
+            required: true
+          - name: order
+            label: "Σειρά εμφάνισης"
+            type: number
+
+  - name: lyrics-en
+    label: "EN · Lyrics — English"
+    type: file
+    path: content/en/lyrics.json
+    fields:
+      - name: items
+        label: "Lyrics"
+        type: list
+        fields:
+          - name: id
+            label: "Unique ID (Latin characters only, no spaces)"
+            type: string
+            required: true
+          - name: title
+            label: "Song title"
             type: string
             required: true
           - name: release
-            label: "Belongs to release (choose from Discography)"
+            label: "Belongs to album / release"
             type: select
+            required: true
             options:
               source:
                 file: content/en/music
                 fields: [title]
           - name: body
-            label: Lyrics
+            label: "Lyrics"
             type: text
             required: true
           - name: order
-            label: Display order
+            label: "Display order"
             type: number
-      - name: writings
-        label: "Writings (shown in the Writings tab)"
+
+  - name: writings-en
+    label: "EN · Writings — English"
+    type: file
+    path: content/en/writings.json
+    fields:
+      - name: items
+        label: "Writings"
         type: list
         fields:
           - name: id
-            label: "Unique id (latin characters only, no spaces, e.g. peri-kymaton)"
+            label: "Unique ID (Latin characters only, no spaces)"
             type: string
             required: true
           - name: title
-            label: Title
+            label: "Title"
             type: string
             required: true
+          - name: date
+            label: "Date"
+            type: date
           - name: body
-            label: Text
+            label: "Text"
             type: text
             required: true
           - name: order
-            label: Display order
+            label: "Display order"
             type: number
-
   - name: press
     label: "EL · Συνεντεύξεις και Τύπος — Ελληνικά"
     type: collection
