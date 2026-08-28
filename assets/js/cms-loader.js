@@ -197,19 +197,25 @@
     bindReleaseChips();
   }
 
+  /* ---------------------------------------------------------
+     DEPTH/STACK CAROUSEL
+     Larger cards (sized like the featured cover art), with a
+     subtle 3D depth effect: the active card sits forward (scale 1,
+     full opacity), neighbours are pushed slightly back (scale-down,
+     dimmed). Clicking an arrow animates the stack forward/backward.
+  --------------------------------------------------------- */
   function buildCarousel(containerSelector, itemSelector) {
     var container = document.querySelector(containerSelector);
     if (!container || container.dataset.carouselReady) return;
-    var items = container.querySelectorAll(itemSelector);
+    var items = Array.prototype.slice.call(container.querySelectorAll(itemSelector));
     if (items.length < 2) return;
     container.dataset.carouselReady = '1';
+    container.classList.add('cms-carousel-track');
 
     var wrap = document.createElement('div');
     wrap.className = 'cms-carousel-wrap';
-    wrap.style.cssText = 'position:relative';
     container.parentNode.insertBefore(wrap, container);
     wrap.appendChild(container);
-    container.classList.add('cms-carousel-track');
 
     var prev = document.createElement('button');
     prev.type = 'button';
@@ -226,7 +232,6 @@
 
     var dots = document.createElement('div');
     dots.className = 'cms-carousel-dots';
-    dots.style.cssText = 'display:flex;gap:6px;justify-content:center;margin-top:12px';
     items.forEach(function (_, i) {
       var dot = document.createElement('span');
       dot.className = 'cms-carousel-dot' + (i === 0 ? ' active' : '');
@@ -234,27 +239,97 @@
     });
     wrap.parentNode.insertBefore(dots, wrap.nextSibling);
 
-    function scrollByAmount(dir) {
-      var itemWidth = items[0].getBoundingClientRect().width + 15;
-      container.scrollBy({ left: dir * itemWidth, behavior: 'smooth' });
-    }
-    prev.addEventListener('click', function () { scrollByAmount(-1); });
-    next.addEventListener('click', function () { scrollByAmount(1); });
+    var activeIndex = 0;
 
-    container.addEventListener('scroll', function () {
-      var scrollRatio = container.scrollLeft / Math.max(1, container.scrollWidth - container.clientWidth);
-      var activeIndex = Math.round(scrollRatio * (items.length - 1));
+    function applyDepth() {
+      var scrollRatio = container.scrollWidth > container.clientWidth
+        ? container.scrollLeft / (container.scrollWidth - container.clientWidth)
+        : 0;
+      activeIndex = Math.round(scrollRatio * (items.length - 1));
+      items.forEach(function (item, i) {
+        var dist = Math.abs(i - activeIndex);
+        if (dist === 0) {
+          item.style.transform = 'scale(1) translateZ(0)';
+          item.style.opacity = '1';
+          item.style.zIndex = '3';
+        } else if (dist === 1) {
+          item.style.transform = 'scale(.92) translateZ(0)';
+          item.style.opacity = '.55';
+          item.style.zIndex = '2';
+        } else {
+          item.style.transform = 'scale(.86) translateZ(0)';
+          item.style.opacity = '.28';
+          item.style.zIndex = '1';
+        }
+      });
       dots.querySelectorAll('.cms-carousel-dot').forEach(function (d, i) {
         d.classList.toggle('active', i === activeIndex);
       });
+      prev.disabled = activeIndex === 0;
+      next.disabled = activeIndex === items.length - 1;
+    }
+
+    function goTo(index) {
+      var clamped = Math.max(0, Math.min(index, items.length - 1));
+      var target = items[clamped];
+      container.scrollTo({
+        left: target.offsetLeft - (container.clientWidth - target.offsetWidth) / 2,
+        behavior: 'smooth'
+      });
+    }
+
+    prev.addEventListener('click', function () { goTo(activeIndex - 1); });
+    next.addEventListener('click', function () { goTo(activeIndex + 1); });
+    dots.querySelectorAll('.cms-carousel-dot').forEach(function (dot, i) {
+      dot.addEventListener('click', function () { goTo(i); });
+    });
+
+    var scrollTimeout;
+    container.addEventListener('scroll', function () {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(applyDepth, 40);
     }, { passive: true });
 
     if (!document.getElementById('cms-carousel-style')) {
       var style = document.createElement('style');
       style.id = 'cms-carousel-style';
-      style.textContent = '.cms-carousel-track{display:flex !important;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:12px;grid-template-columns:none !important;scrollbar-width:none}.cms-carousel-track::-webkit-scrollbar{display:none}.cms-carousel-track>*{scroll-snap-align:start;flex:0 0 auto;width:clamp(110px,32vw,160px)}.cms-carousel-track.masonry>*{width:clamp(100px,28vw,150px)}@media (min-width:640px){.cms-carousel-track>*{width:clamp(140px,20vw,190px)}.cms-carousel-track.masonry>*{width:clamp(130px,18vw,175px)}}@media (min-width:1024px){.cms-carousel-track>*{width:clamp(160px,13vw,220px)}.cms-carousel-track.masonry>*{width:clamp(150px,12vw,200px)}}.cms-carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:36px;height:36px;border-radius:50%;border:0;background:var(--acid,#d8ff3e);color:var(--ink,#0a0712);font-size:1rem;cursor:pointer;display:grid;place-items:center;box-shadow:0 4px 10px rgba(0,0,0,.3)}.cms-carousel-prev{left:-6px}.cms-carousel-next{right:-6px}.cms-carousel-dot{width:7px;height:7px;border-radius:50%;background:rgba(10,7,18,.25)}.cms-carousel-dot.active{background:var(--acid,#d8ff3e)}@media (max-width:720px){.cms-carousel-arrow{width:36px;height:36px}}';
+      style.textContent =
+        '.cms-carousel-wrap{position:relative;display:flex;align-items:center;gap:10px}' +
+        '.cms-carousel-track{display:flex !important;grid-template-columns:none !important;' +
+        'overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;' +
+        'gap:28px;padding:24px 8px;scrollbar-width:none;perspective:1200px}' +
+        '.cms-carousel-track::-webkit-scrollbar{display:none}' +
+        '.cms-carousel-track>*{scroll-snap-align:center;flex:0 0 auto;' +
+        'width:clamp(220px,60vw,340px);transition:transform .45s cubic-bezier(.22,.9,.32,1),opacity .45s ease;' +
+        'transform-origin:center center}' +
+        '.cms-carousel-track.masonry>*{width:clamp(200px,55vw,320px)}' +
+        '@media (min-width:640px){.cms-carousel-track>*{width:clamp(240px,38vw,300px)}' +
+        '.cms-carousel-track.masonry>*{width:clamp(220px,34vw,280px)}}' +
+        '@media (min-width:1024px){.cms-carousel-track>*{width:min(340px,26vw)}' +
+        '.cms-carousel-track.masonry>*{width:min(320px,24vw)}}' +
+        '.cms-carousel-track .release-art,.cms-carousel-track .release-card,' +
+        '.cms-carousel-track .press-card,.cms-carousel-track.masonry .photo{aspect-ratio:1;' +
+        'border-radius:18px;overflow:hidden}' +
+        '.cms-carousel-track .press-card{aspect-ratio:auto;min-height:280px}' +
+        '.cms-carousel-arrow{flex:0 0 auto;position:relative;width:44px;height:44px;' +
+        'border-radius:50%;border:0;background:var(--acid,#d8ff3e);color:var(--ink,#0a0712);' +
+        'font-size:1.2rem;cursor:pointer;display:grid;place-items:center;z-index:5;' +
+        'box-shadow:0 6px 16px rgba(0,0,0,.35);transition:transform .2s ease}' +
+        '.cms-carousel-arrow:hover:not(:disabled){transform:scale(1.1)}' +
+        '.cms-carousel-arrow:disabled{opacity:.25;cursor:default}' +
+        '.cms-carousel-dots{display:flex;gap:7px;justify-content:center;margin-top:14px}' +
+        '.cms-carousel-dot{width:8px;height:8px;border-radius:50%;background:rgba(10,7,18,.25);' +
+        'cursor:pointer;transition:transform .2s ease,background .2s ease}' +
+        '.cms-carousel-dot.active{background:var(--acid,#d8ff3e);transform:scale(1.35)}' +
+        '@media (max-width:720px){.cms-carousel-arrow{width:38px;height:38px;font-size:1.05rem}}';
       document.head.appendChild(style);
     }
+
+    requestAnimationFrame(applyDepth);
+    window.addEventListener('resize', function () {
+      clearTimeout(window.__cmsCarouselResize);
+      window.__cmsCarouselResize = setTimeout(applyDepth, 150);
+    });
   }
 
   function removeNewsletterUI() {
