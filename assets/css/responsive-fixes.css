@@ -130,3 +130,31 @@ section, header, footer, main, article, div {
     font-size: clamp(1.5rem, 9vw, 3rem);
   }
 }
+
+/* --- Targeted hero title fix (added) ---
+   Overrides the inline <style> block's .hero h1 min-size (4.4rem)
+   which was too large for narrow phones and caused "Φανουράκης"
+   to overflow off-screen. Uses !important only here, scoped to
+   this one selector, to safely win over the inline <style> block
+   without touching index.html directly. */
+.hero h1 {
+  font-size: clamp(2.4rem, 11vw, 12.5rem) !important;
+  line-height: 0.9 !important;
+  letter-spacing: -0.05em !important;
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+  max-width: 100% !important;
+}
+
+@media (max-width: 560px) {
+  .hero h1 {
+    font-size: clamp(2rem, 12vw, 4.2rem) !important;
+    line-height: 0.95 !important;
+  }
+}
+
+@media (max-width: 375px) {
+  .hero h1 {
+    font-size: clamp(1.8rem, 12.5vw, 3.6rem) !important;
+  }
+}
