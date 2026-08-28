@@ -1,4 +1,4 @@
-/* CMS loader for fanourakis-site markup. Supports EL/EN via .lang toggle buttons with localStorage persistence. */
+/* CMS loader for fanourakis-site markup. Supports EL/EN via .lang toggle buttons with localStorage persistence. Newsletter/email signup removed. */
 (function () {
   'use strict';
 
@@ -155,12 +155,23 @@
     });
   }
 
+  function removeNewsletterUI() {
+    var form = document.querySelector('#contact .form');
+    if (form) form.remove();
+    var msg = document.getElementById('message');
+    if (msg) msg.remove();
+    document.querySelectorAll('#contact p').forEach(function (p) {
+      if (/booking|press/i.test(p.textContent || '') && p.querySelector('b')) p.remove();
+    });
+  }
+
   var lang = currentLang();
   var base = lang === 'en' ? 'content/en/' : 'content/el/';
   var rootBase = lang === 'en' ? 'content/en/' : 'content/';
 
   applyActiveLangButton(lang);
   document.documentElement.setAttribute('lang', lang);
+  removeNewsletterUI();
 
   console.info('[CMS] Loader started, lang=' + lang);
 
@@ -224,9 +235,6 @@
       setText(contactSection.querySelector('.eyebrow'), data.contact_eyebrow);
       setText(contactSection.querySelector('h2'), data.contact_title);
       setHtml(contactSection.querySelector('.contact-grid > div > p'), data.contact_intro);
-      var emailInput = contactSection.querySelector('#email');
-      if (emailInput && data.newsletter_placeholder) emailInput.setAttribute('placeholder', data.newsletter_placeholder);
-      setText(contactSection.querySelector('.form button'), data.newsletter_button);
     }
     console.info('[CMS] Rendered site text (' + lang + ')');
   });
