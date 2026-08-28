@@ -607,7 +607,8 @@ content:
     fields:
       - name: items
         label: "Στίχοι"
-        type: list
+        type: object
+        list: true
         fields:
           - name: id
             label: "Μοναδικός κωδικός (μόνο λατινικά, χωρίς κενά)"
@@ -640,7 +641,8 @@ content:
     fields:
       - name: items
         label: "Κείμενα / Πεζά"
-        type: list
+        type: object
+        list: true
         fields:
           - name: id
             label: "Μοναδικός κωδικός (μόνο λατινικά, χωρίς κενά)"
@@ -668,8 +670,8 @@ content:
     fields:
       - name: items
         label: "Lyrics"
-        type: list
-        fields:
+        type: object
+        list: true
           - name: id
             label: "Unique ID (Latin characters only, no spaces)"
             type: string
@@ -699,10 +701,10 @@ content:
     type: file
     path: content/en/writings.json
     fields:
-      - name: items
+      -- name: items
         label: "Writings"
-        type: list
-        fields:
+        type: object
+        list: true
           - name: id
             label: "Unique ID (Latin characters only, no spaces)"
             type: string
