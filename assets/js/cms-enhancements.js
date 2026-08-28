@@ -3,9 +3,13 @@
    1) Release-filter chips above the lyrics/writings list (#lyrics-list),
       built from distinct music titles. Clicking a chip filters the
       buttons inside #lyrics-list by their [data-cms-release] attribute.
-   2) buildCarousel(): injects prev/next arrow buttons + a dot-indicator
-      into .release-grid, .press-grid and .masonry containers, enabling
-      horizontal scroll-snap navigation without hiding the existing grid.
+   2) buildCarousel(): injects prev/next arrow buttons and a position
+      dot-indicator into .release-grid, .press-grid and .masonry
+      containers, enabling horizontal scroll-snap navigation without
+      hiding the existing grid view. Item sizing is fully responsive
+      (controlled via CSS clamp() in responsive-fixes.css), and the
+      carousel recalculates its dot count / arrow state on resize so
+      it adapts correctly between phone, tablet and laptop widths.
 
    Loaded AFTER cms-loader.js. Does not modify or replace it.
    Safe no-ops if expected elements are not found.
@@ -21,17 +25,25 @@
     }
   }
 
-  /* ---------------------------------------------------------
-     1) RELEASE FILTER CHIPS FOR LYRICS SECTION
-  --------------------------------------------------------- */
+  function debounce(fn, wait) {
+    var t;
+    return function () {
+      clearTimeout(t);
+      var args = arguments;
+      t = setTimeout(function () { fn.apply(null, args); }, wait);
+    };
+  }
+
   function initLyricsFilters() {
     var list = document.getElementById("lyrics-list");
-    if (!list) return;
+    if (!list || list.dataset.filtersInit === "true") return;
 
     var items = Array.prototype.slice.call(
       list.querySelectorAll("[data-cms-release]")
     );
     if (!items.length) return;
+
+    list.dataset.filtersInit = "true";
 
     var seen = new Set();
     var releases = [];
@@ -97,84 +109,62 @@
     list.parentNode.insertBefore(chipBar, list);
   }
 
-  /* ---------------------------------------------------------
-     2) ARROW-NAVIGATION CAROUSELS FOR GRID CONTAINERS
-  --------------------------------------------------------- */
   function buildCarousel(container) {
-    if (!container || container.dataset.carouselInit === "true") return;
+    if (!container) return;
 
     var children = Array.prototype.slice.call(container.children);
     if (children.length < 2) return;
 
-    container.dataset.carouselInit = "true";
-    container.classList.add("has-carousel-nav");
+    var wrapper, prevBtn, nextBtn, dots;
 
-    var wrapper = document.createElement("div");
-    wrapper.className = "carousel-wrapper";
+    if (container.dataset.carouselInit === "true") {
+      wrapper = container.parentElement;
+      prevBtn = wrapper.querySelector(".carousel-arrow--prev");
+      nextBtn = wrapper.querySelector(".carousel-arrow--next");
+      dots = wrapper.parentElement.querySelector(".carousel-dots");
+    } else {
+      container.dataset.carouselInit = "true";
+      container.classList.add("has-carousel-nav");
 
-    var prevBtn = document.createElement("button");
-    prevBtn.type = "button";
-    prevBtn.className = "carousel-arrow carousel-arrow--prev";
-    prevBtn.setAttribute("aria-label", "Προηγούμενο");
-    prevBtn.innerHTML = "&#8249;";
+      wrapper = document.createElement("div");
+      wrapper.className = "carousel-wrapper";
 
-    var nextBtn = document.createElement("button");
-    nextBtn.type = "button";
-    nextBtn.className = "carousel-arrow carousel-arrow--next";
-    nextBtn.setAttribute("aria-label", "Επόμενο");
-    nextBtn.innerHTML = "&#8250;";
+      prevBtn = document.createElement("button");
+      prevBtn.type = "button";
+      prevBtn.className = "carousel-arrow carousel-arrow--prev";
+      prevBtn.setAttribute("aria-label", "Προηγούμενο");
+      prevBtn.innerHTML = "&#8249;";
 
-    var dots = document.createElement("div");
-    dots.className = "carousel-dots";
+      nextBtn = document.createElement("button");
+      nextBtn.type = "button";
+      nextBtn.className = "carousel-arrow carousel-arrow--next";
+      nextBtn.setAttribute("aria-label", "Επόμενο");
+      nextBtn.innerHTML = "&#8250;";
 
-    container.parentNode.insertBefore(wrapper, container);
-    wrapper.appendChild(prevBtn);
-    wrapper.appendChild(container);
-    wrapper.appendChild(nextBtn);
-    wrapper.parentNode.insertBefore(dots, wrapper.nextSibling);
+      dots = document.createElement("div");
+      dots.className = "carousel-dots";
 
-    container.style.scrollSnapType = "x mandatory";
-    container.style.overflowX = "auto";
-    container.style.scrollBehavior = "smooth";
-    children.forEach(function (child) {
-      child.style.scrollSnapAlign = "start";
-    });
+      container.parentNode.insertBefore(wrapper, container);
+      wrapper.appendChild(prevBtn);
+      wrapper.appendChild(container);
+      wrapper.appendChild(nextBtn);
+      wrapper.parentNode.insertBefore(dots, wrapper.nextSibling);
 
-    children.forEach(function (_, idx) {
-      var dot = document.createElement("button");
-      dot.type = "button";
-      dot.className = "carousel-dot";
-      dot.setAttribute("aria-label", "Μετάβαση σε στοιχείο " + (idx + 1));
-      dot.addEventListener("click", function () {
-        scrollToIndex(idx);
+      children.forEach(function (child) {
+        child.style.scrollSnapAlign = "start";
       });
-      dots.appendChild(dot);
-    });
 
-    function updateActiveDot() {
-      var dotEls = Array.prototype.slice.call(dots.children);
-      var scrollLeft = container.scrollLeft;
-      var closestIdx = 0;
-      var closestDist = Infinity;
-      children.forEach(function (child, idx) {
-        var dist = Math.abs(child.offsetLeft - scrollLeft);
-        if (dist < closestDist) {
-          closestDist = dist;
-          closestIdx = idx;
-        }
+      prevBtn.addEventListener("click", function () {
+        scrollToIndex(currentIndex() - 1);
       });
-      dotEls.forEach(function (d, idx) {
-        d.classList.toggle("is-active", idx === closestIdx);
+      nextBtn.addEventListener("click", function () {
+        scrollToIndex(currentIndex() + 1);
       });
-      prevBtn.disabled = closestIdx === 0;
-      nextBtn.disabled = closestIdx === children.length - 1;
-    }
 
-    function scrollToIndex(idx) {
-      var clamped = Math.max(0, Math.min(idx, children.length - 1));
-      container.scrollTo({
-        left: children[clamped].offsetLeft,
-        behavior: "smooth"
+      var scrollTimeout;
+      container.addEventListener("scroll", function () {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(updateActiveDot, 80);
       });
     }
 
@@ -192,20 +182,53 @@
       return closestIdx;
     }
 
-    prevBtn.addEventListener("click", function () {
-      scrollToIndex(currentIndex() - 1);
-    });
-    nextBtn.addEventListener("click", function () {
-      scrollToIndex(currentIndex() + 1);
-    });
+    function scrollToIndex(idx) {
+      var clamped = Math.max(0, Math.min(idx, children.length - 1));
+      container.scrollTo({
+        left: children[clamped].offsetLeft,
+        behavior: "smooth"
+      });
+    }
 
-    var scrollTimeout;
-    container.addEventListener("scroll", function () {
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(updateActiveDot, 80);
-    });
+    function updateActiveDot() {
+      var dotEls = Array.prototype.slice.call(dots.children);
+      var idx = currentIndex();
+      dotEls.forEach(function (d, i) {
+        d.classList.toggle("is-active", i === idx);
+      });
+      prevBtn.disabled = idx === 0;
+      nextBtn.disabled = idx === children.length - 1;
+    }
 
-    updateActiveDot();
+    function rebuildDots() {
+      dots.innerHTML = "";
+      var containerWidth = container.clientWidth;
+      var itemWidth = children[0].getBoundingClientRect().width || 1;
+      var gap = parseFloat(getComputedStyle(container).gap) || 0;
+      var perView = Math.max(1, Math.round(containerWidth / (itemWidth + gap)));
+      var pageCount = Math.max(1, Math.ceil(children.length / perView));
+
+      for (var i = 0; i < pageCount; i++) {
+        var dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "carousel-dot";
+        dot.setAttribute("aria-label", "Μετάβαση σε σελίδα " + (i + 1));
+        (function (pageIdx) {
+          dot.addEventListener("click", function () {
+            scrollToIndex(pageIdx * perView);
+          });
+        })(i);
+        dots.appendChild(dot);
+      }
+      updateActiveDot();
+    }
+
+    rebuildDots();
+
+    if (!container.dataset.resizeBound) {
+      container.dataset.resizeBound = "true";
+      window.addEventListener("resize", debounce(rebuildDots, 200));
+    }
   }
 
   function initCarousels() {
@@ -217,10 +240,6 @@
     });
   }
 
-  /* ---------------------------------------------------------
-     INIT — run now, and re-run after CMS content is injected
-     (cms-loader.js may render items asynchronously).
-  --------------------------------------------------------- */
   function initAll() {
     initLyricsFilters();
     initCarousels();

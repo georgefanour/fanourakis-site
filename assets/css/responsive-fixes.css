@@ -1,0 +1,132 @@
+/* responsive-fixes.css
+   GLOBAL, defensive responsive layer.
+   Goal: no text or image should ever overflow the viewport width,
+   on phone, tablet or laptop. Works alongside existing styles —
+   uses only safe, universal selectors and does not remove/override
+   colors, fonts, or layout choices already in place.
+
+   Load this LAST in <head>, after all other stylesheets, so it can
+   act as a final safety net without being overridden by earlier rules.
+*/
+
+/* 1) Universal overflow guard --------------------------------- */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  max-width: 100%;
+}
+
+/* 2) Fluid typography for ALL headings and paragraphs ---------- */
+h1 {
+  font-size: clamp(1.75rem, 8vw, 4rem);
+  line-height: 1.15;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+h2 {
+  font-size: clamp(1.4rem, 5vw, 2.75rem);
+  line-height: 1.2;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+h3 {
+  font-size: clamp(1.15rem, 3.5vw, 1.9rem);
+  line-height: 1.25;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+p, li, span, a, blockquote {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* 3) Any element previously sized with raw vw units can overflow
+   on very narrow screens. Safety ceiling without needing to know
+   the exact class name used on the page. */
+[style*="vw"] {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* 4) Images, video, svg — never wider than their container ----- */
+img, video, svg, picture, canvas {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 5) Generic containers should never force horizontal scroll
+   unless explicitly a carousel (handled separately below) ------ */
+section, header, footer, main, article, div {
+  max-width: 100%;
+}
+
+/* 6) Carousel / grid containers: fluid item sizing -------------- */
+.release-grid,
+.press-grid,
+.masonry {
+  gap: clamp(0.5rem, 2vw, 1.5rem);
+}
+
+.release-grid > *,
+.press-grid > *,
+.masonry > * {
+  flex: 0 0 auto;
+  width: clamp(140px, 42vw, 220px);
+}
+
+@media (min-width: 640px) {
+  .release-grid > *,
+  .press-grid > *,
+  .masonry > * {
+    width: clamp(180px, 28vw, 260px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .release-grid > *,
+  .press-grid > *,
+  .masonry > * {
+    width: clamp(200px, 18vw, 300px);
+  }
+}
+
+.release-grid img,
+.press-grid img,
+.masonry img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* 7) Carousel arrows/dots: scale down on small screens ---------- */
+@media (max-width: 480px) {
+  .carousel-arrow {
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 0.9rem;
+  }
+  .carousel-dots {
+    gap: 0.3rem;
+  }
+  .carousel-dot {
+    width: 0.4rem;
+    height: 0.4rem;
+  }
+}
+
+/* 8) Extra-narrow phones (<= 375px): tighten fluid type further -- */
+@media (max-width: 375px) {
+  h1 {
+    font-size: clamp(1.5rem, 9vw, 3rem);
+  }
+}
