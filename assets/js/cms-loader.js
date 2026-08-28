@@ -1,4 +1,4 @@
-/* CMS loader for fanourakis-site markup. Supports EL/EN via .lang toggle buttons with localStorage persistence. Newsletter/email signup removed. */
+/* CMS loader for fanourakis-site markup. EL/EN via .lang with localStorage. Newsletter removed. Adds release chips + arrow carousels. */
 (function () {
   'use strict';
 
@@ -147,12 +147,114 @@
         if (lyricsTab) lyricsTab.click();
         if (wordsSection) wordsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         var releaseTitle = this.getAttribute('data-jump-lyrics');
-        var match = Array.from(document.querySelectorAll('#lyrics-list button')).find(function (btn) {
-          return btn.getAttribute('data-cms-release') === releaseTitle;
-        });
-        if (match) setTimeout(function () { match.click(); }, 300);
+        var chip = document.querySelector('.release-chip[data-release="' + CSS.escape(releaseTitle) + '"]');
+        if (chip) setTimeout(function () { chip.click(); }, 150);
       });
     });
+  }
+
+  function bindReleaseChips() {
+    var chips = document.querySelectorAll('.release-chip');
+    if (!chips.length) return;
+    chips.forEach(function (chip) {
+      chip.addEventListener('click', function () {
+        chips.forEach(function (c) { c.classList.remove('active'); });
+        chip.classList.add('active');
+        var chosen = chip.getAttribute('data-release');
+        document.querySelectorAll('#lyrics-list button, #writings-list button').forEach(function (btn) {
+          var rel = btn.getAttribute('data-cms-release') || '';
+          btn.hidden = chosen !== 'all' && rel !== chosen;
+        });
+      });
+    });
+  }
+
+  function renderReleaseChips(lyricsItems) {
+    var host = document.querySelector('#words .tabs');
+    if (!host) return;
+    var titles = [];
+    (lyricsItems || []).forEach(function (item) {
+      if (item.release && titles.indexOf(item.release) === -1) titles.push(item.release);
+    });
+    if (!titles.length) return;
+    var existing = document.querySelector('.release-chips');
+    if (existing) existing.remove();
+    var wrap = document.createElement('div');
+    wrap.className = 'release-chips';
+    wrap.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 0';
+    var allChip = '<button type="button" class="release-chip active" data-release="all" style="border:1px solid rgba(10,7,18,.35);background:var(--ink,#0a0712);color:var(--paper,#fff8ed);border-radius:999px;padding:7px 12px;font-size:.68rem;font-weight:700">Όλα τα τραγούδια</button>';
+    var chipsHtml = titles.map(function (title) {
+      return '<button type="button" class="release-chip" data-release="' + escapeHtml(title) + '" style="border:1px solid rgba(10,7,18,.35);background:transparent;color:var(--ink,#0a0712);border-radius:999px;padding:7px 12px;font-size:.68rem;font-weight:700">' + escapeHtml(title) + '</button>';
+    }).join('');
+    wrap.innerHTML = allChip + chipsHtml;
+    host.insertAdjacentElement('afterend', wrap);
+    if (!document.getElementById('cms-release-chip-style')) {
+      var style = document.createElement('style');
+      style.id = 'cms-release-chip-style';
+      style.textContent = '.release-chip.active{background:var(--ink,#0a0712) !important;color:var(--paper,#fff8ed) !important}';
+      document.head.appendChild(style);
+    }
+    bindReleaseChips();
+  }
+
+  function buildCarousel(containerSelector, itemSelector) {
+    var container = document.querySelector(containerSelector);
+    if (!container || container.dataset.carouselReady) return;
+    var items = container.querySelectorAll(itemSelector);
+    if (items.length < 2) return;
+    container.dataset.carouselReady = '1';
+
+    var wrap = document.createElement('div');
+    wrap.className = 'cms-carousel-wrap';
+    wrap.style.cssText = 'position:relative';
+    container.parentNode.insertBefore(wrap, container);
+    wrap.appendChild(container);
+    container.classList.add('cms-carousel-track');
+
+    var prev = document.createElement('button');
+    prev.type = 'button';
+    prev.className = 'cms-carousel-arrow cms-carousel-prev';
+    prev.setAttribute('aria-label', 'Προηγούμενο');
+    prev.innerHTML = '←';
+    var next = document.createElement('button');
+    next.type = 'button';
+    next.className = 'cms-carousel-arrow cms-carousel-next';
+    next.setAttribute('aria-label', 'Επόμενο');
+    next.innerHTML = '→';
+    wrap.appendChild(prev);
+    wrap.appendChild(next);
+
+    var dots = document.createElement('div');
+    dots.className = 'cms-carousel-dots';
+    dots.style.cssText = 'display:flex;gap:6px;justify-content:center;margin-top:12px';
+    items.forEach(function (_, i) {
+      var dot = document.createElement('span');
+      dot.className = 'cms-carousel-dot' + (i === 0 ? ' active' : '');
+      dots.appendChild(dot);
+    });
+    wrap.parentNode.insertBefore(dots, wrap.nextSibling);
+
+    function scrollByAmount(dir) {
+      var itemWidth = items[0].getBoundingClientRect().width + 15;
+      container.scrollBy({ left: dir * itemWidth, behavior: 'smooth' });
+    }
+    prev.addEventListener('click', function () { scrollByAmount(-1); });
+    next.addEventListener('click', function () { scrollByAmount(1); });
+
+    container.addEventListener('scroll', function () {
+      var scrollRatio = container.scrollLeft / Math.max(1, container.scrollWidth - container.clientWidth);
+      var activeIndex = Math.round(scrollRatio * (items.length - 1));
+      dots.querySelectorAll('.cms-carousel-dot').forEach(function (d, i) {
+        d.classList.toggle('active', i === activeIndex);
+      });
+    }, { passive: true });
+
+    if (!document.getElementById('cms-carousel-style')) {
+      var style = document.createElement('style');
+      style.id = 'cms-carousel-style';
+      style.textContent = '.cms-carousel-track{display:flex !important;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:15px;grid-template-columns:none !important}.cms-carousel-track>*{scroll-snap-align:start;flex:0 0 auto;min-width:240px}.cms-carousel-track.masonry>*{min-width:200px}.cms-carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:38px;height:38px;border-radius:50%;border:0;background:var(--acid,#d8ff3e);color:var(--ink,#0a0712);font-size:1.1rem;cursor:pointer;display:grid;place-items:center;box-shadow:0 4px 10px rgba(0,0,0,.3)}.cms-carousel-prev{left:-6px}.cms-carousel-next{right:-6px}.cms-carousel-dot{width:7px;height:7px;border-radius:50%;background:rgba(10,7,18,.25)}.cms-carousel-dot.active{background:var(--acid,#d8ff3e)}@media (max-width:720px){.cms-carousel-arrow{width:32px;height:32px}}';
+      document.head.appendChild(style);
+    }
   }
 
   function removeNewsletterUI() {
@@ -269,6 +371,7 @@
         '<div class="release-actions">' + links.join('') + '</div></div></article>';
     }).join(''), 'music');
     bindLyricsJump();
+    buildCarousel('.release-grid', '.release-card');
   });
 
   load(rootBase + 'videos.json', function (data) {
@@ -313,6 +416,7 @@
       var meta = [item.outlet, item.date].filter(Boolean).map(escapeHtml).join(' · ');
       return '<article class="press-card reveal show"><div>' + thumbMarkup + '<span class="press-type">' + escapeHtml(item.type || '') + (meta ? ' · ' + meta : '') + '</span><h3>' + escapeHtml(item.title || '') + '</h3><p>' + renderMultiline(item.excerpt || '') + '</p></div>' + link + '</article>';
     }).join(''), 'press');
+    buildCarousel('.press-grid', '.press-card');
   });
 
   load(rootBase + 'photos.json', function (data) {
@@ -331,6 +435,7 @@
       document.head.appendChild(style);
     }
     bindPhotoLightbox();
+    buildCarousel('.masonry', '.photo');
   });
 
   load(base + 'texts.json', function (data) {
@@ -344,6 +449,7 @@
     }
     list('#lyrics-list', data.lyrics);
     list('#writings-list', data.writings);
+    renderReleaseChips(data.lyrics);
     bindWordPanels();
     bindLyricsJump();
     console.info('[CMS] Rendered texts (' + lang + ')');
