@@ -9,7 +9,6 @@
    act as a final safety net without being overridden by earlier rules.
 */
 
-/* 1) Universal overflow guard --------------------------------- */
 html, body {
   max-width: 100%;
   overflow-x: hidden;
@@ -19,7 +18,6 @@ html, body {
   max-width: 100%;
 }
 
-/* 2) Fluid typography for ALL headings and paragraphs ---------- */
 h1 {
   font-size: clamp(1.75rem, 8vw, 4rem);
   line-height: 1.15;
@@ -47,47 +45,41 @@ p, li, span, a, blockquote {
   word-break: break-word;
 }
 
-/* 3) Any element previously sized with raw vw units can overflow
-   on very narrow screens. Safety ceiling without needing to know
-   the exact class name used on the page. */
 [style*="vw"] {
   max-width: 100%;
   overflow-wrap: break-word;
   word-break: break-word;
 }
 
-/* 4) Images, video, svg — never wider than their container ----- */
 img, video, svg, picture, canvas {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* 5) Generic containers should never force horizontal scroll
-   unless explicitly a carousel (handled separately below) ------ */
 section, header, footer, main, article, div {
   max-width: 100%;
 }
 
-/* 6) Carousel / grid containers: fluid item sizing -------------- */
+/* Carousel / grid containers: SMALLER fluid item sizing */
 .release-grid,
 .press-grid,
 .masonry {
-  gap: clamp(0.5rem, 2vw, 1.5rem);
+  gap: clamp(0.4rem, 1.5vw, 1rem);
 }
 
 .release-grid > *,
 .press-grid > *,
 .masonry > * {
   flex: 0 0 auto;
-  width: clamp(140px, 42vw, 220px);
+  width: clamp(110px, 32vw, 160px);
 }
 
 @media (min-width: 640px) {
   .release-grid > *,
   .press-grid > *,
   .masonry > * {
-    width: clamp(180px, 28vw, 260px);
+    width: clamp(130px, 20vw, 180px);
   }
 }
 
@@ -95,7 +87,7 @@ section, header, footer, main, article, div {
   .release-grid > *,
   .press-grid > *,
   .masonry > * {
-    width: clamp(200px, 18vw, 300px);
+    width: clamp(140px, 13vw, 210px);
   }
 }
 
@@ -108,35 +100,26 @@ section, header, footer, main, article, div {
   border-radius: 8px;
 }
 
-/* 7) Carousel arrows/dots: scale down on small screens ---------- */
+.carousel-arrow {
+  width: 36px !important;
+  height: 36px !important;
+  font-size: 1rem !important;
+}
+
 @media (max-width: 480px) {
   .carousel-arrow {
-    width: 1.75rem;
-    height: 1.75rem;
-    font-size: 0.9rem;
-  }
-  .carousel-dots {
-    gap: 0.3rem;
-  }
-  .carousel-dot {
-    width: 0.4rem;
-    height: 0.4rem;
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 0.95rem !important;
   }
 }
 
-/* 8) Extra-narrow phones (<= 375px): tighten fluid type further -- */
 @media (max-width: 375px) {
   h1 {
     font-size: clamp(1.5rem, 9vw, 3rem);
   }
 }
 
-/* --- Targeted hero title fix (added) ---
-   Overrides the inline <style> block's .hero h1 min-size (4.4rem)
-   which was too large for narrow phones and caused "Φανουράκης"
-   to overflow off-screen. Uses !important only here, scoped to
-   this one selector, to safely win over the inline <style> block
-   without touching index.html directly. */
 .hero h1 {
   font-size: clamp(2.4rem, 11vw, 12.5rem) !important;
   line-height: 0.9 !important;

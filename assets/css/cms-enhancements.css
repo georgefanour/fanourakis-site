@@ -28,14 +28,9 @@
 }
 
 .release-chip.is-active {
-  background: currentColor;
-  color: #fff;
-  border-color: transparent;
-}
-
-.release-chip.is-active {
   background: #111;
   color: #fff;
+  border-color: transparent;
 }
 
 /* --- Carousel wrapper & arrows --- */
@@ -54,21 +49,16 @@
   gap: 1rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  scrollbar-width: thin;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .carousel-wrapper > .release-grid::-webkit-scrollbar,
 .carousel-wrapper > .press-grid::-webkit-scrollbar,
 .carousel-wrapper > .masonry::-webkit-scrollbar {
-  height: 6px;
-}
-
-.carousel-wrapper > .release-grid::-webkit-scrollbar-thumb,
-.carousel-wrapper > .press-grid::-webkit-scrollbar-thumb,
-.carousel-wrapper > .masonry::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.25);
-  border-radius: 999px;
+  display: none;
+  height: 0;
 }
 
 .carousel-arrow {
@@ -96,35 +86,14 @@
   cursor: default;
 }
 
-/* --- Dot indicators --- */
 .carousel-dots {
-  display: flex;
-  justify-content: center;
-  gap: 0.4rem;
-  margin-top: 0.6rem;
+  display: none;
 }
 
-.carousel-dot {
-  width: 0.5rem;
-  height: 0.5rem;
-  border-radius: 50%;
-  border: none;
-  background: rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  padding: 0;
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.carousel-dot.is-active {
-  background: #111;
-  transform: scale(1.25);
-}
-
-/* --- Responsive: stack arrows below on very small screens --- */
 @media (max-width: 480px) {
   .carousel-arrow {
-    width: 1.9rem;
-    height: 1.9rem;
-    font-size: 0.95rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 0.9rem;
   }
 }
