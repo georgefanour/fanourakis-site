@@ -120,26 +120,8 @@ content:
         label: "Ενότητα «Επικοινωνία» · κύριος τίτλος"
         type: string
       - name: contact_intro
-        label: "Ενότητα «Επικοινωνία» · κείμενο πάνω από τη φόρμα εγγραφής"
+        label: "Ενότητα «Επικοινωνία» · κείμενο κάτω από τον τίτλο"
         type: text
-      - name: newsletter_placeholder
-        label: "Φόρμα εγγραφής · placeholder μέσα στο πεδίο email (γκρι υπόδειξη)"
-        type: string
-      - name: newsletter_button
-        label: "Φόρμα εγγραφής · κείμενο κουμπιού υποβολής"
-        type: string
-      - name: booking_label
-        label: "Κάτω μέρος ενότητας Επικοινωνία · ετικέτα πριν το booking email, π.χ. «Booking:»"
-        type: string
-      - name: booking_email
-        label: "Κάτω μέρος ενότητας Επικοινωνία · email για κρατήσεις / booking"
-        type: string
-      - name: press_email_label
-        label: "Κάτω μέρος ενότητας Επικοινωνία · ετικέτα πριν το press email, π.χ. «Press:»"
-        type: string
-      - name: press_email
-        label: "Κάτω μέρος ενότητας Επικοινωνία · email για δημοσιογράφους / Τύπο"
-        type: string
       - name: instagram_url
         label: "Footer · σύνδεσμος Instagram"
         type: string
@@ -281,24 +263,6 @@ content:
       - name: contact_intro
         label: "\"Contact\" section · text above the signup form"
         type: text
-      - name: newsletter_placeholder
-        label: "Signup form · placeholder inside email field"
-        type: string
-      - name: newsletter_button
-        label: "Signup form · submit button text"
-        type: string
-      - name: booking_label
-        label: "Bottom of Contact · label before booking email"
-        type: string
-      - name: booking_email
-        label: "Bottom of Contact · booking email address"
-        type: string
-      - name: press_email_label
-        label: "Bottom of Contact · label before press email"
-        type: string
-      - name: press_email
-        label: "Bottom of Contact · press email address"
-        type: string
       - name: instagram_url
         label: "Footer · Instagram link"
         type: string
@@ -398,10 +362,6 @@ content:
         label: Προτεινόμενη κυκλοφορία
         type: boolean
         default: false
-      - name: notify_subscribers
-        label: "Ειδοποίηση συνδρομητών newsletter όταν δημοσιευτεί/ενημερωθεί"
-        type: boolean
-        default: true
       - name: order
         label: Σειρά εμφάνισης
         type: number
@@ -452,10 +412,6 @@ content:
         label: Featured release
         type: boolean
         default: false
-      - name: notify_subscribers
-        label: "Notify newsletter subscribers when published/updated"
-        type: boolean
-        default: true
       - name: order
         label: Display order
         type: number
@@ -489,10 +445,6 @@ content:
       - name: thumbnail
         label: Thumbnail
         type: image
-      - name: notify_subscribers
-        label: "Ειδοποίηση συνδρομητών newsletter όταν δημοσιευτεί/ενημερωθεί"
-        type: boolean
-        default: true
       - name: order
         label: Σειρά εμφάνισης
         type: number
@@ -526,10 +478,6 @@ content:
       - name: thumbnail
         label: Thumbnail
         type: image
-      - name: notify_subscribers
-        label: "Notify newsletter subscribers when published/updated"
-        type: boolean
-        default: true
       - name: order
         label: Display order
         type: number
@@ -580,10 +528,6 @@ content:
         label: Προτεινόμενο live
         type: boolean
         default: false
-      - name: notify_subscribers
-        label: "Ειδοποίηση συνδρομητών newsletter όταν δημοσιευτεί/ενημερωθεί"
-        type: boolean
-        default: true
       - name: order
         label: Σειρά εμφάνισης
         type: number
@@ -634,10 +578,6 @@ content:
         label: Featured show
         type: boolean
         default: false
-      - name: notify_subscribers
-        label: "Notify newsletter subscribers when published/updated"
-        type: boolean
-        default: true
       - name: order
         label: Display order
         type: number
@@ -778,10 +718,6 @@ content:
         label: Προτεινόμενο item
         type: boolean
         default: false
-      - name: notify_subscribers
-        label: "Ειδοποίηση συνδρομητών newsletter όταν δημοσιευτεί/ενημερωθεί"
-        type: boolean
-        default: true
       - name: order
         label: Σειρά εμφάνισης
         type: number
@@ -824,10 +760,6 @@ content:
         label: Featured item
         type: boolean
         default: false
-      - name: notify_subscribers
-        label: "Notify newsletter subscribers when published/updated"
-        type: boolean
-        default: true
       - name: order
         label: Display order
         type: number
@@ -865,10 +797,6 @@ content:
         label: Προτεινόμενη φωτογραφία
         type: boolean
         default: false
-      - name: notify_subscribers
-        label: "Ειδοποίηση συνδρομητών newsletter όταν δημοσιευτεί/ενημερωθεί"
-        type: boolean
-        default: false
 
   - name: photos-en
     label: "EN · Photos — English"
@@ -901,9 +829,5 @@ content:
         type: number
       - name: featured
         label: Featured photo
-        type: boolean
-        default: false
-      - name: notify_subscribers
-        label: "Notify newsletter subscribers when published/updated"
         type: boolean
         default: false
