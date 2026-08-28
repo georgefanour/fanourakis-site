@@ -38,6 +38,8 @@
   "contact_eyebrow": "Newsletter & contact",
   "contact_title": "Contact",
   "contact_intro": "New music, live shows and everything before it reaches anywhere else.",
+  "contact_message": "For collaborations, live shows, interviews, or simply to say hello — I would love to hear from you.",
+"contact_email": "",
   "newsletter_placeholder": "your email",
   "newsletter_button": "Subscribe",
   "booking_label": "Booking:",
