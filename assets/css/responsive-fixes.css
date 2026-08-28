@@ -5,6 +5,12 @@
    uses only safe, universal selectors and does not remove/override
    colors, fonts, or layout choices already in place.
 
+   Note: carousel/grid item sizing is intentionally NOT handled here —
+   that layout (including .masonry, .release-grid, .press-grid and
+   .carousel-arrow) is fully owned and injected at runtime by
+   assets/js/cms-loader.js (see its #cms-carousel-style block) to
+   avoid conflicting overrides between two competing stylesheets.
+
    Load this LAST in <head>, after all other stylesheets, so it can
    act as a final safety net without being overridden by earlier rules.
 */
@@ -61,88 +67,18 @@ section, header, footer, main, article, div {
   max-width: 100%;
 }
 
-/* --- IMPORTANT: force override the inline <style> block's native
-   CSS multi-column masonry (columns:4 245px), which was rendering
-   photos far larger than intended and ignoring the flex-based
-   carousel sizing below. !important used because the inline
-   <style> block in index.html has equal/earlier specificity. */
-.masonry {
-  columns: unset !important;
-  column-gap: unset !important;
-  display: flex !important;
-  flex-wrap: nowrap !important;
-  overflow-x: auto !important;
-}
-
-.masonry .photo {
-  break-inside: unset !important;
-  margin: 0 !important;
-  flex: 0 0 auto !important;
-}
-
-/* Carousel / grid containers: SMALLER fluid item sizing, forced */
-.release-grid,
-.press-grid,
-.masonry {
-  gap: clamp(0.4rem, 1.5vw, 1rem) !important;
-}
-
-.release-grid > *,
-.press-grid > *,
-.masonry > *,
-.masonry .photo {
-  flex: 0 0 auto !important;
-  width: clamp(100px, 28vw, 150px) !important;
-}
-
-@media (min-width: 640px) {
-  .release-grid > *,
-  .press-grid > *,
-  .masonry > *,
-  .masonry .photo {
-    width: clamp(120px, 18vw, 170px) !important;
-  }
-}
-
-@media (min-width: 1024px) {
-  .release-grid > *,
-  .press-grid > *,
-  .masonry > *,
-  .masonry .photo {
-    width: clamp(130px, 12vw, 190px) !important;
-  }
-}
-
-.release-grid img,
-.press-grid img,
-.masonry img {
-  width: 100% !important;
-  height: auto !important;
-  aspect-ratio: 1 !important;
-  object-fit: cover !important;
-  border-radius: 8px;
-}
-
-.carousel-arrow {
-  width: 36px !important;
-  height: 36px !important;
-  font-size: 1rem !important;
-}
-
-@media (max-width: 480px) {
-  .carousel-arrow {
-    width: 36px !important;
-    height: 36px !important;
-    font-size: 0.95rem !important;
-  }
-}
-
 @media (max-width: 375px) {
   h1 {
     font-size: clamp(1.5rem, 9vw, 3rem);
   }
 }
 
+/* --- Targeted hero title fix ---
+   Overrides the inline <style> block's .hero h1 min-size (4.4rem)
+   which was too large for narrow phones and caused "Φανουράκης"
+   to overflow off-screen. Uses !important only here, scoped to
+   this one selector, to safely win over the inline <style> block
+   without touching index.html directly. */
 .hero h1 {
   font-size: clamp(2.4rem, 11vw, 12.5rem) !important;
   line-height: 0.9 !important;
