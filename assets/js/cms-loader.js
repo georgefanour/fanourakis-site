@@ -414,12 +414,112 @@
       setText(aboutSection.querySelector('a.btn'), data.about_button);
     }
 
-    var contactSection = document.querySelector('#contact');
-    if (contactSection) {
-      setText(contactSection.querySelector('.eyebrow'), data.contact_eyebrow);
-      setText(contactSection.querySelector('h2'), data.contact_title);
-      setHtml(contactSection.querySelector('.contact-grid > div > p'), data.contact_intro);
+   var contactSection = document.querySelector('#contact');
+if (contactSection) {
+  setText(contactSection.querySelector('.eyebrow'), data.contact_eyebrow);
+  setText(contactSection.querySelector('h2'), data.contact_title);
+
+  var contactRight = contactSection.querySelector('.contact-grid > div:last-child');
+  var contactIntro = contactRight ? contactRight.querySelector(':scope > p') : null;
+  setHtml(contactIntro, data.contact_intro);
+
+  if (contactRight) {
+    var invitation = contactRight.querySelector('.contact-message');
+    if (!invitation) {
+      invitation = document.createElement('p');
+      invitation.className = 'contact-message';
+      if (contactIntro) contactIntro.insertAdjacentElement('afterend', invitation);
+      else contactRight.insertAdjacentElement('afterbegin', invitation);
     }
+
+    if (data.contact_message) {
+      invitation.innerHTML = renderMultiline(data.contact_message);
+      invitation.hidden = false;
+    } else {
+      invitation.hidden = true;
+    }
+
+    var social = contactRight.querySelector('.social');
+    if (social) {
+      social.setAttribute(
+        'aria-label',
+        lang === 'en' ? 'Contact and social media' : 'Επικοινωνία και social media'
+      );
+
+      var emailLink = social.querySelector('.contact-email');
+      if (!emailLink) {
+        emailLink = document.createElement('a');
+        emailLink.className = 'contact-email';
+        emailLink.textContent = lang === 'en' ? 'Email ↗' : 'Email ↗';
+        social.insertAdjacentElement('afterbegin', emailLink);
+      }
+
+      var email = String(data.contact_email || '').trim();
+      if (email) {
+        emailLink.href = 'mailto:' + email;
+        emailLink.hidden = false;
+      } else {
+        emailLink.removeAttribute('href');
+        emailLink.hidden = true;
+      }
+
+      var socialMap = {
+        instagram_url: 'Instagram',
+        youtube_url: 'YouTube',
+        spotify_url: 'Spotify',
+        facebook_url: 'Facebook',
+        tiktok_url: 'TikTok'
+      };
+
+      Object.keys(socialMap).forEach(function (key) {
+        var label = socialMap[key];
+        var link = Array.prototype.slice.call(social.querySelectorAll('a')).filter(function (item) {
+          return item.textContent.trim() === label;
+        })[0];
+
+        if (!link) return;
+
+        var url = normalizePath(data[key]);
+        if (url) {
+          link.href = url;
+          link.target = '_blank';
+          link.rel = 'noopener';
+          link.removeAttribute('onclick');
+          link.hidden = false;
+        } else {
+          link.removeAttribute('href');
+          link.removeAttribute('target');
+          link.removeAttribute('rel');
+          link.hidden = true;
+        }
+      });
+    }
+  }
+
+  if (!document.getElementById('cms-contact-style')) {
+    var contactStyle = document.createElement('style');
+    contactStyle.id = 'cms-contact-style';
+    contactStyle.textContent =
+      '.contact-message{' +
+      'margin:clamp(24px,3vw,38px) 0 0;' +
+      'max-width:620px;' +
+      'padding:4px 0 4px clamp(17px,2vw,25px);' +
+      'border-left:2px solid rgba(10,7,18,.72);' +
+      'font-family:var(--serif,Georgia,serif);' +
+      'font-size:clamp(1.35rem,2.4vw,2.1rem);' +
+      'font-style:italic;' +
+      'font-weight:500;' +
+      'letter-spacing:-.035em;' +
+      'line-height:1.15;' +
+      'color:var(--ink,#0a0712)' +
+      '}' +
+      '.contact .social{margin-top:clamp(26px,3vw,38px)}' +
+      '.contact .social a[hidden]{display:none!important}' +
+      '.contact .contact-email{background:var(--ink,#0a0712);color:var(--acid,#d8ff3e);border-color:var(--ink,#0a0712)}' +
+      '.contact .contact-email:hover{background:transparent;color:var(--ink,#0a0712)}';
+    document.head.appendChild(contactStyle);
+  }
+}
     console.info('[CMS] Rendered site text (' + lang + ')');
   });
 
