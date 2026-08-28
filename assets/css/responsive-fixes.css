@@ -61,42 +61,65 @@ section, header, footer, main, article, div {
   max-width: 100%;
 }
 
-/* Carousel / grid containers: SMALLER fluid item sizing */
+/* --- IMPORTANT: force override the inline <style> block's native
+   CSS multi-column masonry (columns:4 245px), which was rendering
+   photos far larger than intended and ignoring the flex-based
+   carousel sizing below. !important used because the inline
+   <style> block in index.html has equal/earlier specificity. */
+.masonry {
+  columns: unset !important;
+  column-gap: unset !important;
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+}
+
+.masonry .photo {
+  break-inside: unset !important;
+  margin: 0 !important;
+  flex: 0 0 auto !important;
+}
+
+/* Carousel / grid containers: SMALLER fluid item sizing, forced */
 .release-grid,
 .press-grid,
 .masonry {
-  gap: clamp(0.4rem, 1.5vw, 1rem);
+  gap: clamp(0.4rem, 1.5vw, 1rem) !important;
 }
 
 .release-grid > *,
 .press-grid > *,
-.masonry > * {
-  flex: 0 0 auto;
-  width: clamp(110px, 32vw, 160px);
+.masonry > *,
+.masonry .photo {
+  flex: 0 0 auto !important;
+  width: clamp(100px, 28vw, 150px) !important;
 }
 
 @media (min-width: 640px) {
   .release-grid > *,
   .press-grid > *,
-  .masonry > * {
-    width: clamp(130px, 20vw, 180px);
+  .masonry > *,
+  .masonry .photo {
+    width: clamp(120px, 18vw, 170px) !important;
   }
 }
 
 @media (min-width: 1024px) {
   .release-grid > *,
   .press-grid > *,
-  .masonry > * {
-    width: clamp(140px, 13vw, 210px);
+  .masonry > *,
+  .masonry .photo {
+    width: clamp(130px, 12vw, 190px) !important;
   }
 }
 
 .release-grid img,
 .press-grid img,
 .masonry img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 1 !important;
+  object-fit: cover !important;
   border-radius: 8px;
 }
 
