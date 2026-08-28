@@ -600,7 +600,7 @@ content:
         label: Display order
         type: number
 
-    - name: lyrics-el
+  - name: lyrics-el
     label: "EL · Στίχοι — Ελληνικά"
     type: file
     path: content/el/lyrics.json
