@@ -122,6 +122,12 @@ content:
       - name: contact_intro
         label: "Ενότητα «Επικοινωνία» · κείμενο κάτω από τον τίτλο"
         type: text
+      - name: contact_message
+        label: "Ενότητα «Επικοινωνία» · προσωπικό μήνυμα πρόσκλησης (fancy italic κείμενο)"
+        type: text
+      - name: contact_email
+        label: "Ενότητα «Επικοινωνία» · email για συνεργασίες και γενική επικοινωνία"
+        type: string
       - name: instagram_url
         label: "Footer · σύνδεσμος Instagram"
         type: string
@@ -263,6 +269,12 @@ content:
       - name: contact_intro
         label: "\"Contact\" section · text above the signup form"
         type: text
+      - name: contact_message
+        label: "\"Contact\" section · personal invitation message (fancy italic text)"
+        type: text
+      - name: contact_email
+        label: "\"Contact\" section · email for bookings and general enquiries"
+        type: string
       - name: instagram_url
         label: "Footer · Instagram link"
         type: string
