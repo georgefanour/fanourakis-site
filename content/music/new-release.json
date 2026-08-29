@@ -1,20 +1,12 @@
 {
   "title": "Νηνεμία",
-  "meta": "Single · 2024",
-  "description": "Ένα τραγούδι για τη γαλήνη που έρχεται μετά την καταιγίδα.",
   "cover": "/assets/images/νηνεμια.webp",
-  "links": [
-    {
-      "label": "Πληροφορίες",
-      "url": "#"
-    },
-    {
-      "label": "Άκουσε στο Spotify",
-      "url": "#https://open.spotify.com/album/0bpKQGHcyMhl6lrl0AzsDq?si=dNnSA2UvQNi-vZf3WM_WNQ"
-    },
-    {
-      "label": "Άκουσε στο YouTube",
-      "url": "#https://www.youtube.com/watch?v=LqbsU0f33Xo"
-    }
-  ]
+  "release_type": "Collaboration",
+  "year": 2024,
+  "artist_note": "ο Μάνος Γιατρομανωλάκης με τίμησε ερμηνεύοντας το κομμάτι μου \"Νηνεμία\"",
+  "credits": "ΝΗΝΕΜΙΑ - Μάνος Γιατρομανωλάκης\n\nΜουσική-Στίχοι: Γιώργος Φανουράκης \n\nΛύρα: Νίκος Μανιουδάκης \n\nΤύμπανα: Νίκος Συγλέτος \n\nΦωνή,κιθάρα,μπάσο,προγραμματισμός: Μάνος Γιατρομανωλάκης \n\nΜίξη-Master: Μιχάλης Μαυράκης \n\nΣενάριο: Κώστας Χαλαμπαλάκης \n\nΣκηνοθεσία: Κώστας Χαλαμπαλάκης, Γιώργος Χαλαμπαλάκης \n\nΒοηθός σκηνοθέτη: Γεωργία Γλυνάτση \n\nΗθοποιός: Νεφέλη Καπέλλα",
+  "youtube_url": "https://www.youtube.com/watch?v=LqbsU0f33Xo",
+  "spotify_url": "https://open.spotify.com/album/0bpKQGHcyMhl6lrl0AzsDq?si=dNnSA2UvQNi-vZf3WM_WNQ",
+  "featured": false,
+  "order": 4
 }
