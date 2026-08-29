@@ -600,7 +600,7 @@ content:
         label: Display order
         type: number
 
-   - name: lyrics
+  - name: lyrics
     label: "EL · Στίχοι — Ελληνικά"
     type: collection
     path: content/lyrics
