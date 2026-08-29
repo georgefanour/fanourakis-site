@@ -660,6 +660,36 @@ if (contactSection) {
     document.head.appendChild(style);
   }
 
+  function renderWordToggleStyle() {
+    if (document.getElementById('cms-word-toggle-style')) return;
+
+    var style = document.createElement('style');
+    style.id = 'cms-word-toggle-style';
+    style.textContent =
+      '.prose.clamped{' +
+      'display:-webkit-box;' +
+      '-webkit-box-orient:vertical;' +
+      '-webkit-line-clamp:5;' +
+      'overflow:hidden' +
+      '}' +
+      '.word-toggle{' +
+      'display:inline-block;' +
+      'margin-top:16px;' +
+      'background:none;' +
+      'border:0;' +
+      'padding:0;' +
+      'font-family:var(--sans,Arial,sans-serif);' +
+      'font-size:.82rem;' +
+      'font-weight:700;' +
+      'letter-spacing:.02em;' +
+      'color:var(--acid,#d8ff3e);' +
+      'cursor:pointer' +
+      '}' +
+      '.word-toggle:hover{text-decoration:underline}' +
+      '.word-toggle[hidden]{display:none!important}';
+    document.head.appendChild(style);
+  }
+
   function bindSeparatedWordPanels() {
     var panel = document.getElementById('word-panel');
     var title = document.getElementById('word-title');
@@ -674,24 +704,83 @@ if (contactSection) {
       title.insertAdjacentElement('afterend', meta);
     }
 
-    document.querySelectorAll('#lyrics-list [data-cms-title], #writings-list [data-cms-title]').forEach(function (entry) {
-      entry.addEventListener('click', function () {
-        title.textContent = this.getAttribute('data-cms-title') || '';
-        body.innerHTML = this.getAttribute('data-cms-body-html') || '';
+    var toggle = document.getElementById('word-toggle');
+    if (!toggle) {
+      toggle = document.createElement('button');
+      toggle.type = 'button';
+      toggle.id = 'word-toggle';
+      toggle.className = 'word-toggle';
+      toggle.hidden = true;
+      body.insertAdjacentElement('afterend', toggle);
+    }
 
-        var value = this.getAttribute('data-cms-meta') || '';
-        if (value) {
-          meta.textContent = value;
-          meta.hidden = false;
+    renderWordToggleStyle();
+
+    function updateToggleLabel(expanded) {
+      toggle.textContent = expanded
+        ? (lang === 'en' ? 'Read less ↑' : 'Διάβασε λιγότερα ↑')
+        : (lang === 'en' ? 'Read more ↗' : 'Διάβασε περισσότερα ↗');
+    }
+
+    function refreshClamp() {
+      body.classList.add('clamped');
+      toggle.hidden = true;
+
+      requestAnimationFrame(function () {
+        var overflowing = body.scrollHeight > body.clientHeight + 2;
+
+        if (overflowing) {
+          toggle.hidden = false;
+          updateToggleLabel(false);
         } else {
-          meta.textContent = '';
-          meta.hidden = true;
+          body.classList.remove('clamped');
         }
-
-        panel.classList.add('open');
-        panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
-    });
+    }
+
+    toggle.onclick = function () {
+      var isClamped = body.classList.contains('clamped');
+
+      if (isClamped) {
+        body.classList.remove('clamped');
+        updateToggleLabel(true);
+      } else {
+        body.classList.add('clamped');
+        updateToggleLabel(false);
+        title.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
+
+    function bindWordEntries(selector, type) {
+      document.querySelectorAll(selector + ' [data-cms-title]').forEach(function (entry) {
+        entry.addEventListener('click', function () {
+          title.textContent = this.getAttribute('data-cms-title') || '';
+          body.innerHTML = this.getAttribute('data-cms-body-html') || '';
+
+          var value = this.getAttribute('data-cms-meta') || '';
+          if (value) {
+            meta.textContent = value;
+            meta.hidden = false;
+          } else {
+            meta.textContent = '';
+            meta.hidden = true;
+          }
+
+          if (type === 'writings') {
+            refreshClamp();
+          } else {
+            body.classList.remove('clamped');
+            toggle.hidden = true;
+          }
+
+          panel.classList.add('open');
+          panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+    }
+
+    bindWordEntries('#lyrics-list', 'lyrics');
+    bindWordEntries('#writings-list', 'writings');
   }
 
   function loadCollection(path, callback) {
