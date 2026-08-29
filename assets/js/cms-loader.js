@@ -666,12 +666,6 @@ if (contactSection) {
     var style = document.createElement('style');
     style.id = 'cms-word-toggle-style';
     style.textContent =
-      '.prose.clamped{' +
-      'display:-webkit-box;' +
-      '-webkit-box-orient:vertical;' +
-      '-webkit-line-clamp:5;' +
-      'overflow:hidden' +
-      '}' +
       '.word-toggle{' +
       'display:inline-block;' +
       'margin-top:16px;' +
@@ -686,7 +680,8 @@ if (contactSection) {
       'cursor:pointer' +
       '}' +
       '.word-toggle:hover{text-decoration:underline}' +
-      '.word-toggle[hidden]{display:none!important}';
+      '.word-toggle[hidden]{display:none!important}' +
+      '.close-panel-bottom{margin-top:30px;display:inline-block}';
     document.head.appendChild(style);
   }
 
@@ -714,6 +709,24 @@ if (contactSection) {
       body.insertAdjacentElement('afterend', toggle);
     }
 
+    var bottomClose = document.getElementById('close-word-bottom');
+    if (!bottomClose) {
+      bottomClose = document.createElement('button');
+      bottomClose.type = 'button';
+      bottomClose.id = 'close-word-bottom';
+      bottomClose.className = 'close-panel close-panel-bottom';
+      bottomClose.style.color = 'var(--acid)';
+      toggle.insertAdjacentElement('afterend', bottomClose);
+    }
+
+    bottomClose.textContent = lang === 'en' ? '← Back to list' : '← Επιστροφή στη λίστα';
+
+    bottomClose.onclick = function () {
+      panel.classList.remove('open');
+      var wordsSection = document.getElementById('words');
+      if (wordsSection) wordsSection.scrollIntoView({ behavior: 'smooth' });
+    };
+
     renderWordToggleStyle();
 
     function updateToggleLabel(expanded) {
@@ -722,36 +735,49 @@ if (contactSection) {
         : (lang === 'en' ? 'Read more ↗' : 'Διάβασε περισσότερα ↗');
     }
 
+    var clampedHeight = 0;
+
     function refreshClamp() {
-      body.classList.add('clamped');
+      var lineHeight = parseFloat(getComputedStyle(body).lineHeight);
+      if (!lineHeight || isNaN(lineHeight)) lineHeight = 28;
+      clampedHeight = lineHeight * 5;
+
+      body.style.maxHeight = clampedHeight + 'px';
+      body.style.overflow = 'hidden';
+      body.dataset.expanded = 'false';
       toggle.hidden = true;
 
       requestAnimationFrame(function () {
-        var overflowing = body.scrollHeight > body.clientHeight + 2;
+        var overflowing = body.scrollHeight > clampedHeight + 2;
 
         if (overflowing) {
           toggle.hidden = false;
           updateToggleLabel(false);
         } else {
-          body.classList.remove('clamped');
+          body.style.maxHeight = '';
+          body.style.overflow = '';
         }
       });
     }
 
     toggle.onclick = function () {
-      var isClamped = body.classList.contains('clamped');
+      var expanded = body.dataset.expanded === 'true';
 
-      if (isClamped) {
-        body.classList.remove('clamped');
-        updateToggleLabel(true);
-      } else {
-        body.classList.add('clamped');
+      if (expanded) {
+        body.style.maxHeight = clampedHeight + 'px';
+        body.style.overflow = 'hidden';
+        body.dataset.expanded = 'false';
         updateToggleLabel(false);
         title.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        body.style.maxHeight = '';
+        body.style.overflow = '';
+        body.dataset.expanded = 'true';
+        updateToggleLabel(true);
       }
     };
 
-    function bindWordEntries(selector, type) {
+    function bindWordEntries(selector) {
       document.querySelectorAll(selector + ' [data-cms-title]').forEach(function (entry) {
         entry.addEventListener('click', function () {
           title.textContent = this.getAttribute('data-cms-title') || '';
@@ -766,12 +792,9 @@ if (contactSection) {
             meta.hidden = true;
           }
 
-          if (type === 'writings') {
-            refreshClamp();
-          } else {
-            body.classList.remove('clamped');
-            toggle.hidden = true;
-          }
+          body.style.maxHeight = '';
+          body.style.overflow = '';
+          refreshClamp();
 
           panel.classList.add('open');
           panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -779,8 +802,8 @@ if (contactSection) {
       });
     }
 
-    bindWordEntries('#lyrics-list', 'lyrics');
-    bindWordEntries('#writings-list', 'writings');
+    bindWordEntries('#lyrics-list');
+    bindWordEntries('#writings-list');
   }
 
   function loadCollection(path, callback) {
