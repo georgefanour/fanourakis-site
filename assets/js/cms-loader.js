@@ -41,6 +41,55 @@
     escaped = escaped.replace(/\r\n|\r|\n/g, '<br>');
     return escaped;
   }
+    function applyClamp5(el) {
+    if (!el || el.dataset.clampBound === '1') return;
+    el.dataset.clampBound = '1';
+
+    var toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'word-toggle';
+    toggle.hidden = true;
+    el.insertAdjacentElement('afterend', toggle);
+
+    var clampedHeight = 0;
+    var expanded = false;
+
+    function updateLabel() {
+      toggle.textContent = expanded
+        ? (lang === 'en' ? 'Read less ↑' : 'Διάβασε λιγότερα ↑')
+        : (lang === 'en' ? 'Read more ↗' : 'Διάβασε περισσότερα ↗');
+    }
+
+    function collapse() {
+      el.style.maxHeight = clampedHeight + 'px';
+      el.style.overflow = 'hidden';
+      expanded = false;
+      updateLabel();
+    }
+
+    function expand() {
+      el.style.maxHeight = '';
+      el.style.overflow = '';
+      expanded = true;
+      updateLabel();
+    }
+
+    toggle.addEventListener('click', function () {
+      if (expanded) collapse();
+      else expand();
+    });
+
+    requestAnimationFrame(function () {
+      var lineHeight = parseFloat(getComputedStyle(el).lineHeight);
+      if (!lineHeight || isNaN(lineHeight)) lineHeight = 22;
+      clampedHeight = lineHeight * 5;
+
+      if (el.scrollHeight > clampedHeight + 2) {
+        toggle.hidden = false;
+        collapse();
+      }
+    });
+  }
 
   function ordered(items) {
     return (Array.isArray(items) ? items.slice() : []).sort(function (a, b) {
@@ -531,9 +580,10 @@ if (contactSection) {
     console.info('[CMS] Rendered about');
   });
 
-  load(rootBase + 'music.json', function (data) {
-    if (!Array.isArray(data.items) || !data.items.length) return;
-    render('.release-grid', ordered(data.items).map(function (item) {
+  loadCollection(rootBase + 'music', function (items) {
+    if (!items.length) return;
+
+    render('.release-grid', ordered(items).map(function (item) {
       var cover = normalizePath(item.cover) || 'assets/images/placeholder-cover.jpg';
       var youtube = normalizePath(item.youtube_url);
       var spotify = normalizePath(item.spotify_url);
@@ -543,22 +593,31 @@ if (contactSection) {
       if (youtube) links.push('<a href="' + escapeHtml(youtube) + '" target="_blank" rel="noopener">Δες video ↗</a>');
       if (bandcamp) links.push('<a href="' + escapeHtml(bandcamp) + '" target="_blank" rel="noopener">Bandcamp ↗</a>');
       links.push('<a href="#words" data-jump-lyrics="' + escapeHtml(item.title || '') + '">Δες στίχους ↗</a>');
+
+      var extra = '';
+      if (item.description) extra += '<p class="clamp-text" style="font-size:.74rem;color:#cabed0">' + renderMultiline(item.description) + '</p>';
+      if (item.artist_note) extra += '<p class="clamp-text" style="font-size:.74rem;color:#cabed0;margin-top:10px"><b style="display:block;color:var(--acid);font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">' + (lang === 'en' ? 'A few words' : 'Λίγα λόγια') + '</b>' + renderMultiline(item.artist_note) + '</p>';
+      if (item.credits) extra += '<p class="clamp-text" style="font-size:.74rem;color:#cabed0;margin-top:10px"><b style="display:block;color:var(--acid);font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Credits</b>' + renderMultiline(item.credits) + '</p>';
+
       return '<article class="release-card reveal show">' +
         '<div class="release-art"><img src="' + escapeHtml(cover) + '" alt="' + escapeHtml(item.title || '') + '" loading="lazy" onerror="this.src=&quot;assets/images/placeholder-cover.jpg&quot;"></div>' +
         '<div class="release-body">' +
         (item.featured ? '<span class="badge">Πιο πρόσφατη</span>' : '') +
         '<h3>' + escapeHtml(item.title || '') + '</h3>' +
         '<p>' + escapeHtml(item.release_type || '') + (item.year ? ' · ' + escapeHtml(item.year) : '') + '</p>' +
-        (item.description ? '<p style="font-size:.74rem;color:#cabed0">' + renderMultiline(item.description) + '</p>' : '') +
+        extra +
         '<div class="release-actions">' + links.join('') + '</div></div></article>';
     }).join(''), 'music');
+
     bindLyricsJump();
     buildCarousel('.release-grid', '.release-card');
+
+    document.querySelectorAll('.release-body .clamp-text').forEach(applyClamp5);
   });
 
-  load(rootBase + 'videos.json', function (data) {
-    if (!Array.isArray(data.items) || !data.items.length) return;
-    render('.video-grid', ordered(data.items).map(function (item) {
+    loadCollection(rootBase + 'videos', function (items) {
+    if (!items.length) return;
+    render('.video-grid', ordered(items).map(function (item) {
       var rawUrl = normalizePath(item.youtube_url);
       var videoId = extractYouTubeId(rawUrl);
       var embed = videoId ? 'https://www.youtube-nocookie.com/embed/' + videoId : '';
@@ -570,14 +629,15 @@ if (contactSection) {
           : '<div class="placeholder"><div><b>' + escapeHtml(item.title || 'Προσθήκη σύντομα') + '</b><code>Πρόσθεσε νέο YouTube URL από το CMS</code></div></div>');
       return '<article class="video-card reveal show" data-category="' + category + '">' +
         body +
-        '<div class="video-info"><p class="eyebrow">' + escapeHtml(item.category || '') + '</p><h3>' + escapeHtml(item.title || '') + '</h3><p>' + renderMultiline(item.description || '') + '</p></div></article>';
+        '<div class="video-info"><p class="eyebrow">' + escapeHtml(item.category || '') + '</p><h3>' + escapeHtml(item.title || '') + '</h3><p class="clamp-text">' + renderMultiline(item.description || '') + '</p></div></article>';
     }).join(''), 'videos');
     bindVideoFilters();
+    document.querySelectorAll('.video-info .clamp-text').forEach(applyClamp5);
   });
 
-  load(rootBase + 'live.json', function (data) {
-    if (!Array.isArray(data.items) || !data.items.length) return;
-    render('.live-grid', ordered(data.items).map(function (item) {
+  loadCollection(rootBase + 'live', function (items) {
+    if (!items.length) return;
+    render('.live-grid', ordered(items).map(function (item) {
       var detail = item.venue || item.city || item.date || item.status || 'Live';
       var image = normalizePath(item.image);
       var card = '<img src="' + escapeHtml(image) + '" alt="' + escapeHtml(item.alt || item.title || '') + '" loading="lazy"><div class="live-label">' + escapeHtml(item.title || '') + '<small>' + escapeHtml(detail) + '</small></div>';
@@ -588,22 +648,23 @@ if (contactSection) {
     }).join(''), 'live');
   });
 
-  load(rootBase + 'press.json', function (data) {
-    if (!Array.isArray(data.items) || !data.items.length) return;
-    render('.press-grid', ordered(data.items).map(function (item) {
+   loadCollection(rootBase + 'press', function (items) {
+    if (!items.length) return;
+    render('.press-grid', ordered(items).map(function (item) {
       var url = normalizePath(item.url);
       var thumb = normalizePath(item.image);
       var link = url ? '<a href="' + escapeHtml(url) + '" target="_blank" rel="noopener">Άνοιξε ↗</a>' : '';
       var thumbMarkup = thumb ? '<img src="' + escapeHtml(thumb) + '" alt="' + escapeHtml(item.title || '') + '" loading="lazy" style="width:100%;border-radius:12px;margin-bottom:14px;object-fit:cover;aspect-ratio:16/9">' : '';
       var meta = [item.outlet, item.date].filter(Boolean).map(escapeHtml).join(' · ');
-      return '<article class="press-card reveal show"><div>' + thumbMarkup + '<span class="press-type">' + escapeHtml(item.type || '') + (meta ? ' · ' + meta : '') + '</span><h3>' + escapeHtml(item.title || '') + '</h3><p>' + renderMultiline(item.excerpt || '') + '</p></div>' + link + '</article>';
+      return '<article class="press-card reveal show"><div>' + thumbMarkup + '<span class="press-type">' + escapeHtml(item.type || '') + (meta ? ' · ' + meta : '') + '</span><h3>' + escapeHtml(item.title || '') + '</h3><p class="clamp-text">' + renderMultiline(item.excerpt || '') + '</p></div>' + link + '</article>';
     }).join(''), 'press');
     buildCarousel('.press-grid', '.press-card');
+    document.querySelectorAll('.press-card .clamp-text').forEach(applyClamp5);
   });
 
-  load(rootBase + 'photos.json', function (data) {
-    if (!Array.isArray(data.items) || !data.items.length) return;
-    render('.masonry', ordered(data.items).map(function (item) {
+   loadCollection(rootBase + 'photos', function (items) {
+    if (!items.length) return;
+    render('.masonry', ordered(items).map(function (item) {
       var image = normalizePath(item.image);
       var captionSource = item.alt || item.title || '';
       var captionHtml = captionSource ? renderMultiline(captionSource) : '';
@@ -681,7 +742,7 @@ if (contactSection) {
       '}' +
       '.word-toggle:hover{text-decoration:underline}' +
       '.word-toggle[hidden]{display:none!important}' +
-      '.close-panel-bottom{margin-top:30px;display:inline-block}';
+      '.close-panel-bottom{margin-top:40px;padding-top:22px;border-top:1px solid rgba(255,255,255,.16);display:inline-block}';
     document.head.appendChild(style);
   }
 
