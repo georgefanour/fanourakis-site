@@ -600,129 +600,111 @@ content:
         label: Display order
         type: number
 
-  - name: lyrics-el
+   - name: lyrics
     label: "EL · Στίχοι — Ελληνικά"
-    type: file
-    path: content/el/lyrics.json
+    type: collection
+    path: content/lyrics
+    filename: "{primary}.json"
+    primary: title
+    view:
+      fields: [title, release, order]
     fields:
-      - name: items
+      - name: title
+        label: "Τίτλος τραγουδιού"
+        type: string
+        required: true
+      - name: release
+        label: "Ανήκει στον δίσκο / την κυκλοφορία"
+        type: select
+        required: true
+        options:
+          source:
+            file: content/music
+            fields: [title]
+      - name: body
         label: "Στίχοι"
-        type: object
-        list: true
-        fields:
-          - name: id
-            label: "Μοναδικός κωδικός (μόνο λατινικά, χωρίς κενά)"
-            type: string
-            required: true
-          - name: title
-            label: "Τίτλος τραγουδιού"
-            type: string
-            required: true
-          - name: release
-            label: "Ανήκει στον δίσκο / την κυκλοφορία"
-            type: select
-            required: true
-            options:
-              source:
-                file: content/music
-                fields: [title]
-          - name: body
-            label: "Στίχοι"
-            type: text
-            required: true
-          - name: order
-            label: "Σειρά εμφάνισης"
-            type: number
+        type: text
+        required: true
+      - name: order
+        label: "Σειρά εμφάνισης"
+        type: number
 
-  - name: writings-el
+  - name: writings
     label: "EL · Κείμενα / Πεζά — Ελληνικά"
-    type: file
-    path: content/el/writings.json
+    type: collection
+    path: content/writings
+    filename: "{primary}.json"
+    primary: title
+    view:
+      fields: [title, date, order]
     fields:
-      - name: items
-        label: "Κείμενα / Πεζά"
-        type: object
-        list: true
-        fields:
-          - name: id
-            label: "Μοναδικός κωδικός (μόνο λατινικά, χωρίς κενά)"
-            type: string
-            required: true
-          - name: title
-            label: "Τίτλος"
-            type: string
-            required: true
-          - name: date
-            label: "Ημερομηνία"
-            type: date
-          - name: body
-            label: "Κείμενο"
-            type: text
-            required: true
-          - name: order
-            label: "Σειρά εμφάνισης"
-            type: number
+      - name: title
+        label: "Τίτλος"
+        type: string
+        required: true
+      - name: date
+        label: "Ημερομηνία"
+        type: date
+      - name: body
+        label: "Κείμενο"
+        type: text
+        required: true
+      - name: order
+        label: "Σειρά εμφάνισης"
+        type: number
 
   - name: lyrics-en
     label: "EN · Lyrics — English"
-    type: file
-    path: content/en/lyrics.json
+    type: collection
+    path: content/en/lyrics
+    filename: "{primary}.json"
+    primary: title
+    view:
+      fields: [title, release, order]
     fields:
-      - name: items
+      - name: title
+        label: "Song title"
+        type: string
+        required: true
+      - name: release
+        label: "Belongs to album / release"
+        type: select
+        required: true
+        options:
+          source:
+            file: content/en/music
+            fields: [title]
+      - name: body
         label: "Lyrics"
-        type: object
-        list: true
-          - name: id
-            label: "Unique ID (Latin characters only, no spaces)"
-            type: string
-            required: true
-          - name: title
-            label: "Song title"
-            type: string
-            required: true
-          - name: release
-            label: "Belongs to album / release"
-            type: select
-            required: true
-            options:
-              source:
-                file: content/en/music
-                fields: [title]
-          - name: body
-            label: "Lyrics"
-            type: text
-            required: true
-          - name: order
-            label: "Display order"
-            type: number
+        type: text
+        required: true
+      - name: order
+        label: "Display order"
+        type: number
 
   - name: writings-en
     label: "EN · Writings — English"
-    type: file
-    path: content/en/writings.json
+    type: collection
+    path: content/en/writings
+    filename: "{primary}.json"
+    primary: title
+    view:
+      fields: [title, date, order]
     fields:
-      - name: items
-        label: "Writings"
-        type: object
-        list: true
-          - name: id
-            label: "Unique ID (Latin characters only, no spaces)"
-            type: string
-            required: true
-          - name: title
-            label: "Title"
-            type: string
-            required: true
-          - name: date
-            label: "Date"
-            type: date
-          - name: body
-            label: "Text"
-            type: text
-            required: true
-          - name: order
-            label: "Display order"
-            type: number
+      - name: title
+        label: "Title"
+        type: string
+        required: true
+      - name: date
+        label: "Date"
+        type: date
+      - name: body
+        label: "Text"
+        type: text
+        required: true
+      - name: order
+        label: "Display order"
+        type: number
   - name: press
     label: "EL · Συνεντεύξεις και Τύπος — Ελληνικά"
     type: collection
