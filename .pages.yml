@@ -603,7 +603,7 @@ content:
   - name: lyrics
     label: "EL · Στίχοι — Ελληνικά"
     type: collection
-    path: content/lyrics
+    path: content/el/lyrics
     filename: "{primary}.json"
     primary: title
     view:
@@ -632,7 +632,7 @@ content:
   - name: writings
     label: "EL · Κείμενα / Πεζά — Ελληνικά"
     type: collection
-    path: content/writings
+    path: content/el/writings
     filename: "{primary}.json"
     primary: title
     view:
