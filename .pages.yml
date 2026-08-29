@@ -615,12 +615,13 @@ content:
         required: true
       - name: release
         label: "Ανήκει στον δίσκο / την κυκλοφορία"
-        type: select
+        type: reference
         required: true
         options:
-          source:
-            file: content/music
-            fields: [title]
+          collection: music
+          value: "{fields.title}"
+          label: "{fields.title}"
+          search: title
       - name: body
         label: "Στίχοι"
         type: text
@@ -668,12 +669,13 @@ content:
         required: true
       - name: release
         label: "Belongs to album / release"
-        type: select
+        type: reference
         required: true
         options:
-          source:
-            file: content/en/music
-            fields: [title]
+          collection: music-en
+          value: "{fields.title}"
+          label: "{fields.title}"
+          search: title
       - name: body
         label: "Lyrics"
         type: text
