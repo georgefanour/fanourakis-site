@@ -694,26 +694,50 @@ if (contactSection) {
     });
   }
 
-  load(base + 'lyrics.json', function (data) {
-    var items = Array.isArray(data.items) ? data.items : [];
+  function loadCollection(path, callback) {
+    var url = 'https://api.github.com/repos/georgefanour/fanourakis-site/contents/' + path + '?ref=main&t=' + Date.now();
 
+    fetch(url, { headers: { Accept: 'application/vnd.github.v3+json' } })
+      .then(function (res) {
+        if (!res.ok) throw new Error(res.status + ' ' + path);
+        return res.json();
+      })
+      .then(function (files) {
+        var jsonFiles = (Array.isArray(files) ? files : []).filter(function (f) {
+          return f.type === 'file' && /\.json$/i.test(f.name);
+        });
+
+        return Promise.all(jsonFiles.map(function (f) {
+          return fetch(f.download_url + (f.download_url.indexOf('?') === -1 ? '?' : '&') + 't=' + Date.now())
+            .then(function (r) { return r.ok ? r.json() : null; })
+            .catch(function () { return null; });
+        }));
+      })
+      .then(function (items) {
+        callback((items || []).filter(Boolean));
+      })
+      .catch(function (error) {
+        console.warn('[CMS] Failed to load collection ' + path, error);
+        callback([]);
+      });
+  }
+
+  loadCollection(base + 'lyrics', function (items) {
     renderTextList('#lyrics-list', items, 'lyrics');
     renderReleaseChips(items);
     bindReleaseChips();
     bindSeparatedWordPanels();
     bindLyricsJump();
 
-    console.info('[CMS] Rendered lyrics (' + lang + ')');
+    console.info('[CMS] Rendered lyrics (' + lang + '), ' + items.length + ' entries');
   });
 
-  load(base + 'writings.json', function (data) {
-    var items = Array.isArray(data.items) ? data.items : [];
-
+  loadCollection(base + 'writings', function (items) {
     renderTextList('#writings-list', items, 'writings');
     renderWordMetaStyle();
     bindSeparatedWordPanels();
 
-    console.info('[CMS] Rendered writings (' + lang + ')');
+    console.info('[CMS] Rendered writings (' + lang + '), ' + items.length + ' entries');
   });
 
   document.querySelectorAll('.lang').forEach(function (btn) {
