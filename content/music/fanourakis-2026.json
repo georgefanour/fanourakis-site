@@ -1,16 +1,11 @@
 {
   "title": "Ροδάκινο",
-  "meta": "2026",
-  "description": "Νέο τραγούδι με μουσική και στίχους Δημήτρη Τομπάζη.",
   "cover": "/assets/images/ροδακινο.png",
-  "links": [
-    {
-      "label": "Πληροφορίες",
-      "url": "#"
-    },
-    {
-      "label": "Άκουσε στο YouTube",
-      "url": "#https://www.youtube.com/watch?v=hY9z1iCwpHE&pp=ygUhz4HOv860zrHOus65zr3OvyDPhM6_zrzPgM6xzrbOt8-C"
-    }
-  ]
+  "release_type": "Collaboration",
+  "year": 2026,
+  "artist_note": "είχα την τιμή να συμμετάσχω στο ΕΡ του φίλου μου, Δημήτρη Τομπάζη",
+  "credits": "Τραγούδι: Γιώργος Φανουράκης\nΣτίχοι/ Μουσική: Δημήτρης Τομπάζης",
+  "youtube_url": "https://www.youtube.com/watch?v=hY9z1iCwpHE",
+  "featured": false,
+  "order": 2
 }
