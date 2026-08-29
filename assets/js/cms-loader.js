@@ -410,6 +410,21 @@
 
   load(base + 'site.json', function (data) {
     if (!data || !Object.keys(data).length) return;
+        var logoImg = document.getElementById('site-logo-img');
+    var logoText = document.getElementById('site-logo-text');
+    if (logoImg && logoText) {
+      var logoPath = normalizePath(data.logo_image);
+      if (logoPath) {
+        logoImg.src = logoPath;
+        logoImg.hidden = false;
+        logoText.hidden = true;
+      } else {
+        logoImg.hidden = true;
+        logoText.hidden = false;
+      }
+    }
+
+    var heroSection = document.getElementById('home');
     var heroSection = document.getElementById('home');
     if (heroSection) {
       setText(heroSection.querySelector('.tag'), data.hero_tag);
