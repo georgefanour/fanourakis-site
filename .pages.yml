@@ -29,6 +29,9 @@ content:
       - name: nav_contact
         label: "Μενού πλοήγησης · κουμπί «Επικοινωνία»"
         type: string
+      - name: logo_image
+        label: "Λογότυπο (φωτογραφία που αντικαθιστά το όνομα πάνω αριστερά — αφήστε κενό για να φαίνεται το όνομα)"
+        type: image
       - name: hero_tag
         label: "HERO (πρώτη κινούμενη οθόνη) · μικρή ετικέτα πάνω από τον τίτλο, π.χ. «ζωντανή μουσική»"
         type: string
@@ -176,6 +179,9 @@ content:
       - name: nav_contact
         label: "Navigation menu · Contact button"
         type: string
+      - name: logo_image
+        label: "Logo image (replaces the name top-left — leave empty to show the name)"
+        type: image
       - name: hero_tag
         label: "HERO (first animated screen) · small label above the title"
         type: string
