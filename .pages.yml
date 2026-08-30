@@ -628,7 +628,7 @@ content:
           value: "{fields.title}"
           label: "{fields.title}"
           search: title
-            - name: body
+      - name: body
         label: "Στίχοι"
         type: text
         required: true
@@ -693,23 +693,23 @@ content:
           value: "{fields.title}"
           label: "{fields.title}"
           search: title
-           - name: body
-        label: "Στίχοι"
+      - name: body
+        label: "Lyrics"
         type: text
         required: true
       - name: credits
-        label: "Credits (πάτα «+» για να προσθέσεις όσα θέλεις)"
+        label: "Credits (press «+» to add as many as you like)"
         type: list
         required: false
         fields:
           - name: title
-            label: "Τίτλος (π.χ. Στίχοι, Σύνθεση, Μίξη)"
+            label: "Title (e.g. Lyrics, Composition, Mix)"
             type: string
           - name: content
-            label: "Περιεχόμενο (π.χ. Γιώργος Φανουράκης)"
+            label: "Content (e.g. Yiorgos Fanourakis)"
             type: string
       - name: order
-        label: "Σειρά εμφάνισης"
+        label: "Display order"
         type: number
 
   - name: writings-en
