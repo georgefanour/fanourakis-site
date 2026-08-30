@@ -58,12 +58,16 @@ const box=document.getElementById('lightbox'),bi=box.querySelector('img'),close=
 <style id="manual-overrides">
 .eyebrow{font-family:var(--serif)!important;font-style:italic!important;text-transform:none!important;letter-spacing:.02em!important;font-size:.85rem!important;font-weight:600!important;color:var(--acid)!important}
 .copy{font-family:var(--serif)!important;font-style:italic!important;font-weight:500!important;font-size:1.05rem!important;line-height:1.55!important;letter-spacing:-.01em!important;color:#d1c6d2!important}
-.section-title{font-family:var(--serif)!important;font-weight:800!important;font-style:italic!important}
+.section-title{font-family:var(--serif)!important;font-weight:800!important;font-style:italic!important;font-size:clamp(3rem,7vw,7rem)!important}
+.quote{font-size:clamp(2rem,4vw,4.1rem)!important}
 #photos .galleryhead .section-title,#photos .galleryhead .eyebrow,#photos .copy,#photos .eyebrow{color:#ffffff!important}
 .about-text{font-family:var(--serif)!important;font-style:italic!important;font-size:clamp(.95rem,1.4vw,1.25rem)!important;line-height:1.5!important}
 .word-panel{display:none!important}
 .word-panel.open{display:block!important}
 #word-meta,.word-toggle,#close-word,#close-word-bottom{color:#b23dff!important}
+.press .eyebrow{color:var(--ink)!important}
+#words{padding-bottom:clamp(80px,10vw,140px)!important}
+#press{padding-top:clamp(80px,10vw,140px)!important}
 </style>
 </body>
 </html>
