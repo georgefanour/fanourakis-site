@@ -97,7 +97,7 @@
       panel = document.createElement('div');
       panel.className = 'panel';
       panel.id = 'release-info-panel';
-      panel.innerHTML = '<div class="container"><button class="close-panel" data-release-info-close>← Επιστροφή στη δισκογραφία</button><div class="panel-grid"><div class="panel-art"><img id="release-info-img" alt=""></div><div class="panel-copy"><p class="eyebrow" id="release-info-eyebrow"></p><h2 id="release-info-title"></h2><div id="release-info-desc"></div><ul class="credits" id="release-info-credits"></ul></div></div></div>';
+           panel.innerHTML = '<div class="panel-blur-bg" aria-hidden="true"></div><div class="container"><button class="close-panel" data-release-info-close>← Επιστροφή στη δισκογραφία</button><div class="panel-grid"><div class="panel-art"><img id="release-info-img" alt=""></div><div class="panel-copy"><p class="eyebrow" id="release-info-eyebrow"></p><h2 id="release-info-title"></h2><div id="release-info-desc"></div><ul class="credits" id="release-info-credits"></ul></div></div></div>';
       document.body.appendChild(panel);
       panel.querySelector('[data-release-info-close]').addEventListener('click', function () {
         panel.classList.remove('open');
@@ -116,6 +116,8 @@
                 panel.querySelector('#release-info-eyebrow').textContent = [data.releaseType, data.year].filter(Boolean).join(' · ') || (lang === 'en' ? 'Release' : 'Κυκλοφορία');
         panel.querySelector('#release-info-title').textContent = data.title;
         panel.querySelector('#release-info-img').src = data.cover;
+        var blurBg = panel.querySelector('.panel-blur-bg');
+        if (blurBg) blurBg.style.backgroundImage = 'url(' + data.cover + ')';
         var descHtml = '';
         if (data.desc) descHtml += '<p>' + renderMultiline(data.desc) + '</p>';
         if (data.note) descHtml += '<p>' + renderMultiline(data.note) + '</p>';
