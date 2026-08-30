@@ -129,13 +129,13 @@
             var value = (c && (c.value || c.text || c.detail)) || '';
             if (label || value) creditsHtml += '<li><b>' + escapeHtml(label) + '</b>' + escapeHtml(value) + '</li>';
           });
-        } else if (typeof data.credits === 'string' && data.credits) {
-          data.credits.split(/\n+/).forEach(function (line) {
-            line = line.trim();
-            if (!line) return;
-            var parts = line.split(':');
-            if (parts.length > 1) creditsHtml += '<li><b>' + escapeHtml(parts.shift().trim()) + '</b>' + escapeHtml(parts.join(':').trim()) + '</li>';
-            else creditsHtml += '<li>' + escapeHtml(line) + '</li>';
+          } else if (typeof data.credits === 'string' && data.credits) {
+          data.credits.split(/\n\s*\n/).forEach(function (block) {
+            var lines = block.split('\n').map(function (l) { return l.trim(); }).filter(Boolean);
+            if (!lines.length) return;
+            var label = lines[0];
+            var value = lines.slice(1).join(' ');
+            creditsHtml += '<li><b>' + escapeHtml(label) + '</b>' + escapeHtml(value) + '</li>';
           });
         }
         panel.querySelector('#release-info-credits').innerHTML = creditsHtml;
