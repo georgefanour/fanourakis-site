@@ -97,12 +97,22 @@
       panel = document.createElement('div');
       panel.className = 'panel';
       panel.id = 'release-info-panel';
-           panel.innerHTML = '<div class="panel-blur-bg" aria-hidden="true"></div><div class="container"><button class="close-panel" data-release-info-close>← Επιστροφή στη δισκογραφία</button><div class="panel-grid"><div class="panel-art"><img id="release-info-img" alt=""></div><div class="panel-copy"><p class="eyebrow" id="release-info-eyebrow"></p><h2 id="release-info-title"></h2><div id="release-info-desc"></div></div></div></div>';
+      panel.innerHTML = '<div class="panel-blur-bg" aria-hidden="true"></div><div class="container"><button class="close-panel" data-release-info-close>← Επιστροφή στη δισκογραφία</button><div class="panel-grid"><div class="panel-art"><img id="release-info-img" alt=""></div><div class="panel-copy"><p class="eyebrow" id="release-info-eyebrow"></p><h2 id="release-info-title"></h2><div id="release-info-desc"></div><a href="#words" class="btn dark" id="release-info-lyrics-btn">Δες στίχους ↗</a></div></div></div>';
       document.body.appendChild(panel);
       panel.querySelector('[data-release-info-close]').addEventListener('click', function () {
         panel.classList.remove('open');
         var music = document.getElementById('music');
         if (music) music.scrollIntoView({ behavior: 'smooth' });
+      });
+      panel.querySelector('#release-info-lyrics-btn').addEventListener('click', function (e) {
+        e.preventDefault();
+        var releaseTitle = this.dataset.release || '';
+        var wordsSection = document.getElementById('words');
+        var lyricsTab = document.querySelector('.tab[data-tab="lyrics"]');
+        if (lyricsTab) lyricsTab.click();
+        if (wordsSection) wordsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        var chip = document.querySelector('.release-chip[data-release="' + CSS.escape(releaseTitle) + '"]');
+        if (chip) setTimeout(function () { chip.click(); }, 200);
       });
     }
 
@@ -115,6 +125,8 @@
         if (!data) return;
                 panel.querySelector('#release-info-eyebrow').textContent = [data.releaseType, data.year].filter(Boolean).join(' · ') || (lang === 'en' ? 'Release' : 'Κυκλοφορία');
         panel.querySelector('#release-info-title').textContent = data.title;
+        var lyricsBtn = panel.querySelector('#release-info-lyrics-btn');
+        if (lyricsBtn) lyricsBtn.dataset.release = data.title || '';
         panel.querySelector('#release-info-img').src = data.cover;
         var blurBg = panel.querySelector('.panel-blur-bg');
         if (blurBg) blurBg.style.backgroundImage = 'url(' + data.cover + ')';
