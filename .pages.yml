@@ -628,10 +628,21 @@ content:
           value: "{fields.title}"
           label: "{fields.title}"
           search: title
-      - name: body
+            - name: body
         label: "Στίχοι"
         type: text
         required: true
+      - name: credits
+        label: "Credits (πάτα «+» για να προσθέσεις όσα θέλεις)"
+        type: list
+        required: false
+        fields:
+          - name: title
+            label: "Τίτλος (π.χ. Στίχοι, Σύνθεση, Μίξη)"
+            type: string
+          - name: content
+            label: "Περιεχόμενο (π.χ. Γιώργος Φανουράκης)"
+            type: string
       - name: order
         label: "Σειρά εμφάνισης"
         type: number
@@ -682,12 +693,23 @@ content:
           value: "{fields.title}"
           label: "{fields.title}"
           search: title
-      - name: body
-        label: "Lyrics"
+           - name: body
+        label: "Στίχοι"
         type: text
         required: true
+      - name: credits
+        label: "Credits (πάτα «+» για να προσθέσεις όσα θέλεις)"
+        type: list
+        required: false
+        fields:
+          - name: title
+            label: "Τίτλος (π.χ. Στίχοι, Σύνθεση, Μίξη)"
+            type: string
+          - name: content
+            label: "Περιεχόμενο (π.χ. Γιώργος Φανουράκης)"
+            type: string
       - name: order
-        label: "Display order"
+        label: "Σειρά εμφάνισης"
         type: number
 
   - name: writings-en
