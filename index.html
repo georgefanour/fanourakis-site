@@ -58,18 +58,40 @@ const box=document.getElementById('lightbox'),bi=box.querySelector('img'),close=
 <style id="manual-overrides">
 .eyebrow{font-family:var(--serif)!important;font-style:italic!important;text-transform:none!important;letter-spacing:.02em!important;font-size:.85rem!important;font-weight:600!important;color:var(--acid)!important}
 .copy{font-family:var(--serif)!important;font-style:italic!important;font-weight:500!important;font-size:1.05rem!important;line-height:1.55!important;letter-spacing:-.01em!important;color:#d1c6d2!important}
-.section-title{font-family:var(--serif)!important;font-weight:800!important;font-style:italic!important;font-size:clamp(9rem,21vw,21rem)!important}
-.quote{font-size:clamp(6rem,12vw,12.3rem)!important}
+.section-title{font-family:var(--serif)!important;font-weight:800!important;font-style:italic!important;font-size:clamp(3rem,7vw,7rem)!important}
+.quote{font-size:clamp(2rem,4vw,4.1rem)!important}
 #photos .galleryhead .section-title,#photos .galleryhead .eyebrow,#photos .copy,#photos .eyebrow{color:#ffffff!important}
 .about-text{font-family:var(--serif)!important;font-style:italic!important;font-size:clamp(.95rem,1.4vw,1.25rem)!important;line-height:1.5!important}
 .word-panel{display:none!important}
 .word-panel.open{display:block!important}
 #word-meta,.word-toggle,#close-word,#close-word-bottom{color:#b23dff!important}
 .press .eyebrow{color:var(--ink)!important}
-#words{padding-bottom:clamp(80px,10vw,140px)!important}
+#words{padding-bottom:clamp(160px,18vw,240px)!important}
 #press{padding-top:clamp(80px,10vw,140px)!important}
 .featured .eyebrow{color:#6136dd!important}
 .words .eyebrow{color:var(--ink)!important}
+.featured .copy{color:#3c2e40!important}
+.release-body h3{font-size:5.1rem!important;line-height:.92!important}
+.entry-list button{font-size:clamp(3.6rem,6vw,5.4rem)!important;padding:22px 0!important}
+.press-card h3{font-size:clamp(4.8rem,7.8vw,8.4rem)!important;line-height:.9!important}
+.featured-blur-bg{position:absolute!important;inset:-60px!important;background-size:cover!important;background-position:center!important;filter:blur(55px) saturate(1.5) brightness(.95)!important;opacity:.6!important;z-index:0!important;transform:scale(1.15)!important;pointer-events:none!important}
+.featured .featured-grid{position:relative!important;z-index:1!important}
 </style>
+<script>
+(function(){
+  var featured=document.querySelector('.featured');
+  var cover=document.querySelector('.featured .cover img');
+  if(!featured||!cover) return;
+  featured.style.position='relative';
+  featured.style.overflow='hidden';
+  var bg=document.createElement('div');
+  bg.className='featured-blur-bg';
+  bg.setAttribute('aria-hidden','true');
+  featured.insertBefore(bg,featured.firstChild);
+  function sync(){ if(cover.src) bg.style.backgroundImage='url('+cover.src+')'; }
+  sync();
+  new MutationObserver(sync).observe(cover,{attributes:true,attributeFilter:['src']});
+})();
+</script>
 </body>
 </html>
