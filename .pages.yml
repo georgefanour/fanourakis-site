@@ -634,7 +634,8 @@ content:
         required: true
       - name: credits
         label: "Credits (πάτα «+» για να προσθέσεις όσα θέλεις)"
-        type: list
+        type: object
+        list: true
         required: false
         fields:
           - name: title
@@ -699,7 +700,8 @@ content:
         required: true
       - name: credits
         label: "Credits (press «+» to add as many as you like)"
-        type: list
+        type: object
+        list: true
         required: false
         fields:
           - name: title
