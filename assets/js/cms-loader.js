@@ -246,18 +246,18 @@
       chip.addEventListener('click', function () {
         chips.forEach(function (c) { c.classList.remove('active'); });
         chip.classList.add('active');
-var chosen = chip.getAttribute('data-release');
-var lyricsList = document.getElementById('lyrics-list');
+        var chosen = chip.getAttribute('data-release');
+        var lyricsList = document.getElementById('lyrics-list');
 
-document.querySelectorAll('#lyrics-list button').forEach(function (btn) {
-  var rel = btn.getAttribute('data-cms-release') || '';
-  btn.hidden = chosen !== 'all' && rel !== chosen;
-});
+        document.querySelectorAll('#lyrics-list button').forEach(function (btn) {
+          var rel = btn.getAttribute('data-cms-release') || '';
+          btn.hidden = rel !== chosen;
+        });
 
-if (lyricsList) {
-  lyricsList.hidden = false;
-  lyricsList.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-}
+        if (lyricsList) {
+          lyricsList.hidden = false;
+          lyricsList.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
       });
     });
   }
@@ -270,21 +270,37 @@ if (lyricsList) {
       if (item.release && titles.indexOf(item.release) === -1) titles.push(item.release);
     });
     if (!titles.length) return;
+
+    var existingPrompt = document.getElementById('words-release-prompt');
+    if (existingPrompt) existingPrompt.remove();
     var existing = document.querySelector('.release-chips');
     if (existing) existing.remove();
+
+    var promptText = window.__wordsReleasePrompt || (lang === 'en' ? 'Choose a release to read its lyrics and credits.' : 'Διάλεξε από ποιον δίσκο θα ήθελες να διαβάσεις τους στίχους και τους συντελεστές.');
+    var prompt = document.createElement('p');
+    prompt.id = 'words-release-prompt';
+    prompt.className = 'words-release-prompt';
+    prompt.textContent = promptText;
+
     var wrap = document.createElement('div');
     wrap.className = 'release-chips';
-    wrap.style.cssText = 'display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 0';
-    var allChip = '<button type="button" class="release-chip active" data-release="all" style="border:1px solid rgba(10,7,18,.35);background:var(--ink,#0a0712);color:var(--paper,#fff8ed);border-radius:999px;padding:7px 12px;font-size:.68rem;font-weight:700">Όλα τα τραγούδια</button>';
     var chipsHtml = titles.map(function (title) {
-      return '<button type="button" class="release-chip" data-release="' + escapeHtml(title) + '" style="border:1px solid rgba(10,7,18,.35);background:transparent;color:var(--ink,#0a0712);border-radius:999px;padding:7px 12px;font-size:.68rem;font-weight:700">' + escapeHtml(title) + '</button>';
+      return '<button type="button" class="release-chip" data-release="' + escapeHtml(title) + '">' + escapeHtml(title) + '</button>';
     }).join('');
-    wrap.innerHTML = allChip + chipsHtml;
-    host.insertAdjacentElement('afterend', wrap);
+    wrap.innerHTML = chipsHtml;
+
+    host.insertAdjacentElement('afterend', prompt);
+    prompt.insertAdjacentElement('afterend', wrap);
+
     if (!document.getElementById('cms-release-chip-style')) {
       var style = document.createElement('style');
       style.id = 'cms-release-chip-style';
-      style.textContent = '.release-chip.active{background:var(--ink,#0a0712) !important;color:var(--paper,#fff8ed) !important}';
+      style.textContent =
+        '.words-release-prompt{margin:18px 0 12px;font-family:var(--serif,Georgia,serif);font-style:italic;font-size:clamp(1rem,1.6vw,1.25rem);color:var(--ink,#0a0712);opacity:.85}' +
+        '.release-chips{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 30px}' +
+        '.release-chip{border:1.5px solid rgba(10,7,18,.35);background:transparent;color:var(--ink,#0a0712);border-radius:999px;padding:11px 20px;font-size:.8rem;font-weight:700;font-family:var(--sans,Arial,sans-serif);letter-spacing:.01em;cursor:pointer;transition:.2s}' +
+        '.release-chip:hover{border-color:var(--ink,#0a0712);transform:translateY(-2px)}' +
+        '.release-chip.active{background:var(--ink,#0a0712)!important;color:var(--paper,#fff8ed)!important;border-color:var(--ink,#0a0712)!important}';
       document.head.appendChild(style);
     }
     bindReleaseChips();
@@ -513,6 +529,9 @@ if (lyricsList) {
       setText(wordsSection.querySelector('.eyebrow'), data.words_eyebrow);
       setHtml(wordsSection.querySelector('.quote'), data.words_quote);
     }
+    window.__wordsReleasePrompt = data.words_release_prompt || '';
+    var existingWordsPrompt = document.getElementById('words-release-prompt');
+    if (existingWordsPrompt && data.words_release_prompt) existingWordsPrompt.textContent = data.words_release_prompt;
     if (data.press_note) setHtml(document.querySelector('.press-note'), data.press_note);
     else { var pn = document.querySelector('.press-note'); if (pn) pn.remove(); }
 
@@ -655,8 +674,8 @@ if (contactSection) {
 
       window.__releaseInfoStore = window.__releaseInfoStore || {};
            window.__releaseInfoStore[idx] = { title: item.title || '', desc: item.description || '', note: item.artist_note || '', credits: item.credits || '', cover: cover, releaseType: item.release_type || '', year: item.year || '' };
-      if (item.description || item.artist_note || item.credits) {
-        links.unshift('<a href="#" class="release-info-btn" data-release-idx="' + idx + '">Λίγα λόγια &amp; credits ↗</a>');
+      if (item.description || item.artist_note) {
+        links.unshift('<a href="#" class="release-info-btn" data-release-idx="' + idx + '">Λίγα λόγια για τον δίσκο ↗</a>');
       }
 
       return '<article class="release-card reveal show">' +
