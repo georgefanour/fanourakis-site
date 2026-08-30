@@ -105,6 +105,43 @@ const box=document.getElementById('lightbox'),bi=box.querySelector('img'),close=
 .section{
   padding:clamp(58px,8vw,105px) 0!important;
 }
+  .press{position:relative!important;overflow:hidden!important}
+.press>.container{position:relative!important;z-index:2!important}
+.press-carousel-blur{
+  position:absolute;
+  inset:-12%;
+  z-index:0;
+  opacity:0;
+  pointer-events:none;
+  background-position:center;
+  background-size:cover;
+  filter:blur(52px) saturate(1.55) brightness(.72);
+  transform:scale(1.18);
+  transition:opacity .45s ease,background-image .45s ease;
+}
+.press-carousel-blur.has-image{opacity:.35}
+.press-grid .press-card{
+  position:relative!important;
+  overflow:hidden!important;
+  transition:transform .45s cubic-bezier(.22,.9,.32,1),opacity .45s ease,background .45s ease,color .45s ease,box-shadow .45s ease!important;
+}
+.press-grid .press-card.press-focus{
+  background:#0a0712!important;
+  color:#fff8ed!important;
+  border-color:rgba(255,255,255,.4)!important;
+  box-shadow:0 18px 45px rgba(10,7,18,.38)!important;
+}
+.press-grid .press-card.press-focus .press-type,
+.press-grid .press-card.press-focus p,
+.press-grid .press-card.press-focus a{
+  color:#fff8ed!important;
+}
+.press-grid .press-card.press-focus .press-type{
+  color:#d8ff3e!important;
+}
+.press-grid .press-card.press-focus img{
+  filter:saturate(1.15) contrast(1.04);
+}
 </style>
 <script>
 (function(){
