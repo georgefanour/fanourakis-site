@@ -368,7 +368,7 @@ content:
         label: "Λίγα λόγια για την κυκλοφορία"
         type: text
       - name: credits
-        label: Credits
+        label: "Credits (για κάθε credit γράψε 2 γραμμές — 1η: τίτλος π.χ. «Στίχοι & Σύνθεση», 2η: πληροφορία π.χ. «Γιώργος Φανουράκης & Nicolàs Sosa». Άφησε μία κενή γραμμή πριν το επόμενο credit.)"
         type: text
       - name: youtube_url
         label: YouTube link
@@ -421,7 +421,7 @@ content:
         label: "A few words about this release"
         type: text
       - name: credits
-        label: Credits
+        label: "Credits (για κάθε credit γράψε 2 γραμμές — 1η: τίτλος π.χ. «Στίχοι & Σύνθεση», 2η: πληροφορία π.χ. «Γιώργος Φανουράκης & Nicolàs Sosa». Άφησε μία κενή γραμμή πριν το επόμενο credit.)"
         type: text
       - name: youtube_url
         label: YouTube link
