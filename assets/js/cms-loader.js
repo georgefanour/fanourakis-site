@@ -702,6 +702,35 @@ if (contactSection) {
         '<div class="release-actions">' + links.join('') + '</div></div></article>';
     }).join(''), 'music');
 
+    var featuredItem = ordered(items).filter(function (item) { return item.featured; })[0] || ordered(items)[0];
+    if (featuredItem) {
+      var featuredSection = document.querySelector('.featured');
+      if (featuredSection) {
+        var fCover = normalizePath(featuredItem.cover) || 'assets/images/placeholder-cover.jpg';
+        var coverImg = featuredSection.querySelector('.cover img');
+        if (coverImg) { coverImg.src = fCover; coverImg.alt = featuredItem.title || ''; }
+
+        var fTitle = featuredSection.querySelector('.section-title');
+        if (fTitle) fTitle.textContent = featuredItem.title || '';
+
+        var fMeta = featuredSection.querySelector('.release-meta');
+        if (fMeta) fMeta.textContent = (featuredItem.release_type || '') + (featuredItem.year ? ' · ' + featuredItem.year : '');
+
+        var fCopy = featuredSection.querySelector('.copy');
+        if (fCopy) fCopy.innerHTML = renderMultiline(featuredItem.description || featuredItem.artist_note || '');
+
+        var fYoutube = normalizePath(featuredItem.youtube_url);
+        if (fYoutube) {
+          featuredSection.querySelectorAll('a[href*="youtube.com"], a.play').forEach(function (a) {
+            a.href = fYoutube;
+            if (a.classList.contains('play')) a.setAttribute('aria-label', (featuredItem.title || '') + ' YouTube');
+          });
+        }
+        var fTrack = featuredSection.querySelector('.track');
+        if (fTrack) fTrack.textContent = featuredItem.title || '';
+      }
+    }
+
     bindLyricsJump();
     buildCarousel('.release-grid', '.release-card');
     bindReleaseInfoPanel();
@@ -783,12 +812,14 @@ target.innerHTML = ordered(items).map(function (item, index) {
       var meta = type === 'lyrics' ? (item.release || '') : (item.date || '');
       var release = type === 'lyrics' ? (item.release || '') : '';
 
-           window.__lyricsCreditsStore = window.__lyricsCreditsStore || {};
+      window.__lyricsCreditsStore = window.__lyricsCreditsStore || {};
       window.__lyricsByRelease = window.__lyricsByRelease || {};
       if (item.title) window.__lyricsCreditsStore[item.title.trim().toLowerCase()] = item.credits || [];
       if (item.release && !window.__lyricsByRelease[item.release.trim().toLowerCase()]) {
         window.__lyricsByRelease[item.release.trim().toLowerCase()] = item.credits || [];
       }
+
+      var orderNum = (item.order != null && item.order !== '') ? Number(item.order) : (index + 1);
 
       return '<button type="button" ' +
         'data-cms-title="' + escapeHtml(item.title || '') + '" ' +
@@ -799,7 +830,7 @@ target.innerHTML = ordered(items).map(function (item, index) {
         '<span>' + escapeHtml(item.title || '') +
         (meta ? ' <small style="opacity:.6;font-size:.65em">· ' + escapeHtml(meta) + '</small>' : '') +
         '</span>' +
-        '<b>' + String(index + 1).padStart(2, '0') + ' ↗</b>' +
+        '<b>' + String(orderNum).padStart(2, '0') + ' ↗</b>' +
         '</button>';
     }).join('');
   }
