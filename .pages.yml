@@ -89,6 +89,9 @@ content:
       - name: words_quote
         label: "Ενότητα «Στίχοι και Κείμενα» · μεγάλο παράθεμα πάνω από τη λίστα"
         type: text
+      - name: words_release_prompt
+        label: "Στίχοι και Κείμενα · σύντομη οδηγία πριν από τις επιλογές δίσκων"
+        type: text
       - name: press_eyebrow
         label: "Ενότητα «Συνεντεύξεις και Τύπος» · μικρή ετικέτα πάνω από τον τίτλο"
         type: string
@@ -238,6 +241,9 @@ content:
         type: string
       - name: words_quote
         label: "\"Lyrics and Writings\" section · large quote"
+        type: text
+      - name: words_release_prompt
+        label: "Lyrics and Writings · short instruction above release choices"
         type: text
       - name: press_eyebrow
         label: "\"Press\" section · small label"
