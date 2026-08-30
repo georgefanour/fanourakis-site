@@ -129,20 +129,6 @@
           lyricsCredits.forEach(function (c) {
             if (c.title || c.content) creditsHtml += '<li><b>' + escapeHtml(c.title || '') + '</b>' + escapeHtml(c.content || '') + '</li>';
           });
-        } else if (Array.isArray(data.credits)) {
-          data.credits.forEach(function (c) {
-            var label = (c && (c.label || c.name)) || '';
-            var value = (c && (c.value || c.text || c.detail)) || '';
-            if (label || value) creditsHtml += '<li><b>' + escapeHtml(label) + '</b>' + escapeHtml(value) + '</li>';
-          });
-          } else if (typeof data.credits === 'string' && data.credits) {
-          data.credits.split(/\n\s*\n/).forEach(function (block) {
-            var lines = block.split('\n').map(function (l) { return l.trim(); }).filter(Boolean);
-            if (!lines.length) return;
-            var label = lines[0];
-            var value = lines.slice(1).join(' ');
-            creditsHtml += '<li><b>' + escapeHtml(label) + '</b>' + escapeHtml(value) + '</li>';
-          });
         }
         panel.querySelector('#release-info-credits').innerHTML = creditsHtml;
         panel.classList.add('open');
