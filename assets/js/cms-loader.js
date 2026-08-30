@@ -122,8 +122,14 @@
         if (data.desc) descHtml += '<p>' + renderMultiline(data.desc) + '</p>';
         if (data.note) descHtml += '<p>' + renderMultiline(data.note) + '</p>';
         panel.querySelector('#release-info-desc').innerHTML = descHtml;
+        var key = (data.title || '').trim().toLowerCase();
+        var lyricsCredits = (window.__lyricsCreditsStore || {})[key] || (window.__lyricsByRelease || {})[key];
         var creditsHtml = '';
-        if (Array.isArray(data.credits)) {
+        if (Array.isArray(lyricsCredits) && lyricsCredits.length) {
+          lyricsCredits.forEach(function (c) {
+            if (c.title || c.content) creditsHtml += '<li><b>' + escapeHtml(c.title || '') + '</b>' + escapeHtml(c.content || '') + '</li>';
+          });
+        } else if (Array.isArray(data.credits)) {
           data.credits.forEach(function (c) {
             var label = (c && (c.label || c.name)) || '';
             var value = (c && (c.value || c.text || c.detail)) || '';
@@ -757,10 +763,18 @@ if (contactSection) {
       var meta = type === 'lyrics' ? (item.release || '') : (item.date || '');
       var release = type === 'lyrics' ? (item.release || '') : '';
 
+           window.__lyricsCreditsStore = window.__lyricsCreditsStore || {};
+      window.__lyricsByRelease = window.__lyricsByRelease || {};
+      if (item.title) window.__lyricsCreditsStore[item.title.trim().toLowerCase()] = item.credits || [];
+      if (item.release && !window.__lyricsByRelease[item.release.trim().toLowerCase()]) {
+        window.__lyricsByRelease[item.release.trim().toLowerCase()] = item.credits || [];
+      }
+
       return '<button type="button" ' +
         'data-cms-title="' + escapeHtml(item.title || '') + '" ' +
         'data-cms-meta="' + escapeHtml(meta) + '" ' +
         'data-cms-release="' + escapeHtml(release) + '" ' +
+        'data-cms-credits="' + escapeHtml(JSON.stringify(item.credits || [])) + '" ' +
         'data-cms-body-html="' + escapeHtml(renderMultiline(item.body || '')) + '">' +
         '<span>' + escapeHtml(item.title || '') +
         (meta ? ' <small style="opacity:.6;font-size:.65em">· ' + escapeHtml(meta) + '</small>' : '') +
@@ -912,7 +926,7 @@ if (contactSection) {
           title.textContent = this.getAttribute('data-cms-title') || '';
           body.innerHTML = this.getAttribute('data-cms-body-html') || '';
 
-          var value = this.getAttribute('data-cms-meta') || '';
+                    var value = this.getAttribute('data-cms-meta') || '';
           if (value) {
             meta.textContent = value;
             meta.hidden = false;
@@ -920,6 +934,21 @@ if (contactSection) {
             meta.textContent = '';
             meta.hidden = true;
           }
+
+          var creditsRaw = this.getAttribute('data-cms-credits');
+          var creditsList = [];
+          try { creditsList = creditsRaw ? JSON.parse(creditsRaw) : []; } catch (e) { creditsList = []; }
+          var creditsEl = document.getElementById('word-credits');
+          if (!creditsEl) {
+            creditsEl = document.createElement('ul');
+            creditsEl.className = 'credits';
+            creditsEl.id = 'word-credits';
+            panel.appendChild(creditsEl);
+          }
+          creditsEl.innerHTML = creditsList.map(function (c) {
+            return '<li><b>' + escapeHtml(c.title || '') + '</b>' + escapeHtml(c.content || '') + '</li>';
+          }).join('');
+          creditsEl.hidden = !creditsList.length;
 
           body.style.maxHeight = '';
           body.style.overflow = '';
