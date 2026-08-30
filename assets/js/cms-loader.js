@@ -316,6 +316,31 @@
       document.head.appendChild(style);
     }
     bindReleaseChips();
+    bindWordsTabVisibility();
+  }
+
+  function bindWordsTabVisibility() {
+    var tabs = document.querySelectorAll('#words .tab');
+    if (!tabs.length) return;
+
+    function refresh() {
+      var activeTab = document.querySelector('#words .tab.active');
+      var isLyrics = activeTab ? activeTab.dataset.tab === 'lyrics' : true;
+      var promptEl = document.getElementById('words-release-prompt');
+      var chipsEl = document.querySelector('.release-chips');
+      if (promptEl) promptEl.hidden = !isLyrics;
+      if (chipsEl) chipsEl.hidden = !isLyrics;
+    }
+
+    var wordsSectionEl = document.getElementById('words');
+    if (wordsSectionEl && !wordsSectionEl._tabVisBound) {
+      wordsSectionEl._tabVisBound = true;
+      tabs.forEach(function (t) {
+        t.addEventListener('click', function () { setTimeout(refresh, 0); });
+      });
+    }
+
+    refresh();
   }
   function decoratePressCarousel() {
     var track = document.querySelector('.press-grid');
@@ -599,10 +624,18 @@
     if (wordsSection) {
       setText(wordsSection.querySelector('.eyebrow'), data.words_eyebrow);
       setHtml(wordsSection.querySelector('.quote'), data.words_quote);
+      if (!document.getElementById('words-explore-music-btn')) {
+        var exploreBtn = document.createElement('a');
+        exploreBtn.id = 'words-explore-music-btn';
+        exploreBtn.className = 'btn dark';
+        exploreBtn.href = '#music';
+        exploreBtn.textContent = lang === 'en' ? 'Explore the discography ↗' : 'Εξερεύνησε τη δισκογραφία ↗';
+        exploreBtn.style.marginTop = '22px';
+        exploreBtn.style.display = 'inline-flex';
+        var quoteEl = wordsSection.querySelector('.quote');
+        if (quoteEl) quoteEl.insertAdjacentElement('afterend', exploreBtn);
+      }
     }
-    window.__wordsReleasePrompt = data.words_release_prompt || '';
-    var existingWordsPrompt = document.getElementById('words-release-prompt');
-    if (existingWordsPrompt && data.words_release_prompt) existingWordsPrompt.textContent = data.words_release_prompt;
     window.__wordsReleasePrompt = data.words_release_prompt || '';
     var existingWordsPrompt = document.getElementById('words-release-prompt');
     if (existingWordsPrompt && data.words_release_prompt) existingWordsPrompt.textContent = data.words_release_prompt;
