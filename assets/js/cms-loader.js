@@ -113,13 +113,30 @@
         e.preventDefault();
         var data = (window.__releaseInfoStore || {})[btn.dataset.releaseIdx];
         if (!data) return;
-        panel.querySelector('#release-info-eyebrow').textContent = data.title;
-        panel.querySelector('#release-info-title').textContent = lang === 'en' ? 'A few words' : 'Λίγα λόγια';
+                panel.querySelector('#release-info-eyebrow').textContent = [data.releaseType, data.year].filter(Boolean).join(' · ') || (lang === 'en' ? 'Release' : 'Κυκλοφορία');
+        panel.querySelector('#release-info-title').textContent = data.title;
         panel.querySelector('#release-info-img').src = data.cover;
         var descHtml = '';
         if (data.desc) descHtml += '<p>' + renderMultiline(data.desc) + '</p>';
         if (data.note) descHtml += '<p>' + renderMultiline(data.note) + '</p>';
         panel.querySelector('#release-info-desc').innerHTML = descHtml;
+        var creditsHtml = '';
+        if (Array.isArray(data.credits)) {
+          data.credits.forEach(function (c) {
+            var label = (c && (c.label || c.name)) || '';
+            var value = (c && (c.value || c.text || c.detail)) || '';
+            if (label || value) creditsHtml += '<li><b>' + escapeHtml(label) + '</b>' + escapeHtml(value) + '</li>';
+          });
+        } else if (typeof data.credits === 'string' && data.credits) {
+          data.credits.split(/\n+/).forEach(function (line) {
+            line = line.trim();
+            if (!line) return;
+            var parts = line.split(':');
+            if (parts.length > 1) creditsHtml += '<li><b>' + escapeHtml(parts.shift().trim()) + '</b>' + escapeHtml(parts.join(':').trim()) + '</li>';
+            else creditsHtml += '<li>' + escapeHtml(line) + '</li>';
+          });
+        }
+        panel.querySelector('#release-info-credits').innerHTML = creditsHtml;
         var creditsHtml = '';
         if (data.credits) {
           data.credits.split(/\n+/).forEach(function (line) {
@@ -656,7 +673,7 @@ if (contactSection) {
       links.push('<a href="#words" data-jump-lyrics="' + escapeHtml(item.title || '') + '">Δες στίχους ↗</a>');
 
       window.__releaseInfoStore = window.__releaseInfoStore || {};
-      window.__releaseInfoStore[idx] = { title: item.title || '', desc: item.description || '', note: item.artist_note || '', credits: item.credits || '', cover: cover };
+           window.__releaseInfoStore[idx] = { title: item.title || '', desc: item.description || '', note: item.artist_note || '', credits: item.credits || '', cover: cover, releaseType: item.release_type || '', year: item.year || '' };
       if (item.description || item.artist_note || item.credits) {
         links.unshift('<a href="#" class="release-info-btn" data-release-idx="' + idx + '">Λίγα λόγια &amp; credits ↗</a>');
       }
