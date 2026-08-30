@@ -317,7 +317,66 @@
     }
     bindReleaseChips();
   }
+  function decoratePressCarousel() {
+    var track = document.querySelector('.press-grid');
+    if (!track || track.dataset.pressDecorated === '1') return;
+    track.dataset.pressDecorated = '1';
 
+    var cards = Array.prototype.slice.call(track.querySelectorAll('.press-card'));
+    if (!cards.length) return;
+
+    var glow = document.createElement('div');
+    glow.className = 'press-carousel-blur';
+    glow.setAttribute('aria-hidden', 'true');
+    track.parentNode.insertBefore(glow, track);
+
+    function nearestCard() {
+      var center = track.scrollLeft + track.clientWidth / 2;
+      var closest = cards[0];
+      var smallest = Infinity;
+
+      cards.forEach(function (card) {
+        var cardCenter = card.offsetLeft + card.offsetWidth / 2;
+        var distance = Math.abs(cardCenter - center);
+        if (distance < smallest) {
+          smallest = distance;
+          closest = card;
+        }
+      });
+
+      return closest;
+    }
+
+    function updatePressFocus() {
+      var active = nearestCard();
+
+      cards.forEach(function (card) {
+        card.classList.toggle('press-focus', card === active);
+      });
+
+      var image = active ? active.querySelector('img') : null;
+      var source = image ? image.currentSrc || image.src : '';
+
+      if (source) {
+        glow.style.backgroundImage = 'url("' + source.replace(/"/g, '\\"') + '")';
+        glow.classList.add('has-image');
+      } else {
+        glow.style.backgroundImage = '';
+        glow.classList.remove('has-image');
+      }
+    }
+
+    var timer;
+    track.addEventListener('scroll', function () {
+      clearTimeout(timer);
+      timer = setTimeout(updatePressFocus, 70);
+    }, { passive: true });
+
+    requestAnimationFrame(function () {
+      updatePressFocus();
+      setTimeout(updatePressFocus, 120);
+    });
+  }
   function buildCarousel(containerSelector, itemSelector) {
     var container = document.querySelector(containerSelector);
     if (!container || container.dataset.carouselReady) return;
@@ -780,6 +839,7 @@ if (contactSection) {
       return '<article class="press-card reveal show"><div>' + thumbMarkup + '<span class="press-type">' + escapeHtml(item.type || '') + (meta ? ' · ' + meta : '') + '</span><h3>' + escapeHtml(item.title || '') + '</h3><p class="clamp-text">' + renderMultiline(item.excerpt || '') + '</p></div>' + link + '</article>';
     }).join(''), 'press');
     buildCarousel('.press-grid', '.press-card');
+    decoratePressCarousel();
     document.querySelectorAll('.press-card .clamp-text').forEach(applyClamp5);
   });
 
