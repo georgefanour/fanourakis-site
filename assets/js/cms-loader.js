@@ -91,6 +91,52 @@
     });
   }
 
+  function bindReleaseInfoPanel() {
+    var panel = document.getElementById('release-info-panel');
+    if (!panel) {
+      panel = document.createElement('div');
+      panel.className = 'panel';
+      panel.id = 'release-info-panel';
+      panel.innerHTML = '<div class="container"><button class="close-panel" data-release-info-close>← Επιστροφή στη δισκογραφία</button><div class="panel-grid"><div class="panel-art"><img id="release-info-img" alt=""></div><div class="panel-copy"><p class="eyebrow" id="release-info-eyebrow"></p><h2 id="release-info-title"></h2><div id="release-info-desc"></div><ul class="credits" id="release-info-credits"></ul></div></div></div>';
+      document.body.appendChild(panel);
+      panel.querySelector('[data-release-info-close]').addEventListener('click', function () {
+        panel.classList.remove('open');
+        var music = document.getElementById('music');
+        if (music) music.scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+
+    document.querySelectorAll('.release-info-btn').forEach(function (btn) {
+      if (btn.dataset.bound === '1') return;
+      btn.dataset.bound = '1';
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        var data = (window.__releaseInfoStore || {})[btn.dataset.releaseIdx];
+        if (!data) return;
+        panel.querySelector('#release-info-eyebrow').textContent = data.title;
+        panel.querySelector('#release-info-title').textContent = lang === 'en' ? 'A few words' : 'Λίγα λόγια';
+        panel.querySelector('#release-info-img').src = data.cover;
+        var descHtml = '';
+        if (data.desc) descHtml += '<p>' + renderMultiline(data.desc) + '</p>';
+        if (data.note) descHtml += '<p>' + renderMultiline(data.note) + '</p>';
+        panel.querySelector('#release-info-desc').innerHTML = descHtml;
+        var creditsHtml = '';
+        if (data.credits) {
+          data.credits.split(/\n+/).forEach(function (line) {
+            line = line.trim();
+            if (!line) return;
+            var parts = line.split(':');
+            if (parts.length > 1) creditsHtml += '<li><b>' + escapeHtml(parts.shift().trim()) + '</b>' + escapeHtml(parts.join(':').trim()) + '</li>';
+            else creditsHtml += '<li>' + escapeHtml(line) + '</li>';
+          });
+        }
+        panel.querySelector('#release-info-credits').innerHTML = creditsHtml;
+        panel.classList.add('open');
+        panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  }
+
   function ordered(items) {
     return (Array.isArray(items) ? items.slice() : []).sort(function (a, b) {
       return (Number(a.order) || 999) - (Number(b.order) || 999);
@@ -598,7 +644,7 @@ if (contactSection) {
   loadCollection(rootBase + 'music', function (items) {
     if (!items.length) return;
 
-    render('.release-grid', ordered(items).map(function (item) {
+      render('.release-grid', ordered(items).map(function (item, idx) {
       var cover = normalizePath(item.cover) || 'assets/images/placeholder-cover.jpg';
       var youtube = normalizePath(item.youtube_url);
       var spotify = normalizePath(item.spotify_url);
@@ -609,10 +655,11 @@ if (contactSection) {
       if (bandcamp) links.push('<a href="' + escapeHtml(bandcamp) + '" target="_blank" rel="noopener">Bandcamp ↗</a>');
       links.push('<a href="#words" data-jump-lyrics="' + escapeHtml(item.title || '') + '">Δες στίχους ↗</a>');
 
-      var extra = '';
-      if (item.description) extra += '<p class="clamp-text" style="font-size:.74rem;color:#cabed0">' + renderMultiline(item.description) + '</p>';
-      if (item.artist_note) extra += '<p class="clamp-text" style="font-size:.74rem;color:#cabed0;margin-top:10px"><b style="display:block;color:var(--acid);font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">' + (lang === 'en' ? 'A few words' : 'Λίγα λόγια') + '</b>' + renderMultiline(item.artist_note) + '</p>';
-      if (item.credits) extra += '<p class="clamp-text" style="font-size:.74rem;color:#cabed0;margin-top:10px"><b style="display:block;color:var(--acid);font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Credits</b>' + renderMultiline(item.credits) + '</p>';
+      window.__releaseInfoStore = window.__releaseInfoStore || {};
+      window.__releaseInfoStore[idx] = { title: item.title || '', desc: item.description || '', note: item.artist_note || '', credits: item.credits || '', cover: cover };
+      if (item.description || item.artist_note || item.credits) {
+        links.unshift('<a href="#" class="release-info-btn" data-release-idx="' + idx + '">Λίγα λόγια &amp; credits ↗</a>');
+      }
 
       return '<article class="release-card reveal show">' +
         '<div class="release-art"><img src="' + escapeHtml(cover) + '" alt="' + escapeHtml(item.title || '') + '" loading="lazy" onerror="this.src=&quot;assets/images/placeholder-cover.jpg&quot;"></div>' +
@@ -620,14 +667,12 @@ if (contactSection) {
         (item.featured ? '<span class="badge">Πιο πρόσφατη</span>' : '') +
         '<h3>' + escapeHtml(item.title || '') + '</h3>' +
         '<p>' + escapeHtml(item.release_type || '') + (item.year ? ' · ' + escapeHtml(item.year) : '') + '</p>' +
-        extra +
         '<div class="release-actions">' + links.join('') + '</div></div></article>';
     }).join(''), 'music');
 
     bindLyricsJump();
     buildCarousel('.release-grid', '.release-card');
-
-    document.querySelectorAll('.release-body .clamp-text').forEach(applyClamp5);
+    bindReleaseInfoPanel();
   });
 
     loadCollection(rootBase + 'videos', function (items) {
