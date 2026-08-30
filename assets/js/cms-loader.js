@@ -137,17 +137,6 @@
           });
         }
         panel.querySelector('#release-info-credits').innerHTML = creditsHtml;
-        var creditsHtml = '';
-        if (data.credits) {
-          data.credits.split(/\n+/).forEach(function (line) {
-            line = line.trim();
-            if (!line) return;
-            var parts = line.split(':');
-            if (parts.length > 1) creditsHtml += '<li><b>' + escapeHtml(parts.shift().trim()) + '</b>' + escapeHtml(parts.join(':').trim()) + '</li>';
-            else creditsHtml += '<li>' + escapeHtml(line) + '</li>';
-          });
-        }
-        panel.querySelector('#release-info-credits').innerHTML = creditsHtml;
         panel.classList.add('open');
         panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
