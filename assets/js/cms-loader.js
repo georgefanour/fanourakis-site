@@ -97,7 +97,7 @@
       panel = document.createElement('div');
       panel.className = 'panel';
       panel.id = 'release-info-panel';
-           panel.innerHTML = '<div class="panel-blur-bg" aria-hidden="true"></div><div class="container"><button class="close-panel" data-release-info-close>← Επιστροφή στη δισκογραφία</button><div class="panel-grid"><div class="panel-art"><img id="release-info-img" alt=""></div><div class="panel-copy"><p class="eyebrow" id="release-info-eyebrow"></p><h2 id="release-info-title"></h2><div id="release-info-desc"></div><ul class="credits" id="release-info-credits"></ul></div></div></div>';
+           panel.innerHTML = '<div class="panel-blur-bg" aria-hidden="true"></div><div class="container"><button class="close-panel" data-release-info-close>← Επιστροφή στη δισκογραφία</button><div class="panel-grid"><div class="panel-art"><img id="release-info-img" alt=""></div><div class="panel-copy"><p class="eyebrow" id="release-info-eyebrow"></p><h2 id="release-info-title"></h2><div id="release-info-desc"></div></div></div></div>';
       document.body.appendChild(panel);
       panel.querySelector('[data-release-info-close]').addEventListener('click', function () {
         panel.classList.remove('open');
@@ -122,15 +122,6 @@
         if (data.desc) descHtml += '<p>' + renderMultiline(data.desc) + '</p>';
         if (data.note) descHtml += '<p>' + renderMultiline(data.note) + '</p>';
         panel.querySelector('#release-info-desc').innerHTML = descHtml;
-        var key = (data.title || '').trim().toLowerCase();
-        var lyricsCredits = (window.__lyricsCreditsStore || {})[key] || (window.__lyricsByRelease || {})[key];
-        var creditsHtml = '';
-        if (Array.isArray(lyricsCredits) && lyricsCredits.length) {
-          lyricsCredits.forEach(function (c) {
-            if (c.title || c.content) creditsHtml += '<li><b>' + escapeHtml(c.title || '') + '</b>' + escapeHtml(c.content || '') + '</li>';
-          });
-        }
-        panel.querySelector('#release-info-credits').innerHTML = creditsHtml;
         panel.classList.add('open');
         panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
@@ -255,11 +246,18 @@
       chip.addEventListener('click', function () {
         chips.forEach(function (c) { c.classList.remove('active'); });
         chip.classList.add('active');
-        var chosen = chip.getAttribute('data-release');
-        document.querySelectorAll('#lyrics-list button').forEach(function (btn) {
-          var rel = btn.getAttribute('data-cms-release') || '';
-          btn.hidden = chosen !== 'all' && rel !== chosen;
-        });
+var chosen = chip.getAttribute('data-release');
+var lyricsList = document.getElementById('lyrics-list');
+
+document.querySelectorAll('#lyrics-list button').forEach(function (btn) {
+  var rel = btn.getAttribute('data-cms-release') || '';
+  btn.hidden = chosen !== 'all' && rel !== chosen;
+});
+
+if (lyricsList) {
+  lyricsList.hidden = false;
+  lyricsList.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
       });
     });
   }
@@ -745,7 +743,9 @@ if (contactSection) {
     var target = document.querySelector(selector);
     if (!target || !Array.isArray(items)) return;
 
-    target.innerHTML = ordered(items).map(function (item, index) {
+  if (type === 'lyrics') target.hidden = true;
+
+target.innerHTML = ordered(items).map(function (item, index) {
       var meta = type === 'lyrics' ? (item.release || '') : (item.date || '');
       var release = type === 'lyrics' ? (item.release || '') : '';
 
