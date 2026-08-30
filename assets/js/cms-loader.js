@@ -532,6 +532,9 @@
     window.__wordsReleasePrompt = data.words_release_prompt || '';
     var existingWordsPrompt = document.getElementById('words-release-prompt');
     if (existingWordsPrompt && data.words_release_prompt) existingWordsPrompt.textContent = data.words_release_prompt;
+    window.__wordsReleasePrompt = data.words_release_prompt || '';
+    var existingWordsPrompt = document.getElementById('words-release-prompt');
+    if (existingWordsPrompt && data.words_release_prompt) existingWordsPrompt.textContent = data.words_release_prompt;
     if (data.press_note) setHtml(document.querySelector('.press-note'), data.press_note);
     else { var pn = document.querySelector('.press-note'); if (pn) pn.remove(); }
 
