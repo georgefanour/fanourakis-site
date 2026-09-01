@@ -627,7 +627,7 @@
       if (!document.getElementById('words-explore-music-btn')) {
         var exploreBtn = document.createElement('a');
         exploreBtn.id = 'words-explore-music-btn';
-        exploreBtn.className = 'btn dark';
+        exploreBtn.className = 'btn words-explore-btn';
         exploreBtn.href = '#music';
         exploreBtn.textContent = lang === 'en' ? 'Explore the discography ↗' : 'Εξερεύνησε τη δισκογραφία ↗';
         exploreBtn.style.marginTop = '22px';
