@@ -97,7 +97,7 @@
       panel = document.createElement('div');
       panel.className = 'panel';
       panel.id = 'release-info-panel';
-      panel.innerHTML = '<div class="panel-blur-bg" aria-hidden="true"></div><div class="container"><button class="close-panel" data-release-info-close>← Επιστροφή στη δισκογραφία</button><div class="panel-grid"><div class="panel-art"><img id="release-info-img" alt=""></div><div class="panel-copy"><p class="eyebrow" id="release-info-eyebrow"></p><h2 id="release-info-title"></h2><div id="release-info-desc"></div><a href="#words" class="btn dark" id="release-info-lyrics-btn">Δες στίχους ↗</a></div></div></div>';
+           panel.innerHTML = '<div class="panel-blur-bg" aria-hidden="true"></div><div class="container"><button class="close-panel" data-release-info-close>← Επιστροφή στη δισκογραφία</button><div class="panel-grid"><div class="panel-art"><img id="release-info-img" alt=""></div><div class="panel-copy"><p class="release-meta" id="release-info-eyebrow"></p><h2 class="section-title" id="release-info-title"></h2><div class="copy" id="release-info-desc"></div><a href="#words" class="btn dark" id="release-info-lyrics-btn">Δες στίχους ↗</a></div></div></div>';
       document.body.appendChild(panel);
       panel.querySelector('[data-release-info-close]').addEventListener('click', function () {
         panel.classList.remove('open');
