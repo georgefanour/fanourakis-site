@@ -5,6 +5,7 @@ const ROOT = process.cwd();
 const CONTENT_DIR = path.join(ROOT, 'content');
 const DEST_DIR = path.join(ROOT, 'content', 'en');
 const CACHE_PATH = path.join(ROOT, 'content', '.translation-cache.json');
+const CONTACT_EMAIL = 'georgefanour@gmail.com';
 
 const SOURCE_DIRS = [
   { dir: CONTENT_DIR, exclude: new Set(['en', 'el']) },
@@ -44,13 +45,35 @@ function isTranslatable(key, value) {
 
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
-async function translateChunk(text) {
-  const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=el|en`;
+async function translateViaMyMemory(text) {
+  const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=el|en&de=${encodeURIComponent(CONTACT_EMAIL)}`;
   const res = await fetch(url);
   const data = await res.json();
+  if (data && data.responseStatus && Number(data.responseStatus) !== 200) {
+    throw new Error('MyMemory status ' + data.responseStatus);
+  }
   const translated = data && data.responseData && data.responseData.translatedText;
-  if (!translated) throw new Error('No translation returned');
+  if (!translated) throw new Error('No translation returned from MyMemory');
+  if (/MYMEMORY WARNING/i.test(translated)) throw new Error('MyMemory quota exceeded');
   return translated;
+}
+
+async function translateViaLingva(text) {
+  const url = `https://lingva.ml/api/v1/el/en/${encodeURIComponent(text)}`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error('Lingva HTTP ' + res.status);
+  const data = await res.json();
+  if (!data || !data.translation) throw new Error('No translation returned from Lingva');
+  return data.translation;
+}
+
+async function translateChunk(text) {
+  try {
+    return await translateViaMyMemory(text);
+  } catch (e1) {
+    console.warn('MyMemory failed, trying Lingva fallback:', e1.message);
+    return await translateViaLingva(text);
+  }
 }
 
 function splitIntoChunks(text, maxLen) {
@@ -80,18 +103,23 @@ async function translateText(text) {
     for (const chunk of chunks) {
       let attempt = 0;
       let done = false;
+      let lastErr = null;
       while (attempt < 3 && !done) {
         try {
           const t = await translateChunk(chunk);
           translatedChunks.push(t);
           done = true;
         } catch (e) {
+          lastErr = e;
           attempt++;
-          await sleep(600);
+          await sleep(700);
         }
       }
-      if (!done) translatedChunks.push(chunk);
-      await sleep(300);
+      if (!done) {
+        console.error('All engines failed for chunk, keeping original:', lastErr && lastErr.message);
+        translatedChunks.push(chunk);
+      }
+      await sleep(250);
     }
     translatedParagraphs.push(translatedChunks.join(' '));
   }
