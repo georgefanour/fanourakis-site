@@ -1,0 +1,41 @@
+{
+  "items": [
+    {
+      "title": "Archetypes",
+      "cover": "assets/images/1679521660393-11.jpg",
+      "release_type": "/LP",
+      "year": 2023,
+      "description": "The first complete album.",
+      "featured": false,
+      "order": 1
+    },
+    {
+      "title": "calm",
+      "cover": "assets/images/Stigmiotupo-othones-2025-04-30-174901.jpg",
+      "release_type": "Single",
+      "year": 2024,
+      "description": "A song about the peace that comes after the storm.",
+      "featured": false,
+      "order": 2
+    },
+    {
+      "title": "Peach",
+      "cover": "assets/images/rodakino.jpg",
+      "release_type": "Single",
+      "year": 2026,
+      "youtube_url": "https://www.youtube.com/watch?v=hY9z1iCwpHE",
+      "featured": false,
+      "order": 3
+    },
+    {
+      "title": "Microcosmos",
+      "cover": "assets/images/microcosmos-2.jpg",
+      "release_type": "Single",
+      "year": 2026,
+      "description": "A meeting of two creators, two cities and a common microcosm.",
+      "youtube_url": "https://www.youtube.com/watch?v=IF23sKsyXAA",
+      "featured": true,
+      "order": 4
+    }
+  ]
+}

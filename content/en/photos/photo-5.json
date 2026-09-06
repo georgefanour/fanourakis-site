@@ -1,9 +1,3 @@
 {
-  "title": "",
-  "image": "assets/images/IMG2434-7.jpg",
-  "alt": "Live",
-  "category": "live",
-  "order": 5,
-  "featured": false,
-  "notify_subscribers": false
+  "image": "/assets/images/IMG_2425.jpg"
 }

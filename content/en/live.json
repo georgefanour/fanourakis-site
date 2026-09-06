@@ -1,0 +1,28 @@
+{
+  "items": [
+    {
+      "title": "A night on stage",
+      "date": "",
+      "venue": "",
+      "city": "",
+      "image": "assets/images/IMG_2443-3.jpg",
+      "alt": "Γιώργος Φανουράκης σε live",
+      "status": "archive",
+      "order": 1
+    },
+    {
+      "title": "On the microphone",
+      "image": "assets/images/IMG_2439-9.jpg",
+      "alt": "Κοντινό στη σκηνή",
+      "status": "archive",
+      "order": 2
+    },
+    {
+      "title": "Hands and strings",
+      "image": "assets/images/IMG_2469-12.jpg",
+      "alt": "Κιθάρα στη σκηνή",
+      "status": "archive",
+      "order": 3
+    }
+  ]
+}

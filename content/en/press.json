@@ -1,0 +1,23 @@
+{
+  "items": [
+    {
+      "title": "The next big conversation.",
+      "type": "Interview",
+      "excerpt": "Space for the most recent or important interview.",
+      "featured": true,
+      "order": 1
+    },
+    {
+      "title": "Podcast / Radio Show",
+      "type": "Podcast",
+      "excerpt": "Placeholder for audio interview or radio segment.",
+      "order": 2
+    },
+    {
+      "title": "Article or review",
+      "type": "Article",
+      "excerpt": "Placeholder for publication or review of a new release.",
+      "order": 3
+    }
+  ]
+}
