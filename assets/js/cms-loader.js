@@ -773,21 +773,20 @@ if (contactSection) {
       var spotify = normalizePath(item.spotify_url);
       var bandcamp = normalizePath(item.bandcamp_url);
       var links = [];
-      if (spotify) links.push('<a href="' + escapeHtml(spotify) + '" target="_blank" rel="noopener">Άκουσε ↗</a>');
-      if (youtube) links.push('<a href="' + escapeHtml(youtube) + '" target="_blank" rel="noopener">Δες video ↗</a>');
-      if (bandcamp) links.push('<a href="' + escapeHtml(bandcamp) + '" target="_blank" rel="noopener">Bandcamp ↗</a>');
-      links.push('<a href="#words" data-jump-lyrics="' + escapeHtml(item.title || '') + '">Δες στίχους ↗</a>');
-
+if (spotify) links.push('<a href="' + escapeHtml(spotify) + '" target="_blank" rel="noopener">' + (lang === 'en' ? 'Listen ↗' : 'Άκουσε ↗') + '</a>');
+if (youtube) links.push('<a href="' + escapeHtml(youtube) + '" target="_blank" rel="noopener">' + (lang === 'en' ? 'Watch video ↗' : 'Δες βίντεο ↗') + '</a>');
+if (bandcamp) links.push('<a href="' + escapeHtml(bandcamp) + '" target="_blank" rel="noopener">Bandcamp ↗</a>');
+links.push('<a href="#words" data-jump-lyrics="' + escapeHtml(item.title || '') + '">' + (lang === 'en' ? 'See lyrics ↗' : 'Δες στίχους ↗') + '</a>');
       window.__releaseInfoStore = window.__releaseInfoStore || {};
            window.__releaseInfoStore[idx] = { title: item.title || '', desc: item.description || '', note: item.artist_note || '', credits: item.credits || '', cover: cover, releaseType: item.release_type || '', year: item.year || '' };
       if (item.description || item.artist_note) {
-        links.unshift('<a href="#" class="release-info-btn" data-release-idx="' + idx + '">Λίγα λόγια για τον δίσκο ↗</a>');
+        links.unshift('<a href="#" class="release-info-btn" data-release-idx="' + idx + '">' + (lang === 'en' ? 'About this release ↗' : 'Λίγα λόγια για τον δίσκο ↗') + '</a>');
       }
 
       return '<article class="release-card reveal show">' +
         '<div class="release-art"><img src="' + escapeHtml(cover) + '" alt="' + escapeHtml(item.title || '') + '" loading="lazy" onerror="this.src=&quot;assets/images/placeholder-cover.jpg&quot;"></div>' +
         '<div class="release-body">' +
-        (item.featured ? '<span class="badge">Πιο πρόσφατη</span>' : '') +
+(item.featured ? '<span class="badge">' + (lang === 'en' ? 'Latest release' : 'Πιο πρόσφατη') + '</span>' : '')
         '<h3>' + escapeHtml(item.title || '') + '</h3>' +
         '<p>' + escapeHtml(item.release_type || '') + (item.year ? ' · ' + escapeHtml(item.year) : '') + '</p>' +
         '<div class="release-actions">' + links.join('') + '</div></div></article>';
@@ -865,7 +864,7 @@ if (contactSection) {
     render('.press-grid', ordered(items).map(function (item) {
       var url = normalizePath(item.url);
       var thumb = normalizePath(item.image);
-      var link = url ? '<a href="' + escapeHtml(url) + '" target="_blank" rel="noopener">Άνοιξε ↗</a>' : '';
+    var link = url ? '<a href="' + escapeHtml(url) + '" target="_blank" rel="noopener">' + (lang === 'en' ? 'Open ↗' : 'Άνοιξε ↗') + '</a>' : '';
       var thumbMarkup = thumb ? '<img src="' + escapeHtml(thumb) + '" alt="' + escapeHtml(item.title || '') + '" loading="lazy" style="width:100%;border-radius:12px;margin-bottom:14px;object-fit:cover;aspect-ratio:16/9">' : '';
       var meta = [item.outlet, item.date].filter(Boolean).map(escapeHtml).join(' · ');
       return '<article class="press-card reveal show"><div>' + thumbMarkup + '<span class="press-type">' + escapeHtml(item.type || '') + (meta ? ' · ' + meta : '') + '</span><h3>' + escapeHtml(item.title || '') + '</h3><p class="clamp-text">' + renderMultiline(item.excerpt || '') + '</p></div>' + link + '</article>';
