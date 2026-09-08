@@ -623,12 +623,18 @@
     if (wordsSection) {
       setText(wordsSection.querySelector('.eyebrow'), data.words_eyebrow);
       setHtml(wordsSection.querySelector('.quote'), data.words_quote);
-      if (!document.getElementById('words-explore-music-btn')) {
-        var exploreBtn = document.createElement('a');
-        exploreBtn.id = 'words-explore-music-btn';
-        exploreBtn.className = 'btn words-explore-btn';
-        exploreBtn.href = '#music';
-        exploreBtn.textContent = lang === 'en' ? 'Explore the discography ↗' : 'Εξερεύνησε τη δισκογραφία ↗';
+var exploreBtn = document.getElementById('words-explore-music-btn');
+if (!exploreBtn) {
+  exploreBtn = document.createElement('a');
+  exploreBtn.id = 'words-explore-music-btn';
+  exploreBtn.className = 'btn words-explore-btn';
+  exploreBtn.href = '#music';
+  exploreBtn.style.marginTop = '22px';
+  exploreBtn.style.display = 'inline-flex';
+  var quoteEl = wordsSection.querySelector('.quote');
+  if (quoteEl) quoteEl.insertAdjacentElement('afterend', exploreBtn);
+}
+exploreBtn.textContent = lang === 'en' ? 'Explore the discography ↗' : 'Εξερεύνησε τη δισκογραφία ↗';
         exploreBtn.style.marginTop = '22px';
         exploreBtn.style.display = 'inline-flex';
         var quoteEl = wordsSection.querySelector('.quote');
