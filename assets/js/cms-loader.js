@@ -786,7 +786,7 @@ links.push('<a href="#words" data-jump-lyrics="' + escapeHtml(item.title || '') 
       return '<article class="release-card reveal show">' +
         '<div class="release-art"><img src="' + escapeHtml(cover) + '" alt="' + escapeHtml(item.title || '') + '" loading="lazy" onerror="this.src=&quot;assets/images/placeholder-cover.jpg&quot;"></div>' +
         '<div class="release-body">' +
-(item.featured ? '<span class="badge">' + (lang === 'en' ? 'Latest release' : 'Πιο πρόσφατη') + '</span>' : '')
+(item.featured ? '<span class="badge">' + (lang === 'en' ? 'Latest release' : 'Πιο πρόσφατη') + '</span>' : '') +
         '<h3>' + escapeHtml(item.title || '') + '</h3>' +
         '<p>' + escapeHtml(item.release_type || '') + (item.year ? ' · ' + escapeHtml(item.year) : '') + '</p>' +
         '<div class="release-actions">' + links.join('') + '</div></div></article>';
