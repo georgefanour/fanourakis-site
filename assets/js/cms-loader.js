@@ -562,6 +562,10 @@
   removeNewsletterUI();
 
   console.info('[CMS] Loader started, lang=' + lang);
+var tabLyrics = document.getElementById('tab-lyrics');
+var tabWritings = document.getElementById('tab-writings');
+if (tabLyrics) tabLyrics.textContent = lang === 'en' ? 'Lyrics' : 'Στίχοι';
+if (tabWritings) tabWritings.textContent = lang === 'en' ? 'Writings' : 'Κείμενα';
 
   load(base + 'site.json', function (data) {
     if (!data || !Object.keys(data).length) return;
