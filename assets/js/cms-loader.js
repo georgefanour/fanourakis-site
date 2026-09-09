@@ -639,12 +639,6 @@ if (!exploreBtn) {
   if (quoteEl) quoteEl.insertAdjacentElement('afterend', exploreBtn);
 }
 exploreBtn.textContent = lang === 'en' ? 'Explore the discography ↗' : 'Εξερεύνησε τη δισκογραφία ↗';
-exploreBtn.textContent = lang === 'en' ? 'Explore the discography ↗' : 'Εξερεύνησε τη δισκογραφία ↗';
-        exploreBtn.style.marginTop = '22px';
-        exploreBtn.style.display = 'inline-flex';
-        var quoteEl = wordsSection.querySelector('.quote');
-        if (quoteEl) quoteEl.insertAdjacentElement('afterend', exploreBtn);
-      }
     }
     window.__wordsReleasePrompt = data.words_release_prompt || '';
     var existingWordsPrompt = document.getElementById('words-release-prompt');
