@@ -639,6 +639,7 @@ if (!exploreBtn) {
   if (quoteEl) quoteEl.insertAdjacentElement('afterend', exploreBtn);
 }
 exploreBtn.textContent = lang === 'en' ? 'Explore the discography ↗' : 'Εξερεύνησε τη δισκογραφία ↗';
+exploreBtn.textContent = lang === 'en' ? 'Explore the discography ↗' : 'Εξερεύνησε τη δισκογραφία ↗';
         exploreBtn.style.marginTop = '22px';
         exploreBtn.style.display = 'inline-flex';
         var quoteEl = wordsSection.querySelector('.quote');
