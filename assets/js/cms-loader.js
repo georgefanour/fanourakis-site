@@ -566,7 +566,10 @@ var tabLyrics = document.getElementById('tab-lyrics');
 var tabWritings = document.getElementById('tab-writings');
 if (tabLyrics) tabLyrics.textContent = lang === 'en' ? 'Lyrics' : 'Στίχοι';
 if (tabWritings) tabWritings.textContent = lang === 'en' ? 'Writings' : 'Κείμενα';
-
+var featuredEyebrow = document.getElementById('featured-eyebrow');
+var featuredExplore = document.getElementById('featured-explore-btn');
+if (featuredEyebrow) featuredEyebrow.textContent = lang === 'en' ? 'Latest release' : 'Πιο πρόσφατη κυκλοφορία';
+if (featuredExplore) featuredExplore.textContent = lang === 'en' ? 'Explore the discography ↗' : 'Εξερεύνησε τη δισκογραφία ↗';
   load(base + 'site.json', function (data) {
     if (!data || !Object.keys(data).length) return;
         var logoImg = document.getElementById('site-logo-img');
