@@ -100,3 +100,46 @@ section, header, footer, main, article, div {
     font-size: clamp(1.8rem, 12.5vw, 3.6rem) !important;
   }
 }
+
+/* --- Sep 10 fixes: mobile nav overflow, about section contrast, linear arrow icons --- */
+
+/* 1) Menu button cut off on mobile: logo image wasn't allowed to shrink
+   (flex items default to min-width:auto), pushing .tools off-screen. */
+@media (max-width: 480px) {
+  .nav-in {
+    gap: 8px;
+  }
+  .logo {
+    min-width: 0;
+    flex-shrink: 1;
+  }
+  .logo img {
+    max-width: 130px !important;
+    height: 44px !important;
+  }
+  .tools {
+    flex-shrink: 0;
+    gap: 4px;
+  }
+  .menu {
+    padding: 6px 8px;
+    font-size: 0.68rem;
+    white-space: nowrap;
+  }
+}
+
+/* 2) About section: force cream/white-beige text so it stays readable
+   against the violet background. */
+#about .eyebrow,
+#about .section-title,
+#about h2,
+#about .about-text {
+  color: #fff8ed !important;
+}
+
+/* 3) Render ↗ (and similar arrows) as plain text glyphs instead of
+   colorful emoji-style icons on platforms that support it (iOS 17.4+,
+   modern Chrome/Edge). Falls back harmlessly on older browsers. */
+body {
+  font-variant-emoji: text;
+}
