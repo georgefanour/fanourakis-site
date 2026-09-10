@@ -530,7 +530,11 @@
         '.cms-carousel-dot{width:8px;height:8px;border-radius:50%;background:rgba(10,7,18,.25);' +
         'cursor:pointer;transition:transform .2s ease,background .2s ease}' +
         '.cms-carousel-dot.active{background:var(--acid,#d8ff3e);transform:scale(1.35)}' +
-        '@media (max-width:720px){.cms-carousel-arrow{width:38px;height:38px;font-size:1.05rem}}';
+        '@media (max-width:720px){.cms-carousel-arrow{width:38px;height:38px;font-size:1.05rem}' +
+        '.cms-carousel-wrap{flex-wrap:wrap;justify-content:center;row-gap:14px}' +
+        '.cms-carousel-track{flex:1 1 100%;order:1;padding-left:6vw;padding-right:6vw}' +
+        '.cms-carousel-prev{order:2}' +
+        '.cms-carousel-next{order:3}}';
       document.head.appendChild(style);
     }
 
