@@ -1115,29 +1115,19 @@ target.innerHTML = ordered(items).map(function (item, index) {
   }
 
   function loadCollection(path, callback) {
-    var url = 'https://api.github.com/repos/georgefanour/fanourakis-site/contents/' + path + '?ref=main&t=' + Date.now();
+    var jsonPath = /\.json$/i.test(path) ? path : path + '.json';
 
-    fetch(url, { headers: { Accept: 'application/vnd.github.v3+json' } })
+    fetch(jsonPath + (jsonPath.indexOf('?') === -1 ? '?' : '&') + 'v=' + Date.now(), { cache: 'no-store' })
       .then(function (res) {
-        if (!res.ok) throw new Error(res.status + ' ' + path);
+        if (!res.ok) throw new Error(res.status + ' ' + jsonPath);
         return res.json();
       })
-      .then(function (files) {
-        var jsonFiles = (Array.isArray(files) ? files : []).filter(function (f) {
-          return f.type === 'file' && /\.json$/i.test(f.name);
-        });
-
-        return Promise.all(jsonFiles.map(function (f) {
-          return fetch(f.download_url + (f.download_url.indexOf('?') === -1 ? '?' : '&') + 't=' + Date.now())
-            .then(function (r) { return r.ok ? r.json() : null; })
-            .catch(function () { return null; });
-        }));
-      })
-      .then(function (items) {
-        callback((items || []).filter(Boolean));
+      .then(function (data) {
+        var items = Array.isArray(data) ? data : (Array.isArray(data && data.items) ? data.items : []);
+        callback(items);
       })
       .catch(function (error) {
-        console.warn('[CMS] Failed to load collection ' + path, error);
+        console.warn('[CMS] Failed to load collection ' + jsonPath, error);
         callback([]);
       });
   }
