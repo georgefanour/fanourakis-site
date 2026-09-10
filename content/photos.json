@@ -1,8 +1,42 @@
 {
   "items": [
-    {"title":"Αντανάκλαση live","image":"assets/images/IMG_2432-2.jpg","alt":"Αντανάκλαση live","order":1},
-    {"title":"Live","image":"assets/images/IMG_2443-3.jpg","alt":"Live","order":2},
-    {"title":"Μουσικοί","image":"assets/images/IMG_2426-5.jpg","alt":"Μουσικοί","order":3},
-    {"title":"Ντράμερ","image":"assets/images/IMG_2464-5.jpg","alt":"Ντράμερ","order":4}
+    {
+      "image": "/assets/images/IMG_2426.jpg"
+    },
+    {
+      "image": "/assets/images/IMG_2432.jpg"
+    },
+    {
+      "image": "/assets/images/IMG_2443-1.jpg"
+    },
+    {
+      "image": "/assets/images/IMG_2464.jpg",
+      "caption": "τύμπανα: Δημήτρης Ράιος"
+    },
+    {
+      "image": "/assets/images/dsc0314-2.jpg",
+      "caption": "κάδρο από την συναυλία μου στην παραλιακή Θεσσαλονίκης στην καραντίνα"
+    },
+    {
+      "image": "/assets/images/IMG_2439.jpg"
+    },
+    {
+      "image": "/assets/images/IMG_2459.jpg",
+      "caption": "μπάσο: Γιώργος Μπουναρτζής"
+    },
+    {
+      "image": "/assets/images/IMG_2469.jpg",
+      "caption": "ηλεκτρική κιθάρα: Ιάσονας Ανοιξιάδης"
+    },
+    {
+      "image": "/assets/images/IMG_2460.jpg",
+      "caption": "πλήκτρα: Δημήτρης Τομπάζης"
+    },
+    {
+      "image": "/assets/images/IMG_2443.jpg"
+    },
+    {
+      "image": "/assets/images/IMG_2425.jpg"
+    }
   ]
 }

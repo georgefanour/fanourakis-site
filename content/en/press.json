@@ -1,23 +1,19 @@
 {
   "items": [
     {
-      "title": "The next big conversation.",
+      "title": "I was interviewed Parallaximag and Myrto!",
       "type": "Interview",
-      "excerpt": "Space for the most recent or important interview.",
-      "featured": true,
-      "order": 1
+      "outlet": "Parallaximag",
+      "date": "2026-08-27",
+      "excerpt": "'It's easy to be an artist. The hard part is trying to fit the expectations of others into your art and into your life in general. The hard part is waiting to get rich from your art. The difficult thing is to lose your compass and your inner base, to ignore inspiration, to become part of the system. But the artist difficult thing? Really? Lucky are those who are, unlucky are those who have not yet discovered the artist they definitely have inside them.”",
+      "image": "/assets/images/IMG_2885-12.jpg",
+      "url": "https://parallaximag.gr/agenda-parallaxi/mousiki/stamata-ki-akoy-o-giorgos-fernei-ston-dromo-moysikes-poy-spania-akoyme-pia?fbclid=PAVERFWARUdGNleHRuA2FlbQIxMABzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAafQmHHyIWdaPZe1hg8gA5j_VOEzWi3QhfLrA7YK0ozZfhDE3pq7wjNy2xqtUw_aem_U1ARMZNsmb0mzlRYmHlL3g",
+      "featured": true
     },
     {
-      "title": "Podcast / Radio Show",
-      "type": "Podcast",
-      "excerpt": "Placeholder for audio interview or radio segment.",
-      "order": 2
-    },
-    {
-      "title": "Article or review",
-      "type": "Article",
-      "excerpt": "Placeholder for publication or review of a new release.",
-      "order": 3
+      "type": "Ραδιόφωνο",
+      "title": "La Boite in \"Radio Philosophy\"with Sofia Apostolidou",
+      "url": "#https://www.youtube.com/watch?v=K114VUyHGHI&pp=ygURZmxhc2ggcmFkaW8gYm9pdGU%3D"
     }
   ]
 }
