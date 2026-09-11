@@ -112,6 +112,15 @@ content:
         type: string
       - name: words_quote
         label: "Ενότητα «Στίχοι και Κείμενα» · μεγάλο παράθεμα πάνω από τη λίστα"
+      - name: writings_eyebrow
+        label: "Ενότητα «Κείμενα» · μικρή ετικέτα πάνω από τον κύριο τίτλο"
+        type: string
+      - name: writings_title
+        label: "Ενότητα «Κείμενα» · κύριος τίτλος"
+        type: string
+      - name: writings_quote
+        label: "Ενότητα «Κείμενα» · μεγάλο εισαγωγικό κείμενο / παράθεμα"
+        type: text
         type: text
       - name: press_eyebrow
         label: "Ενότητα «Συνεντεύξεις και Τύπος» · μικρή ετικέτα πάνω από τον τίτλο"
@@ -310,6 +319,15 @@ content:
         type: string
       - name: words_quote
         label: "\"Lyrics and Writings\" section · large quote"
+        type: text
+      - name: writings_eyebrow
+        label: "\"Writings\" section · small label above the main title"
+        type: string
+      - name: writings_title
+        label: "\"Writings\" section · main title"
+        type: string
+      - name: writings_quote
+        label: "\"Writings\" section · large introductory text / quote"
         type: text
       - name: press_eyebrow
         label: "\"Press\" section · small label"
