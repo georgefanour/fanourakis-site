@@ -194,22 +194,6 @@
     }
   }
 
-  function bindWordPanels() {
-    var panel = document.getElementById('word-panel');
-    var title = document.getElementById('word-title');
-    var body = document.getElementById('word-body');
-    var entries = document.querySelectorAll('[data-cms-title]');
-    for (var i = 0; i < entries.length; i += 1) {
-      entries[i].addEventListener('click', function () {
-        if (!panel || !title || !body) return;
-        title.textContent = this.getAttribute('data-cms-title') || '';
-        body.innerHTML = this.getAttribute('data-cms-body-html') || '';
-        panel.classList.add('open');
-        panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    }
-  }
-
   function bindVideoFilters() {
     var filters = document.querySelectorAll('.filter');
     var cards = document.querySelectorAll('.video-card');
@@ -249,9 +233,8 @@
   }
 
   function renderLyricsSection() {
-    var picker = document.getElementById('lyrics-release-picker');
     var listEl = document.getElementById('lyrics-list');
-    if (!picker || !listEl) return;
+    if (!listEl) return;
     if (!window.__lyricsItems) return;
 
     var items = window.__lyricsItems || [];
@@ -265,20 +248,9 @@
     });
 
     if (!releases.length) {
-      picker.innerHTML = '';
       listEl.innerHTML = '';
       return;
     }
-
-    picker.innerHTML = releases.map(function (releaseName) {
-      var meta = (window.__musicByTitle || {})[releaseName.trim().toLowerCase()] || {};
-      var cover = meta.cover || 'assets/images/placeholder-cover.jpg';
-      return '<button type="button" class="lyrics-release-card" data-release="' + escapeHtml(releaseName) + '"><img src="' + escapeHtml(cover) + '" alt="' + escapeHtml(releaseName) + '" loading="lazy"><div class="lrc-body"><h4>' + escapeHtml(releaseName) + '</h4>' + (meta.year ? '<span>' + escapeHtml(meta.year) + '</span>' : '') + '</div></button>';
-    }).join('');
-
-    picker.querySelectorAll('.lyrics-release-card').forEach(function (card) {
-      card.addEventListener('click', function () { selectLyricsRelease(card.dataset.release); });
-    });
 
     var pending = window.__pendingLyricsRelease;
     window.__pendingLyricsRelease = null;
@@ -307,10 +279,6 @@
     var key = releaseName.trim().toLowerCase();
     var matches = ordered(items.filter(function (i) { return (i.release || '').trim().toLowerCase() === key; }));
     if (!matches.length) { window.__pendingLyricsRelease = releaseName; return; }
-
-    document.querySelectorAll('.lyrics-release-card').forEach(function (card) {
-      card.classList.toggle('active', (card.dataset.release || '').trim().toLowerCase() === key);
-    });
 
     var meta = (window.__musicByTitle || {})[key] || {};
     var eyebrowEl = document.getElementById('lyrics-selected-eyebrow');
@@ -548,7 +516,6 @@
     if (items.length < 2) return;
     container.dataset.carouselReady = '1';
     container.classList.add('cms-carousel-track');
-
     var wrap = document.createElement('div');
     wrap.className = 'cms-carousel-wrap';
     container.parentNode.insertBefore(wrap, container);
@@ -706,7 +673,7 @@
   removeNewsletterUI();
 
   console.info('[CMS] Loader started, lang=' + lang);
-var featuredEyebrow = document.getElementById('featured-eyebrow');
+  var featuredEyebrow = document.getElementById('featured-eyebrow');
 var featuredExplore = document.getElementById('featured-explore-btn');
 if (featuredEyebrow) featuredEyebrow.textContent = lang === 'en' ? 'Latest release' : 'Πιο πρόσφατη κυκλοφορία';
 if (featuredExplore) featuredExplore.textContent = lang === 'en' ? 'Explore the discography ↗' : 'Εξερεύνησε τη δισκογραφία ↗';
@@ -743,7 +710,7 @@ if (featuredExplore) featuredExplore.textContent = lang === 'en' ? 'Explore the 
       document.querySelectorAll('.ticker div span').forEach(function (span) { span.textContent = data.ticker; });
     }
 
-    var navMap = { nav_music: 'a[href="#music"]', nav_videos: 'a[href="#videos"]', nav_live: 'a[href="#live"]', nav_lyrics: 'a[href="#lyrics"]', nav_writings: 'a[href="#writings"]', nav_press: 'a[href="#press"]', nav_photos: 'a[href="#photos"]', nav_about: 'a[href="#about"]', nav_contact: 'a[href="#contact"]' };
+    var navMap = { nav_music: 'a[href="#music"]', nav_videos: 'a[href="#videos"]', nav_live: 'a[href="#live"]', nav_writings: 'a[href="#writings"]', nav_press: 'a[href="#press"]', nav_photos: 'a[href="#photos"]', nav_about: 'a[href="#about"]', nav_contact: 'a[href="#contact"]' };
     Object.keys(navMap).forEach(function (key) {
       if (!data[key]) return;
       document.querySelectorAll('#links ' + navMap[key]).forEach(function (link) { link.textContent = data[key]; });
@@ -766,23 +733,6 @@ if (featuredExplore) featuredExplore.textContent = lang === 'en' ? 'Explore the 
       setHtml(head.querySelector('.copy'), data[entry[3]]);
     });
 
-    var wordsSection = document.querySelector('#words');
-    if (wordsSection) {
-      setText(wordsSection.querySelector('.eyebrow'), data.words_eyebrow);
-      setHtml(wordsSection.querySelector('.quote'), data.words_quote);
-var exploreBtn = document.getElementById('words-explore-music-btn');
-if (!exploreBtn) {
-  exploreBtn = document.createElement('a');
-  exploreBtn.id = 'words-explore-music-btn';
-  exploreBtn.className = 'btn words-explore-btn';
-  exploreBtn.href = '#music';
-  exploreBtn.style.marginTop = '22px';
-  exploreBtn.style.display = 'inline-flex';
-  var quoteEl = wordsSection.querySelector('.quote');
-  if (quoteEl) quoteEl.insertAdjacentElement('afterend', exploreBtn);
-}
-exploreBtn.textContent = lang === 'en' ? 'Explore the discography ↗' : 'Εξερεύνησε τη δισκογραφία ↗';
-    }
     if (data.press_note) setHtml(document.querySelector('.press-note'), data.press_note);
     else { var pn = document.querySelector('.press-note'); if (pn) pn.remove(); }
 
@@ -928,10 +878,10 @@ links.push('<a href="#lyrics" data-jump-lyrics="' + escapeHtml(item.title || '')
       }
 
       return '<article class="release-card reveal show">' +
-        '<div class="release-art"><img src="' + escapeHtml(cover) + '" alt="' + escapeHtml(item.title || '') + '" loading="lazy" onerror="this.src=&quot;assets/images/placeholder-cover.jpg&quot;"></div>' +
+        '<div class="release-art" style="cursor:pointer" data-jump-lyrics="' + escapeHtml(item.title || '') + '"><img src="' + escapeHtml(cover) + '" alt="' + escapeHtml(item.title || '') + '" loading="lazy" onerror="this.src=&quot;assets/images/placeholder-cover.jpg&quot;"></div>' +
         '<div class="release-body">' +
 (item.featured ? '<span class="badge">' + (lang === 'en' ? 'Latest release' : 'Πιο πρόσφατη') + '</span>' : '') +
-        '<h3>' + escapeHtml(item.title || '') + '</h3>' +
+        '<h3 style="cursor:pointer" data-jump-lyrics="' + escapeHtml(item.title || '') + '">' + escapeHtml(item.title || '') + '</h3>' +
         '<p>' + escapeHtml(item.release_type || '') + (item.year ? ' · ' + escapeHtml(item.year) : '') + '</p>' +
         '<div class="release-actions">' + links.join('') + '</div></div></article>';
     }).join(''), 'music');
@@ -1038,7 +988,7 @@ links.push('<a href="#lyrics" data-jump-lyrics="' + escapeHtml(item.title || '')
     buildCarousel('.masonry', '.photo');
   });
 
-      function loadCollection(path, callback) {
+  function loadCollection(path, callback) {
     var jsonPath = /\.json$/i.test(path) ? path : path + '.json';
 
     fetch(jsonPath + (jsonPath.indexOf('?') === -1 ? '?' : '&') + 'v=' + Date.now(), { cache: 'no-store' })
