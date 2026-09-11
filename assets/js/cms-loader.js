@@ -96,7 +96,7 @@
     var style = document.createElement('style');
     style.id = 'cms-ui-fixes-style';
     style.textContent =
-      '.writings-section .section-title,#writings .section-title{color:#2d1b3d!important}' +
+      '.writings-section .section-title,#writings .section-title{color:#0d1420!important}' +
       '#close-lyric,#close-writing,.lyric-panel .close-panel,.writing-panel .close-panel{color:var(--paper,#fff8ed)!important}' +
       '#close-lyric:hover,#close-writing:hover{opacity:.75}' +
       '.release-info-btn{display:inline-flex}' +
