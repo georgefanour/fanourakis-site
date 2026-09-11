@@ -321,7 +321,7 @@
   },
   "site.music_intro": {
     "el": "σ' αυτόν τον χώρο μπορείς να περιηγηθείς στην δημοσιευμένη μουσική μου",
-    "en": "in this space you can browse my published music"
+    "en": "In this space you can browse my published music."
   },
   "site.videos_title": {
     "el": "Κοίτα. Άκου.",
@@ -329,7 +329,7 @@
   },
   "site.videos_intro": {
     "el": "εδώ σου προτείνω να δεις κάποια βίντεο",
-    "en": "here I suggest you watch some videos"
+    "en": "Here I suggest you watch some videos."
   },
   "site.live_title": {
     "el": "Από κοντά, είναι αλλιώς.",
@@ -337,7 +337,7 @@
   },
   "site.words_quote": {
     "el": "σου παρουσιάζω τις πεζές μου ανησυχίες",
-    "en": "I present to you my prosaic concerns"
+    "en": "I present to you my prosaic concerns."
   },
   "site.words_release_prompt": {
     "el": "Διάλεξε από ποιον δίσκο θα ήθελες να διαβάσεις τους στίχους και τους συντελεστές.",
@@ -352,20 +352,20 @@
     "en": "Interviews, podcasts, radio appearances, articles, reviews and video interviews."
   },
   "site.photos_eyebrow": {
-    "el": "Μικρές εκρήξεις",
-    "en": "Small explosions"
+    "el": "Φωτογραφίες",
+    "en": "Photos"
   },
   "site.photos_title": {
-    "el": "Μικρές εκρήξεις",
-    "en": "Small explosions"
+    "el": "Μικρές εκρήξεις.",
+    "en": "Small explosions."
   },
   "site.photos_intro": {
     "el": "εδώ μπορείς να σταματήσεις τον Χρόνο",
-    "en": "here you can stop Time"
+    "en": "Here you can stop Time."
   },
   "site.contact_eyebrow": {
     "el": "ακολούθησε την μουσική μου στα social media",
-    "en": "follow my music on social media"
+    "en": "Follow my music on social media"
   },
   "site.contact_title": {
     "el": "Να μείνουμε σε επαφή;",
@@ -5473,6 +5473,102 @@
   },
   "site.live_eyebrow": {
     "el": "ζωντανές εμφανίσεις",
-    "en": "live shows"
+    "en": "Live shows"
+  },
+  "site.nav_writings": {
+    "el": "Κείμενα",
+    "en": "Texts"
+  },
+  "site.featured_eyebrow": {
+    "el": "Πιο πρόσφατη κυκλοφορία",
+    "en": "Latest release"
+  },
+  "site.music_eyebrow": {
+    "el": "Δισκογραφία",
+    "en": "Discography:"
+  },
+  "site.videos_eyebrow": {
+    "el": "Βίντεο",
+    "en": "Video"
+  },
+  "site.videos_filter_all": {
+    "el": "Όλα",
+    "en": "All"
+  },
+  "site.videos_filter_official": {
+    "el": "Official",
+    "en": "Official"
+  },
+  "site.videos_filter_cover": {
+    "el": "Covers",
+    "en": "Covers"
+  },
+  "site.videos_filter_live": {
+    "el": "Live Sessions",
+    "en": "Live Sessions"
+  },
+  "site.videos_filter_acoustic": {
+    "el": "Acoustic",
+    "en": "Acoustic"
+  },
+  "site.videos_filter_studio": {
+    "el": "Studio",
+    "en": "Studio"
+  },
+  "site.videos_placeholder_title": {
+    "el": "Προσθήκη σύντομα",
+    "en": "Add soon"
+  },
+  "site.videos_placeholder_hint": {
+    "el": "Πρόσθεσε νέο YouTube URL από το CMS",
+    "en": "Add new YouTube URL from CMS"
+  },
+  "site.live_intro": {
+    "el": "Σκηνές, φώτα, πρόβες και μικρές εκρήξεις. Η μουσική ζει εκεί όπου οι άνθρωποι συναντιούνται.",
+    "en": "Scenes, lights, rehearsals and small explosions. Music lives where people meet."
+  },
+  "site.words_eyebrow": {
+    "el": "Κείμενα",
+    "en": "Texts"
+  },
+  "site.press_eyebrow": {
+    "el": "Συνεντεύξεις & Τύπος",
+    "en": "Interviews & Press"
+  },
+  "site.about_eyebrow": {
+    "el": "Σχετικά",
+    "en": "About"
+  },
+  "site.about_button": {
+    "el": "Πες μου μια ιστορία ↗",
+    "en": "Tell me a story ↗"
+  },
+  "site.contact_booking_label": {
+    "el": "Booking",
+    "en": "Booking"
+  },
+  "site.contact_booking_email": {
+    "el": "georgefanour@gmail.com",
+    "en": "georgefanour@gmail.com"
+  },
+  "site.contact_press_label": {
+    "el": "Press",
+    "en": "Press"
+  },
+  "site.contact_press_email": {
+    "el": "georgefanour@gmail.com",
+    "en": "georgefanour@gmail.com"
+  },
+  "site.footer_copyright": {
+    "el": "© Γιώργος Φανουράκης. Με επιφύλαξη παντός δικαιώματος.",
+    "en": "© George Fanourakis. All rights reserved."
+  },
+  "site.footer_privacy_label": {
+    "el": "Privacy",
+    "en": "Privacy"
+  },
+  "site.footer_cookies_label": {
+    "el": "Cookies",
+    "en": "Cookies"
   }
 }
