@@ -194,6 +194,22 @@
     }
   }
 
+  function bindWordPanels() {
+    var panel = document.getElementById('word-panel');
+    var title = document.getElementById('word-title');
+    var body = document.getElementById('word-body');
+    var entries = document.querySelectorAll('[data-cms-title]');
+    for (var i = 0; i < entries.length; i += 1) {
+      entries[i].addEventListener('click', function () {
+        if (!panel || !title || !body) return;
+        title.textContent = this.getAttribute('data-cms-title') || '';
+        body.innerHTML = this.getAttribute('data-cms-body-html') || '';
+        panel.classList.add('open');
+        panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+  }
+
   function bindVideoFilters() {
     var filters = document.querySelectorAll('.filter');
     var cards = document.querySelectorAll('.video-card');
@@ -270,6 +286,19 @@
     selectLyricsRelease(target);
   }
 
+  function getLyricsSelectedCover() {
+    var header = document.querySelector('.lyrics-selected-release');
+    if (!header) return null;
+    var img = header.querySelector('.lyrics-selected-cover');
+    if (!img) {
+      img = document.createElement('img');
+      img.className = 'lyrics-selected-cover';
+      img.loading = 'lazy';
+      header.insertBefore(img, header.firstChild);
+    }
+    return img;
+  }
+
   function selectLyricsRelease(releaseName) {
     var items = window.__lyricsItems;
     if (!releaseName) return;
@@ -288,6 +317,12 @@
     var titleEl = document.getElementById('lyrics-selected-title');
     if (eyebrowEl) eyebrowEl.textContent = [meta.releaseType, meta.year].filter(Boolean).join(' · ');
     if (titleEl) titleEl.textContent = releaseName;
+
+    var coverImg = getLyricsSelectedCover();
+    if (coverImg) {
+      coverImg.src = meta.cover || 'assets/images/placeholder-cover.jpg';
+      coverImg.alt = releaseName;
+    }
 
     var actionsEl = document.getElementById('lyrics-external-actions');
     if (actionsEl) {
@@ -513,6 +548,7 @@
     if (items.length < 2) return;
     container.dataset.carouselReady = '1';
     container.classList.add('cms-carousel-track');
+
     var wrap = document.createElement('div');
     wrap.className = 'cms-carousel-wrap';
     container.parentNode.insertBefore(wrap, container);
@@ -670,7 +706,7 @@
   removeNewsletterUI();
 
   console.info('[CMS] Loader started, lang=' + lang);
-  var featuredEyebrow = document.getElementById('featured-eyebrow');
+var featuredEyebrow = document.getElementById('featured-eyebrow');
 var featuredExplore = document.getElementById('featured-explore-btn');
 if (featuredEyebrow) featuredEyebrow.textContent = lang === 'en' ? 'Latest release' : 'Πιο πρόσφατη κυκλοφορία';
 if (featuredExplore) featuredExplore.textContent = lang === 'en' ? 'Explore the discography ↗' : 'Εξερεύνησε τη δισκογραφία ↗';
@@ -1002,7 +1038,7 @@ links.push('<a href="#lyrics" data-jump-lyrics="' + escapeHtml(item.title || '')
     buildCarousel('.masonry', '.photo');
   });
 
-  function loadCollection(path, callback) {
+      function loadCollection(path, callback) {
     var jsonPath = /\.json$/i.test(path) ? path : path + '.json';
 
     fetch(jsonPath + (jsonPath.indexOf('?') === -1 ? '?' : '&') + 'v=' + Date.now(), { cache: 'no-store' })
@@ -1020,21 +1056,29 @@ links.push('<a href="#lyrics" data-jump-lyrics="' + escapeHtml(item.title || '')
       });
   }
 
-  loadCollection(base + 'lyrics', function (items) {
-    window.__lyricsItems = items || [];
-    renderLyricsSection();
-    bindLyricsJump();
-
-    console.info('[CMS] Rendered lyrics (' + lang + '), ' + items.length + ' entries');
-  });
-
-  loadCollection(base + 'writings', function (items) {
-    window.__writingsItems = items || [];
-    window.__writingsPage = 1;
-    renderWritingsSection();
-
-    console.info('[CMS] Rendered writings (' + lang + '), ' + items.length + ' entries');
-  });
+  fetch(base + 'texts.json?v=' + Date.now(), { cache: 'no-store' })
+    .then(function (res) {
+      if (!res.ok) throw new Error(res.status + ' texts.json');
+      return res.json();
+    })
+    .then(function (data) {
+      window.__lyricsItems = Array.isArray(data && data.lyrics) ? data.lyrics : [];
+      window.__writingsItems = Array.isArray(data && data.writings) ? data.writings : [];
+      window.__writingsPage = 1;
+      renderLyricsSection();
+      bindLyricsJump();
+      renderWritingsSection();
+      console.info('[CMS] Rendered lyrics (' + lang + '), ' + window.__lyricsItems.length + ' entries');
+      console.info('[CMS] Rendered writings (' + lang + '), ' + window.__writingsItems.length + ' entries');
+    })
+    .catch(function (error) {
+      console.warn('[CMS] Failed to load texts.json', error);
+      window.__lyricsItems = [];
+      window.__writingsItems = [];
+      window.__writingsPage = 1;
+      renderLyricsSection();
+      renderWritingsSection();
+    });
 
   document.querySelectorAll('.lang').forEach(function (btn) {
     btn.addEventListener('click', function () {
