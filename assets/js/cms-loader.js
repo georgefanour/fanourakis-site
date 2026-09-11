@@ -91,19 +91,36 @@
     });
   }
 
+  function ensureStyleBlock() {
+    if (document.getElementById('cms-ui-fixes-style')) return;
+    var style = document.createElement('style');
+    style.id = 'cms-ui-fixes-style';
+    style.textContent =
+      '.writings-section .section-title,#writings .section-title{color:#2d1b3d!important}' +
+      '#close-lyric,#close-writing,.lyric-panel .close-panel,.writing-panel .close-panel{color:var(--paper,#fff8ed)!important}' +
+      '#close-lyric:hover,#close-writing:hover{opacity:.75}' +
+      '.release-info-btn{display:inline-flex}' +
+      '.release-info-bottom-close{margin-top:32px;display:inline-block}';
+    document.head.appendChild(style);
+  }
+
   function bindReleaseInfoPanel() {
     var panel = document.getElementById('release-info-panel');
     if (!panel) {
       panel = document.createElement('div');
       panel.className = 'panel';
       panel.id = 'release-info-panel';
-      panel.innerHTML = '<div class="panel-blur-bg" aria-hidden="true"></div><div class="container"><button class="close-panel" data-release-info-close>' + (lang === 'en' ? '← Back to discography' : '← Επιστροφή στη δισκογραφία') + '</button><div class="panel-grid"><div class="panel-art"><img id="release-info-img" alt=""></div><div class="panel-copy"><p class="release-meta" id="release-info-eyebrow"></p><h2 class="section-title" id="release-info-title"></h2><div class="copy" id="release-info-desc"></div></div></div></div>';
+      panel.innerHTML = '<div class="panel-blur-bg" aria-hidden="true"></div><div class="container"><button class="close-panel" data-release-info-close>' + (lang === 'en' ? '← Back to discography' : '← Επιστροφή στη δισκογραφία') + '</button><div class="panel-grid"><div class="panel-art"><img id="release-info-img" alt=""></div><div class="panel-copy"><p class="release-meta" id="release-info-eyebrow"></p><h2 class="section-title" id="release-info-title"></h2><div class="copy" id="release-info-desc"></div><button class="close-panel release-info-bottom-close" data-release-info-close-bottom>' + (lang === 'en' ? '← Back to discography' : '← Επιστροφή στη δισκογραφία') + '</button></div></div></div>';
       document.body.appendChild(panel);
-      panel.querySelector('[data-release-info-close]').addEventListener('click', function () {
+
+      function closeAndScroll() {
         panel.classList.remove('open');
         var music = document.getElementById('music');
         if (music) music.scrollIntoView({ behavior: 'smooth' });
-      });
+      }
+
+      panel.querySelector('[data-release-info-close]').addEventListener('click', closeAndScroll);
+      panel.querySelector('[data-release-info-close-bottom]').addEventListener('click', closeAndScroll);
     }
 
     document.querySelectorAll('.release-info-btn').forEach(function (btn) {
@@ -247,8 +264,17 @@
 
     var pending = window.__pendingLyricsRelease;
     window.__pendingLyricsRelease = null;
-    var target = pending && releases.some(function (r) { return r.trim().toLowerCase() === pending.trim().toLowerCase(); }) ? pending : releases[0];
-    selectLyricsRelease(target);
+
+    var target = null;
+    if (pending && releases.some(function (r) { return r.trim().toLowerCase() === pending.trim().toLowerCase(); })) {
+      target = pending;
+    } else if (window.__featuredReleaseTitle && releases.some(function (r) { return r.trim().toLowerCase() === window.__featuredReleaseTitle.trim().toLowerCase(); })) {
+      target = window.__featuredReleaseTitle;
+    } else {
+      target = releases[0];
+    }
+
+    selectLyricsRelease(target, { force: true });
   }
 
   function getLyricsSelectedCover() {
@@ -669,9 +695,17 @@
       document.head.appendChild(style);
     }
 
+    var initialIndex = 0;
+    if (isReleaseGrid && window.__featuredReleaseTitle) {
+      var featKey = window.__featuredReleaseTitle.trim().toLowerCase();
+      items.forEach(function (item, i) {
+        var t = (item.getAttribute('data-release-title') || '').trim().toLowerCase();
+        if (t === featKey) initialIndex = i;
+      });
+    }
+
     requestAnimationFrame(function () {
-      goTo(0);
-      setTimeout(function () { applyDepth(true); }, 60);
+      goTo(initialIndex, true);
     });
     window.addEventListener('resize', function () {
       clearTimeout(window.__cmsCarouselResize);
@@ -696,6 +730,7 @@
   applyActiveLangButton(lang);
   document.documentElement.setAttribute('lang', lang);
   removeNewsletterUI();
+  ensureStyleBlock();
 
   console.info('[CMS] Loader started, lang=' + lang);
   var featuredEyebrow = document.getElementById('featured-eyebrow');
@@ -898,7 +933,7 @@ if (contactSection) {
       window.__musicByTitle = window.__musicByTitle || {};
       if (item.title) window.__musicByTitle[item.title.trim().toLowerCase()] = { cover: cover, title: item.title || '', releaseType: item.release_type || '', year: item.year || '', spotify_url: spotify || '', youtube_url: youtube || '' };
       if (item.description || item.artist_note) {
-        links.unshift('<a href="#" class="release-info-btn" data-release-idx="' + idx + '">' + (lang === 'en' ? 'About this release ↗' : 'Λίγα λόγια για τον δίσκο ↗') + '</a>');
+        links.unshift('<a href="#" class="release-info-btn" data-release-idx="' + idx + '">' + (lang === 'en' ? 'Read more about this release ↗' : 'Διάβασε εδώ λίγα λόγια για τον δίσκο ↗') + '</a>');
       }
 
       return '<article class="release-card reveal show" data-release-title="' + escapeHtml(item.title || '') + '">' +
@@ -912,6 +947,8 @@ if (contactSection) {
 
     var featuredItem = ordered(items).filter(function (item) { return item.featured; })[0] || ordered(items)[0];
     if (featuredItem) {
+      window.__featuredReleaseTitle = featuredItem.title || '';
+
       var featuredSection = document.querySelector('.featured');
       if (featuredSection) {
         var fCover = normalizePath(featuredItem.cover) || 'assets/images/placeholder-cover.jpg';
