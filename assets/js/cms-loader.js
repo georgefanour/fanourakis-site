@@ -118,7 +118,7 @@
       panel = document.createElement('div');
       panel.className = 'panel';
       panel.id = 'release-info-panel';
-      panel.innerHTML = '<div class="panel-blur-bg" aria-hidden="true"></div><div class="container"><button class="close-panel" data-release-info-close>' + (lang === 'en' ? '← Back to discography' : '← Επιστροφή στη δισκογραφία') + '</button><div class="panel-grid"><div class="panel-art"><img id="release-info-img" alt=""></div><div class="panel-copy"><p class="release-meta" id="release-info-eyebrow"></p><h2 class="section-title" id="release-info-title"></h2><div class="copy" id="release-info-desc"></div><button class="close-panel release-info-bottom-close" data-release-info-close-bottom>' + (lang === 'en' ? '← Back to discography' : '← Επιστροφή στη δισκογραφία') + '</button></div></div></div>';
+      panel.innerHTML = '<div class="panel-blur-bg" aria-hidden="true"></div><div class="container"><button class="close-panel" data-release-info-close>' + (lang === 'en' ? '← Back to discography' : '← Επιστροφή στη δισκογραφία') + '</button><div class="panel-grid"><div class="panel-art"><img id="release-info-img" alt=""></div><div class="panel-copy"><p class="release-meta" id="release-info-eyebrow"></p><h2 class="section-title" id="release-info-title"></h2><div class="copy" id="release-info-desc"></div><ul class="credits" id="release-info-credits" hidden></ul><button class="close-panel release-info-bottom-close" data-release-info-close-bottom>' + (lang === 'en' ? '← Back to discography' : '← Επιστροφή στη δισκογραφία') + '</button></div></div></div>';
       document.body.appendChild(panel);
 
       function closeAndScroll() {
@@ -147,6 +147,14 @@
         if (data.desc) descHtml += '<p>' + renderMultiline(data.desc) + '</p>';
         if (data.note) descHtml += '<p>' + renderMultiline(data.note) + '</p>';
         panel.querySelector('#release-info-desc').innerHTML = descHtml;
+        var creditsEl = panel.querySelector('#release-info-credits');
+        if (creditsEl) {
+          var creditsList = Array.isArray(data.credits) ? data.credits : [];
+          creditsEl.innerHTML = creditsList.map(function (c) {
+            return '<li><b>' + escapeHtml(c.title || '') + '</b>' + escapeHtml(c.content || '') + '</li>';
+          }).join('');
+          creditsEl.hidden = !creditsList.length;
+        }
         panel.classList.add('open');
         panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
@@ -765,7 +773,6 @@ if (featuredExplore) featuredExplore.textContent = lang === 'en' ? 'Explore the 
     }
 
     var heroSection = document.getElementById('home');
-    var heroSection = document.getElementById('home');
     if (heroSection) {
       setText(heroSection.querySelector('.tag'), data.hero_tag);
       var heading = heroSection.querySelector('h1');
@@ -803,6 +810,24 @@ if (featuredExplore) featuredExplore.textContent = lang === 'en' ? 'Explore the 
       setText(head.querySelector('.section-title'), data[entry[2]]);
       setHtml(head.querySelector('.copy'), data[entry[3]]);
     });
+
+    var videosSection = document.querySelector('#videos');
+    if (videosSection) {
+      var filterMap = {
+        all: data.videos_filter_all,
+        official: data.videos_filter_official,
+        cover: data.videos_filter_cover,
+        live: data.videos_filter_live,
+        acoustic: data.videos_filter_acoustic,
+        studio: data.videos_filter_studio
+      };
+      videosSection.querySelectorAll('.filter').forEach(function (btn) {
+        var key = btn.dataset.filter;
+        if (key && filterMap[key]) btn.textContent = filterMap[key];
+      });
+    }
+    window.__videosPlaceholderTitle = data.videos_placeholder_title || '';
+    window.__videosPlaceholderHint = data.videos_placeholder_hint || '';
 
     if (data.press_note) setHtml(document.querySelector('.press-note'), data.press_note);
     else { var pn = document.querySelector('.press-note'); if (pn) pn.remove(); }
@@ -893,6 +918,28 @@ if (contactSection) {
         }
       });
     }
+
+    var bookingPress = contactRight.querySelector('.booking-press-line');
+    if (!bookingPress) {
+      bookingPress = document.createElement('p');
+      bookingPress.className = 'booking-press-line';
+      var socialEl = contactRight.querySelector('.social');
+      if (socialEl) socialEl.insertAdjacentElement('afterend', bookingPress);
+      else contactRight.appendChild(bookingPress);
+    }
+    var bpParts = [];
+    var bookingLabel = String(data.contact_booking_label || '').trim();
+    var bookingEmail = String(data.contact_booking_email || '').trim();
+    var pressLabel = String(data.contact_press_label || '').trim();
+    var pressEmail = String(data.contact_press_email || '').trim();
+    if (bookingLabel && bookingEmail) bpParts.push('<b>' + escapeHtml(bookingLabel) + '</b> <a href="mailto:' + escapeHtml(bookingEmail) + '">' + escapeHtml(bookingEmail) + '</a>');
+    if (pressLabel && pressEmail) bpParts.push('<b>' + escapeHtml(pressLabel) + '</b> <a href="mailto:' + escapeHtml(pressEmail) + '">' + escapeHtml(pressEmail) + '</a>');
+    if (bpParts.length) {
+      bookingPress.innerHTML = bpParts.join(' · ');
+      bookingPress.hidden = false;
+    } else {
+      bookingPress.hidden = true;
+    }
   }
 
   if (!document.getElementById('cms-contact-style')) {
@@ -915,10 +962,35 @@ if (contactSection) {
       '.contact .social{margin-top:clamp(26px,3vw,38px)}' +
       '.contact .social a[hidden]{display:none!important}' +
       '.contact .contact-email{background:var(--ink,#0a0712);color:var(--acid,#d8ff3e);border-color:var(--ink,#0a0712)}' +
-      '.contact .contact-email:hover{background:transparent;color:var(--ink,#0a0712)}';
+      '.contact .contact-email:hover{background:transparent;color:var(--ink,#0a0712)}' +
+      '.booking-press-line{margin-top:14px;font-size:.78rem;color:var(--ink,#0a0712)}' +
+      '.booking-press-line a{color:var(--ink,#0a0712);text-decoration:underline}';
     document.head.appendChild(contactStyle);
   }
 }
+
+var footer = document.querySelector('footer .foot');
+if (footer) {
+  setText(footer.querySelector('span'), data.footer_copyright);
+  var footerLinks = Array.prototype.slice.call(footer.querySelectorAll('a'));
+  var privacyLink = footerLinks[0];
+  var cookiesLink = footerLinks[1];
+  if (privacyLink) {
+    var pLabel = String(data.footer_privacy_label || '').trim();
+    var pUrl = normalizePath(data.footer_privacy_url);
+    if (pLabel) privacyLink.textContent = pLabel;
+    if (pUrl) { privacyLink.href = pUrl; privacyLink.hidden = false; }
+    else if (!pLabel) privacyLink.hidden = true;
+  }
+  if (cookiesLink) {
+    var cLabel = String(data.footer_cookies_label || '').trim();
+    var cUrl = normalizePath(data.footer_cookies_url);
+    if (cLabel) cookiesLink.textContent = cLabel;
+    if (cUrl) { cookiesLink.href = cUrl; cookiesLink.hidden = false; }
+    else if (!cLabel) cookiesLink.hidden = true;
+  }
+}
+
     console.info('[CMS] Rendered site text (' + lang + ')');
   });
 
@@ -940,7 +1012,7 @@ if (contactSection) {
       var bandcamp = normalizePath(item.bandcamp_url);
       var links = [];
       window.__releaseInfoStore = window.__releaseInfoStore || {};
-           window.__releaseInfoStore[idx] = { title: item.title || '', desc: item.description || '', note: item.artist_note || '', credits: item.credits || '', cover: cover, releaseType: item.release_type || '', year: item.year || '' };
+           window.__releaseInfoStore[idx] = { title: item.title || '', desc: item.description || '', note: item.artist_note || '', credits: item.credits || [], cover: cover, releaseType: item.release_type || '', year: item.year || '' };
       window.__musicByTitle = window.__musicByTitle || {};
       if (item.title) window.__musicByTitle[item.title.trim().toLowerCase()] = { cover: cover, title: item.title || '', releaseType: item.release_type || '', year: item.year || '', spotify_url: spotify || '', youtube_url: youtube || '' };
       if (item.description || item.artist_note) {
@@ -1000,11 +1072,13 @@ if (contactSection) {
       var videoId = extractYouTubeId(rawUrl);
       var embed = videoId ? 'https://www.youtube-nocookie.com/embed/' + videoId : '';
       var category = escapeHtml(item.category || 'all');
+      var placeholderTitle = escapeHtml(item.title || window.__videosPlaceholderTitle || '');
+      var placeholderHint = escapeHtml(window.__videosPlaceholderHint || '');
       var body = embed
         ? '<div class="embed"><iframe src="' + escapeHtml(embed) + '" title="' + escapeHtml(item.title || '') + '" loading="lazy" allowfullscreen></iframe></div>'
         : (item.thumbnail
           ? '<div class="embed"><img src="' + escapeHtml(normalizePath(item.thumbnail)) + '" alt="' + escapeHtml(item.title || '') + '" style="width:100%;height:100%;object-fit:cover"></div>'
-          : '<div class="placeholder"><div><b>' + escapeHtml(item.title || 'Προσθήκη σύντομα') + '</b><code>Πρόσθεσε νέο YouTube URL από το CMS</code></div></div>');
+          : '<div class="placeholder"><div><b>' + placeholderTitle + '</b><code>' + placeholderHint + '</code></div></div>');
       return '<article class="video-card reveal show" data-category="' + category + '">' +
         body +
         '<div class="video-info"><p class="eyebrow">' + escapeHtml(item.category || '') + '</p><h3>' + escapeHtml(item.title || '') + '</h3><p class="clamp-text">' + renderMultiline(item.description || '') + '</p></div></article>';
@@ -1016,9 +1090,10 @@ if (contactSection) {
   loadCollection(rootBase + 'live', function (items) {
     if (!items.length) return;
     render('.live-grid', ordered(items).map(function (item) {
+      var label = String(item.caption || '').trim() || item.title || '';
       var detail = item.venue || item.city || item.date || item.status || 'Live';
       var image = normalizePath(item.image);
-      var card = '<img src="' + escapeHtml(image) + '" alt="' + escapeHtml(item.alt || item.title || '') + '" loading="lazy"><div class="live-label">' + escapeHtml(item.title || '') + '<small>' + escapeHtml(detail) + '</small></div>';
+      var card = '<img src="' + escapeHtml(image) + '" alt="' + escapeHtml(item.alt || item.title || '') + '" loading="lazy"><div class="live-label">' + escapeHtml(label) + '<small>' + escapeHtml(detail) + '</small></div>';
       var url = normalizePath(item.ticket_url);
       return url
         ? '<a class="live-card reveal show" href="' + escapeHtml(url) + '" target="_blank" rel="noopener" style="display:block">' + card + '</a>'
