@@ -92,11 +92,14 @@
   }
 
   function ensureStyleBlock() {
-    if (document.getElementById('cms-ui-fixes-style')) return;
-    var style = document.createElement('style');
-    style.id = 'cms-ui-fixes-style';
+    var style = document.getElementById('cms-ui-fixes-style');
+    if (!style) {
+      style = document.createElement('style');
+      style.id = 'cms-ui-fixes-style';
+      document.head.appendChild(style);
+    }
     style.textContent =
-      '.writings-section .section-title,#writings .section-title{color:#0d1420!important}' +
+      'section#writings h2.section-title,#writings .writings-head p.section-title.section-title,html body section#writings div.writings-head h2.section-title{color:#0d1420!important}' +
       '#close-lyric,#close-writing,.lyric-panel .close-panel,.writing-panel .close-panel{color:var(--paper,#fff8ed)!important}' +
       '#close-lyric:hover,#close-writing:hover{opacity:.75}' +
       '.release-info-btn{display:inline-flex}' +
