@@ -137,11 +137,11 @@
   },
   "music.items[0].title": {
     "el": "Άνευ συνΩδείας",
-    "en": "Without leave of absence"
+    "en": "Aney Synodeias"
   },
   "music.items[0].release_type": {
     "el": "Album",
-    "en": "Album."
+    "en": "Album"
   },
   "music.items[0].description": {
     "el": "Η πρώτη ολοκληρωμένη δισκογραφική δουλειά.",
@@ -149,11 +149,11 @@
   },
   "music.items[1].title": {
     "el": "ΑΡΧΕΤΥΠΑ",
-    "en": "Archetypes"
+    "en": "ARCHETYPA"
   },
   "music.items[1].release_type": {
     "el": "Album",
-    "en": "Album."
+    "en": "Album"
   },
   "music.items[1].description": {
     "el": "σε αυτόν τον χώρο, μπορείς να διαβάσεις δικές μου σκέψεις για τον πρώτο μου δίσκο",
@@ -233,7 +233,7 @@
   },
   "press.items[0].title": {
     "el": "Έδωσα συνέντευξη στην Parallaximag και στην Μυρτώ!",
-    "en": "I interviewed Parallaximag and Myrto!"
+    "en": "I was interviewed Parallaximag and Myrto!"
   },
   "press.items[0].excerpt": {
     "el": "\"Είναι πανεύκολο να είσαι καλλιτέχνης. Το δύσκολο είναι να προσπαθείς να χωρέσεις τις προσδοκίες των άλλων στην τέχνη σου και στην ζωή σου γενικότερα. Το δύσκολο είναι να περιμένεις να πλουτίσεις από την τέχνη σου. Το δύσκολο είναι να χάνεις τον μπούσουλα και την εσωτερική σου βάση, να αγνοείς την έμπνευση, να γίνεσαι μέρος του συστήματος. Αλλά ο καλλιτέχνης δύσκολο πράγμα; Αλήθεια; Τυχεροί όσοι είναι, άτυχοι όσοι δεν έχουν ακόμα ανακαλύψει τον καλλιτέχνη που σίγουρα έχουν μέσα τους.\"",
@@ -352,8 +352,8 @@
     "en": "Interviews, podcasts, radio appearances, articles, reviews and video interviews."
   },
   "site.photos_eyebrow": {
-    "el": "εδώ μπορείς να σταματήσεις τον Χρόνο",
-    "en": "here you can stop Time"
+    "el": "Μικρές εκρήξεις",
+    "en": "Small explosions"
   },
   "site.photos_title": {
     "el": "Μικρές εκρήξεις",
@@ -421,15 +421,15 @@
   },
   "videos.items[0].title": {
     "el": "Τα λιανοτράγουδα - Μάνος Χατζιδάκις (ερμηνεύουν Γιώργος Φανουράκης & Κατερίνα Στεφανάκη)",
-    "en": "The lianotragouda - Manos Hadjidakis (performed by Giorgos Fanourakis & Katerina Stefanaki)"
+    "en": "Ta Lianotragouda - Manos Hadjidakis (performed by Yiorgos Fanourakis & Katerina Stefanaki)"
   },
   "videos.items[0].description": {
     "el": "Συναυλία Ωδείου Δήμου Ηρακλείου\n23 Απριλίου 2016\n\nΕρμηνεία: Γιώργος Φανουράκης-Κατερίνα Στεφανάκη \nΟρχήστρα έντεχνης μουσικής​ Ωδείου Δήμου Ηρακλείου \nΔιεύθυνση ορχήστρας: Χάρης Βενέρης \n\nΣυνθέτης: Μάνος Χατζιδάκις\nΣτίχοι: Παραδοσιακό \nΠρώτη εκτέλεση: Φλερύ Νταντωνάκη - Δημήτρης Ψαριανός\n",
-    "en": "Concert of the Conservatory of the Municipality of Heraklion\n2 February\n\nInterpretation: Giorgos Fanourakis-Katerina Stefanaki\nArt Music Orchestra of​ the Conservatory of Heraklion\nConductor: Harris Veneris\n\nComposer: Manos Hadjidakis\nLyrics: Traditional\nFirst performance: Fleury Ntantonakis - Dimitris Psarianos\n"
+    "en": "Concert of the Conservatory of the Municipality of Heraklion\n2 February\n\nPerformance: Yiorgos Fanourakis-Katerina Stefanaki\nArt Music Orchestra of​ the Conservatory of Heraklion\nConductor: Haris Veneris\n\nComposer: Manos Hadjidakis\nLyrics: Traditional\nFirst performance: Fleury Ntantonakis - Dimitris Psarianos\n"
   },
   "videos.items[1].title": {
     "el": "Δυο Νύχτες - Γιώργος Φανουράκης (ακυκλοφόρητο) ",
-    "en": "Two Nights - George Fanourakis (unreleased)"
+    "en": "Dyo Nychtes - Yiorgos Fanourakis (unreleased)"
   },
   "videos.items[1].description": {
     "el": "Ήμασταν καλεσμένοι στην ζωντανή εκπομπή \"mindZet\" στην ΕΡΤ3 για να παίξουμε κάποια τραγούδια μου. Το \"Δυο Νύχτες\" το οποίο δεν το έχω κυκλοφορήσει ακόμα, ήταν ένα από αυτά.\n\nΚαλή ακρόαση!",
@@ -2889,11 +2889,11 @@
   },
   "texts.lyrics[0].title": {
     "el": "Θέλω να σε δω",
-    "en": " I want to see you. "
+    "en": " I want to see you"
   },
   "texts.lyrics[0].release": {
     "el": "ΑΡΧΕΤΥΠΑ",
-    "en": "Archetypes"
+    "en": "ARCHETYPA"
   },
   "texts.lyrics[0].body": {
     "el": "Κι άλλη μέρα μες στο σπίτι και το «είναι» μου όλο πλήττει·\nτα ίδια ρούχα θα φορέσω, στον καθρέφτη για ν' αρέσω.\nΘα ξυπνήσω στην ρουτίνα και θ' ανοίξω την κουρτίνα,\nθα τελειώσω το βιβλίο και θ' ακούσω το δελτίο.\n\nΘα σου στείλω ένα μήνυμα,\nθα μου πεις για κάποιο κίνημα·\nμα δε φτάνει αυτό, γιατί...\n\nΘέλω να σε δω...\n\nΤο κεφάλι μου γυρίζει, η μπαταρία ξεφορτίζει,\nη σιωπή, ο πρώτος ήχος· έχει νόημα πια κι ο τοίχος!\nΣε κοιτάζω στην εικόνα, πριν μας βάλουν την «κορώνα».\nΜα μου λείπει η φωνή σου, το «μαζί» και το «γιατί» σου.\n\nΚι έτσι αρπάζω την κιθάρα μου,\nτο στυλό και την λαχτάρα μου,\nαπλά για να σου πω αυτόν·\nαυτόν τον τελευταίο στίχο,\nτη σκέψη μου για να πετύχω,\nαφού εσύ δεν είσαι εδώ:\n\nΘέλω να σε δω...",
@@ -2917,7 +2917,7 @@
   },
   "texts.lyrics[2].release": {
     "el": "ΑΡΧΕΤΥΠΑ",
-    "en": "Archetypes"
+    "en": "ARCHETYPA"
   },
   "texts.lyrics[2].body": {
     "el": "Αν δεν είχα κι αυτά, τι θα' κανα;\n\nΤι θα ήμουνα;\n\nΠώς θα μιλούσα στον κόσμο - τον έξω και τον έσω;\n\nΠώς θα του' λεγα ότι είναι σκάρτος, μα ελκυστικός·\n\nότι είναι άδικος, μα ανεκτός·\n\nότι είναι μεγάλος, μα και μικρός.\n\n\n\nΑν δεν είχα κι αυτά, τι θα' λεγα;\n\nΠώς θα περνούσα τις νύχτες μου\n\nάγρυπνος απ' την αντάρα των σκέψεων·\n\nΠώς θα εκτιμούσα τις μέρες μου\n\nχαμένος σ' ένα παιχνίδι των λέξεων.\n\nΤι θα άκουγα στις στιγμές αυτές που το εγώ παθαίνει κρίσεις;\n\nπου αναπάντητα ερωτήματα για τη ζωή, για τον έρωτα, για το άφταστο\n\nθερμαίνουν την ταπεινή μου σάρκα\n\nκαι την λιώνουν,\n\nαπογυμνώνοντας το ανυπεράσπιστο μα περήφανο πνεύμα.\n\n\n\nΑν δεν είχα κι αυτά, πώς θα έμοιαζα;\n\nΔεν αποθηκεύεται σαν θύμηση\n\nη στιγμή της δημιουργίας·\n\nπαρά μόνο υπάρχει, προσφέρει και χάνεται στην κυνικότητα του παρόντος.\n\nΚαι μετά, τίποτα!\n\nΞυπνώ από τον λήθαργο της πνευματικής έντασης και μεταφέρομαι\n\nμε αστρονομική ταχύτητα\n\nστην πραγματικότητα των αισθήσεών μου.\n\nΚαι οι αισθήσεις ξαναπιάνουν δουλειά:\n\nμαζεύουν σα σφουγγάρι τη ζωή\n\nκι όταν ξεχειλίσουν, την ξεσφουγγίζουν ολάκερη πάνω στο χαρτί.\n\n\n\nΑν δεν είχα κι αυτά, πώς θα ζούσα;\n\nΕίμαι ο υπηρέτης της ίδιας μου της τέχνης.\n\nΤι θέλει το πενιχρό κορμί για να επιβιώσει;\n\nΑυτά του δίνω:\n\nΦαΐ, νερό κι έρωτα.\n\nΠαρατείνω τη ζωή και την υπόσταση, ανά μία στιγμή.\n\nΤο ζω στο έπακρο, γιατί όταν πάψει το πνεύμα να ζητά,\n\nτότε θα απελευθερωθώ·\n\nτότε θα ζήσω στεγνά και ανθρώπινα·\n\nτότε το σώμα δεν θα υπηρετεί τίποτα,\n\nμονάχα τη φύση του.\n\nΚι η φύση του το θέλει νεκρό.\n\n\n\nΑν δεν είχα κι αυτά, θα έσκαγα·\n\nΘα μπούχτιζα στην ταπεινή κοινή ζωή της κοινωνίας·\n\nτου τεχνήματος αυτού της ανθρώπινης - ζωώδους επιθυμίας\n\nνα ζήσει μέχρι να' ρθει η ώρα του·\n\nαπό φυσικά αίτια - όχι νωρίτερα απ' ότι του πρέπει.\n\nΛες και το τέχνημα τούτο δεν τον σκοτώνει νωρίτερα.\n\n\n\nΑν δεν είχα κι αυτά, τι θα άφηνα;\n\nοι απόγονοί μου·\n\nη παρακαταθήκη μου·\n\nοι λέξεις μου.\n\nΠολλές φορές συνδυαζόμενες με ποικίλους τρόπους:\n\nάλλοτε με χαζό,\n\nάλλοτε με κάπως πιο εκλεπτυσμένο,\n\nάλλες φορές με πιο ελεύθερο.\n\nΆλλοτε με δεσμεύουν για μέρες, μήνες, χρόνια·\n\nάλλοτε για λεπτά ή ώρες.\n\nΑυτές έρχονται και με βρίσκουν πάντα.\n\nΠάντα τις περιμένω, ποτέ δεν με περιμένουν.\n\nΠοτέ δεν είμαι σίγουρος για το τι τις γεννά·\n\nόχι οι επιλογές μου, γι' αυτό είμαι σίγουρος.\n\nΑυτές δημιουργούν το αποτύπωμά μου·\n\nτην ταυτότητά μου·\n\nτο μελάνι μου.\n\nΕγώ τελώ χρέη μεταφραστή στον έξω κόσμο.\n\nΔεν είναι κι εύκολη δουλειά·\n\nο κόσμος αυτός μιλάει πολλές γλώσσες.\n\nαν δεν είχα κι αυτά, δεν ξέρω.\n\n\n\nΑν δεν είχα τα παιδιά μου, τι θα φρόντιζα;\n\n\nΑν δεν είχα τα τραγούδια μου, τότε τι;",
@@ -2925,11 +2925,11 @@
   },
   "texts.lyrics[3].title": {
     "el": "Από καρδιάς",
-    "en": "Cordially,"
+    "en": "By Heart"
   },
   "texts.lyrics[3].release": {
     "el": "Άνευ συνΩδείας",
-    "en": "Without leave of absence"
+    "en": "Aney Synodeias"
   },
   "texts.lyrics[3].body": {
     "el": "Απλώνει ο Θεός\nμαύρο πέπλο\nκαι σβήνει ο ουρανός\nτων άστρων το φως\nγύρω απ' το πρόσωπό σου.\n\nΓέρνεις σιγά\nπρος τον ώμο μου\nκαι τρυφερά,\nλίγο δειλά,\nτραγουδάς στον σκοπό σου\nτο σ'αγαπώ σου.\n\nΕίν' η φωνή σου, γλυκιά μου\nπου με ωθεί στο να βρω\nό,τι ποθεί η καρδιά μου,\nό,τι κρατάει κρυφό.\n\nΕίναι τα δυο σου τα μάτια\nπου με κρατούν ζωντανή\nμέσα στου χρόνου τ' αδράχτια,\nμεσ' τη ζωή την κενή.\n\nΕίν' το γλυκό το φιλί σου,\nπου μου στοιχειώνει τον νου\nπου ξεκλειδώνει κομμάτια\nτου τρυφερού μου εαυτού.\n\nΕίναι τα δυο σου τα χείλη,\nπου με σφραγίζουν στο χθες.\nΚει που ξεχνά ν' ανατείλει,\nκει που μιλούν οι σιωπές.\n\nΑπλώνει ο Θεός\nμαύρο πέπλο\nκαι σβήνει ο ουρανός\nτων άστρων το φως\nγύρω απ' το πρόσωπό σου.\n\nΓέρνεις σιγά\nπρος τον ώμο μου\nκαι τρυφερά,\nλίγο δειλά,\nτραγουδάς στον σκοπό σου\nτο σ' αγαπώ σου.",
@@ -3049,7 +3049,7 @@
   },
   "music.items[1].artist_note": {
     "el": "Ο Sigmund Freud θεωρούσε ότι οι άνθρωποι γεννιόμαστε tabula rasa, δηλαδή κενός πίνακας, στον οποίο, από την στιγμή της σύλληψης μέχρι τη στιγμή του θανάτου, τα ερεθίσματα αποτελούν πινελιές που τον ζωγραφίζουν.\n\nΟ Carl Jung διαφώνησε, θεωρώντας ότι όλοι οι άνθρωποι γεννιόμαστε με ένα συλλογικό ασυνείδητο, μια κοινή δηλαδή «αποθήκη» ασυνείδητου υλικού, η οποία περιέχει τις συνολικές εμπειρίες των προηγούμενων γενεών και καθορίζεται από την κοινή καταγωγή του ανθρώπινου είδους.\n\nΤο συλλογικό ασυνείδητο απαρτίζεται από κοινές παγκόσμιες εικόνες και σύμβολα, τα Αρχέτυπα, που προϋπάρχουν όλων, ανεξαρτήτως κοινωνικοπολιτισμικού υποβάθρου, και αποτελούν τα βασικά αυτά ανθρώπινα χαρακτηριστικά, πάνω στα οποία χτίζεται η κάθε μοναδική προσωπικότητα. (αρχέτυπο < ἀρχή + τύπος, είναι ο αρχικός τύπος, το υπόδειγμα, το πρότυπο).\n\nΚομμάτια που αφορούν διαφορετικές ιστορίες, γράφτηκαν ανεξάρτητα το ένα από το άλλο και γεννήθηκαν μέσα σε πολύ διαφορετικές συνθήκες, πλαίσια και στιγμές της ζωής μου. Η επιλογή, ταξινόμηση και ανάλυσή τους για το album αυτό, πραγματοποιήθηκε εκ των υστέρων.\n\nΗ ποικιλία των ειδών μουσικής και η ενορχήστρωση, αποτελούν αναπαράσταση των δυναμικών του ψυχισμού.\n\nΟ στίχος, αποτελεί μια συμβολική, αρχετυπική αναπαράσταση μιας ψυχοθεραπευτικής διαδικασίας.\n\nΤο κάθε κομμάτι συμβολίζει ένα στάδιο αυτής, ενώ η ταξινόμηση και η ροή συμβολίζουν την συνέχεια και την κυκλικότητα των σταδίων, πάντα μέσα από την προσωπική μου οπτική.\n\nΤο album, λοιπόν, αυτό είναι ένας συμβολισμός που βασίζεται σε θεμελιώδη στοιχεία της ψυχοδυναμικής θεωρίας. Ο ρόλος των κομματιών ως μέρη του album, όπως τα αρχέτυπα, δεν είναι οι ιστορίες τους καθαυτές, αλλά η συμβολοποίησή τους - η έκφραση της ύπαρξης μιας κοινής, παγκόσμιας εικόνας, πάνω στην οποία χτίζεται η προσωπικότητα του καλλιτέχνη.\n\nΔεν αποτελεί οδηγό, δεν έχει εκπαιδευτικό χαρακτήρα. Σκοπός του είναι, μέσω της ακρόασής του, να ενεργοποιήσει συναισθήματα και να αποτελέσει τροφή για σκέψη και συζήτηση, στην πνευματική αναζήτηση του ακροατή.\n\nΚαλό ταξίδι,\n\nΓιώργος Φανουράκης\n\nΑφιερωμένο στην γιαγιά μου, Άννα.\n\nΕξώφυλλο άλμπουμ: Χάρης Φαλιακάκης\n\nΜε την επιφύλαξη παντός δικαιώματος. Γιώργος Φανουράκης ©",
-    "en": "Sigmund Freud believed that humans are born tabula rasa, meaning empty painting, in which, from the moment of conception to the moment of death, the stimuli are brushstrokes that paint it.\n\nCarl Jung disagreed, considering that all humans are born with a collective unconscious, a common “storehouse” of unconscious material, which contains the overall experiences of previous generations and is determined by the common origin of the human species.\n\nThe collective unconscious consists of common global images and symbols, the Archetypes, which precede all, regardless of socio-cultural background, and are the basic human characteristics on which each unique personality is built. (archetype < principle + type, is the original type, the model, the model).\n\nPieces relating to different stories, written independently of each other and born into very different circumstances, contexts and moments of my life. Their selection, classification and analysis for this album was carried out retrospectively.\n\nThe variety of music genres and the orchestration are a representation of the dynamics of the psyche.\n\nThe verse is a symbolic, archetypal representation of a psychotherapeutic process.\n\nEach piece symbolizes a stage of it, while the classification and flow symbolize the continuity and circularity of the stages, always through my personal perspective.\n\nThe album, then, is a symbolism based on fundamental elements of psychodynamic theory. The role of tracks as parts of the album, like archetypes, is not their stories per se, but their symbolization - the expression of the existence of a common, global image, on which the artist's personality is built.\n\nIt is not a guide, it is not educational. Its purpose is, through its listening, to activate emotions and to be food for thought and discussion, in the listener's spiritual quest.\n\nBon voyage!\n\nGiorgos Fanourakis\n\nDedicated to my grandmother, Anna.\n\nAlbum cover: Haris Faliakakis\n\nAll rights reserved. George Fanourakis ©"
+    "en": "Sigmund Freud believed that humans are born tabula rasa, meaning empty painting, in which, from the moment of conception to the moment of death, the stimuli are brushstrokes that paint it.\n\nCarl Jung disagreed, considering that all humans are born with a collective unconscious, a common “storehouse” of unconscious material, which contains the overall experiences of previous generations and is determined by the common origin of the human species.\n\nThe collective unconscious consists of common global images and symbols, the Archetypes, which precede all, regardless of socio-cultural background, and are the basic human characteristics on which each unique personality is built. (archetype < principle + type, is the original type, the model, the model).\n\nPieces relating to different stories, written independently of each other and born into very different circumstances, contexts and moments of my life. Their selection, classification and analysis for this album was carried out retrospectively.\n\nThe variety of music genres and the orchestration are a representation of the dynamics of the psyche.\n\nThe verse is a symbolic, archetypal representation of a psychotherapeutic process.\n\nEach piece symbolizes a stage of it, while the classification and flow symbolize the continuity and circularity of the stages, always through my personal perspective.\n\nThe album, then, is a symbolism based on fundamental elements of psychodynamic theory. The role of tracks as parts of the album, like archetypes, is not their stories per se, but their symbolization - the expression of the existence of a common, global image, on which the artist's personality is built.\n\nIt is not a guide, it is not educational. Its purpose is, through its listening, to activate emotions and to be food for thought and discussion, in the listener's spiritual quest.\n\nBon voyage!\n\nYiorgos Fanourakis\n\nDedicated to my grandmother, Anna.\n\nAlbum cover: Haris Faliakakis\n\nAll rights reserved. Yiorgos Fanourakis ©"
   },
   "music.items[2].artist_note": {
     "el": "είχα την τιμή να συμμετάσχω στο ΕΡ του φίλου μου, Δημήτρη Τομπάζη",
@@ -3057,11 +3057,11 @@
   },
   "music.items[3].artist_note": {
     "el": "Αυτή είναι η πρώτη μου κυκλοφορία σε γλώσσα άλλη από τα ελληνικά, και νιώθω πραγματικά περήφανος που τη μοιράζομαι με τον αγαπημένο μου φίλο, Nicolás Sosa.\n\nΗ ιστορία μας ξεκίνησε πριν από τρία χρόνια, σε ένα live που έκανα στον δρόμο, στη Νέα Παραλία Θεσσαλονίκης. Ο Nicolás είχε μόλις φτάσει από τη γενέτειρά του, την Ουρουγουάη, αναζητώντας το μουσικό του μέλλον στην Ευρώπη. Ηταν ένα απόγευμα με πολλή συννεφιά και ήταν ο μόνος άνθρωπος που στάθηκε εκεί, ακούγοντας πραγματικά τη μουσική μου. Έτσι γνωριστήκαμε. Καταλήξαμε στο σπίτι μου την ίδια κιόλας μέρα και γράψαμε αυτό το τραγούδι - ένα πάντρεμα ελληνικών και ισπανικών στοιχείων, με τον τίτλο «MICROCOSMOS», μια λέξη που υπάρχει και στις δύο γλώσσες και η οποία περιγράφει ακριβώς αυτό που θέλαμε να εκφράσουμε.\n\nΤρία χρόνια μετά, συναντηθήκαμε ξανά στο νέο του σπίτι στο Βερολίνο για να το ηχογραφήσουμε. Τώρα, με πολύ ενθουσιασμό σας το παρουσιάζουμε, συνοδευόμενο από πλάνα του φετινού ελληνικού καλοκαιριού.\n\nΕλπίζω να απολαύσετε αυτό το καλοκαιρινό κομμάτι όσο απολαύσαμε εμείς τη δημιουργία του!\n",
-    "en": "This is my first release in a language other than Greek, and I am really proud to share it with my dear friend, Nicolás Sosa.\n\nOur story began three years ago, in a live show I did on the street, in Nea Paralia, Thessaloniki. Nicolás had just arrived from his native Uruguay, searching for his musical future in Europe. It was a very cloudy afternoon and he was the only person who stood there, really listening to my music. That's how we met. We ended up at my house the very same day and wrote this song - a marriage of Greek and Spanish elements, entitled \"MICROCOSMOS\", a word that exists in both languages and which describes exactly what we wanted to express.\n\nThree years later, we met again at his new home in Berlin to record it. Now, with great enthusiasm we present it to you, accompanied by shots of this year's Greek summer.\n\nI hope you enjoy this summer piece as much as we enjoyed creating it!\n"
+    "en": "This is my first release in a language other than Greek, and I am really proud to share it with my dear friend, Nicolás Sosa.\n\nOur story began three years ago, in a live show I did on the street, in Nea Paralia, Thessaloniki. Nicolás had just arrived from his native Uruguay, searching for his musical future in Europe. It was a very cloudy afternoon and he was the only person who stood there, really listening to my music. That's how we met. We ended up at my house the very same day and wrote this song - a marriage of Greek and Spanish elements, entitled \"MICROCOSMOS\", a word that exists in both languages and which describes exactly what we wanted to express.\n\nThree years later, we met again at his new home in Berlin to record it. Now, with excitement we present it to you, accompanied by shots of this year's Greek summer.\n\nI hope you enjoy this summer piece as much as we enjoyed creating it!\n"
   },
   "music.items[4].title": {
     "el": "Νηνεμία",
-    "en": "calm"
+    "en": "Ninemia"
   },
   "music.items[4].release_type": {
     "el": "Collaboration",
@@ -3069,7 +3069,7 @@
   },
   "music.items[4].artist_note": {
     "el": "ο Μάνος Γιατρομανωλάκης με τίμησε ερμηνεύοντας το κομμάτι μου \"Νηνεμία\"",
-    "en": "manos Giatromanolakis honored me by interpreting my piece \"Ninemia\""
+    "en": "Manos Giatromanolakis honored me by interpreting my piece \"Ninemia\""
   },
   "music.items[4].credits": {
     "el": "ΝΗΝΕΜΙΑ - Μάνος Γιατρομανωλάκης\n\nΜουσική-Στίχοι: Γιώργος Φανουράκης \n\nΛύρα: Νίκος Μανιουδάκης \n\nΤύμπανα: Νίκος Συγλέτος \n\nΦωνή,κιθάρα,μπάσο,προγραμματισμός: Μάνος Γιατρομανωλάκης \n\nΜίξη-Master: Μιχάλης Μαυράκης \n\nΣενάριο: Κώστας Χαλαμπαλάκης \n\nΣκηνοθεσία: Κώστας Χαλαμπαλάκης, Γιώργος Χαλαμπαλάκης \n\nΒοηθός σκηνοθέτη: Γεωργία Γλυνάτση \n\nΗθοποιός: Νεφέλη Καπέλλα",
@@ -3109,19 +3109,19 @@
   },
   "videos.items[3].title": {
     "el": "Ω! Καλή μου ξανθιά - Μάνος Χατζιδάκις (ερμηνεύει Γιώργος Φανουράκης)",
-    "en": "Oh! My good blonde - Manos Hadjidakis (performed by Giorgos Fanourakis)"
+    "en": "Rodakino"
   },
   "videos.items[3].description": {
     "el": "Συμφωνική Ορχήστρα Νέων Κρήτης Δήμου \nΗρακλείου\nΝεανική Χορωδία Νέων Δήμου Ηρακλείου \nΚηποθέατρο \"Νίκος Καζαντζάκης\"\n3 Ιουλίου 2018\n\n\"Ω! Καλή μου ξανθιά\"\nΑριστοφάνους, Όρνιθες\nμουσική: Μάνος Χατζιδάκις\nποίηση: Βασίλης Ρώτας\n\nΔιεύθυνση: Μίλτος Λογιάδης\nΚαλλιτεχνική διεύθυνση: Γιάννης Ιδομενέως\nΕρμηνεία: Γιώργος Φανουράκης\n\nΣτίχοι:\nΩ! καλή μου ξανθιά, \nσυντροφιά μου γλυκιά, \nπου μαζί σου λαλώ\nκάθε ωραίο σκοπό, \nήρθες, ήρθες, εφάνης\nμε σουραύλι να υφάνεις\nύμνους, κελαηδισμούς, \nήχους εαρινούς.\n\nΕμπρός, αρχίνα, πες τους\nγλυκά τους αναπαίστους.\n",
-    "en": "Municipality of Crete Youth Symphony Orchestra\nHerakleioy\nYouth Choir of the Municipality of Heraklion\n\"Nikos Kazantzakis\" Garden Theater\n3 July 2018\n\n'Oh, my good blonde.'\nAristophanes, Birds\nmusic: Manos Hadjidakis\npoetry: Vasilis Rotas\n\nAddress: Miltos Logiadis\nArtistic direction: Giannis Idomeneos\nInterpretation: Giorgos Fanourakis\n\nLyrics\nOh! my dear blonde,\nmy sweet companion,\nthat I talk with you\nevery nice cause,\ncame, came, Fanis\nwith suraurus to weave\nhymns, singing,\nspring sounds.\n\nGo ahead, start, tell them\nsweets for the restless.\n"
+    "en": "Yiorgos Fanourakis · 2026"
   },
   "videos.items[4].title": {
     "el": "Ζητάτε να σας πω - Αττίκ (ερμηνεύει Γιώργος Φανουράκης)",
-    "en": "You're asking me to tell you - Attik (performed by Giorgos Fanourakis)"
+    "en": "O! Kali mou xanthia - Manos Hadjidakis (performed by Yiorgos Fanourakis)"
   },
   "videos.items[4].description": {
     "el": "Ζητάτε να σας πω - Γιώργος Φανουράκης\nΠιάνο: Γιάννης Ιδομενέως\nΣτιχουργός-συνθέτης: Αττίκ\n22.05.2017 Πειραματική αίθουσα, Πολιτιστικό Κέντρο Ηρακλείου",
-    "en": "You're asking me to tell you - George Fanourakis\nPiano: Giannis Idomeneos\nLyricist-composer: Attik\n22.05.2017 Experimental room, Cultural Center of Heraklion"
+    "en": "Municipality of Crete Youth Symphony Orchestra\nYouth Choir of the Municipality of Heraklion\n\"Nikos Kazantzakis\" Garden Theater\n3 July 2018\n\n'Oh, my dear blonde.'\nAristophanes, Birds\ncomposer: Manos Hadjidakis\npoetry: Vasilis Rotas\n\nConductor: Miltos Logiadis\nArtistic direction: Ioannis Idomeneos\nPerformance: Yiorgos Fanourakis\n\nLyrics\nOh! my dear blonde,\nmy sweet companion,\nthat I talk with you\nevery nice cause,\ncame, came, Fanis\nwith suraurus to weave\nhymns, singing,\nspring sounds.\n\nGo ahead, start, tell them\nsweets for the restless.\n"
   },
   "texts.lyrics[0].credits[0].title": {
     "el": "Στίχοι",
@@ -3129,7 +3129,7 @@
   },
   "texts.lyrics[0].credits[0].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos Fanourakis"
   },
   "texts.lyrics[0].credits[1].title": {
     "el": "Σύνθεση",
@@ -3137,7 +3137,7 @@
   },
   "texts.lyrics[0].credits[1].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos Fanourakis"
   },
   "texts.lyrics[0].credits[2].title": {
     "el": "Ερμηνεία",
@@ -3145,11 +3145,11 @@
   },
   "texts.lyrics[0].credits[2].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos  Fanourakis"
   },
   "texts.lyrics[0].credits[3].title": {
     "el": "Κρουστά",
-    "en": "Drums:"
+    "en": "Drums"
   },
   "texts.lyrics[0].credits[3].content": {
     "el": "Όμηρος Αθανασάκης",
@@ -3173,11 +3173,11 @@
   },
   "texts.lyrics[0].credits[6].title": {
     "el": "Ακ. Κιθάρα",
-    "en": "Ak. Guitar"
+    "en": "Ac. Guitar"
   },
   "texts.lyrics[0].credits[6].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos Fanourakis"
   },
   "texts.lyrics[0].credits[7].title": {
     "el": "Πιάνο",
@@ -3213,11 +3213,11 @@
   },
   "texts.lyrics[0].credits[11].title": {
     "el": "Παραγωγή",
-    "en": "Manufacturing"
+    "en": "Production"
   },
   "texts.lyrics[0].credits[11].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos Fanourakis"
   },
   "texts.lyrics[1].credits[0].title": {
     "el": "Στίχοι",
@@ -3313,15 +3313,15 @@
   },
   "texts.lyrics[2].credits[0].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos Fanourakis"
   },
   "texts.lyrics[2].credits[1].title": {
     "el": "Ερμηνεία",
-    "en": "Interpretation"
+    "en": "Performance"
   },
   "texts.lyrics[2].credits[1].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos Fanourakis"
   },
   "texts.lyrics[2].credits[2].title": {
     "el": "Κιθάρα",
@@ -3329,7 +3329,7 @@
   },
   "texts.lyrics[2].credits[2].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos Fanourakis"
   },
   "texts.lyrics[2].credits[3].title": {
     "el": "Ηχογράφηση",
@@ -3337,15 +3337,15 @@
   },
   "texts.lyrics[2].credits[3].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos Fanourakis"
   },
   "texts.lyrics[2].credits[4].title": {
     "el": "Παραγωγή",
-    "en": "Manufacturing"
+    "en": "Production"
   },
   "texts.lyrics[2].credits[4].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos Fanourakis"
   },
   "texts.lyrics[3].credits[0].title": {
     "el": "Ποίηση",
@@ -3357,11 +3357,11 @@
   },
   "texts.lyrics[3].credits[1].title": {
     "el": "Σύνθεση - Ενορχήστρωση",
-    "en": "Composition - Orchestration"
+    "en": "Composition - Arrangement "
   },
   "texts.lyrics[3].credits[1].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos Fanourakis"
   },
   "texts.lyrics[3].credits[2].title": {
     "el": "Επιμέλεια Ενορχήστρωσης",
@@ -3373,15 +3373,15 @@
   },
   "texts.lyrics[3].credits[3].title": {
     "el": "Τραγούδι",
-    "en": "Theme Song "
+    "en": "Performance"
   },
   "texts.lyrics[3].credits[3].content": {
     "el": "Γιώργος Φανουράκης & Εμμανουέλα Νινιράκη",
-    "en": "Giorgos Fanourakis & Emmanouela Niniraki"
+    "en": "Yiorgos Fanourakis & Emmanouela Niniraki"
   },
   "texts.lyrics[3].credits[4].title": {
     "el": "Βιολί",
-    "en": "Fiddle"
+    "en": "Violin"
   },
   "texts.lyrics[3].credits[4].content": {
     "el": "Σαμουήλ Καφαντάρης",
@@ -3437,11 +3437,11 @@
   },
   "texts.lyrics[3].credits[11].title": {
     "el": "Παραγωγή",
-    "en": "Manufacturing"
+    "en": "Production"
   },
   "texts.lyrics[3].credits[11].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos Fanourakis"
   },
   "texts.lyrics[3].credits[12].title": {
     "el": "Mixing-Mastering",
@@ -3677,15 +3677,15 @@
   },
   "texts.lyrics[6].title": {
     "el": "Είσαι εκεί",
-    "en": "Are you there?"
+    "en": "You are there"
   },
   "texts.lyrics[6].release": {
     "el": "ΑΡΧΕΤΥΠΑ",
-    "en": "Archetypes"
+    "en": "ARCHETYPA"
   },
   "texts.lyrics[6].body": {
     "el": "Είσαι εκεί να με κοιτάζεις,\n\nόπως περήφανη κοιτούσες σε κάθε βήμα.\n\nΕίσαι εκεί να μ' αγκαλιάζεις,\n\nνα μη βραχώ, όταν με χτύπαγε το κύμα.\n\n\nΕίσαι εκεί και σ' αγαπάω\n\nκι ας μην σε βλέπω, ας μη σ' αγγίζω·\n\nγι' αυτό πονάω, γι' αυτό λυγίζω.\n\nΝα' μαι ο εγγονός σου συνεχίζω,\n\nκι εκεί που χάραξες πατώ και προχωράω.\n\nΕίσαι η γιαγιά μου, ο ήρωάς μου και σ' αγαπάω.\n\n\nΕίσαι εκεί όταν γελάω,\n\nγιατί οι στιγμές αυτές μαζί σου, με μεγάλωσαν.\n\nΕίσαι εκεί, αν κάτι σπάω,\n\nγιατί τα χείλη σου ποτέ τους δε με μάλωσαν.\n\n\nΕίσαι εκεί...\n\n\nΕίσαι εδώ και σου μιλάω,\n\nμία ακούραστη ψυχή, που ξεκουράζεται.\n\nΚι αν με δάκρυ τραγουδάω,\n\nείναι ο Γιώργος, παιδί μικρό, που ακόμα σε χρειάζεται.\n",
-    "en": "You're there looking at me,\n\nas you proudly looked at every step.\n\nYou're there to hug me,\n\nnot to get wet when the wave hit me.\n\n\nYou're there and I love you\n\neven if I don't see you, let me not touch you;\n\nthat's why I hurt, that's why I bend.\n\nHereI am, your grandson, continuing,\n\nand where you carved I step on it and move on.\n\nYou're my grandmother, my hero, and I love you.\n\n\nYou're there when I laugh,\n\nbecause those moments with you, they raised me.\n\nYou're there, if I break something,\n\nbecause your lips never scolded me.\n\n\nAre you there?\n\n\nYou're here and I'm talking to you,\n\na restless soul, resting.\n\nAnd if I sing with tears,\n\nit's Giorgos, a small child, who still needs you.\n"
+    "en": "You're there looking at me,\n\nas you proudly looked at every step.\n\nYou're there to hug me,\n\nnot to get wet when the wave hit me.\n\n\nYou're there and I love you\n\neven if I don't see you, let me not touch you;\n\nthat's why I hurt, that's why I bend.\n\nHereI am, your grandson, continuing,\n\nand where you carved I step on it and move on.\n\nYou're my grandmother, my hero, and I love you.\n\n\nYou're there when I laugh,\n\nbecause those moments with you, they raised me.\n\nYou're there, if I break something,\n\nbecause your lips never scolded me.\n\n\nYou are there...\n\n\nYou're here and I'm talking to you,\n\na restless soul, resting.\n\nAnd if I sing with tears,\n\nit's Giorgos, a small child, who still needs you.\n"
   },
   "texts.lyrics[6].credits[0].title": {
     "el": "Στίχοι",
@@ -3693,7 +3693,7 @@
   },
   "texts.lyrics[6].credits[0].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos Fanourakis"
   },
   "texts.lyrics[6].credits[1].title": {
     "el": "Σύνθεση",
@@ -3701,15 +3701,15 @@
   },
   "texts.lyrics[6].credits[1].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos Fanourakis"
   },
   "texts.lyrics[6].credits[2].title": {
     "el": "Ερμηνεία",
-    "en": "Interpretation"
+    "en": "Performance"
   },
   "texts.lyrics[6].credits[2].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos Fanourakis"
   },
   "texts.lyrics[6].credits[3].title": {
     "el": "Πιάνο",
@@ -3721,7 +3721,7 @@
   },
   "texts.lyrics[6].credits[4].title": {
     "el": "Βιολί",
-    "en": "Fiddle"
+    "en": "Violin"
   },
   "texts.lyrics[6].credits[4].content": {
     "el": "Μάνος Αντωναίος",
@@ -3745,23 +3745,23 @@
   },
   "texts.lyrics[6].credits[7].title": {
     "el": "Παραγωγή",
-    "en": "Manufacturing"
+    "en": "Production"
   },
   "texts.lyrics[6].credits[7].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos Fanourakis"
   },
   "texts.lyrics[7].title": {
     "el": "Εκτός",
-    "en": "Apart"
+    "en": "Out"
   },
   "texts.lyrics[7].release": {
     "el": "ΑΡΧΕΤΥΠΑ",
-    "en": "Archetypes"
+    "en": "ARCHETYPA"
   },
   "texts.lyrics[7].body": {
     "el": "Αυτό δεν μπαίνει στον δίσκο,\nδεν έχει αλήθειες για να πιστέψεις.\nΈχει μονάχα το ρίσκο\nτο παραμύθι να καταστρέψεις•\nΣε όλους τους φόβους σου να επιστρέψεις\nκι ό,τι δεν άντεξες να το παλέψεις.\n\nΦωνή δεν έχω, μα βρίζω•\nνερό δεν έχω, μα διψάω για λάθη.\nΤώρα το σώμα μου αγγίζω\nκι αναζητώ κάποιου παιδιού τα πάθη.\nΜα πάντα κρύβομαι,\nτρέχω και κρύβομαι\nστην αγκαλιά σου, όπως μου έχεις μάθει.\nΜα είμαι στον κόσμο μου\nκι όταν συνθλίβομαι,\nκρύβομαι μέσα στο μυαλού τα βάθη.\n\nΊσως η αγάπη με πνίγει,\nίσως η αγάπη σου να με λυτρώνει.\nΟ φαύλος κύκλος δεν λήγει\nκι η άποψή σου με περικυκλώνει·\nκαι νιώθω μόνη μου, καμία πλευρά μου δεν με συμπληρώνει·\nκι είναι το μέσα μου, που με θυμώνει.\n\nΑυτό δεν μπαίνει στον δίσκο,\nτώρα έχω αρχίσει να το μετανιώνω.\nΤο νόημα κάπου δεν βρίσκω·\nθα' ναι ο λόγος που επιβιώνω,\nσε δρόμο άγνωστο σε λάθος τόνο.\nΑυτό που έγινα, αυτό που αγάπησα,\nεδώ γεννήθηκα, εδώ τελειώνω.",
-    "en": "This doesn't go on the tray,\nhe has no truths for you to believe in.\nIt only has the risk\ndestroy the fairy tale •\nTo all your fears of coming back\nand what you couldn't stand to fight.\n\nI have no voice, but I swear•\ni have no water, but I thirst for mistakes.\nNow I'm touching my body\nand I'm looking for a child's passions.\nBut I always hide,\nrun and hide\nin your arms, as you've taught me.\nBut I am in my world\nand when I'm crushed,\ni hide in the mind the depths.\n\nMaybe love drowns me,\nmaybe your love will save me.\nThe vicious circle does not end\nand your opinion surrounds me;\nand I feel alone, neither side of me complements me;\nand it's the inside that makes me angry.\n\nThis doesn't go on the tray,\nnow I'm starting to regret it.\nMeaning I don't find anywhere;\nwillbe the reason I survive,\non a road unknown in the wrong tone.\nWhat I became, what I loved,\nthis is where I was born, this is where I end."
+    "en": "This doesn't go on the disc,\nhe has no truths for you to believe in.\nIt only has the risk\ndestroy the fairy tale •\nTo all your fears of coming back\nand what you couldn't stand to fight.\n\nI have no voice, but I swear•\ni have no water, but I thirst for mistakes.\nNow I'm touching my body\nand I'm looking for a child's passions.\nBut I always hide,\nrun and hide\nin your arms, as you've taught me.\nBut I am in my world\nand when I'm crushed,\ni hide in the mind the depths.\n\nMaybe love drowns me,\nmaybe your love will save me.\nThe vicious circle does not end\nand your opinion surrounds me;\nand I feel alone, neither side of me complements me;\nand it's the inside that makes me angry.\n\nThis doesn't go on the disc,\nnow I'm starting to regret it.\nMeaning I don't find anywhere;\nwillbe the reason I survive,\non a road unknown in the wrong tone.\nWhat I became, what I loved,\nthis is where I was born, this is where I end."
   },
   "texts.lyrics[7].credits[0].title": {
     "el": "Στίχοι",
@@ -3769,7 +3769,7 @@
   },
   "texts.lyrics[7].credits[0].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos Fanourakis"
   },
   "texts.lyrics[7].credits[1].title": {
     "el": "Σύνθεση",
@@ -3777,7 +3777,7 @@
   },
   "texts.lyrics[7].credits[1].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos Fanourakis"
   },
   "texts.lyrics[7].credits[2].title": {
     "el": "Ερμηνεία",
@@ -3785,11 +3785,11 @@
   },
   "texts.lyrics[7].credits[2].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos  Fanourakis"
   },
   "texts.lyrics[7].credits[3].title": {
     "el": "Κρουστά",
-    "en": "Drums:"
+    "en": "Drums"
   },
   "texts.lyrics[7].credits[3].content": {
     "el": "Όμηρος Αθανασάκης",
@@ -3821,11 +3821,11 @@
   },
   "texts.lyrics[7].credits[7].title": {
     "el": "Ακ. Κιθάρα",
-    "en": "Ak. Guitar"
+    "en": "Ac. Guitar"
   },
   "texts.lyrics[7].credits[7].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos Fanourakis"
   },
   "texts.lyrics[7].credits[8].title": {
     "el": "Πιάνο",
@@ -3861,11 +3861,11 @@
   },
   "texts.lyrics[7].credits[12].title": {
     "el": "Παραγωγή",
-    "en": "Manufacturing"
+    "en": "Production"
   },
   "texts.lyrics[7].credits[12].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos Fanourakis"
   },
   "texts.lyrics[7].credits[13].title": {
     "el": "Απόσπασμα - μονόλογος",
@@ -3881,7 +3881,7 @@
   },
   "texts.lyrics[8].release": {
     "el": "Άνευ συνΩδείας",
-    "en": "Without leave of absence"
+    "en": "Aney Synodeias"
   },
   "texts.lyrics[8].body": {
     "el": "Να μείνουμε\nδυο φίλοι\nμου ζήτησες\nπεισματικά\nαρνήθηκα\n\nΤι να την κάνω τη φιλία σου;\n\nΘα ‘χε να μου θυμίζει μόνον το\nφιλί σου\n\nΤο φιλί σου\nμ’ ένα\nστερητικό άλφα\nγια κατάληξη",
@@ -3897,11 +3897,11 @@
   },
   "texts.lyrics[8].credits[1].title": {
     "el": "Σύνθεση - Ενορχήστρωση",
-    "en": "Composition - Orchestration"
+    "en": "Composition - Arrangement "
   },
   "texts.lyrics[8].credits[1].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos Fanourakis"
   },
   "texts.lyrics[8].credits[2].title": {
     "el": "Επιμέλεια Ενορχήστρωσης",
@@ -3913,15 +3913,15 @@
   },
   "texts.lyrics[8].credits[3].title": {
     "el": "Τραγούδι",
-    "en": "Theme Song "
+    "en": "Performance"
   },
   "texts.lyrics[8].credits[3].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos Fanourakis"
   },
   "texts.lyrics[8].credits[4].title": {
     "el": "Απαγγελία",
-    "en": "delivery "
+    "en": "Recitation"
   },
   "texts.lyrics[8].credits[4].content": {
     "el": "Νικηφόρος Μπλεμένος",
@@ -3945,7 +3945,7 @@
   },
   "texts.lyrics[8].credits[7].title": {
     "el": "Βιολί",
-    "en": "Fiddle"
+    "en": "Violin"
   },
   "texts.lyrics[8].credits[7].content": {
     "el": "Σαμουήλ Καφαντάρης",
@@ -3985,11 +3985,11 @@
   },
   "texts.lyrics[8].credits[12].title": {
     "el": "Παραγωγή",
-    "en": "Manufacturing"
+    "en": "Production"
   },
   "texts.lyrics[8].credits[12].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos Fanourakis"
   },
   "texts.lyrics[8].credits[13].title": {
     "el": "Mixing-Mastering",
@@ -4645,11 +4645,11 @@
   },
   "texts.lyrics[16].title": {
     "el": "Νηνεμία",
-    "en": "calm"
+    "en": "Ninemia"
   },
   "texts.lyrics[16].release": {
     "el": "Νηνεμία",
-    "en": "calm"
+    "en": "Ninemia"
   },
   "texts.lyrics[16].body": {
     "el": "Μια σπασμένη βάρκα με κουπιά\nστα πελάγη απλώνεται μακριά,\nγια να ξεφύγει.\n\nΣτην καρδιά του ανέμου σεργιανά\nκαι το κύμα την παραπλανά\nκαι την τυλίγει.\n\nΤην ξεβράζει σ' άγνωστη στεριά,\nζαλισμένη απ' την αλμύρα.\nΈχει λυγισμένα τα σκαριά\nπροδωμένη από τη μοίρα.\n\nΣτον βυθό σου, μάτια μου, θα βρω\nτη χαμένη νηνεμία.\nΗ πατρίδα μου όλο το νερό,\nμα η Ιθάκη μου είναι μία.\n\nΜια σπασμένη βάρκα με κουπιά,\nπου τ' αγέρι έχει συντροφιά\nκαι την ορίζει.\n\nΔε φοβάται να βγει στ' ανοιχτά,\nέχει ο νόστος άγια φυλαχτά\nγια μετερίζι.\n\nΤην ξεβράζει σ' άγνωστη στεριά(...)\n\nΜια σπασμένη βάρκα με κουπιά\nτου Αιόλου έρμαιο είναι πια\nκαι ταξιδεύει.\n\nΑνατέλλει μες στην σκοτεινιά,\nέχει αλλάξει χρώμα στα πανιά\nκαι βασιλεύει..",
@@ -4661,7 +4661,7 @@
   },
   "texts.lyrics[16].credits[0].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos Fanourakis"
   },
   "texts.lyrics[16].credits[1].title": {
     "el": "Σύνθεση",
@@ -4669,11 +4669,11 @@
   },
   "texts.lyrics[16].credits[1].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos  Fanourakis"
   },
   "texts.lyrics[16].credits[2].title": {
     "el": "Ερμηνεία",
-    "en": "Interpretation"
+    "en": "Performance"
   },
   "texts.lyrics[16].credits[2].content": {
     "el": "Μάνος Γιατρομανωλάκης",
@@ -4689,7 +4689,7 @@
   },
   "texts.lyrics[16].credits[4].title": {
     "el": "Μπάσο",
-    "en": "bass"
+    "en": "Bass"
   },
   "texts.lyrics[16].credits[4].content": {
     "el": "Μάνος Γιατρομανωλάκης",
@@ -4697,7 +4697,7 @@
   },
   "texts.lyrics[16].credits[5].title": {
     "el": "Λύρα",
-    "en": "Elegance"
+    "en": "Lyra"
   },
   "texts.lyrics[16].credits[5].content": {
     "el": "Νίκος Μανιουδάκης",
@@ -4721,7 +4721,7 @@
   },
   "texts.lyrics[16].credits[8].title": {
     "el": "Σκηνοθεσία",
-    "en": "Setting the stage the stage"
+    "en": "Director"
   },
   "texts.lyrics[16].credits[8].content": {
     "el": "Κώστας Χαλαμπαλάκης",
@@ -4737,7 +4737,7 @@
   },
   "texts.lyrics[16].credits[10].title": {
     "el": "Ηθοποιός",
-    "en": "People"
+    "en": "Actor"
   },
   "texts.lyrics[16].credits[10].content": {
     "el": "Νεφέλη Καπέλλα",
@@ -5105,11 +5105,11 @@
   },
   "texts.lyrics[21].title": {
     "el": "Σχήμα καθ' υπερβολή",
-    "en": "Excessive shape"
+    "en": "Hyperbole"
   },
   "texts.lyrics[21].release": {
     "el": "Άνευ συνΩδείας",
-    "en": "Without leave of absence"
+    "en": "Aney Synodeias"
   },
   "texts.lyrics[21].body": {
     "el": "Άλλη μια μέρα\n-απ’ τις λίγες είν’ η αλήθεια,\nμ’ όλο και πιο συχνές-\nπου δεν θα έχουμε ανταλλάξει μια κουβέντα\n-όχι γλυκιά και τρυφερή\nόπως κάποτε\nτον καιρό τον πρωθύστερο-\nαπλά μια κουβέντα\n\nΠου δεν θα έχει χτυπήσει το\nτηλέφωνο\nούτε μια φορά\nκαι να ‘σαι σύ\nνα με ρωτήσεις πως είμαι\n-πως νιώθω δηλαδή και πως πέρασα τη σήμερον·\nθέλω πολύ να το ελπίζω πως\nακόμη τουλάχιστον\nδεν έχεις ξεχάσει τη\nμορφή μου-\n\nΠου δεν θα έχει στείλει\nμια παλιά μας φωτογραφία\nσε μήνυμα\n-το συνήθιζες κάποτε·\nΈτσι δήλωνες το «παρών» σου\nκαι το «σε σκέφτομαι»\n«ΜΑΣ σκέφτομαι»\n\n«σ’ αγαπώ».\n\nΚαι κάπως έτσι θα βραδιάσει\nκαι θα ‘χει φθάσει\nάλλη μια νύχτα\n-από τις συχνές, ειν’ η αλήθεια,\nκαι όλο και πιο πολλές τώρα τελευταία-\nπου θα ξαπλώσω\nμόνος μου στο\nπάτωμα\nανάσκελα\n-όχι στο στρώμα το διπλό·\nστο πάτωμα.\nΜεγάλο είν’ το στρώμα και δεν\nαρμόζει\nστη μοναξιά μου-\n\nΠου θα κοιτάζω το ταβάνι\nΚαι τον πολυέλαιο\n-όχι τα άστρα σε παραλία πλάι στο κύμα\nόπως συνηθίζαμε-\n\nΠου θα ακούω μόνο τη σιωπή μου\n-σκέψεις δεν θα ‘χω για να κάνω·\nΚαλύτερα! Πολύ με βασανίζουν τελευταία-\n\nΚαι τα βήματα θα ακούω\nτου σκύλου\nτου γείτονα στον δεύτερο\n\n-‘κείνος τουλάχιστον συμφιλιώθηκε με τη μοναξιά του\nκαι επέλεξε\nτο μόνο βέβαιο\nφίλο πιστό να τη\nσυβάσει-\n\nΜεσάνυχτα.\nΚαι την επαύριο νωρίς το\nεγερτήριο\n\nΠριν κοιμηθώ\nαν λάβω την απόφαση να πάρω εγώ πρώτος τηλέφωνο\nμάλλον κλειστό θα το ‘χεις\nτάχα πως είν’ ξεφόρτιστο.\n\nΜα αν είμαι τυχερός και το\nσηκώσεις\nτότε αντιμέτωπος θα ‘ρθω με μια\nστενάχωρη\nψυχρότητα\n-συχνή, πολύ συχνή, τώρα τελευταία-\nαίσθημα εξωτερικευμένο μάλλον\nαυθεντικότατα\nκαι αποστειρωμένο\nαπό εκδηλώσεις πάθους που\nσυνήθιζες.\n\nΚι αν τούτο το\nπαράπονό μου\nσυζητήσουμε\nτότε θα μου πεις πως υπερβάλλω\n\nΑς είναι.\nΑς είμαι υπερβολικός.\nΑυτό καλό δείγμα έρωτα είναι\nπου τυγχάνει (ως όφειλε)\nπηγή της υπερβολής μου\nμα και της πονηρής της σκέψης (του φόβου)\nπως η δική σου αγάπη στέρεψε.\n\nΚαι τι, λοιπόν, δεν θα ‘δινα να\nυπερέβαλες\nκι εσύ ξανά\nγια λίγο\nΠολύ θα το χαιρόμουν.\n\nΊσως τότε\nδεν θα ‘χα να σου κρατώ κάποιο\nπαράπονο.",
@@ -5125,11 +5125,11 @@
   },
   "texts.lyrics[21].credits[1].title": {
     "el": "Σύνθεση - Ενορχήστρωση",
-    "en": "Composition - Orchestration"
+    "en": "Composition - Arrangement "
   },
   "texts.lyrics[21].credits[1].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos Fanourakis"
   },
   "texts.lyrics[21].credits[2].title": {
     "el": "Επιμέλεια Ενορχήστρωσης",
@@ -5141,11 +5141,11 @@
   },
   "texts.lyrics[21].credits[3].title": {
     "el": "Απαγγελία",
-    "en": "delivery "
+    "en": "Performance"
   },
   "texts.lyrics[21].credits[3].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos Fanourakis"
   },
   "texts.lyrics[21].credits[4].title": {
     "el": "Πιάνο",
@@ -5153,7 +5153,7 @@
   },
   "texts.lyrics[21].credits[4].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos Fanourakis"
   },
   "texts.lyrics[21].credits[5].title": {
     "el": "Κοντραμπάσο",
@@ -5165,11 +5165,11 @@
   },
   "texts.lyrics[21].credits[6].title": {
     "el": "Παραγωγή",
-    "en": "Manufacturing"
+    "en": "Production"
   },
   "texts.lyrics[21].credits[6].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos Fanourakis"
   },
   "texts.lyrics[21].credits[7].title": {
     "el": "Mixing-Mastering",
@@ -5385,7 +5385,7 @@
   },
   "texts.lyrics[24].release": {
     "el": "Άνευ συνΩδείας",
-    "en": "Without leave of absence"
+    "en": "Aney Synodeias"
   },
   "texts.lyrics[24].body": {
     "el": "Πύρινα δάκρυα· βροχή. \nΜι’ αγάπη που αιμορραγεί. \nΠένθιμα χρώματα του νου· \nσυννεφιασμένου ουρανού.\n\nΘυμού αγέρας δυνατός \nσβήνει του έρωτα το φως \nΚαι της αγάπης η κλωστή \nαρκεί μια λέξη να κοπεί\n\nΦουντώνει ο εγωισμός. \nΚαραδοκεί ο χωρισμός. \nΑίσθημα μόνον εμμονής, \nδίχως σταγόνα υπομονής.\n\nΗ δοξασία της ζωής \nμιαν εξουσία της στιγμής. \nΈρωτες μύριοι με φτερά \nπετούν παντού και πουθενά.",
@@ -5401,7 +5401,7 @@
   },
   "texts.lyrics[24].credits[1].title": {
     "el": "Σύνθεση - Ενορχήστρωση",
-    "en": "Composition - Orchestration"
+    "en": "Composition - Arrangement "
   },
   "texts.lyrics[24].credits[1].content": {
     "el": "Γιώργος Φανουράκης",
@@ -5417,11 +5417,11 @@
   },
   "texts.lyrics[24].credits[3].title": {
     "el": "Τραγούδι",
-    "en": "Theme Song "
+    "en": "Performance"
   },
   "texts.lyrics[24].credits[3].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos Fanourakis"
   },
   "texts.lyrics[24].credits[4].title": {
     "el": "Πιάνο",
@@ -5433,7 +5433,7 @@
   },
   "texts.lyrics[24].credits[5].title": {
     "el": "Μπάσο",
-    "en": "bass"
+    "en": "Bass"
   },
   "texts.lyrics[24].credits[5].content": {
     "el": "Γιώργος Μπουναρτζής",
@@ -5457,11 +5457,11 @@
   },
   "texts.lyrics[24].credits[8].title": {
     "el": "Παραγωγή",
-    "en": "Manufacturing"
+    "en": "Production"
   },
   "texts.lyrics[24].credits[8].content": {
     "el": "Γιώργος Φανουράκης",
-    "en": "Giorgos Fanourakis"
+    "en": "Yiorgos Fanourakis"
   },
   "texts.lyrics[24].credits[9].title": {
     "el": "Mixing-Mastering",
