@@ -5470,5 +5470,9 @@
   "texts.lyrics[24].credits[9].content": {
     "el": "Χρήστος Μέγας",
     "en": "Christos Megas"
+  },
+  "site.live_eyebrow": {
+    "el": "ζωντανές εμφανίσεις",
+    "en": "live shows"
   }
 }
