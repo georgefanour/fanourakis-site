@@ -6,28 +6,28 @@ content:
     path: content/el/site.json
     fields:
       - name: nav_music
-        label: "Ινού πλοήγησης · κουμπί «Μουσική»"
+        label: "Μενού πλοήγησης · κουμπί «Μουσική»"
         type: string
       - name: nav_videos
-        label: "Ινού πλοήγησης · κουμπί «Βίντεο»"
+        label: "Μενού πλοήγησης · κουμπί «Βίντεο»"
         type: string
       - name: nav_live
-        label: "Ινού πλοήγησης · κουμπί «Live»"
+        label: "Μενού πλοήγησης · κουμπί «Live»"
         type: string
       - name: nav_writings
-        label: "Ινού πλοήγησης · κουμπί «Στίχοι και Κείμενα»"
+        label: "Μενού πλοήγησης · κουμπί «Στίχοι και Κείμενα»"
         type: string
       - name: nav_press
-        label: "Ινού πλοήγησης · κουμπί «Συνεντεύξεις και Τύπος»"
+        label: "Μενού πλοήγησης · κουμπί «Συνεντεύξεις και Τύπος»"
         type: string
       - name: nav_photos
-        label: "Ινού πλοήγησης · κουμπί «Φωτογραφίες»"
+        label: "Μενού πλοήγησης · κουμπί «Φωτογραφίες»"
         type: string
       - name: nav_about
-        label: "Ινού πλοήγησης · κουμπί «Σχετικά»"
+        label: "Μενού πλοήγησης · κουμπί «Σχετικά»"
         type: string
       - name: nav_contact
-        label: "Ινού πλοήγησης · κουμπί «Επικοινωνία»"
+        label: "Μενού πλοήγησης · κουμπί «Επικοινωνία»"
         type: string
       - name: logo_image
         label: "Λογότυπο (φωτογραφία που αντικαθιστά το όνομα πάνω αριστερά — αφήστε κενό για να φαίνεται το όνομα)"
@@ -74,6 +74,30 @@ content:
       - name: videos_intro
         label: "Ενότητα «Βίντεο» · εισαγωγική παράγραφος"
         type: text
+      - name: videos_filter_all
+        label: "Ενότητα «Βίντεο» · φίλτρο «Όλα»"
+        type: string
+      - name: videos_filter_official
+        label: "Ενότητα «Βίντεο» · φίλτρο «Official»"
+        type: string
+      - name: videos_filter_cover
+        label: "Ενότητα «Βίντεο» · φίλτρο «Covers»"
+        type: string
+      - name: videos_filter_live
+        label: "Ενότητα «Βίντεο» · φίλτρο «Live Sessions»"
+        type: string
+      - name: videos_filter_acoustic
+        label: "Ενότητα «Βίντεο» · φίλτρο «Acoustic»"
+        type: string
+      - name: videos_filter_studio
+        label: "Ενότητα «Βίντεο» · φίλτρο «Studio»"
+        type: string
+      - name: videos_placeholder_title
+        label: "Ενότητα «Βίντεο» · τίτλος σε άδεια/placeholder κάρτα (π.χ. «Προσθήκη σύντομα»)"
+        type: string
+      - name: videos_placeholder_hint
+        label: "Ενότητα «Βίντεο» · υπόδειξη σε άδεια/placeholder κάρτα (π.χ. «Πρόσθεσε νέο YouTube URL από το CMS»)"
+        type: string
       - name: live_eyebrow
         label: "Ενότητα «Live αρχείο» · μικρή ετικέτα πάνω από τον τίτλο"
         type: string
@@ -131,6 +155,18 @@ content:
       - name: contact_email
         label: "Ενότητα «Επικοινωνία» · email για συνεργασίες και γενική επικοινωνία"
         type: string
+      - name: contact_booking_label
+        label: "Ενότητα «Επικοινωνία» · ετικέτα πριν το email booking (π.χ. «Booking»)"
+        type: string
+      - name: contact_booking_email
+        label: "Ενότητα «Επικοινωνία» · email για bookings"
+        type: string
+      - name: contact_press_label
+        label: "Ενότητα «Επικοινωνία» · ετικέτα πριν το email τύπου (π.χ. «Press»)"
+        type: string
+      - name: contact_press_email
+        label: "Ενότητα «Επικοινωνία» · email για τον Τύπο"
+        type: string
       - name: instagram_url
         label: "Footer · σύνδεσμος Instagram"
         type: string
@@ -148,6 +184,18 @@ content:
         type: string
       - name: footer_copyright
         label: "Footer · κείμενο copyright στο κάτω μέρος της σελίδας"
+        type: string
+      - name: footer_privacy_label
+        label: "Footer · κείμενο συνδέσμου Πολιτικής Απορρήτου"
+        type: string
+      - name: footer_privacy_url
+        label: "Footer · σύνδεσμος Πολιτικής Απορρήτου"
+        type: string
+      - name: footer_cookies_label
+        label: "Footer · κείμενο συνδέσμου Cookies"
+        type: string
+      - name: footer_cookies_url
+        label: "Footer · σύνδεσμος Cookies"
         type: string
 
   - name: site-en
@@ -224,6 +272,30 @@ content:
       - name: videos_intro
         label: "\"Videos\" section · intro paragraph"
         type: text
+      - name: videos_filter_all
+        label: "\"Videos\" section · \"All\" filter label"
+        type: string
+      - name: videos_filter_official
+        label: "\"Videos\" section · \"Official\" filter label"
+        type: string
+      - name: videos_filter_cover
+        label: "\"Videos\" section · \"Covers\" filter label"
+        type: string
+      - name: videos_filter_live
+        label: "\"Videos\" section · \"Live Sessions\" filter label"
+        type: string
+      - name: videos_filter_acoustic
+        label: "\"Videos\" section · \"Acoustic\" filter label"
+        type: string
+      - name: videos_filter_studio
+        label: "\"Videos\" section · \"Studio\" filter label"
+        type: string
+      - name: videos_placeholder_title
+        label: "\"Videos\" section · title shown on an empty/placeholder card (e.g. \"Coming soon\")"
+        type: string
+      - name: videos_placeholder_hint
+        label: "\"Videos\" section · hint text shown on an empty/placeholder card (e.g. \"Add a new YouTube URL from the CMS\")"
+        type: string
       - name: live_eyebrow
         label: "\"Live archive\" section · small label"
         type: string
@@ -281,6 +353,18 @@ content:
       - name: contact_email
         label: "\"Contact\" section · email for bookings and general enquiries"
         type: string
+      - name: contact_booking_label
+        label: "\"Contact\" section · label before the booking email (e.g. \"Booking\")"
+        type: string
+      - name: contact_booking_email
+        label: "\"Contact\" section · booking email address"
+        type: string
+      - name: contact_press_label
+        label: "\"Contact\" section · label before the press email (e.g. \"Press\")"
+        type: string
+      - name: contact_press_email
+        label: "\"Contact\" section · press email address"
+        type: string
       - name: instagram_url
         label: "Footer · Instagram link"
         type: string
@@ -298,6 +382,18 @@ content:
         type: string
       - name: footer_copyright
         label: "Footer · copyright text"
+        type: string
+      - name: footer_privacy_label
+        label: "Footer · Privacy Policy link text"
+        type: string
+      - name: footer_privacy_url
+        label: "Footer · Privacy Policy link URL"
+        type: string
+      - name: footer_cookies_label
+        label: "Footer · Cookies link text"
+        type: string
+      - name: footer_cookies_url
+        label: "Footer · Cookies link URL"
         type: string
 
   - name: about-el
@@ -367,6 +463,18 @@ content:
       - name: artist_note
         label: "Λίγα λόγια από τον καλλιτέχνη (εμφανίζεται μαζί με την περιγραφή στο ίδιο κουμπί)"
         type: text
+      - name: credits
+        label: "Credits δίσκου (πάτα «+» για να προσθέσεις όσα θέλεις, π.χ. Μίξη — Ονοματεπώνυμο)"
+        type: object
+        list: true
+        required: false
+        fields:
+          - name: title
+            label: "Τίτλος (π.χ. Μίξη, Mastering, Φωτογραφία εξωφύλλου)"
+            type: string
+          - name: content
+            label: "Περιεχόμενο (π.χ. Ονοματεπώνυμο)"
+            type: string
       - name: youtube_url
         label: "YouTube link (εμφανίζεται ως «Δες στο YouTube» πάνω από τη λίστα τραγουδιών)"
         type: string
@@ -417,6 +525,18 @@ content:
       - name: artist_note
         label: "A few words from the artist (shown together with the description in the same button)"
         type: text
+      - name: credits
+        label: "Release credits (press «+» to add as many as you like, e.g. Mix — Full Name)"
+        type: object
+        list: true
+        required: false
+        fields:
+          - name: title
+            label: "Title (e.g. Mix, Mastering, Cover photo)"
+            type: string
+          - name: content
+            label: "Content (e.g. Full Name)"
+            type: string
       - name: youtube_url
         label: "YouTube link (shown as \"Watch on YouTube\" above the song list)"
         type: string
@@ -530,9 +650,13 @@ content:
         type: image
         required: true
       - name: alt
-        label: Περιγραφή εικόνας
+        label: Περιγραφή εικόνας (για προσβασιμότητα, δεν εμφανίζεται στη σελίδα)
         type: string
         required: true
+      - name: caption
+        label: "Ετικέτα πάνω στη φωτογραφία (π.χ. «Live sessions», «Λεπτομέρειες») — αν μείνει κενό, εμφανίζεται ο Τίτλος εμφάνισης"
+        type: string
+        required: false
       - name: ticket_url
         label: Ticket ή event link
         type: string
@@ -580,9 +704,13 @@ content:
         type: image
         required: true
       - name: alt
-        label: Image description
+        label: Image description (for accessibility, not shown on the page)
         type: string
         required: true
+      - name: caption
+        label: "Label shown on the photo (e.g. \"Live sessions\", \"Details\") — leave empty to show the Show title instead"
+        type: string
+        required: false
       - name: ticket_url
         label: Ticket or event link
         type: string
