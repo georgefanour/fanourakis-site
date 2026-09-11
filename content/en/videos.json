@@ -1,13 +1,13 @@
 {
   "items": [
     {
-      "title": "The lianotragouda - Manos Hadjidakis (performed by Giorgos Fanourakis & Katerina Stefanaki)",
+      "title": "Ta Lianotragouda - Manos Hadjidakis (performed by Yiorgos Fanourakis & Katerina Stefanaki)",
       "category": "cover",
       "youtube_url": "https://www.youtube.com/watch?v=7guZ8EZ506Q",
-      "description": "Concert of the Conservatory of the Municipality of Heraklion\n2 February\n\nInterpretation: Giorgos Fanourakis-Katerina Stefanaki\nArt Music Orchestra of​ the Conservatory of Heraklion\nConductor: Harris Veneris\n\nComposer: Manos Hadjidakis\nLyrics: Traditional\nFirst performance: Fleury Ntantonakis - Dimitris Psarianos\n"
+      "description": "Concert of the Conservatory of the Municipality of Heraklion\n2 February\n\nPerformance: Yiorgos Fanourakis-Katerina Stefanaki\nArt Music Orchestra of​ the Conservatory of Heraklion\nConductor: Haris Veneris\n\nComposer: Manos Hadjidakis\nLyrics: Traditional\nFirst performance: Fleury Ntantonakis - Dimitris Psarianos\n"
     },
     {
-      "title": "Two Nights - George Fanourakis (unreleased)",
+      "title": "Dyo Nychtes - Yiorgos Fanourakis (unreleased)",
       "category": "live",
       "youtube_url": "https://www.youtube.com/watch?v=hCGmsMiU7YA&pp=0gcJCRMMAYcqIYzv",
       "description": "We were invited to the live show \"mindZet\" on ERT3 to play some of my songs. Two Nights, which I haven't released yet, was one of them.\n\nHappy listening!"
@@ -19,16 +19,25 @@
       "description": "A half-tuned guitar,\n\na guitar magnet made from an old Casio watch and Martin's ingenuity,\n\na twenty-something microphone standing on a fallen branch,\n\nan afternoon that plunges into the darkness before our eyes, as if the lights go out to start the show\n\nand our audience: Scottish bulls and horses who, with gentle curiosity, get closer and closer to the hill as we play music.\n\nLights, cameras, avanti nature.\n\nLohača, Slovenia\n29.09.2025"
     },
     {
-      "title": "Oh! My good blonde - Manos Hadjidakis (performed by Giorgos Fanourakis)",
-      "category": "cover",
-      "youtube_url": "https://www.youtube.com/watch?v=UNH-nSdSYQY",
-      "description": "Municipality of Crete Youth Symphony Orchestra\nHerakleioy\nYouth Choir of the Municipality of Heraklion\n\"Nikos Kazantzakis\" Garden Theater\n3 July 2018\n\n'Oh, my good blonde.'\nAristophanes, Birds\nmusic: Manos Hadjidakis\npoetry: Vasilis Rotas\n\nAddress: Miltos Logiadis\nArtistic direction: Giannis Idomeneos\nInterpretation: Giorgos Fanourakis\n\nLyrics\nOh! my dear blonde,\nmy sweet companion,\nthat I talk with you\nevery nice cause,\ncame, came, Fanis\nwith suraurus to weave\nhymns, singing,\nspring sounds.\n\nGo ahead, start, tell them\nsweets for the restless.\n"
+      "title": "Rodakino",
+      "category": "official",
+      "youtube_url": "https://www.youtube.com/watch?v=hY9z1iCwpHE",
+      "description": "Yiorgos Fanourakis · 2026",
+      "thumbnail": "",
+      "notify_subscribers": true,
+      "order": 2
     },
     {
-      "title": "You're asking me to tell you - Attik (performed by Giorgos Fanourakis)",
+      "title": "O! Kali mou xanthia - Manos Hadjidakis (performed by Yiorgos Fanourakis)",
+      "category": "cover",
+      "youtube_url": "https://www.youtube.com/watch?v=UNH-nSdSYQY",
+      "description": "Municipality of Crete Youth Symphony Orchestra\nYouth Choir of the Municipality of Heraklion\n\"Nikos Kazantzakis\" Garden Theater\n3 July 2018\n\n'Oh, my dear blonde.'\nAristophanes, Birds\ncomposer: Manos Hadjidakis\npoetry: Vasilis Rotas\n\nConductor: Miltos Logiadis\nArtistic direction: Ioannis Idomeneos\nPerformance: Yiorgos Fanourakis\n\nLyrics\nOh! my dear blonde,\nmy sweet companion,\nthat I talk with you\nevery nice cause,\ncame, came, Fanis\nwith suraurus to weave\nhymns, singing,\nspring sounds.\n\nGo ahead, start, tell them\nsweets for the restless.\n"
+    },
+    {
+      "title": "Zitate na sas po - Attik (performed by Yiorgos Fanourakis)",
       "category": "cover",
       "youtube_url": "https://www.youtube.com/watch?v=1Q99AffuQ7M",
-      "description": "You're asking me to tell you - George Fanourakis\nPiano: Giannis Idomeneos\nLyricist-composer: Attik\n22.05.2017 Experimental room, Cultural Center of Heraklion"
+      "description": "You're asking me to tell you - Yiorgos Fanourakis\nPiano: Ioannis Idomeneos\nLyricist-composer: Attik\n\n22.05.2017 Experimental room, Cultural Center of Heraklion"
     }
   ]
 }
