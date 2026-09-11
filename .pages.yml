@@ -644,10 +644,17 @@ content:
           - name: content
             label: "Περιεχόμενο (π.χ. Γιώργος Φανουράκης)"
             type: string
+      - name: spotify_url
+        label: "Σύνδεσμος Spotify για αυτό το τραγούδι (προαιρετικό)"
+        type: string
+        required: false
+      - name: youtube_url
+        label: "Σύνδεσμος YouTube για αυτό το τραγούδι (προαιρετικό)"
+        type: string
+        required: false
       - name: order
         label: "Σειρά εμφάνισης"
         type: number
-
   - name: writings
     label: "EL · Κείμενα / Πεζά — Ελληνικά"
     type: collection
@@ -710,10 +717,17 @@ content:
           - name: content
             label: "Content (e.g. Yiorgos Fanourakis)"
             type: string
+      - name: spotify_url
+        label: "Spotify link for this song (optional)"
+        type: string
+        required: false
+      - name: youtube_url
+        label: "YouTube link for this song (optional)"
+        type: string
+        required: false
       - name: order
         label: "Display order"
         type: number
-
   - name: writings-en
     label: "EN · Writings — English"
     type: collection
