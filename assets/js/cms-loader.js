@@ -107,6 +107,11 @@
     document.head.appendChild(style);
   }
 
+  function closeLyricPanel() {
+    var panel = document.getElementById('lyric-panel');
+    if (panel) panel.classList.remove('open');
+  }
+
   function bindReleaseInfoPanel() {
     var panel = document.getElementById('release-info-panel');
     if (!panel) {
@@ -299,10 +304,13 @@
     if (!items) { window.__pendingLyricsRelease = releaseName; return; }
 
     var key = releaseName.trim().toLowerCase();
-    if (window.__currentLyricsReleaseKey === key && !(opts && opts.force)) return;
+    var isSameRelease = window.__currentLyricsReleaseKey === key;
+    if (isSameRelease && !(opts && opts.force)) return;
 
     var matches = ordered(items.filter(function (i) { return (i.release || '').trim().toLowerCase() === key; }));
     if (!matches.length) { window.__pendingLyricsRelease = releaseName; return; }
+
+    if (!isSameRelease) closeLyricPanel();
 
     window.__currentLyricsReleaseKey = key;
 
