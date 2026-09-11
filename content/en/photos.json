@@ -1,3 +1,42 @@
 {
-  "items": []
+  "items": [
+    {
+      "image": "/assets/images/IMG_2426.jpg"
+    },
+    {
+      "image": "/assets/images/IMG_2432.jpg"
+    },
+    {
+      "image": "/assets/images/IMG_2443-1.jpg"
+    },
+    {
+      "image": "/assets/images/IMG_2464.jpg",
+      "caption": "drums: Dimitris Raios"
+    },
+    {
+      "image": "/assets/images/dsc0314-2.jpg",
+      "caption": "frame from my concert on the seafront of Thessaloniki in quarantine"
+    },
+    {
+      "image": "/assets/images/IMG_2439.jpg"
+    },
+    {
+      "image": "/assets/images/IMG_2459.jpg",
+      "caption": "bass: Giorgos Bounartzis"
+    },
+    {
+      "image": "/assets/images/IMG_2469.jpg",
+      "caption": "electric guitar: Iasonas Anixiadis"
+    },
+    {
+      "image": "/assets/images/IMG_2460.jpg",
+      "caption": "keys: Dimitris Tombazis"
+    },
+    {
+      "image": "/assets/images/IMG_2443.jpg"
+    },
+    {
+      "image": "/assets/images/IMG_2425.jpg"
+    }
+  ]
 }

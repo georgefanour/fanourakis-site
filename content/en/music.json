@@ -1,20 +1,20 @@
 {
   "items": [
     {
-      "title": "Aney Synodeias",
+      "title": "Without leave of absence",
       "cover": "/assets/images/IMG_0610.jpg",
-      "release_type": "Album",
+      "release_type": "Album.",
       "year": 2026,
       "featured": true,
       "order": 1
     },
     {
-      "title": "ARCHETYPA",
+      "title": "Archetypes",
       "cover": "/assets/images/αρχετυπα.webp",
-      "release_type": "Album",
+      "release_type": "Album.",
       "year": 2023,
       "description": "in this space, you can read my thoughts about my first album",
-      "artist_note": "Sigmund Freud believed that humans are born tabula rasa, meaning empty painting, in which, from the moment of conception to the moment of death, the stimuli are brushstrokes that paint it.\n\nCarl Jung disagreed, considering that all humans are born with a collective unconscious, a common “storehouse” of unconscious material, which contains the overall experiences of previous generations and is determined by the common origin of the human species.\n\nThe collective unconscious consists of common global images and symbols, the Archetypes, which precede all, regardless of socio-cultural background, and are the basic human characteristics on which each unique personality is built. (archetype < principle + type, is the original type, the model, the model).\n\nPieces relating to different stories, written independently of each other and born into very different circumstances, contexts and moments of my life. Their selection, classification and analysis for this album was carried out retrospectively.\n\nThe variety of music genres and the orchestration are a representation of the dynamics of the psyche.\n\nThe verse is a symbolic, archetypal representation of a psychotherapeutic process.\n\nEach piece symbolizes a stage of it, while the classification and flow symbolize the continuity and circularity of the stages, always through my personal perspective.\n\nThe album, then, is a symbolism based on fundamental elements of psychodynamic theory. The role of tracks as parts of the album, like archetypes, is not their stories per se, but their symbolization - the expression of the existence of a common, global image, on which the artist's personality is built.\n\nIt is not a guide, it is not educational. Its purpose is, through its listening, to activate emotions and to be food for thought and discussion, in the listener's spiritual quest.\n\nBon voyage!\n\nYiorgos Fanourakis\n\nDedicated to my grandmother, Anna.\n\nAlbum cover: Haris Faliakakis\n\nAll rights reserved. Yiorgos Fanourakis ©",
+      "artist_note": "Sigmund Freud believed that humans are born tabula rasa, meaning empty painting, in which, from the moment of conception to the moment of death, the stimuli are brushstrokes that paint it.\n\nCarl Jung disagreed, considering that all humans are born with a collective unconscious, a common “storehouse” of unconscious material, which contains the overall experiences of previous generations and is determined by the common origin of the human species.\n\nThe collective unconscious consists of common global images and symbols, the Archetypes, which precede all, regardless of socio-cultural background, and are the basic human characteristics on which each unique personality is built. (archetype < principle + type, is the original type, the model, the model).\n\nPieces relating to different stories, written independently of each other and born into very different circumstances, contexts and moments of my life. Their selection, classification and analysis for this album was carried out retrospectively.\n\nThe variety of music genres and the orchestration are a representation of the dynamics of the psyche.\n\nThe verse is a symbolic, archetypal representation of a psychotherapeutic process.\n\nEach piece symbolizes a stage of it, while the classification and flow symbolize the continuity and circularity of the stages, always through my personal perspective.\n\nThe album, then, is a symbolism based on fundamental elements of psychodynamic theory. The role of tracks as parts of the album, like archetypes, is not their stories per se, but their symbolization - the expression of the existence of a common, global image, on which the artist's personality is built.\n\nIt is not a guide, it is not educational. Its purpose is, through its listening, to activate emotions and to be food for thought and discussion, in the listener's spiritual quest.\n\nBon voyage!\n\nGiorgos Fanourakis\n\nDedicated to my grandmother, Anna.\n\nAlbum cover: Haris Faliakakis\n\nAll rights reserved. George Fanourakis ©",
       "youtube_url": "https://youtube.com/playlist?list=PLbQYAkdKqVk7rS9wjyNw7uAJJ8nblBk7s",
       "spotify_url": "https://open.spotify.com/album/36vEpkXSDuHBjYMOi8cXf6?si=aAwVRX2VRfO75A38dwIq0Q",
       "featured": false,
@@ -35,17 +35,18 @@
       "cover": "/assets/images/generated-image.png",
       "release_type": "Collaboration",
       "year": 2026,
-      "artist_note": "This is my first release in a language other than Greek, and I am really proud to share it with my dear friend, Nicolás Sosa.\n\nOur story began three years ago, in a live show I did on the street, in Nea Paralia, Thessaloniki. Nicolás had just arrived from his native Uruguay, searching for his musical future in Europe. It was a very cloudy afternoon and he was the only person who stood there, really listening to my music. That's how we met. We ended up at my house the very same day and wrote this song - a marriage of Greek and Spanish elements, entitled \"MICROCOSMOS\", a word that exists in both languages and which describes exactly what we wanted to express.\n\nThree years later, we met again at his new home in Berlin to record it. Now, with excitement we present it to you, accompanied by shots of this year's Greek summer.\n\nI hope you enjoy this summer piece as much as we enjoyed creating it!\n",
+      "artist_note": "This is my first release in a language other than Greek, and I am really proud to share it with my dear friend, Nicolás Sosa.\n\nOur story began three years ago, in a live show I did on the street, in Nea Paralia, Thessaloniki. Nicolás had just arrived from his native Uruguay, searching for his musical future in Europe. It was a very cloudy afternoon and he was the only person who stood there, really listening to my music. That's how we met. We ended up at my house the very same day and wrote this song - a marriage of Greek and Spanish elements, entitled \"MICROCOSMOS\", a word that exists in both languages and which describes exactly what we wanted to express.\n\nThree years later, we met again at his new home in Berlin to record it. Now, with great enthusiasm we present it to you, accompanied by shots of this year's Greek summer.\n\nI hope you enjoy this summer piece as much as we enjoyed creating it!\n",
       "youtube_url": "https://www.youtube.com/watch?v=IF23sKsyXAA",
       "featured": false,
       "order": 1
     },
     {
-      "title": "Ninemia",
+      "title": "calm",
       "cover": "/assets/images/νηνεμια.webp",
       "release_type": "Collaboration",
       "year": 2024,
-      "artist_note": "Manos Giatromanolakis honored me by interpreting my piece \"Ninemia\"",
+      "artist_note": "manos Giatromanolakis honored me by interpreting my piece \"Ninemia\"",
+      "credits": "NINEMIA - Manos Giatromanolakis\n\nMusic-Lyrics: Giorgos Fanourakis\n\nLyra: Nikos Manioudakis\n\nDrums: Nikos Sygletos\n\nVoice,guitar,bass,programming: Manos Giatromanolakis\n\nMix-Master: Michalis Mavrakis\n\nScreenplay: Kostas Halambalakis\n\nDirected by: Kostas Halambalakis, Giorgos Halambalakis\n\nAssistant director: Georgia Glynatsi\n\nActor: Nefeli Kapella",
       "youtube_url": "https://www.youtube.com/watch?v=LqbsU0f33Xo",
       "spotify_url": "https://open.spotify.com/album/0bpKQGHcyMhl6lrl0AzsDq?si=dNnSA2UvQNi-vZf3WM_WNQ",
       "featured": false,
