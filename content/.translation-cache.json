@@ -300,8 +300,8 @@
     "en": "Fanourakis"
   },
   "site.hero_phrase": {
-    "el": "Τραγούδια, λέξεις και στιγμές που ζητούν να μείνουν.",
-    "en": "Songs, words and moments they ask to stay."
+    "el": "αν αισθάνεσαι ότι οι ψυχές μας συνδέθηκαν, τότε αυτός ο χώρος είναι και δικός σου",
+    "en": "if you feel that our souls are connected, then this place is yours too"
   },
   "site.hero_music_cta": {
     "el": "Εξερεύνησε την δισκογραφία",
@@ -352,8 +352,8 @@
     "en": "Interviews, podcasts, radio appearances, articles, reviews and video interviews."
   },
   "site.photos_eyebrow": {
-    "el": "Φωτογραφίες",
-    "en": "Photos"
+    "el": "Μικρές εκρήξεις",
+    "en": "Small explosions"
   },
   "site.photos_title": {
     "el": "Μικρές εκρήξεις.",
@@ -5524,24 +5524,24 @@
     "en": "Add new YouTube URL from CMS"
   },
   "site.live_intro": {
-    "el": "Σκηνές, φώτα, πρόβες και μικρές εκρήξεις. Η μουσική ζει εκεί όπου οι άνθρωποι συναντιούνται.",
-    "en": "Scenes, lights, rehearsals and small explosions. Music lives where people meet."
+    "el": "Εδώ θα συναντηθούμε!",
+    "en": "This is where we'll meet!"
   },
   "site.words_eyebrow": {
     "el": "Κείμενα",
     "en": "Texts"
   },
   "site.press_eyebrow": {
-    "el": "Συνεντεύξεις & Τύπος",
-    "en": "Interviews & Press"
+    "el": "Κάποιες ωραίες συζητήσεις",
+    "en": "Some good conversations"
   },
   "site.about_eyebrow": {
     "el": "Σχετικά",
     "en": "About"
   },
   "site.about_button": {
-    "el": "Πες μου μια ιστορία ↗",
-    "en": "Tell me a story ↗"
+    "el": "Να μείνουμε σε επαφή; ↗",
+    "en": "Stay in touch? ↗"
   },
   "site.contact_booking_label": {
     "el": "Booking",
