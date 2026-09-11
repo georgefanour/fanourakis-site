@@ -5570,5 +5570,17 @@
   "site.footer_cookies_label": {
     "el": "Cookies",
     "en": "Cookies"
+  },
+  "site.writings_eyebrow": {
+    "el": "Writings",
+    "en": "Writings"
+  },
+  "site.writings_title": {
+    "el": "Words that<br><i>remain.</i>",
+    "en": "Words that<br><i>remain.</i>"
+  },
+  "site.writings_quote": {
+    "el": "“If you feel that our souls have connected, then this space is yours too.”",
+    "en": "\"If you feel that our souls have connected, then this space is yours too.\""
   }
 }
