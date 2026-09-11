@@ -97,17 +97,12 @@
       panel = document.createElement('div');
       panel.className = 'panel';
       panel.id = 'release-info-panel';
-      panel.innerHTML = '<div class="panel-blur-bg" aria-hidden="true"></div><div class="container"><button class="close-panel" data-release-info-close>' + (lang === 'en' ? '← Back to discography' : '← Επιστροφή στη δισκογραφία') + '</button><div class="panel-grid"><div class="panel-art"><img id="release-info-img" alt=""></div><div class="panel-copy"><p class="release-meta" id="release-info-eyebrow"></p><h2 class="section-title" id="release-info-title"></h2><div class="copy" id="release-info-desc"></div><a href="#lyrics" class="btn dark" id="release-info-lyrics-btn">' + (lang === 'en' ? 'See lyrics ↗' : 'Δες στίχους ↗') + '</a></div></div></div>';
+      panel.innerHTML = '<div class="panel-blur-bg" aria-hidden="true"></div><div class="container"><button class="close-panel" data-release-info-close>' + (lang === 'en' ? '← Back to discography' : '← Επιστροφή στη δισκογραφία') + '</button><div class="panel-grid"><div class="panel-art"><img id="release-info-img" alt=""></div><div class="panel-copy"><p class="release-meta" id="release-info-eyebrow"></p><h2 class="section-title" id="release-info-title"></h2><div class="copy" id="release-info-desc"></div></div></div></div>';
       document.body.appendChild(panel);
       panel.querySelector('[data-release-info-close]').addEventListener('click', function () {
         panel.classList.remove('open');
         var music = document.getElementById('music');
         if (music) music.scrollIntoView({ behavior: 'smooth' });
-      });
-      panel.querySelector('#release-info-lyrics-btn').addEventListener('click', function (e) {
-        e.preventDefault();
-        var releaseTitle = this.dataset.release || '';
-        jumpToLyricsRelease(releaseTitle);
       });
     }
 
@@ -120,8 +115,6 @@
         if (!data) return;
                 panel.querySelector('#release-info-eyebrow').textContent = [data.releaseType, data.year].filter(Boolean).join(' · ') || (lang === 'en' ? 'Release' : 'Κυκλοφορία');
         panel.querySelector('#release-info-title').textContent = data.title;
-        var lyricsBtn = panel.querySelector('#release-info-lyrics-btn');
-        if (lyricsBtn) lyricsBtn.dataset.release = data.title || '';
         panel.querySelector('#release-info-img').src = data.cover;
         var blurBg = panel.querySelector('.panel-blur-bg');
         if (blurBg) blurBg.style.backgroundImage = 'url(' + data.cover + ')';
@@ -271,14 +264,18 @@
     return img;
   }
 
-  function selectLyricsRelease(releaseName) {
+  function selectLyricsRelease(releaseName, opts) {
     var items = window.__lyricsItems;
     if (!releaseName) return;
     if (!items) { window.__pendingLyricsRelease = releaseName; return; }
 
     var key = releaseName.trim().toLowerCase();
+    if (window.__currentLyricsReleaseKey === key && !(opts && opts.force)) return;
+
     var matches = ordered(items.filter(function (i) { return (i.release || '').trim().toLowerCase() === key; }));
     if (!matches.length) { window.__pendingLyricsRelease = releaseName; return; }
+
+    window.__currentLyricsReleaseKey = key;
 
     var meta = (window.__musicByTitle || {})[key] || {};
     var eyebrowEl = document.getElementById('lyrics-selected-eyebrow');
@@ -308,7 +305,21 @@
       }).join('');
     }
 
+    syncActiveReleaseCard(releaseName);
     bindLyricEntries();
+  }
+
+  function syncActiveReleaseCard(releaseName) {
+    var key = releaseName.trim().toLowerCase();
+    var container = document.querySelector('.release-grid');
+    if (!container || !container.__cmsCarouselApi) return;
+    var cards = container.__cmsCarouselApi.items;
+    var idx = -1;
+    cards.forEach(function (card, i) {
+      var t = (card.getAttribute('data-release-title') || '').trim().toLowerCase();
+      if (t === key) idx = i;
+    });
+    if (idx !== -1) container.__cmsCarouselApi.goTo(idx, true);
   }
 
   function bindLyricEntries() {
@@ -516,6 +527,7 @@
     if (items.length < 2) return;
     container.dataset.carouselReady = '1';
     container.classList.add('cms-carousel-track');
+    var isReleaseGrid = containerSelector === '.release-grid';
     var wrap = document.createElement('div');
     wrap.className = 'cms-carousel-wrap';
     container.parentNode.insertBefore(wrap, container);
@@ -560,7 +572,8 @@
       return closest;
     }
 
-    function applyDepth() {
+    function applyDepth(skipSync) {
+      var previousIndex = activeIndex;
       activeIndex = nearestIndex();
       items.forEach(function (item, i) {
         var dist = Math.abs(i - activeIndex);
@@ -583,16 +596,28 @@
       });
       prev.disabled = activeIndex === 0;
       next.disabled = activeIndex === items.length - 1;
+
+      if (isReleaseGrid && !skipSync && activeIndex !== previousIndex) {
+        var activeCard = items[activeIndex];
+        var releaseTitle = activeCard ? activeCard.getAttribute('data-release-title') : '';
+        if (releaseTitle) selectLyricsRelease(releaseTitle);
+      }
     }
 
-    function goTo(index) {
+    function goTo(index, skipSync) {
       var clamped = Math.max(0, Math.min(index, items.length - 1));
       var target = items[clamped];
       container.scrollTo({
         left: target.offsetLeft - (container.clientWidth - target.offsetWidth) / 2,
         behavior: 'smooth'
       });
+      if (skipSync) {
+        activeIndex = clamped;
+        setTimeout(function () { applyDepth(true); }, 80);
+      }
     }
+
+    container.__cmsCarouselApi = { goTo: goTo, items: items };
 
     prev.addEventListener('click', function () { goTo(activeIndex - 1); });
     next.addEventListener('click', function () { goTo(activeIndex + 1); });
@@ -603,7 +628,7 @@
     var scrollTimeout;
     container.addEventListener('scroll', function () {
       clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(applyDepth, 60);
+      scrollTimeout = setTimeout(function () { applyDepth(false); }, 60);
     }, { passive: true });
 
     if (!document.getElementById('cms-carousel-style')) {
@@ -646,11 +671,11 @@
 
     requestAnimationFrame(function () {
       goTo(0);
-      setTimeout(applyDepth, 60);
+      setTimeout(function () { applyDepth(true); }, 60);
     });
     window.addEventListener('resize', function () {
       clearTimeout(window.__cmsCarouselResize);
-      window.__cmsCarouselResize = setTimeout(applyDepth, 150);
+      window.__cmsCarouselResize = setTimeout(function () { applyDepth(true); }, 150);
     });
   }
 
@@ -868,7 +893,6 @@ if (contactSection) {
       var spotify = normalizePath(item.spotify_url);
       var bandcamp = normalizePath(item.bandcamp_url);
       var links = [];
-links.push('<a href="#lyrics" data-jump-lyrics="' + escapeHtml(item.title || '') + '">' + (lang === 'en' ? 'See lyrics ↗' : 'Δες στίχους ↗') + '</a>');
       window.__releaseInfoStore = window.__releaseInfoStore || {};
            window.__releaseInfoStore[idx] = { title: item.title || '', desc: item.description || '', note: item.artist_note || '', credits: item.credits || '', cover: cover, releaseType: item.release_type || '', year: item.year || '' };
       window.__musicByTitle = window.__musicByTitle || {};
@@ -877,13 +901,13 @@ links.push('<a href="#lyrics" data-jump-lyrics="' + escapeHtml(item.title || '')
         links.unshift('<a href="#" class="release-info-btn" data-release-idx="' + idx + '">' + (lang === 'en' ? 'About this release ↗' : 'Λίγα λόγια για τον δίσκο ↗') + '</a>');
       }
 
-      return '<article class="release-card reveal show">' +
+      return '<article class="release-card reveal show" data-release-title="' + escapeHtml(item.title || '') + '">' +
         '<div class="release-art" style="cursor:pointer" data-jump-lyrics="' + escapeHtml(item.title || '') + '"><img src="' + escapeHtml(cover) + '" alt="' + escapeHtml(item.title || '') + '" loading="lazy" onerror="this.src=&quot;assets/images/placeholder-cover.jpg&quot;"></div>' +
         '<div class="release-body">' +
 (item.featured ? '<span class="badge">' + (lang === 'en' ? 'Latest release' : 'Πιο πρόσφατη') + '</span>' : '') +
         '<h3 style="cursor:pointer" data-jump-lyrics="' + escapeHtml(item.title || '') + '">' + escapeHtml(item.title || '') + '</h3>' +
         '<p>' + escapeHtml(item.release_type || '') + (item.year ? ' · ' + escapeHtml(item.year) : '') + '</p>' +
-        '<div class="release-actions">' + links.join('') + '</div></div></article>';
+        (links.length ? '<div class="release-actions">' + links.join('') + '</div>' : '') + '</div></article>';
     }).join(''), 'music');
 
     var featuredItem = ordered(items).filter(function (item) { return item.featured; })[0] || ordered(items)[0];
