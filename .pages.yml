@@ -6,28 +6,28 @@ content:
     path: content/el/site.json
     fields:
       - name: nav_music
-        label: "Μενού πλοήγησης · κουμπί «Μουσική»"
+        label: "Ινού πλοήγησης · κουμπί «Μουσική»"
         type: string
       - name: nav_videos
-        label: "Μενού πλοήγησης · κουμπί «Βίντεο»"
+        label: "Ινού πλοήγησης · κουμπί «Βίντεο»"
         type: string
       - name: nav_live
-        label: "Μενού πλοήγησης · κουμπί «Live»"
+        label: "Ινού πλοήγησης · κουμπί «Live»"
         type: string
-      - name: nav_words
-        label: "Μενού πλοήγησης · κουμπί «Στίχοι και Κείμενα»"
+      - name: nav_writings
+        label: "Ινού πλοήγησης · κουμπί «Στίχοι και Κείμενα»"
         type: string
       - name: nav_press
-        label: "Μενού πλοήγησης · κουμπί «Συνεντεύξεις και Τύπος»"
+        label: "Ινού πλοήγησης · κουμπί «Συνεντεύξεις και Τύπος»"
         type: string
       - name: nav_photos
-        label: "Μενού πλοήγησης · κουμπί «Φωτογραφίες»"
+        label: "Ινού πλοήγησης · κουμπί «Φωτογραφίες»"
         type: string
       - name: nav_about
-        label: "Μενού πλοήγησης · κουμπί «Σχετικά»"
+        label: "Ινού πλοήγησης · κουμπί «Σχετικά»"
         type: string
       - name: nav_contact
-        label: "Μενού πλοήγησης · κουμπί «Επικοινωνία»"
+        label: "Ινού πλοήγησης · κουμπί «Επικοινωνία»"
         type: string
       - name: logo_image
         label: "Λογότυπο (φωτογραφία που αντικαθιστά το όνομα πάνω αριστερά — αφήστε κενό για να φαίνεται το όνομα)"
@@ -63,7 +63,7 @@ content:
         label: "Ενότητα «Δισκογραφία» · κύριος τίτλος"
         type: string
       - name: music_intro
-        label: "Ενότητα «Δισκογραφία» · εισαγωγική παράγραφος"
+        label: "Ενότητα «Δισκογραφία» · εισαγωγική παράγραφος. Θυμηθείτε: πατώντας το εξώφυλλο ή τον τίτλο ενός δίσκου, ο επισκέπτης μεταφέρεται αυτόματα στους στίχους του — δεν χρειάζεται ξεχωριστό κουμπί."
         type: text
       - name: videos_eyebrow
         label: "Ενότητα «Βίντεο» · μικρή ετικέτα πάνω από τον τίτλο"
@@ -88,9 +88,6 @@ content:
         type: string
       - name: words_quote
         label: "Ενότητα «Στίχοι και Κείμενα» · μεγάλο παράθεμα πάνω από τη λίστα"
-        type: text
-      - name: words_release_prompt
-        label: "Στίχοι και Κείμενα · σύντομη οδηγία πριν από τις επιλογές δίσκων"
         type: text
       - name: press_eyebrow
         label: "Ενότητα «Συνεντεύξεις και Τύπος» · μικρή ετικέτα πάνω από τον τίτλο"
@@ -167,7 +164,7 @@ content:
       - name: nav_live
         label: "Navigation menu · Live button"
         type: string
-      - name: nav_words
+      - name: nav_writings
         label: "Navigation menu · Lyrics and Writings button"
         type: string
       - name: nav_press
@@ -216,7 +213,7 @@ content:
         label: "\"Discography\" section · main title"
         type: string
       - name: music_intro
-        label: "\"Discography\" section · intro paragraph"
+        label: "\"Discography\" section · intro paragraph. Note: clicking a release's cover or title jumps straight to its lyrics — no separate button needed."
         type: text
       - name: videos_eyebrow
         label: "\"Videos\" section · small label"
@@ -241,9 +238,6 @@ content:
         type: string
       - name: words_quote
         label: "\"Lyrics and Writings\" section · large quote"
-        type: text
-      - name: words_release_prompt
-        label: "Lyrics and Writings · short instruction above release choices"
         type: text
       - name: press_eyebrow
         label: "\"Press\" section · small label"
@@ -350,11 +344,11 @@ content:
       fields: [title, year, release_type]
     fields:
       - name: title
-        label: Τίτλος
+        label: "Τίτλος δίσκου (πρέπει να ταιριάζει ακριβώς με το «Ανήκει στον δίσκο» των τραγουδιών στα Στίχοι)"
         type: string
         required: true
       - name: cover
-        label: Εξώφυλλο
+        label: "Εξώφυλλο (πατώντας πάνω του ο επισκέπτης πηγαίνει αυτόματα στους στίχους του δίσκου)"
         type: image
         required: true
       - name: release_type
@@ -368,22 +362,22 @@ content:
         type: number
         required: true
       - name: description
-        label: Περιγραφή
+        label: "Περιγραφή (εμφανίζεται στο κουμπί «Διάβασε εδώ λίγα λόγια για τον δίσκο»)"
         type: text
       - name: artist_note
-        label: "Λίγα λόγια για την κυκλοφορία"
+        label: "Λίγα λόγια από τον καλλιτέχνη (εμφανίζεται μαζί με την περιγραφή στο ίδιο κουμπί)"
         type: text
       - name: youtube_url
-        label: YouTube link
+        label: "YouTube link (εμφανίζεται ως «Δες στο YouTube» πάνω από τη λίστα τραγουδιών)"
         type: string
       - name: spotify_url
-        label: Spotify link
+        label: "Spotify link (εμφανίζεται ως «Άκουσε στο Spotify» πάνω από τη λίστα τραγουδιών)"
         type: string
       - name: bandcamp_url
         label: Bandcamp link
         type: string
       - name: featured
-        label: Προτεινόμενη κυκλοφορία
+        label: "Πιο πρόσφατη κυκλοφορία (εμφανίζεται πρώτη στο carousel και επιλέγεται αυτόματα με το άνοιγμα της σελίδας — μόνο ένας δίσκος πρέπει να έχει αυτό ενεργό)"
         type: boolean
         default: false
       - name: order
@@ -400,11 +394,11 @@ content:
       fields: [title, year, release_type]
     fields:
       - name: title
-        label: Title
+        label: "Release title (must match exactly the \"Belongs to album / release\" field of songs in Lyrics)"
         type: string
         required: true
       - name: cover
-        label: Cover
+        label: "Cover (clicking it takes the visitor straight to this release's lyrics)"
         type: image
         required: true
       - name: release_type
@@ -418,22 +412,22 @@ content:
         type: number
         required: true
       - name: description
-        label: Description
+        label: "Description (shown in the \"Read more about this release\" button)"
         type: text
       - name: artist_note
-        label: "A few words about this release"
+        label: "A few words from the artist (shown together with the description in the same button)"
         type: text
       - name: youtube_url
-        label: YouTube link
+        label: "YouTube link (shown as \"Watch on YouTube\" above the song list)"
         type: string
       - name: spotify_url
-        label: Spotify link
+        label: "Spotify link (shown as \"Listen on Spotify\" above the song list)"
         type: string
       - name: bandcamp_url
         label: Bandcamp link
         type: string
       - name: featured
-        label: Featured release
+        label: "Latest release (shown first in the carousel and auto-selected when the page loads — only one release should have this on)"
         type: boolean
         default: false
       - name: order
@@ -620,7 +614,7 @@ content:
         type: string
         required: true
       - name: release
-        label: "Ανήκει στον δίσκο / την κυκλοφορία"
+        label: "Ανήκει στον δίσκο / την κυκλοφορία (καθορίζει κάτω από ποιο εξώφυλλο θα εμφανιστεί το τραγούδι στην ενότητα Στίχοι)"
         type: reference
         required: true
         options:
@@ -633,7 +627,7 @@ content:
         type: text
         required: true
       - name: credits
-        label: "Credits (πάτα «+» για να προσθέσεις όσα θέλεις)"
+        label: "Credits (πάτα «+» για να προσθέσεις όσα θέλεις, π.χ. Στίχοι — Γιώργος Φανουράκης)"
         type: object
         list: true
         required: false
@@ -645,15 +639,15 @@ content:
             label: "Περιεχόμενο (π.χ. Γιώργος Φανουράκης)"
             type: string
       - name: spotify_url
-        label: "Σύνδεσμος Spotify για αυτό το τραγούδι (προαιρετικό)"
+        label: "Σύνδεσμος Spotify για αυτό το συγκεκριμένο τραγούδι (προαιρετικό — διαφορετικός από το Spotify link του δίσκου)"
         type: string
         required: false
       - name: youtube_url
-        label: "Σύνδεσμος YouTube για αυτό το τραγούδι (προαιρετικό)"
+        label: "Σύνδεσμος YouTube για αυτό το συγκεκριμένο τραγούδι (προαιρετικό — διαφορετικός από το YouTube link του δίσκου)"
         type: string
         required: false
       - name: order
-        label: "Σειρά εμφάνισης"
+        label: "Σειρά εμφάνισης μέσα στον δίσκο (1, 2, 3...)"
         type: number
   - name: writings
     label: "EL · Κείμενα / Πεζά — Ελληνικά"
@@ -665,18 +659,18 @@ content:
       fields: [title, date, order]
     fields:
       - name: title
-        label: "Τίτλος"
+        label: "Τίτλος κειμένου (εμφανίζεται στην κάρτα και στην κορυφή όταν ανοίγει)"
         type: string
         required: true
       - name: date
-        label: "Ημερομηνία"
+        label: "Ημερομηνία (προαιρετικό, εμφανίζεται πάνω από τον τίτλο στην κάρτα)"
         type: date
       - name: body
-        label: "Κείμενο"
+        label: "Πλήρες κείμενο (τα πρώτα ~140 γράμματα εμφανίζονται ως προεπισκόπηση στην κάρτα)"
         type: text
         required: true
       - name: order
-        label: "Σειρά εμφάνισης"
+        label: "Σειρά εμφάνισης στη σελιδοποιημένη λίστα Κειμένων"
         type: number
 
   - name: lyrics-en
@@ -693,7 +687,7 @@ content:
         type: string
         required: true
       - name: release
-        label: "Belongs to album / release"
+        label: "Belongs to album / release (determines under which cover this song appears in the Lyrics section)"
         type: reference
         required: true
         options:
@@ -706,7 +700,7 @@ content:
         type: text
         required: true
       - name: credits
-        label: "Credits (press «+» to add as many as you like)"
+        label: "Credits (press «+» to add as many as you like, e.g. Lyrics — Yiorgos Fanourakis)"
         type: object
         list: true
         required: false
@@ -718,15 +712,15 @@ content:
             label: "Content (e.g. Yiorgos Fanourakis)"
             type: string
       - name: spotify_url
-        label: "Spotify link for this song (optional)"
+        label: "Spotify link for this specific song (optional — different from the release's Spotify link)"
         type: string
         required: false
       - name: youtube_url
-        label: "YouTube link for this song (optional)"
+        label: "YouTube link for this specific song (optional — different from the release's YouTube link)"
         type: string
         required: false
       - name: order
-        label: "Display order"
+        label: "Display order within the release (1, 2, 3...)"
         type: number
   - name: writings-en
     label: "EN · Writings — English"
@@ -738,18 +732,18 @@ content:
       fields: [title, date, order]
     fields:
       - name: title
-        label: "Title"
+        label: "Title (shown on the card and at the top when opened)"
         type: string
         required: true
       - name: date
-        label: "Date"
+        label: "Date (optional, shown above the title on the card)"
         type: date
       - name: body
-        label: "Text"
+        label: "Full text (the first ~140 characters are shown as a preview on the card)"
         type: text
         required: true
       - name: order
-        label: "Display order"
+        label: "Display order in the paginated Writings list"
         type: number
   - name: press
     label: "EL · Συνεντεύξεις και Τύπος — Ελληνικά"
