@@ -5572,15 +5572,15 @@
     "en": "Cookies"
   },
   "site.writings_eyebrow": {
-    "el": "Writings",
-    "en": "Writings"
+    "el": "Κείμενα",
+    "en": "Texts"
   },
   "site.writings_title": {
-    "el": "Words that<br><i>remain.</i>",
-    "en": "Words that<br><i>remain.</i>"
+    "el": "Λέξεις που<br><i>μένουν.</i>",
+    "en": "Words that<br><i>stay.</i>"
   },
   "site.writings_quote": {
-    "el": "“If you feel that our souls have connected, then this space is yours too.”",
-    "en": "\"If you feel that our souls have connected, then this space is yours too.\""
+    "el": "«Αν αισθάνεσαι ότι οι ψυχές μας συνδέθηκαν, τότε αυτός ο χώρος είναι και δικός σου.»",
+    "en": "\"If you feel that our souls are connected, then this space is yours too.\""
   }
 }
