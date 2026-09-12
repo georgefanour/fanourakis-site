@@ -402,16 +402,23 @@
       });
     });
 
-    var closeBtn = document.getElementById('close-lyric');
-    if (closeBtn && !closeBtn.dataset.bound) {
-      closeBtn.dataset.bound = '1';
-      closeBtn.addEventListener('click', function () {
-        panel.classList.remove('open');
-        var lyricsSection = document.getElementById('lyrics');
-        if (lyricsSection) lyricsSection.scrollIntoView({ behavior: 'smooth' });
+   document.querySelectorAll('#close-lyric, #close-lyric-bottom').forEach(function (closeBtn) {
+  if (closeBtn.dataset.bound === '1') return;
+
+  closeBtn.dataset.bound = '1';
+
+  closeBtn.addEventListener('click', function () {
+    panel.classList.remove('open');
+
+    var lyricsSection = document.getElementById('lyrics');
+    if (lyricsSection) {
+      lyricsSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
       });
     }
-  }
+  });
+});
 
   function renderWritingsSection() {
     var grid = document.getElementById('writings-list');
