@@ -838,7 +838,25 @@ if (featuredExplore) featuredExplore.textContent = lang === 'en' ? 'Explore the 
 
     if (data.press_note) setHtml(document.querySelector('.press-note'), data.press_note);
     else { var pn = document.querySelector('.press-note'); if (pn) pn.remove(); }
+var writingsSection = document.getElementById('writings');
 
+if (writingsSection) {
+  setText(
+    writingsSection.querySelector('#writings-eyebrow'),
+    data.writings_eyebrow
+  );
+
+  var writingsTitle = writingsSection.querySelector('.section-title');
+
+  if (writingsTitle && data.writings_title) {
+    writingsTitle.innerHTML = data.writings_title;
+  }
+
+  setHtml(
+    writingsSection.querySelector('#writings-quote'),
+    data.writings_quote
+  );
+}
     var aboutSection = document.querySelector('#about');
     if (aboutSection) {
       setText(aboutSection.querySelector('.eyebrow'), data.about_eyebrow);
