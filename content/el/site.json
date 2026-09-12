@@ -33,6 +33,7 @@
   "live_intro": "Εδώ θα συναντηθούμε!",
   "words_eyebrow": "Κείμενα",
   "words_quote": "σου παρουσιάζω τις πεζές μου ανησυχίες",
+  "writings_eyebrow": "Κείμενα",
   "press_eyebrow": "Κάποιες ωραίες συζητήσεις",
   "press_intro": "Συνεντεύξεις, podcasts, ραδιοφωνικές εμφανίσεις, άρθρα, reviews και video interviews.",
   "photos_eyebrow": "εδώ μπορείς να σταματήσεις τον Χρόνο",
@@ -49,9 +50,5 @@
   "spotify_url": "https://open.spotify.com/artist/5AO5jJ07JE6LSFT6itjeDN?si=oSbtG1BGS2KHZPXrFKvzhA",
   "facebook_url": "https://www.facebook.com/george.fanour/",
   "tiktok_url": "https://www.tiktok.com/@yiorgosfanourakis",
-  "footer_copyright": "© Γιώργος Φανουράκης. Με επιφύλαξη παντός δικαιώματος.",
-
-"writings_eyebrow": "Κείμενα",
-"writings_title": "Λέξεις που<br><i>μένουν.</i>",
-"writings_quote": "«Αν αισθάνεσαι ότι οι ψυχές μας συνδέθηκαν, τότε αυτός ο χώρος είναι και δικός σου.»"
+  "footer_copyright": "© Γιώργος Φανουράκης. Με επιφύλαξη παντός δικαιώματος."
 }
