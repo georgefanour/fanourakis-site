@@ -402,7 +402,7 @@
       });
     });
 
-   document.querySelectorAll('#close-lyric, #close-lyric-bottom').forEach(function (closeBtn) {
+document.querySelectorAll('#close-lyric, #close-lyric-bottom').forEach(function (closeBtn) {
   if (closeBtn.dataset.bound === '1') return;
 
   closeBtn.dataset.bound = '1';
@@ -420,6 +420,10 @@
   });
 });
 
+}
+
+function renderWritingsSection() {
+    
   function renderWritingsSection() {
     var grid = document.getElementById('writings-list');
     var pager = document.getElementById('writings-pagination');
