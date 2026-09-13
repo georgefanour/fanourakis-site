@@ -35,11 +35,17 @@ jobs:
       - name: Build aggregated CMS content
         run: node scripts/build-content.cjs
 
+      - name: Sync with latest main before commit
+        run: |
+          git fetch origin main
+          git rebase origin/main || git rebase --abort
+
       - name: Commit updated aggregated content
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Auto-update aggregated CMS content [skip ci]"
           file_pattern: 'content/*.json content/en/*.json content/el/*.json'
+          push_options: '--force-with-lease'
 
       - name: Build static publish folder
         shell: bash
