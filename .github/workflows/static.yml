@@ -1,3 +1,4 @@
+# Redeploy trigger
 name: Deploy CMS site to GitHub Pages
 
 on:
