@@ -422,6 +422,8 @@ document.querySelectorAll('#close-lyric, #close-lyric-bottom').forEach(function 
 
 }
 
+  function renderWritingsSection() {
+
 function renderWritingsSection() {
     
   function renderWritingsSection() {
