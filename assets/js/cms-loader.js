@@ -402,30 +402,25 @@
       });
     });
 
-document.querySelectorAll('#close-lyric, #close-lyric-bottom').forEach(function (closeBtn) {
-  if (closeBtn.dataset.bound === '1') return;
+    document.querySelectorAll('#close-lyric, #close-lyric-bottom').forEach(function (closeBtn) {
+      if (closeBtn.dataset.bound === '1') return;
 
-  closeBtn.dataset.bound = '1';
+      closeBtn.dataset.bound = '1';
 
-  closeBtn.addEventListener('click', function () {
-    panel.classList.remove('open');
+      closeBtn.addEventListener('click', function () {
+        panel.classList.remove('open');
 
-    var lyricsSection = document.getElementById('lyrics');
-    if (lyricsSection) {
-      lyricsSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
+        var lyricsSection = document.getElementById('lyrics');
+        if (lyricsSection) {
+          lyricsSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
       });
-    }
-  });
-});
+    });
+  }
 
-}
-
-  function renderWritingsSection() {
-
-function renderWritingsSection() {
-    
   function renderWritingsSection() {
     var grid = document.getElementById('writings-list');
     var pager = document.getElementById('writings-pagination');
@@ -766,12 +761,12 @@ function renderWritingsSection() {
 
   console.info('[CMS] Loader started, lang=' + lang);
   var featuredEyebrow = document.getElementById('featured-eyebrow');
-var featuredExplore = document.getElementById('featured-explore-btn');
-if (featuredEyebrow) featuredEyebrow.textContent = lang === 'en' ? 'Latest release' : 'Πιο πρόσφατη κυκλοφορία';
-if (featuredExplore) featuredExplore.textContent = lang === 'en' ? 'Explore the discography ↗' : 'Εξερεύνησε τη δισκογραφία ↗';
+  var featuredExplore = document.getElementById('featured-explore-btn');
+  if (featuredEyebrow) featuredEyebrow.textContent = lang === 'en' ? 'Latest release' : 'Πιο πρόσφατη κυκλοφορία';
+  if (featuredExplore) featuredExplore.textContent = lang === 'en' ? 'Explore the discography ↗' : 'Εξερεύνησε τη δισκογραφία ↗';
   load(base + 'site.json', function (data) {
     if (!data || !Object.keys(data).length) return;
-        var logoImg = document.getElementById('site-logo-img');
+    var logoImg = document.getElementById('site-logo-img');
     var logoText = document.getElementById('site-logo-text');
     if (logoImg && logoText) {
       var logoPath = normalizePath(data.logo_image);
@@ -844,199 +839,183 @@ if (featuredExplore) featuredExplore.textContent = lang === 'en' ? 'Explore the 
 
     if (data.press_note) setHtml(document.querySelector('.press-note'), data.press_note);
     else { var pn = document.querySelector('.press-note'); if (pn) pn.remove(); }
-var writingsSection = document.getElementById('writings');
 
-if (writingsSection) {
-  setText(
-    writingsSection.querySelector('#writings-eyebrow'),
-    data.writings_eyebrow
-  );
+    var writingsSection = document.getElementById('writings');
+    if (writingsSection) {
+      setText(
+        writingsSection.querySelector('#writings-eyebrow'),
+        data.writings_eyebrow
+      );
 
-  var writingsTitle = writingsSection.querySelector('.section-title');
+      var writingsTitle = writingsSection.querySelector('.section-title');
+      if (writingsTitle && data.writings_title) {
+        writingsTitle.innerHTML = data.writings_title;
+      }
 
-  if (writingsTitle && data.writings_title) {
-    writingsTitle.innerHTML = data.writings_title;
-  }
+      setHtml(
+        writingsSection.querySelector('#writings-quote'),
+        data.writings_quote
+      );
+    }
 
-  setHtml(
-    writingsSection.querySelector('#writings-quote'),
-    data.writings_quote
-  );
-}
     var aboutSection = document.querySelector('#about');
     if (aboutSection) {
       setText(aboutSection.querySelector('.eyebrow'), data.about_eyebrow);
       setText(aboutSection.querySelector('a.btn'), data.about_button);
     }
-var writingsSection = document.getElementById('writings');
-if (writingsSection) {
-  setText(
-    writingsSection.querySelector('#writings-eyebrow'),
-    data.writings_eyebrow
-  );
 
-  var writingsTitle = writingsSection.querySelector('.section-title');
-  if (writingsTitle && data.writings_title) {
-    writingsTitle.innerHTML = data.writings_title;
-  }
+    var contactSection = document.querySelector('#contact');
+    if (contactSection) {
+      setText(contactSection.querySelector('.eyebrow'), data.contact_eyebrow);
+      setText(contactSection.querySelector('h2'), data.contact_title);
 
-  setHtml(
-    writingsSection.querySelector('#writings-quote'),
-    data.writings_quote
-  );
-}
-   var contactSection = document.querySelector('#contact');
-if (contactSection) {
-  setText(contactSection.querySelector('.eyebrow'), data.contact_eyebrow);
-  setText(contactSection.querySelector('h2'), data.contact_title);
+      var contactRight = contactSection.querySelector('.contact-grid > div:last-child');
+      var contactIntro = contactRight ? contactRight.querySelector(':scope > p') : null;
+      setHtml(contactIntro, data.contact_intro);
 
-  var contactRight = contactSection.querySelector('.contact-grid > div:last-child');
-  var contactIntro = contactRight ? contactRight.querySelector(':scope > p') : null;
-  setHtml(contactIntro, data.contact_intro);
-
-  if (contactRight) {
-    var invitation = contactRight.querySelector('.contact-message');
-    if (!invitation) {
-      invitation = document.createElement('p');
-      invitation.className = 'contact-message';
-      if (contactIntro) contactIntro.insertAdjacentElement('afterend', invitation);
-      else contactRight.insertAdjacentElement('afterbegin', invitation);
-    }
-
-    if (data.contact_message) {
-      invitation.innerHTML = renderMultiline(data.contact_message);
-      invitation.hidden = false;
-    } else {
-      invitation.hidden = true;
-    }
-
-    var social = contactRight.querySelector('.social');
-    if (social) {
-      social.setAttribute(
-        'aria-label',
-        lang === 'en' ? 'Contact and social media' : 'Επικοινωνία και social media'
-      );
-
-      var emailLink = social.querySelector('.contact-email');
-      if (!emailLink) {
-        emailLink = document.createElement('a');
-        emailLink.className = 'contact-email';
-        emailLink.textContent = lang === 'en' ? 'Email ↗' : 'Email ↗';
-        social.insertAdjacentElement('afterbegin', emailLink);
-      }
-
-      var email = String(data.contact_email || '').trim();
-      if (email) {
-        emailLink.href = 'mailto:' + email;
-        emailLink.hidden = false;
-      } else {
-        emailLink.removeAttribute('href');
-        emailLink.hidden = true;
-      }
-
-      var socialMap = {
-        instagram_url: 'Instagram',
-        youtube_url: 'YouTube',
-        spotify_url: 'Spotify',
-        facebook_url: 'Facebook',
-        tiktok_url: 'TikTok'
-      };
-
-      Object.keys(socialMap).forEach(function (key) {
-        var label = socialMap[key];
-        var link = Array.prototype.slice.call(social.querySelectorAll('a')).filter(function (item) {
-          return item.textContent.trim() === label;
-        })[0];
-
-        if (!link) return;
-
-        var url = normalizePath(data[key]);
-        if (url) {
-          link.href = url;
-          link.target = '_blank';
-          link.rel = 'noopener';
-          link.removeAttribute('onclick');
-          link.hidden = false;
-        } else {
-          link.removeAttribute('href');
-          link.removeAttribute('target');
-          link.removeAttribute('rel');
-          link.hidden = true;
+      if (contactRight) {
+        var invitation = contactRight.querySelector('.contact-message');
+        if (!invitation) {
+          invitation = document.createElement('p');
+          invitation.className = 'contact-message';
+          if (contactIntro) contactIntro.insertAdjacentElement('afterend', invitation);
+          else contactRight.insertAdjacentElement('afterbegin', invitation);
         }
-      });
+
+        if (data.contact_message) {
+          invitation.innerHTML = renderMultiline(data.contact_message);
+          invitation.hidden = false;
+        } else {
+          invitation.hidden = true;
+        }
+
+        var social = contactRight.querySelector('.social');
+        if (social) {
+          social.setAttribute(
+            'aria-label',
+            lang === 'en' ? 'Contact and social media' : 'Επικοινωνία και social media'
+          );
+
+          var emailLink = social.querySelector('.contact-email');
+          if (!emailLink) {
+            emailLink = document.createElement('a');
+            emailLink.className = 'contact-email';
+            emailLink.textContent = lang === 'en' ? 'Email ↗' : 'Email ↗';
+            social.insertAdjacentElement('afterbegin', emailLink);
+          }
+
+          var email = String(data.contact_email || '').trim();
+          if (email) {
+            emailLink.href = 'mailto:' + email;
+            emailLink.hidden = false;
+          } else {
+            emailLink.removeAttribute('href');
+            emailLink.hidden = true;
+          }
+
+          var socialMap = {
+            instagram_url: 'Instagram',
+            youtube_url: 'YouTube',
+            spotify_url: 'Spotify',
+            facebook_url: 'Facebook',
+            tiktok_url: 'TikTok'
+          };
+
+          Object.keys(socialMap).forEach(function (key) {
+            var label = socialMap[key];
+            var link = Array.prototype.slice.call(social.querySelectorAll('a')).filter(function (item) {
+              return item.textContent.trim() === label;
+            })[0];
+
+            if (!link) return;
+
+            var url = normalizePath(data[key]);
+            if (url) {
+              link.href = url;
+              link.target = '_blank';
+              link.rel = 'noopener';
+              link.removeAttribute('onclick');
+              link.hidden = false;
+            } else {
+              link.removeAttribute('href');
+              link.removeAttribute('target');
+              link.removeAttribute('rel');
+              link.hidden = true;
+            }
+          });
+        }
+
+        var bookingPress = contactRight.querySelector('.booking-press-line');
+        if (!bookingPress) {
+          bookingPress = document.createElement('p');
+          bookingPress.className = 'booking-press-line';
+          var socialEl = contactRight.querySelector('.social');
+          if (socialEl) socialEl.insertAdjacentElement('afterend', bookingPress);
+          else contactRight.appendChild(bookingPress);
+        }
+        var bpParts = [];
+        var bookingLabel = String(data.contact_booking_label || '').trim();
+        var bookingEmail = String(data.contact_booking_email || '').trim();
+        var pressLabel = String(data.contact_press_label || '').trim();
+        var pressEmail = String(data.contact_press_email || '').trim();
+        if (bookingLabel && bookingEmail) bpParts.push('<b>' + escapeHtml(bookingLabel) + '</b> <a href="mailto:' + escapeHtml(bookingEmail) + '">' + escapeHtml(bookingEmail) + '</a>');
+        if (pressLabel && pressEmail) bpParts.push('<b>' + escapeHtml(pressLabel) + '</b> <a href="mailto:' + escapeHtml(pressEmail) + '">' + escapeHtml(pressEmail) + '</a>');
+        if (bpParts.length) {
+          bookingPress.innerHTML = bpParts.join(' · ');
+          bookingPress.hidden = false;
+        } else {
+          bookingPress.hidden = true;
+        }
+      }
+
+      if (!document.getElementById('cms-contact-style')) {
+        var contactStyle = document.createElement('style');
+        contactStyle.id = 'cms-contact-style';
+        contactStyle.textContent =
+          '.contact-message{' +
+          'margin:clamp(24px,3vw,38px) 0 0;' +
+          'max-width:620px;' +
+          'padding:4px 0 4px clamp(17px,2vw,25px);' +
+          'border-left:2px solid rgba(10,7,18,.72);' +
+          'font-family:var(--serif,Georgia,serif);' +
+          'font-size:clamp(1.35rem,2.4vw,2.1rem);' +
+          'font-style:italic;' +
+          'font-weight:500;' +
+          'letter-spacing:-.035em;' +
+          'line-height:1.15;' +
+          'color:var(--ink,#0a0712)' +
+          '}' +
+          '.contact .social{margin-top:clamp(26px,3vw,38px)}' +
+          '.contact .social a[hidden]{display:none!important}' +
+          '.contact .contact-email{background:var(--ink,#0a0712);color:var(--acid,#d8ff3e);border-color:var(--ink,#0a0712)}' +
+          '.contact .contact-email:hover{background:transparent;color:var(--ink,#0a0712)}' +
+          '.booking-press-line{margin-top:14px;font-size:.78rem;color:var(--ink,#0a0712)}' +
+          '.booking-press-line a{color:var(--ink,#0a0712);text-decoration:underline}';
+        document.head.appendChild(contactStyle);
+      }
     }
 
-    var bookingPress = contactRight.querySelector('.booking-press-line');
-    if (!bookingPress) {
-      bookingPress = document.createElement('p');
-      bookingPress.className = 'booking-press-line';
-      var socialEl = contactRight.querySelector('.social');
-      if (socialEl) socialEl.insertAdjacentElement('afterend', bookingPress);
-      else contactRight.appendChild(bookingPress);
+    var footer = document.querySelector('footer .foot');
+    if (footer) {
+      setText(footer.querySelector('span'), data.footer_copyright);
+      var footerLinks = Array.prototype.slice.call(footer.querySelectorAll('a'));
+      var privacyLink = footerLinks[0];
+      var cookiesLink = footerLinks[1];
+      if (privacyLink) {
+        var pLabel = String(data.footer_privacy_label || '').trim();
+        var pUrl = normalizePath(data.footer_privacy_url);
+        if (pLabel) privacyLink.textContent = pLabel;
+        if (pUrl) { privacyLink.href = pUrl; privacyLink.hidden = false; }
+        else if (!pLabel) privacyLink.hidden = true;
+      }
+      if (cookiesLink) {
+        var cLabel = String(data.footer_cookies_label || '').trim();
+        var cUrl = normalizePath(data.footer_cookies_url);
+        if (cLabel) cookiesLink.textContent = cLabel;
+        if (cUrl) { cookiesLink.href = cUrl; cookiesLink.hidden = false; }
+        else if (!cLabel) cookiesLink.hidden = true;
+      }
     }
-    var bpParts = [];
-    var bookingLabel = String(data.contact_booking_label || '').trim();
-    var bookingEmail = String(data.contact_booking_email || '').trim();
-    var pressLabel = String(data.contact_press_label || '').trim();
-    var pressEmail = String(data.contact_press_email || '').trim();
-    if (bookingLabel && bookingEmail) bpParts.push('<b>' + escapeHtml(bookingLabel) + '</b> <a href="mailto:' + escapeHtml(bookingEmail) + '">' + escapeHtml(bookingEmail) + '</a>');
-    if (pressLabel && pressEmail) bpParts.push('<b>' + escapeHtml(pressLabel) + '</b> <a href="mailto:' + escapeHtml(pressEmail) + '">' + escapeHtml(pressEmail) + '</a>');
-    if (bpParts.length) {
-      bookingPress.innerHTML = bpParts.join(' · ');
-      bookingPress.hidden = false;
-    } else {
-      bookingPress.hidden = true;
-    }
-  }
-
-  if (!document.getElementById('cms-contact-style')) {
-    var contactStyle = document.createElement('style');
-    contactStyle.id = 'cms-contact-style';
-    contactStyle.textContent =
-      '.contact-message{' +
-      'margin:clamp(24px,3vw,38px) 0 0;' +
-      'max-width:620px;' +
-      'padding:4px 0 4px clamp(17px,2vw,25px);' +
-      'border-left:2px solid rgba(10,7,18,.72);' +
-      'font-family:var(--serif,Georgia,serif);' +
-      'font-size:clamp(1.35rem,2.4vw,2.1rem);' +
-      'font-style:italic;' +
-      'font-weight:500;' +
-      'letter-spacing:-.035em;' +
-      'line-height:1.15;' +
-      'color:var(--ink,#0a0712)' +
-      '}' +
-      '.contact .social{margin-top:clamp(26px,3vw,38px)}' +
-      '.contact .social a[hidden]{display:none!important}' +
-      '.contact .contact-email{background:var(--ink,#0a0712);color:var(--acid,#d8ff3e);border-color:var(--ink,#0a0712)}' +
-      '.contact .contact-email:hover{background:transparent;color:var(--ink,#0a0712)}' +
-      '.booking-press-line{margin-top:14px;font-size:.78rem;color:var(--ink,#0a0712)}' +
-      '.booking-press-line a{color:var(--ink,#0a0712);text-decoration:underline}';
-    document.head.appendChild(contactStyle);
-  }
-}
-
-var footer = document.querySelector('footer .foot');
-if (footer) {
-  setText(footer.querySelector('span'), data.footer_copyright);
-  var footerLinks = Array.prototype.slice.call(footer.querySelectorAll('a'));
-  var privacyLink = footerLinks[0];
-  var cookiesLink = footerLinks[1];
-  if (privacyLink) {
-    var pLabel = String(data.footer_privacy_label || '').trim();
-    var pUrl = normalizePath(data.footer_privacy_url);
-    if (pLabel) privacyLink.textContent = pLabel;
-    if (pUrl) { privacyLink.href = pUrl; privacyLink.hidden = false; }
-    else if (!pLabel) privacyLink.hidden = true;
-  }
-  if (cookiesLink) {
-    var cLabel = String(data.footer_cookies_label || '').trim();
-    var cUrl = normalizePath(data.footer_cookies_url);
-    if (cLabel) cookiesLink.textContent = cLabel;
-    if (cUrl) { cookiesLink.href = cUrl; cookiesLink.hidden = false; }
-    else if (!cLabel) cookiesLink.hidden = true;
-  }
-}
 
     console.info('[CMS] Rendered site text (' + lang + ')');
   });
@@ -1052,14 +1031,14 @@ if (footer) {
   loadCollection(rootBase + 'music', function (items) {
     if (!items.length) return;
 
-      render('.release-grid', ordered(items).map(function (item, idx) {
+    render('.release-grid', ordered(items).map(function (item, idx) {
       var cover = normalizePath(item.cover) || 'assets/images/placeholder-cover.jpg';
       var youtube = normalizePath(item.youtube_url);
       var spotify = normalizePath(item.spotify_url);
       var bandcamp = normalizePath(item.bandcamp_url);
       var links = [];
       window.__releaseInfoStore = window.__releaseInfoStore || {};
-           window.__releaseInfoStore[idx] = { title: item.title || '', desc: item.description || '', note: item.artist_note || '', credits: item.credits || [], cover: cover, releaseType: item.release_type || '', year: item.year || '' };
+      window.__releaseInfoStore[idx] = { title: item.title || '', desc: item.description || '', note: item.artist_note || '', credits: item.credits || [], cover: cover, releaseType: item.release_type || '', year: item.year || '' };
       window.__musicByTitle = window.__musicByTitle || {};
       if (item.title) window.__musicByTitle[item.title.trim().toLowerCase()] = { cover: cover, title: item.title || '', releaseType: item.release_type || '', year: item.year || '', spotify_url: spotify || '', youtube_url: youtube || '' };
       if (item.description || item.artist_note) {
@@ -1069,7 +1048,7 @@ if (footer) {
       return '<article class="release-card reveal show" data-release-title="' + escapeHtml(item.title || '') + '">' +
         '<div class="release-art" style="cursor:pointer" data-jump-lyrics="' + escapeHtml(item.title || '') + '"><img src="' + escapeHtml(cover) + '" alt="' + escapeHtml(item.title || '') + '" loading="lazy" onerror="this.src=&quot;assets/images/placeholder-cover.jpg&quot;"></div>' +
         '<div class="release-body">' +
-(item.featured ? '<span class="badge">' + (lang === 'en' ? 'Latest release' : 'Πιο πρόσφατη') + '</span>' : '') +
+        (item.featured ? '<span class="badge">' + (lang === 'en' ? 'Latest release' : 'Πιο πρόσφατη') + '</span>' : '') +
         '<h3 style="cursor:pointer" data-jump-lyrics="' + escapeHtml(item.title || '') + '">' + escapeHtml(item.title || '') + '</h3>' +
         '<p>' + escapeHtml(item.release_type || '') + (item.year ? ' · ' + escapeHtml(item.year) : '') + '</p>' +
         (links.length ? '<div class="release-actions">' + links.join('') + '</div>' : '') + '</div></article>';
@@ -1112,7 +1091,7 @@ if (footer) {
     renderLyricsSection();
   });
 
-    loadCollection(rootBase + 'videos', function (items) {
+  loadCollection(rootBase + 'videos', function (items) {
     if (!items.length) return;
     render('.video-grid', ordered(items).map(function (item) {
       var rawUrl = normalizePath(item.youtube_url);
@@ -1148,12 +1127,12 @@ if (footer) {
     }).join(''), 'live');
   });
 
-   loadCollection(rootBase + 'press', function (items) {
+  loadCollection(rootBase + 'press', function (items) {
     if (!items.length) return;
     render('.press-grid', ordered(items).map(function (item) {
       var url = normalizePath(item.url);
       var thumb = normalizePath(item.image);
-    var link = url ? '<a href="' + escapeHtml(url) + '" target="_blank" rel="noopener">' + (lang === 'en' ? 'Open ↗' : 'Άνοιξε ↗') + '</a>' : '';
+      var link = url ? '<a href="' + escapeHtml(url) + '" target="_blank" rel="noopener">' + (lang === 'en' ? 'Open ↗' : 'Άνοιξε ↗') + '</a>' : '';
       var thumbMarkup = thumb ? '<img src="' + escapeHtml(thumb) + '" alt="' + escapeHtml(item.title || '') + '" loading="lazy" style="width:100%;border-radius:12px;margin-bottom:14px;object-fit:cover;aspect-ratio:16/9">' : '';
       var meta = [item.outlet, item.date].filter(Boolean).map(escapeHtml).join(' · ');
       return '<article class="press-card reveal show"><div>' + thumbMarkup + '<span class="press-type">' + escapeHtml(item.type || '') + (meta ? ' · ' + meta : '') + '</span><h3>' + escapeHtml(item.title || '') + '</h3><p class="clamp-text">' + renderMultiline(item.excerpt || '') + '</p></div>' + link + '</article>';
@@ -1163,7 +1142,7 @@ if (footer) {
     document.querySelectorAll('.press-card .clamp-text').forEach(applyClamp5);
   });
 
-   loadCollection(rootBase + 'photos', function (items) {
+  loadCollection(rootBase + 'photos', function (items) {
     if (!items.length) return;
     render('.masonry', ordered(items).map(function (item) {
       var image = normalizePath(item.image);
