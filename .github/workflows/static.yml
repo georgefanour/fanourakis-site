@@ -1,4 +1,3 @@
-# Redeploy trigger
 name: Deploy CMS site to GitHub Pages
 
 on:
@@ -38,8 +37,10 @@ jobs:
 
       - name: Sync with latest main before commit
         run: |
+          git stash push -u -m "pre-rebase-wip" || true
           git fetch origin main
           git rebase origin/main || git rebase --abort
+          git stash pop || true
 
       - name: Commit updated aggregated content
         uses: stefanzweifel/git-auto-commit-action@v5
