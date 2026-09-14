@@ -69,6 +69,7 @@ const filters=document.querySelectorAll('.filter'),videoCards=document.querySele
 const box=document.getElementById('lightbox'),bi=box.querySelector('img'),close=()=>box.classList.remove('open');document.querySelectorAll('.photo').forEach(p=>p.addEventListener('click',()=>{bi.src=p.dataset.full;bi.alt=p.querySelector('img').alt;box.classList.add('open');box.querySelector('.x').focus()}));box.addEventListener('click',e=>{if(e.target===box)close()});box.querySelector('.x').addEventListener('click',close);document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});function subscribe(e){e.preventDefault();const m=document.getElementById('message');m.hidden=false;m.textContent='Η φόρμα είναι έτοιμη οπτικά. Σύνδεσέ την με Formspree ή Netlify Forms πριν το launch.'}
 </script>
 <script src="/fanourakis-site/assets/js/cms-loader.js"></script><link rel="stylesheet" href="assets/css/cms-enhancements.css">
+<link rel="stylesheet" href="assets/css/responsive-fixes.css">
 <script src="assets/js/cms-enhancements.js" defer></script>
 <style id="manual-overrides">
   #release-info-panel .copy{color:#3c2e40!important;max-width:620px!important}
