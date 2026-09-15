@@ -6074,5 +6074,9 @@
   "press/radio.outlet": {
     "el": "Flash 99.4 FM",
     "en": "Flash 99.4 FM"
+  },
+  "press.items[2].outlet": {
+    "el": "Flash 99.4 FM",
+    "en": "Flash 99.4 FM"
   }
 }
