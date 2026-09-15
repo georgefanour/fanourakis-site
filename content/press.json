@@ -8,7 +8,8 @@
       "excerpt": "\"Είναι πανεύκολο να είσαι καλλιτέχνης. Το δύσκολο είναι να προσπαθείς να χωρέσεις τις προσδοκίες των άλλων στην τέχνη σου και στην ζωή σου γενικότερα. Το δύσκολο είναι να περιμένεις να πλουτίσεις από την τέχνη σου. Το δύσκολο είναι να χάνεις τον μπούσουλα και την εσωτερική σου βάση, να αγνοείς την έμπνευση, να γίνεσαι μέρος του συστήματος. Αλλά ο καλλιτέχνης δύσκολο πράγμα; Αλήθεια; Τυχεροί όσοι είναι, άτυχοι όσοι δεν έχουν ακόμα ανακαλύψει τον καλλιτέχνη που σίγουρα έχουν μέσα τους.\"",
       "image": "/assets/images/IMG_2885-12.jpg",
       "url": "#https://parallaximag.gr/agenda-parallaxi/mousiki/stamata-ki-akoy-o-giorgos-fernei-ston-dromo-moysikes-poy-spania-akoyme-pia?fbclid=PAVERFWARUdGNleHRuA2FlbQIxMABzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAafQmHHyIWdaPZe1hg8gA5j_VOEzWi3QhfLrA7YK0ozZfhDE3pq7wjNy2xqtUw_aem_U1ARMZNsmb0mzlRYmHlL3g",
-      "featured": true
+      "featured": true,
+      "order": 1
     },
     {
       "title": "Παγκόσμια διάκριση για τη Φωνωδία: Επιστρέφει στο Ηράκλειο με δύο ασημένια βραβεία!",
@@ -26,6 +27,7 @@
       "type": "Radio",
       "outlet": "Flash 99.4 FM",
       "date": "2026-09-15",
+      "image": "/assets/images/IMG_7142-1.jpg",
       "url": "https://www.youtube.com/watch?v=K114VUyHGHI&pp=ygURZmxhc2ggcmFkaW8gYm9pdGU%3D",
       "featured": false,
       "order": 3
