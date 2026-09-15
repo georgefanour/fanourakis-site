@@ -705,7 +705,7 @@
         '.cms-carousel-track{display:flex !important;grid-template-columns:none !important;' +
         'align-items:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;' +
         '-webkit-overflow-scrolling:touch;gap:26px;padding:20px calc(50% - 110px) 30px;' +
-        'scrollbar-width:none}' +
+        'scrollbar-width:none;flex-shrink:0}' +
         '.cms-carousel-track::-webkit-scrollbar{display:none}' +
         '.cms-carousel-track>*{scroll-snap-align:center;flex:0 0 auto;' +
         'width:min(78vw,300px);transition:transform .45s cubic-bezier(.22,.9,.32,1),opacity .45s ease;' +
