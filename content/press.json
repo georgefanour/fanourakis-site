@@ -22,9 +22,13 @@
       "order": 3
     },
     {
-      "type": "Ραδιόφωνο",
       "title": "Η La Boite στη \"Ραδιοφωνική ΦιλοΣοφία\"με τη Σοφία Αποστολίδου",
-      "url": "#https://www.youtube.com/watch?v=K114VUyHGHI&pp=ygURZmxhc2ggcmFkaW8gYm9pdGU%3D"
+      "type": "Radio",
+      "outlet": "Flash 99.4 FM",
+      "date": "2026-09-15",
+      "url": "https://www.youtube.com/watch?v=K114VUyHGHI&pp=ygURZmxhc2ggcmFkaW8gYm9pdGU%3D",
+      "featured": false,
+      "order": 3
     }
   ]
 }
