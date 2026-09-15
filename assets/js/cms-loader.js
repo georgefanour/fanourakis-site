@@ -716,9 +716,7 @@
         '.cms-carousel-track>*{width:320px}}' +
         '.cms-carousel-track .release-art{aspect-ratio:1;border-radius:16px;overflow:hidden}' +
         '.cms-carousel-track.masonry .photo{aspect-ratio:1;border-radius:16px}' +
-        '.cms-carousel-track .press-card{min-height:280px;display:flex;flex-direction:column}' +
-        '.cms-carousel-track .press-card img{flex-shrink:0}' +
-        '.cms-carousel-track .press-card .clamp-text{flex:1}' +
+        '.cms-carousel-track .press-card{min-height:280px}' +
         '.cms-carousel-arrow{flex:0 0 auto;position:relative;width:44px;height:44px;' +
         'border-radius:50%;border:0;background:var(--acid,#d8ff3e);color:var(--ink,#0a0712);' +
         'font-size:1.2rem;cursor:pointer;display:grid;place-items:center;z-index:5;' +
