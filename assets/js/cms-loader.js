@@ -421,13 +421,26 @@
     });
   }
 
+  function orderedByDate(items) {
+    return (Array.isArray(items) ? items.slice() : []).sort(function (a, b) {
+      var da = a.date ? new Date(a.date).getTime() : NaN;
+      var db = b.date ? new Date(b.date).getTime() : NaN;
+      var aValid = !isNaN(da);
+      var bValid = !isNaN(db);
+      if (aValid && bValid) return db - da;
+      if (aValid) return -1;
+      if (bValid) return 1;
+      return (Number(a.order) || 999) - (Number(b.order) || 999);
+    });
+  }
+
   function renderWritingsSection() {
     var grid = document.getElementById('writings-list');
     var pager = document.getElementById('writings-pagination');
     if (!grid) return;
     if (!window.__writingsItems) return;
 
-    var items = ordered(window.__writingsItems || []);
+    var items = orderedByDate(window.__writingsItems || []);
     if (!items.length) {
       grid.innerHTML = '';
       if (pager) pager.innerHTML = '';
