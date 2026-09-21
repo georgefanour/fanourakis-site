@@ -241,7 +241,7 @@
   },
   "press.items[1].title": {
     "el": "Παγκόσμια διάκριση για τη Φωνωδία: Επιστρέφει στο Ηράκλειο με δύο ασημένια βραβεία!",
-    "en": "Global distinction for Voice: He returns to Heraklion with two silver awards!"
+    "en": "International success for Phonodia: they return to Heraklion with two silver awards!"
   },
   "press.items[1].excerpt": {
     "el": "Το φωνητικό σύνολο του Ηρακλείου εκπροσώπησε την Ελλάδα στην κορυφαία διοργάνωση τον 7ο διεθνή διαγωνισμό Tokyo International Choir Competition",
@@ -313,7 +313,7 @@
   },
   "site.ticker": {
     "el": "άκουσε τον νέο μας δίσκο \"Άνευ συνΩδείας\" και πες μου τα συναισθήματά σου!",
-    "en": "listen to our new album \"Unaccompanied\" and tell me your feelings!"
+    "en": "listen to our new album \"Aney Synodeias\" and tell me your feelings!"
   },
   "site.music_title": {
     "el": "τα έργα μου",
@@ -329,7 +329,7 @@
   },
   "site.videos_intro": {
     "el": "εδώ σου προτείνω να δεις κάποια βίντεο",
-    "en": "Here I suggest you watch some videos."
+    "en": "Here I suggest you to watch some videos."
   },
   "site.live_title": {
     "el": "Από κοντά, είναι αλλιώς.",
@@ -5577,7 +5577,7 @@
   },
   "site.writings_title": {
     "el": "σου παρουσιάζω τις πεζές μου ανησυχίες",
-    "en": "i present you my pedestrian concerns"
+    "en": "i present you my written concerns"
   },
   "site.writings_quote": {
     "el": "«Αν αισθάνεσαι ότι οι ψυχές μας συνδέθηκαν, τότε αυτός ο χώρος είναι και δικός σου.»",
@@ -6033,7 +6033,7 @@
   },
   "press/pagkosmia-diakrish-gia-th-fwnwdia-epistrefei-sto-hrakleio-me-dyo-ashmenia-brabeia.title": {
     "el": "Παγκόσμια διάκριση για τη Φωνωδία: Επιστρέφει στο Ηράκλειο με δύο ασημένια βραβεία!",
-    "en": "Global distinction for Voice: He returns to Heraklion with two silver awards!"
+    "en": "International success for Phonodia: they return to Heraklion with two silver awards!"
   },
   "press/pagkosmia-diakrish-gia-th-fwnwdia-epistrefei-sto-hrakleio-me-dyo-ashmenia-brabeia.outlet": {
     "el": "Cretalive",
@@ -6078,5 +6078,13 @@
   "press.items[2].outlet": {
     "el": "Flash 99.4 FM",
     "en": "Flash 99.4 FM"
+  },
+  "writings/ti-ntroph.title": {
+    "el": "Τι ντροπή!",
+    "en": "How embarrassing!"
+  },
+  "writings/ti-ntroph.body": {
+    "el": "Τι ντροπή!\nΝα κλαις μπροστά στους περαστικούς.\n\nΚαι να αναρωτιούνται τι είδες και σε συγκίνησε,\nτι άκουσες, τι σου έκαναν.\nΝα εκτοξεύουν το αδιάκριτο βλέμμα τους πάνω σου\n\nνα σε βλέπουν να παλεύεις με τα δάκρυα και τη μύτη σου•\n\nνα ακούνε, με τα αδιάκριτα αυτιά τους, τους σπασμούς των μυών σου•\n\nνα μυρίζουν, με την αδιάκριτη μύτη τους, την πρωτόγονη μυρωδιά του κλάματος•\n\nνα μην ξέρουν πως κλαις από έρωτα\nνα μην ξέρουν πώς κλαις από έρωτα\n\nδιότι \nδεν θα έχουν διαβάσει, με τα αδιάκριτα μάτια τους,\nτα πιο όμορφα γράμματα του κόσμου•\n\nδεν θα έχουν ακούσει, με τα αδιάκριτα αυτιά τους,\nτο πιο ειλικρινές μου λείπεις του κόσμου•\n\nδεν θα έχουν μυρίσει, με την αδιάκριτη μύτη τους,\nτο πιο ιερό κορμί του κόσμου•\n\nκαι έτσι εκείνοι δεν κλαίνε. \n\nΤι ντροπή που θα νιώθουν!",
+    "en": "How embarrassing!\nCrying in front of passers-by.\n\nAnd wonder what you saw that moved you,\nwhat you heard, what they did to you.\nThrow their prying eyes at you\n\nwatching you wrestle with your tears and your nose;\n\nto listen, with their prying ears, to the spasms of your muscles;\n\nsmell, with their prying nose, the primitive smell of crying;\n\nnot to know that you are crying for love\nnot to know that you are crying from love\n\nbecause\nthey will not have read, with their prying eyes,\nthe most beautiful letters in the world;\n\nthey will not have heard, with their prying ears,\nthe most honest thing I miss about you in the world;\n\nthey will not have smelled, with their prying nose,\nthe most sacred body in the world;\n\nso they don't cry.\n\nWhat a shame they will feel!"
   }
 }
