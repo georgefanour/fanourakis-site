@@ -48,12 +48,12 @@
     "en": "Information"
   },
   "live.items[0].title": {
-    "el": "Νέο live",
-    "en": "New live"
+    "el": "Ο Γιώργος Φανουράκης με την Ολυμπία Καραλή κάθε Σάββατο στα 2 βήματα!",
+    "en": "Giorgos Fanourakis with Olympia Karali every Saturday in 2 steps!"
   },
   "live.items[0].status": {
-    "el": "archive",
-    "en": "archive"
+    "el": "upcoming",
+    "en": "upcoming"
   },
   "live.items[1].title": {
     "el": "Στο μικρόφωνο",
@@ -3040,8 +3040,8 @@
     "en": "Ζεστό πρωινό χειμώνα στην Θεσσαλονίκη.\n\nΑκριβώς εκείνη την στιγμή, περνάει από μπροστά μου ένας κύριος που φορούσε ένα βιολί.\n\nΚάπως έτσι αλληλεπιδρούμε με τους ανθρώπους στην ζωή μας:\n\nξεκινάμε από άλλους τόπους,\nπερπατάμε παράλληλα,\nπροσπερνάμε, μας προσπερνούν — ο καθένας με άλλον Ρυθμό —\n\nκαι στο τέλος, φτάνουμε στον Τελικό Προορισμό που όλοι γνωρίζουμε εξαρχής.\n\nγ.φ."
   },
   "live.items[0].venue": {
-    "el": "Πόλη · Χώρος",
-    "en": "City · Space"
+    "el": "2 βήματα",
+    "en": "2 Steps"
   },
   "live.items[0].ticketsLabel": {
     "el": "Πληροφορίες",
@@ -6110,5 +6110,25 @@
   "live/o-giwrgos-fanoyrakhs-me-thn-olympia-karalh-ka8e-sabbato-sta-2-bhmata.status": {
     "el": "upcoming",
     "en": "upcoming"
+  },
+  "live/dhmhtreia-2026.title": {
+    "el": "Δημήτρεια 2026",
+    "en": "Dimitria 2026"
+  },
+  "live/dhmhtreia-2026.venue": {
+    "el": "Ικτίνου με Τσιμισκή",
+    "en": "Iktinou with Tsimiski"
+  },
+  "live/dhmhtreia-2026.city": {
+    "el": "Θεσσαλονίκη",
+    "en": "Thessaloniki"
+  },
+  "live/dhmhtreia-2026.status": {
+    "el": "archive",
+    "en": "archive"
+  },
+  "live.items[0].city": {
+    "el": "Τούμπα, Θεσσαλονίκη",
+    "en": "Toumba, Thessaloniki"
   }
 }
