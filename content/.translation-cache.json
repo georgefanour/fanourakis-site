@@ -48,20 +48,20 @@
     "en": "Information"
   },
   "live.items[0].title": {
+    "el": "Δημήτρεια 2026",
+    "en": "Dimitria 2026"
+  },
+  "live.items[0].status": {
+    "el": "archive",
+    "en": "archive"
+  },
+  "live.items[1].title": {
     "el": "Ο Γιώργος Φανουράκης με την Ολυμπία Καραλή κάθε Σάββατο στα 2 βήματα!",
     "en": "Giorgos Fanourakis with Olympia Karali every Saturday in 2 steps!"
   },
-  "live.items[0].status": {
+  "live.items[1].status": {
     "el": "upcoming",
     "en": "upcoming"
-  },
-  "live.items[1].title": {
-    "el": "Στο μικρόφωνο",
-    "en": "On the microphone"
-  },
-  "live.items[1].status": {
-    "el": "archive",
-    "en": "archive"
   },
   "live.items[2].title": {
     "el": "Χέρια και χορδές",
@@ -560,7 +560,7 @@
     "en": "Archetypes"
   },
   "lyrics/agaph-einai.body": {
-    "el": "Αγάπη είναι να κοιτάς τον ουρανό,\nπου σε δύο μάτια έχει ολόκληρος χωρέσει\nκαι να γεμίζει της ψυχής σου το κενό,\nόπως ποτέ άλλος κανείς δε θα μπορέσει.\n\nΑγάπη είναι ένα χάδι στα μαλλιά,\nνα σε πειράζω και συνέχεια να γκρινιάζεις,\nνα χάνομαι μέσα σε κάθε σου αγκαλιά\nκαι να πετάω, κάθε φορά που με κοιτάζεις.\n\nΈναν χορό καρδιά μου απόψε χάρισέ μου\nκαι κράτησέ με δυνατά μόνο μαζί σου.\n«Τι είναι αγάπη», σιγανά, τραγούδησέ μου·\nαπόψε έγινα ο άντρας της ζωής σου.\n\nΑγάπη είναι ένας καφές κι ένα φιλί·\nμια καληνύχτα, που θα πεις μες στο σκοτάδι·\nμια συγγνώμη κλειδωμένη σε κελί·\nμια συγχώρεση σε κάθε σου ψεγάδι.\n\nΑγάπη είναι να ξυπνάς κάθε πρωί·\nνα σε χαζεύω να κοιμάσαι κάθε βράδυ·\nνα με ανασταίνει η δροσερή σου αναπνοή·\nνα με κοιμίζει μόνο το δικό σου χάδι.\n\nΈναν χορό καρδιά μου απόψε χάρισέ μου...\n\nΑγάπη είναι, για να είμαι ειλικρινής,\nένα στιχάκι σε χαρτί μουτζουρωμένο·\nτραγούδια αγάπης, μάτια μου, πολλά θα βρεις,\nμα αυτό εδώ είναι σε μας αφιερωμένο.",
+    "el": "Αγάπη είναι να κοιτάς τον ουρανό,\nπου σε δύο μάτια έχει ολόκληρος χωρέσει\nκαι να γεμίζει της ψυχής σου το κενό,\nόπως ποτέ άλλος κανείς δε θα μπορέσει.\n\nΑγάπη είναι ένα χάδι στα μαλλιά,\nνα σε πειράζω και συνέχεια να γκρινιάζεις,\nνα χάνομαι μέσα σε κάθε σου αγκαλιά\nκαι να πετάω, κάθε φορά που με κοιτάζεις.\n\nΈναν χορό καρδιά μου απόψε χάρισέ μου\nκαι κράτησέ με δυνατά μόνο μαζί σου.\n«Τι είναι αγάπη», σιγανά, τραγούδησέ μου·\nαπόψε έγινα ο άντρας της ζωής σου.\n\nΑγάπη είναι ένας καφές κι ένα φιλί·\nμια καληνύχτα, που θα πεις μες στο σκοτάδι·\nμια συγγνώμη κλειδωμένη σε κελί·\nμια συγχώρεση σε κάθε σου ψεγάδι.\n\nΑγάπη είναι να ξυπνάς κάθε πρωί·\nνα σε χαζεύω να κοιμάσαι κάθε βράδυ·\nνα με ανασταίνει η δροσερή σου αναπνοή·\nνα με κοιμίζει μόνο το δικό σου χάδι.\n\nΈναν χορό καρδιά μου απόψε χάρισέ μου...\n\nΑγάπη είναι, για να είμαι ειλικρινής,\nένα στιχάκι σε χαρτί μουτζουρωμένο·\nτραγούδια αγάπης, μάτια μου, πολλά θα βρεις,\nμα αυτό εδώ είναι σε μας αφιερωμένο. ",
     "en": "Love is looking at the sky,\nthat in two eyes has completely fit\nand fill the emptiness of your soul,\nlike no one else will ever be able to.\n\nLove is a caress to the hair,\nteasing you and always complaining,\nto be lost in your every embrace\nand fly, every time you look at me.\n\nGive me a dance my heart tonight\nand keep me strong only with you.\n\"What is love\", quietly, sing to me;\ntonight I became the man of your life.\n\nLove is a coffee and a kiss;\na good night, which you will say in the dark;\nan apology locked in a cell;\na forgiveness in every one of your flaws.\n\nLove is waking up every morning;\nstaring at you sleeping every night;\nto be resurrected by your fresh breath;\nonly your caress puts me to sleep.\n\nGive me one dance, my heart, tonight...\n\nLove is, to be honest,\na verse on smudged paper;\nlove songs, my eyes, you will find many,\nbut this one is dedicated to us."
   },
   "lyrics/agaph-einai.credits[0].title": {
@@ -3040,8 +3040,8 @@
     "en": "Ζεστό πρωινό χειμώνα στην Θεσσαλονίκη.\n\nΑκριβώς εκείνη την στιγμή, περνάει από μπροστά μου ένας κύριος που φορούσε ένα βιολί.\n\nΚάπως έτσι αλληλεπιδρούμε με τους ανθρώπους στην ζωή μας:\n\nξεκινάμε από άλλους τόπους,\nπερπατάμε παράλληλα,\nπροσπερνάμε, μας προσπερνούν — ο καθένας με άλλον Ρυθμό —\n\nκαι στο τέλος, φτάνουμε στον Τελικό Προορισμό που όλοι γνωρίζουμε εξαρχής.\n\nγ.φ."
   },
   "live.items[0].venue": {
-    "el": "2 βήματα",
-    "en": "2 Steps"
+    "el": "Ικτίνου με Τσιμισκή",
+    "en": "Iktinou with Tsimiski"
   },
   "live.items[0].ticketsLabel": {
     "el": "Πληροφορίες",
@@ -6128,6 +6128,14 @@
     "en": "archive"
   },
   "live.items[0].city": {
+    "el": "Θεσσαλονίκη",
+    "en": "Thessaloniki"
+  },
+  "live.items[1].venue": {
+    "el": "2 βήματα",
+    "en": "2 Steps"
+  },
+  "live.items[1].city": {
     "el": "Τούμπα, Θεσσαλονίκη",
     "en": "Toumba, Thessaloniki"
   }
