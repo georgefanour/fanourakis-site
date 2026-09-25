@@ -1,12 +1,3 @@
 {
-  "items": [
-    {
-      "date": "Πρόσθεσε ημερομηνία",
-      "title": "New live",
-      "venue": "City · Space",
-      "ticketsLabel": "Information",
-      "ticketsUrl": "#",
-      "visible": true
-    }
-  ]
+  "items": []
 }
