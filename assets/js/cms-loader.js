@@ -109,7 +109,8 @@
       '.live-card img{position:static!important;width:100%!important;height:auto!important;max-height:none!important;object-fit:contain!important;display:block!important}' +
       '.live-card:after{content:none!important}' +
       '.live-label{position:static!important;inset:auto!important;padding:14px 4px 4px!important;display:block!important}' +
-      '@media(min-width:561px){.live-grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))!important}.live-card:first-child{grid-column:auto!important}}';
+      '.live-card{max-width:300px!important;margin:0 auto!important}' +
+      '@media(min-width:561px){.live-grid{grid-template-columns:repeat(auto-fit,minmax(220px,300px))!important;justify-content:center!important}.live-card:first-child{grid-column:auto!important}}';
     document.head.appendChild(style);
   }
 
