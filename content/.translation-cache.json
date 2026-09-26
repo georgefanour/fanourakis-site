@@ -144,8 +144,8 @@
     "en": "Album"
   },
   "music.items[0].description": {
-    "el": "Η πρώτη ολοκληρωμένη δισκογραφική δουλειά.",
-    "en": "The first complete album."
+    "el": "Άνευ συνΩδείας\n\nΠοίηση: Νικηφόρος Μπλεμένος \nΣύνθεση - Παραγωγή - Ενορχήστρωση: Γιώργος Φανουράκης\nΕπιμέλεια Ενορχήστρωσης: Νίκη Φανουράκη\n\nΑκορντεόν: Ανδρέας Σκέττος\nΑκουστική, κλασική κιθάρα: Γιώργος Φανουράκης\nΆρπα: Ζωή Κουντούρη\nΒιολί: Σαμουήλ Καφαντάρης\nΒιόλα: Ελισάβετ Τσικαντέρη\nΗλεκτρική κιθάρα: Ιάσωνας Ανοιξιάδης\nΗλεκτρικό μπάσο, Κοντραμπάσο: Γιώργος Μπουναρτζής\nΚλαρινέτο: Έλενα Κατραντζή\nΚρουστά: Δημήτρης Ράιος\nΝτραμς: Γιώργος Χατζηιωαννίδης\nΠιάνο: Δημήτρης Τομπάζης\nΣαξόφωνο: Δημήτρης Μαρκόπουλος\nΤρομπέτα: Γιώργος Αβραμίδης\nΤσέλο: Στέφη Παντελίδου\n\nΗχογραφήθηκε από:\nτον Ιάσωνα Ανοιξιάδη,\nCue Productions,\nThe Mix Studio,\nSubspace Studio\n\nΗ μίξη και το mastering έγινε από τον Χρήστο Μέγα. \n\nΕυχαριστούμε ιδιαιτέρως:\nτον Χάρη Μανουσάκη,\nτον Δημήτρη Τομπάζη,\nκαι το Καφωδείο Ελληνικό \nγια την πολύτιμη βοήθειά τους. \n\nΤα γραφιστικά, σε ψηφιακή και φυσική μορφή, επιμελήθηκε η ομάδα του «Τίγκα»\n\nΤην βιντεοσκόπηση και το μοντάζ του μεγάλου μήκους και των μικρότερων βίντεο επιμελήθηκε ο Φοίβος Μαλέτσκας και η ομάδα του Nōvo Productions. \n\n© & ℗  2026 Νικηφόρος Μπλεμένος και Γιώργος Φανουράκης. Με επιφύλαξη παντός δικαιώματος.",
+    "en": "Without leave of absence\n\nPoetry: Nikiforos Mplemenos\nComposition - Production - Orchestration: Giorgos Fanourakis\nOrchestration: Niki Fanouraki\n\nAccordion: Andreas Skettos\nAcoustic, classical guitar: Giorgos Fanourakis\nHarp: Zoe Kountouri\nViolin: Samuel Kafantaris\nViola: Elisabeth Tsikanderi\nElectric guitar: Iasonas Anixiadis\nElectric bass, Double bass: Giorgos Bounartzis\nClarinet: Elena Katrantzi\nPercussion: Dimitris Raios\nDrums: Giorgos Chatziioannidis\nPiano: Dimitris Tombazis\nSaxophone: Dimitris Markopoulos\nTrumpet: <g id=\"1\">George Avramidis</g>\nCello: Stefi Pantelidou\n\nRecorded by:\niasonas Anixiadis,\nCue Productions,\nThe Mix Studio,\nSubspace Studio\n\nThe mixing and mastering was done by Christos Megas.\n\nSpecial thanks:\nharis Manousakis,\ndimitris Tombazis,\nand Kafedio Elliniko\nfor their valuable help.\n\nThe graphics, in digital and physical form, were edited by the team of \"Tiga\"\n\nFilming and editing of the full-length and shorter videos was curated by Phivos Maletskas and his team Nōvo Productions.\n\n© &?  2026 Nikiforos Blemenos and Giorgos Fanourakis. All rights reserved."
   },
   "music.items[1].title": {
     "el": "ΑΡΧΕΤΥΠΑ",
@@ -312,8 +312,8 @@
     "en": "Next meetings"
   },
   "site.ticker": {
-    "el": "άκουσε τον νέο μας δίσκο \"Άνευ συνΩδείας\" και πες μου τα συναισθήματά σου!",
-    "en": "listen to our new album \"Aney Synodeias\" and tell me your feelings!"
+    "el": "αν αγαπάς κάτι, μοιράσου το με ένα μήνυμα",
+    "en": "if you love something, share it with a message"
   },
   "site.music_title": {
     "el": "τα έργα μου",
