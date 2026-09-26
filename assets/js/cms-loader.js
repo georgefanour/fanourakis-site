@@ -1091,8 +1091,7 @@
         if (fMeta) fMeta.textContent = (featuredItem.release_type || '') + (featuredItem.year ? ' · ' + featuredItem.year : '');
 
         var fCopy = featuredSection.querySelector('.copy');
-        if (fCopy) fCopy.innerHTML = renderMultiline(featuredItem.description || featuredItem.artist_note || '');
-
+        if (fCopy) { fCopy.innerHTML = ''; fCopy.hidden = true; }
         var fYoutube = normalizePath(featuredItem.youtube_url);
         if (fYoutube) {
           featuredSection.querySelectorAll('a[href*="youtube.com"], a.play').forEach(function (a) {
