@@ -232,28 +232,28 @@
     "en": "La Boite in \"Radio Philosophy\"with Sofia Apostolidou"
   },
   "press.items[0].title": {
-    "el": "Έδωσα συνέντευξη στην Parallaximag και στην Μυρτώ!",
-    "en": "I was interviewed Parallaximag and Myrto!"
+    "el": "«Άνευ συνΩδείας»: Η ποίηση του Νικηφόρου Μπλεμένου γίνεται τραγούδι μέσα από τη μουσική του Γιώργου Φανουράκη",
+    "en": "\"Unaccompanied\": The poetry of Nikiforos Blemenos becomes a song through the music of Giorgos Fanourakis"
   },
   "press.items[0].excerpt": {
+    "el": "Η μουσική του Γιώργου Φανουράκη κινείται ανάμεσα στο λυρικό και το σύγχρονο στοιχείο, ενσωματώνοντας πειραματισμούς που συνομιλούν με την τροπική και την παραδοσιακή μουσική.\n\nΣτο επίκεντρο της αισθητικής του άλμπουμ βρίσκεται και το γαϊδουράγκαθο, το φυτό που κοσμεί και την ποιητική συλλογή. Για το εξώφυλλο του δίσκου αποτυπώνεται μέσα από ένα σχέδιο εμπνευσμένο από τη μινωική Κρήτη, παραπέμποντας και στην κοινή καταγωγή των δύο δημιουργών από το Ηράκλειο.",
+    "en": "Giorgos Fanourakis' music moves between the lyrical and the contemporary, incorporating experimentations that converse with modal and traditional music.\n\nAt the heart of the album's aesthetics is the thistle, the plant that adorns and the poetic collection. For the album cover, it is depicted through a design inspired by Minoan Crete, referring to the common origin of the two creators from Heraklion."
+  },
+  "press.items[1].title": {
+    "el": "Έδωσα συνέντευξη στην Parallaximag και στην Μυρτώ!",
+    "en": "I interviewed Parallaximag and Myrto!"
+  },
+  "press.items[1].excerpt": {
     "el": "\"Είναι πανεύκολο να είσαι καλλιτέχνης. Το δύσκολο είναι να προσπαθείς να χωρέσεις τις προσδοκίες των άλλων στην τέχνη σου και στην ζωή σου γενικότερα. Το δύσκολο είναι να περιμένεις να πλουτίσεις από την τέχνη σου. Το δύσκολο είναι να χάνεις τον μπούσουλα και την εσωτερική σου βάση, να αγνοείς την έμπνευση, να γίνεσαι μέρος του συστήματος. Αλλά ο καλλιτέχνης δύσκολο πράγμα; Αλήθεια; Τυχεροί όσοι είναι, άτυχοι όσοι δεν έχουν ακόμα ανακαλύψει τον καλλιτέχνη που σίγουρα έχουν μέσα τους.\"",
     "en": "'It's easy to be an artist. The hard part is trying to fit the expectations of others into your art and into your life in general. The hard part is waiting to get rich from your art. The difficult thing is to lose your compass and your inner base, to ignore inspiration, to become part of the system. But the artist difficult thing? Really? Lucky are those who are, unlucky are those who have not yet discovered the artist they definitely have inside them.”"
   },
-  "press.items[1].title": {
-    "el": "Παγκόσμια διάκριση για τη Φωνωδία: Επιστρέφει στο Ηράκλειο με δύο ασημένια βραβεία!",
-    "en": "International success for Phonodia: they return to Heraklion with two silver awards!"
-  },
-  "press.items[1].excerpt": {
-    "el": "Το φωνητικό σύνολο του Ηρακλείου εκπροσώπησε την Ελλάδα στην κορυφαία διοργάνωση τον 7ο διεθνή διαγωνισμό Tokyo International Choir Competition",
-    "en": "Heraklion vocal ensemble represented Greece in the top competition of the 7th Tokyo International Choir Competition"
-  },
   "press.items[2].title": {
-    "el": "Η La Boite στη \"Ραδιοφωνική ΦιλοΣοφία\"με τη Σοφία Αποστολίδου",
-    "en": "La Boite in \"Radio Philosophy\"with Sofia Apostolidou"
+    "el": "Παγκόσμια διάκριση για τη Φωνωδία: Επιστρέφει στο Ηράκλειο με δύο ασημένια βραβεία!",
+    "en": "Global distinction for Voice: He returns to Heraklion with two silver awards!"
   },
   "press.items[2].excerpt": {
-    "el": "Placeholder για δημοσίευμα ή review νέας κυκλοφορίας.",
-    "en": "Placeholder for publication or review of a new release."
+    "el": "Το φωνητικό σύνολο του Ηρακλείου εκπροσώπησε την Ελλάδα στην κορυφαία διοργάνωση τον 7ο διεθνή διαγωνισμό Tokyo International Choir Competition",
+    "en": "Heraklion vocal ensemble represented Greece in the top competition of the 7th Tokyo International Choir Competition"
   },
   "site.nav_music": {
     "el": "Δισκογραφία",
@@ -3096,8 +3096,8 @@
     "en": "keys: Dimitris Tombazis"
   },
   "press.items[0].outlet": {
-    "el": "Parallaximag",
-    "en": "Parallaximag"
+    "el": "thess.gr",
+    "en": "thess.gr"
   },
   "videos.items[2].title": {
     "el": "Vythizomai - Yiorgos Fanourakis / Live on Lohača Hill, Slovenia",
@@ -6044,8 +6044,8 @@
     "en": "Heraklion vocal ensemble represented Greece in the top competition of the 7th Tokyo International Choir Competition"
   },
   "press.items[1].outlet": {
-    "el": "Cretalive",
-    "en": "Cretalive"
+    "el": "Parallaximag",
+    "en": "Parallaximag"
   },
   "texts.writings[31].title": {
     "el": "Το ένα δόντι ",
@@ -6076,8 +6076,8 @@
     "en": "Flash 99.4 FM"
   },
   "press.items[2].outlet": {
-    "el": "Flash 99.4 FM",
-    "en": "Flash 99.4 FM"
+    "el": "Cretalive",
+    "en": "Cretalive"
   },
   "writings/ti-ntroph.title": {
     "el": "Τι ντροπή!",
@@ -6178,5 +6178,13 @@
   "press/aney-synwdeias-h-poihsh-toy-nikhforoy-mplemenoy-ginetai-tragoydi-mesa-apo-th-moysikh-toy-giwrgoy-fanoyrakh.excerpt": {
     "el": "Η μουσική του Γιώργου Φανουράκη κινείται ανάμεσα στο λυρικό και το σύγχρονο στοιχείο, ενσωματώνοντας πειραματισμούς που συνομιλούν με την τροπική και την παραδοσιακή μουσική.\n\nΣτο επίκεντρο της αισθητικής του άλμπουμ βρίσκεται και το γαϊδουράγκαθο, το φυτό που κοσμεί και την ποιητική συλλογή. Για το εξώφυλλο του δίσκου αποτυπώνεται μέσα από ένα σχέδιο εμπνευσμένο από τη μινωική Κρήτη, παραπέμποντας και στην κοινή καταγωγή των δύο δημιουργών από το Ηράκλειο.",
     "en": "Giorgos Fanourakis' music moves between the lyrical and the contemporary, incorporating experimentations that converse with modal and traditional music.\n\nAt the heart of the album's aesthetics is the thistle, the plant that adorns and the poetic collection. For the album cover, it is depicted through a design inspired by Minoan Crete, referring to the common origin of the two creators from Heraklion."
+  },
+  "press.items[3].title": {
+    "el": "Η La Boite στη \"Ραδιοφωνική ΦιλοΣοφία\"με τη Σοφία Αποστολίδου",
+    "en": "La Boite in \"Radio Philosophy\"with Sofia Apostolidou"
+  },
+  "press.items[3].outlet": {
+    "el": "Flash 99.4 FM",
+    "en": "Flash 99.4 FM"
   }
 }
