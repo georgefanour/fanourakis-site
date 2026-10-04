@@ -64,12 +64,12 @@
     "en": "upcoming"
   },
   "live.items[2].title": {
-    "el": "Χέρια και χορδές",
-    "en": "Hands and strings"
+    "el": "Ο Γιώργος Φανουράκης με τον Ανδρέα Σκέττο στο opening live της Σκερτσόζας",
+    "en": "Giorgos Fanourakis with Andreas Skettos at the opening live of Skertsoza"
   },
   "live.items[2].status": {
-    "el": "archive",
-    "en": "archive"
+    "el": "upcoming",
+    "en": "upcoming"
   },
   "music/aney-synwdeias.title": {
     "el": "Άνευ συνΩδείας",
@@ -6158,5 +6158,25 @@
   "live/o-giwrgos-fanoyrakhs-me-ton-andrea-sketto-sto-opening-live-ths-skertsozas.status": {
     "el": "upcoming",
     "en": "upcoming"
+  },
+  "live.items[2].venue": {
+    "el": "Σκερτσόζα",
+    "en": "Skertsoza"
+  },
+  "live.items[2].city": {
+    "el": "Θεσσαλονίκη",
+    "en": "Thessaloniki"
+  },
+  "press/aney-synwdeias-h-poihsh-toy-nikhforoy-mplemenoy-ginetai-tragoydi-mesa-apo-th-moysikh-toy-giwrgoy-fanoyrakh.title": {
+    "el": "«Άνευ συνΩδείας»: Η ποίηση του Νικηφόρου Μπλεμένου γίνεται τραγούδι μέσα από τη μουσική του Γιώργου Φανουράκη",
+    "en": "\"Unaccompanied\": The poetry of Nikiforos Blemenos becomes a song through the music of Giorgos Fanourakis"
+  },
+  "press/aney-synwdeias-h-poihsh-toy-nikhforoy-mplemenoy-ginetai-tragoydi-mesa-apo-th-moysikh-toy-giwrgoy-fanoyrakh.outlet": {
+    "el": "thess.gr",
+    "en": "thess.gr"
+  },
+  "press/aney-synwdeias-h-poihsh-toy-nikhforoy-mplemenoy-ginetai-tragoydi-mesa-apo-th-moysikh-toy-giwrgoy-fanoyrakh.excerpt": {
+    "el": "Η μουσική του Γιώργου Φανουράκη κινείται ανάμεσα στο λυρικό και το σύγχρονο στοιχείο, ενσωματώνοντας πειραματισμούς που συνομιλούν με την τροπική και την παραδοσιακή μουσική.\n\nΣτο επίκεντρο της αισθητικής του άλμπουμ βρίσκεται και το γαϊδουράγκαθο, το φυτό που κοσμεί και την ποιητική συλλογή. Για το εξώφυλλο του δίσκου αποτυπώνεται μέσα από ένα σχέδιο εμπνευσμένο από τη μινωική Κρήτη, παραπέμποντας και στην κοινή καταγωγή των δύο δημιουργών από το Ηράκλειο.",
+    "en": "Giorgos Fanourakis' music moves between the lyrical and the contemporary, incorporating experimentations that converse with modal and traditional music.\n\nAt the heart of the album's aesthetics is the thistle, the plant that adorns and the poetic collection. For the album cover, it is depicted through a design inspired by Minoan Crete, referring to the common origin of the two creators from Heraklion."
   }
 }
