@@ -241,7 +241,7 @@
   },
   "press.items[1].title": {
     "el": "Έδωσα συνέντευξη στην Parallaximag και στην Μυρτώ!",
-    "en": "I interviewed Parallaximag and Myrto!"
+    "en": "I was interviewed Parallaximag and Myrto!"
   },
   "press.items[1].excerpt": {
     "el": "\"Είναι πανεύκολο να είσαι καλλιτέχνης. Το δύσκολο είναι να προσπαθείς να χωρέσεις τις προσδοκίες των άλλων στην τέχνη σου και στην ζωή σου γενικότερα. Το δύσκολο είναι να περιμένεις να πλουτίσεις από την τέχνη σου. Το δύσκολο είναι να χάνεις τον μπούσουλα και την εσωτερική σου βάση, να αγνοείς την έμπνευση, να γίνεσαι μέρος του συστήματος. Αλλά ο καλλιτέχνης δύσκολο πράγμα; Αλήθεια; Τυχεροί όσοι είναι, άτυχοι όσοι δεν έχουν ακόμα ανακαλύψει τον καλλιτέχνη που σίγουρα έχουν μέσα τους.\"",
@@ -249,7 +249,7 @@
   },
   "press.items[2].title": {
     "el": "Παγκόσμια διάκριση για τη Φωνωδία: Επιστρέφει στο Ηράκλειο με δύο ασημένια βραβεία!",
-    "en": "Global distinction for Voice: He returns to Heraklion with two silver awards!"
+    "en": "International success for Phonodia: they return to Heraklion with two silver awards!"
   },
   "press.items[2].excerpt": {
     "el": "Το φωνητικό σύνολο του Ηρακλείου εκπροσώπησε την Ελλάδα στην κορυφαία διοργάνωση τον 7ο διεθνή διαγωνισμό Tokyo International Choir Competition",
@@ -3096,8 +3096,8 @@
     "en": "keys: Dimitris Tombazis"
   },
   "press.items[0].outlet": {
-    "el": "thess.gr",
-    "en": "thess.gr"
+    "el": "thes.gr",
+    "en": "thes.gr"
   },
   "videos.items[2].title": {
     "el": "Vythizomai - Yiorgos Fanourakis / Live on Lohača Hill, Slovenia",
