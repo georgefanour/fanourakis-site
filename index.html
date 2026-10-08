@@ -274,6 +274,12 @@ const box=document.getElementById('lightbox'),bi=box.querySelector('img'),close=
   padding-top:20px!important;
   border-top:1px solid rgba(10,7,18,.22);
 }
+.doc{background:linear-gradient(135deg,#1c1030,#0a0712 60%,#071b32)}
+.doc-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,6vw,90px);align-items:center}
+.doc-meta{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--acid);margin:15px 0}
+.doc-frame{aspect-ratio:16/9;border-radius:20px;overflow:hidden;background:#000;box-shadow:18px 22px 0 var(--purple)}
+.doc-frame iframe{display:block;width:100%;height:100%;border:0}
+@media(max-width:1050px){.doc-grid{grid-template-columns:1fr}.doc-frame{box-shadow:10px 12px 0 var(--purple)}}
 </style>
 <script>
 (function(){
