@@ -264,7 +264,33 @@ const box=document.getElementById('lightbox'),bi=box.querySelector('img'),close=
   padding-top:20px!important;
   border-top:1px solid rgba(10,7,18,.22);
 }
-.doc{background:linear-gradient(135deg,#1c1030,#0a0712 60%,#071b32)}
+.doc{position:relative;isolation:isolate;overflow:hidden;
+  background:
+    radial-gradient(45% 55% at 12% 20%,rgba(100,69,255,.28),transparent 70%),
+    radial-gradient(40% 50% at 88% 75%,rgba(178,61,255,.20),transparent 70%),
+    linear-gradient(180deg,#05030d 0%,#0b0820 55%,#150f33 100%)}
+.doc>.container{position:relative;z-index:1}
+.doc:before,.doc:after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none}
+.doc:before{
+  background-image:
+    radial-gradient(1.4px 1.4px at 18px 26px,rgba(255,255,255,.95),transparent),
+    radial-gradient(1px 1px at 84px 118px,rgba(255,255,255,.75),transparent),
+    radial-gradient(1.6px 1.6px at 152px 58px,rgba(255,248,237,.9),transparent),
+    radial-gradient(1px 1px at 214px 190px,rgba(255,255,255,.7),transparent),
+    radial-gradient(1.3px 1.3px at 126px 232px,rgba(216,255,62,.6),transparent),
+    radial-gradient(1px 1px at 248px 96px,rgba(255,255,255,.8),transparent);
+  background-size:277px 263px;
+  animation:doc-twinkle 5s ease-in-out infinite alternate}
+.doc:after{
+  background-image:
+    radial-gradient(6px 6px at 40px 70px,rgba(255,255,255,.55),transparent),
+    radial-gradient(9px 9px at 210px 150px,rgba(200,190,255,.45),transparent),
+    radial-gradient(5px 5px at 130px 250px,rgba(255,255,255,.4),transparent),
+    radial-gradient(7px 7px at 320px 40px,rgba(255,220,200,.4),transparent);
+  background-size:367px 311px;
+  filter:blur(1.5px);
+  animation:doc-twinkle 8s ease-in-out infinite alternate-reverse}
+@keyframes doc-twinkle{from{opacity:.4}to{opacity:1}}
 .doc-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,6vw,90px);align-items:center}
 .doc-meta{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--acid);margin:15px 0}
 .doc-frame{aspect-ratio:16/9;border-radius:20px;overflow:hidden;background:#000;box-shadow:18px 22px 0 var(--purple)}
