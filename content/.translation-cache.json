@@ -48,12 +48,12 @@
     "en": "Information"
   },
   "live.items[0].title": {
-    "el": "Δημήτρεια 2026",
-    "en": "Dimitria 2026"
+    "el": "Ο Γιώργος Φανουράκης με την Ολυμπία Καραλή κάθε Σάββατο στα 2 βήματα!",
+    "en": "Giorgos Fanourakis with Olympia Karali every Saturday in 2 steps!"
   },
   "live.items[0].status": {
-    "el": "archive",
-    "en": "archive"
+    "el": "upcoming",
+    "en": "upcoming"
   },
   "live.items[1].title": {
     "el": "Ο Γιώργος Φανουράκης με την Ολυμπία Καραλή κάθε Σάββατο στα 2 βήματα!",
@@ -3040,8 +3040,8 @@
     "en": "Ζεστό πρωινό χειμώνα στην Θεσσαλονίκη.\n\nΑκριβώς εκείνη την στιγμή, περνάει από μπροστά μου ένας κύριος που φορούσε ένα βιολί.\n\nΚάπως έτσι αλληλεπιδρούμε με τους ανθρώπους στην ζωή μας:\n\nξεκινάμε από άλλους τόπους,\nπερπατάμε παράλληλα,\nπροσπερνάμε, μας προσπερνούν — ο καθένας με άλλον Ρυθμό —\n\nκαι στο τέλος, φτάνουμε στον Τελικό Προορισμό που όλοι γνωρίζουμε εξαρχής.\n\nγ.φ."
   },
   "live.items[0].venue": {
-    "el": "Ικτίνου με Τσιμισκή",
-    "en": "Iktinou with Tsimiski"
+    "el": "2 βήματα",
+    "en": "2 Steps"
   },
   "live.items[0].ticketsLabel": {
     "el": "Πληροφορίες",
@@ -6128,8 +6128,8 @@
     "en": "archive"
   },
   "live.items[0].city": {
-    "el": "Θεσσαλονίκη",
-    "en": "Thessaloniki"
+    "el": "Τούμπα, Θεσσαλονίκη",
+    "en": "Toumba, Thessaloniki"
   },
   "live.items[1].venue": {
     "el": "2 βήματα",
@@ -6186,5 +6186,13 @@
   "press.items[3].outlet": {
     "el": "Flash 99.4 FM",
     "en": "Flash 99.4 FM"
+  },
+  "writings/apories.title": {
+    "el": "απορίες",
+    "en": "Product Enquiry"
+  },
+  "writings/apories.body": {
+    "el": "Άραγε, εάν εξαφανιζόταν όλη η ανθρωπότητα,\nθα υπήρχαν κάπου \nοι αναμνήσεις, οι ιδέες, οι σκέψεις;\nΟ νοητός μας εαυτός.\n\nΔεν είναι τόσο θέμα πρακτικό \nαπό την άποψη ότι ναι, προφανώς, βάσει της σύγχρονης επιστήμης \nαυτά είναι τεχνήματα του εγκεφάλου. \n\nΘέτω ένα ζήτημα υπερβατικό, \nπου διέπει το είδος μας \nΆνθρωποι που ζούσαν σε περιοχές τόσο μακριά η μία από την άλλη,\nπου ακόμα και σήμερα με την ευκολία των μεταφορικών μέσων δεν μπορούν εύκολα να προσεγγιστούν μεταξύ τους,\nέχουν ανά τους αιώνες αναπτύξει \nγλώσσες, κουλτούρα, θρησκεία, τεχνολογία, \nκαι όλα αυτά με κοινούς μηχανισμούς λειτουργίας.\n\nΚαι δεν μιλάω για κοντινούς πολιτισμούς, \nστους οποίους η επικοινωνία ήταν πιο εύκολη.\n\nΘα έλεγα ότι και τώρα παρατηρείται αυτό, βέβαια με επιχειρήματα πολύ εύκολα υποβαθμίζεται λόγω του φαινομένου της άμεσης πληροφόρησης. \n\nΥπάρχει άραγε \nένα κοινό «αποθηκάκι» ιδεών \nπου μοιραζόμαστε όλοι οι άνθρωποι\nανεξαρτήτως κουλτούρας;\n\nΜια βάση δεδομένων κοινή,\nστην οποία όλοι έχουμε πρόσβαση\nμέσα από ένα διανθρώπινο internet. \n\nΚι όταν εμείς φύγουμε, φεύγουν κι αυτές;\nΚι αν όχι, τότε μήπως προϋπάρχουν ημών;\n\n-απορίες\n\nΥΓ: και για τους λάτρεις του black mirror και συναφών:\nκαι αν οι ζωές μας είναι το internet που έφτιαξαν άλλοι;\n\nγ.φ.",
+    "en": "I wonder, if all of humanity disappeared,\nthere would be somewhere\nmemories, ideas, thoughts?\nOur imaginary self.\n\nIt's not so practical\nfrom the point of view that yes, obviously, based on modern science\nthese are artifacts of the brain.\n\nI raise an issue that is transcendent,\ngoverning our species\nPeople who lived in areas so far apart,\nthat even today with the convenience of the means of transport can not easily be approached with each other,\nhave developed over the centuries\nlanguages, culture, religion, technology,\nand all this with common operating mechanisms.\n\nAnd I'm not talking about nearby cultures,\nwho were easier to communicate with.\n\nI would say that even now this is observed, of course with arguments very easily downgraded due to the phenomenon of direct information.\n\nIs there\na common repository of ideas\nthat all people share\nregardless of culture?\n\nA common database,\nwhich we all have access to\nthrough an interhuman internet.\n\nAnd when we leave, do they leave too?\nAnd if not, then do they pre-exist us?\n\nProduct Enquiry\n\nPS: And for lovers of black mirrors and the like:\nwhat if our lives are the internet made by others?\n\n85 — m"
   }
 }
