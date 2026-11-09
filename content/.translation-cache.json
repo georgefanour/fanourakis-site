@@ -48,8 +48,8 @@
     "en": "Information"
   },
   "live.items[0].title": {
-    "el": "Ο Γιώργος Φανουράκης και ο Ανδρέας Σκέττος στην κυρά-Σόφη!",
-    "en": "Giorgos Fanourakis and Andreas Skettos to Mrs. Sophie!"
+    "el": "Ο Γιώργος Φανουράκης και ο Ανδρέας Σκέττος, κάθε Παρασκευή, στην κυρά-Σόφη!",
+    "en": "Giorgos Fanourakis and Andreas Skettos, every Friday, to Kyra-Sofi!"
   },
   "live.items[0].status": {
     "el": "upcoming",
@@ -6218,5 +6218,21 @@
   "texts.writings[34].body": {
     "el": "Κάνοντας το τελευταίο ντουζάκι της χρονιάς,\nμου ήρθε στο μυαλό μια συζήτηση που είχα\nφέτος με κάποιον κομμωτή:\nΚάθομαι στην γνωστή καρέκλα,\nμπροστά από τον καθρέφτη,\nμε κοιτάει από τον καθρέφτη,\nμου κάνει ένα πατ πατ στον ώμο\nκαι μου λέει το επικό \"είσαι δεξιόχειρας ε\".\nΈκπληκτος και ταυτόχρονα ψιλιασμένος\nότι το' παιξε με τις πιθανότητες,\nτου απαντάω \"ναι, αλλά γιατί;\".\nΜε το γνωστό γελάκι σα να' λεγε \"εγώ ξέρω\"\nμου λέει \"η καραφλίτσα μεγαλώνει απ' τα δεξιά περισσότερο απ' ότι στα αριστερά\".\nΚΑΡΑΦΛΊΤΣΑ;!;!;\nΕκεί άρχισα να του μιλάω περί κληρονομικότητας,\nγονιδίων,\nζελέ που έβαζα παλιά,\nκαι άλλα τέτοια.\nΜε διέκοψε λέγοντας μου το εξής:\n\"Το δεξί σου χέρι, Γιώργη μου,\nείναι το πιο δυνατό σου.\nΜε αυτό χτενίζεις το μαλλί σου προς τα πίσω (τότε είχα μακριά μαλλιά).\nΟι τρίχες είναι πιο αδύναμες απ' το χέρι σου και παραδίνονται.\nΜην ξεχνάς να σέβεσαι τον αδύναμο.\"\nΝα φροντίζουμε\nτα αδύναμα κομμάτια μας,\nμε ευγένεια.\nΝα τα χτενίζουμε\nσεβόμενοι τις ευαισθησίες τους•\nόσο καλά κι αν τις κρύβουν.\nγ.φ.",
     "en": "Taking the last little shower of the year,\na conversation I had\nthis year with a hairdresser came to mind:\nI am sitting in the familiar chair,\nin front of the mirror,\nhe looks at me through the mirror,\ngives me a pat-pat on the shoulder\nand tells me the epic line \"you're right-handed, aren't you\".\nAstonished and at the same time suspicious\nthat he played the odds,\nI answer him \"yes, but why?\".\nWith the familiar smirk as if saying \"I know\",\nhe tells me \"the little bald spot is growing more on the right than on the left\".\nLITTLE BALD SPOT?!\nRight there I started talking to him about heredity,\ngenes,\nhair gel I used to put on back in the day,\nand other such things.\nHe interrupted me, saying the following:\n\"Your right hand, Yiorghi,\nis your strongest.\nWith it you comb your hair back (I had long hair back then).\nThe hair is weaker than your hand and gives in.\nDon't forget to respect the weak.\"\nTo take care of\nour weak parts,\nwith gentleness.\nTo comb them\nrespecting their vulnerabilities;\nno matter how well they hide them.\n\ny.f."
+  },
+  "live/o-giwrgos-fanoyrakhs-kai-o-ale3andros-mparmpoyths-ka8e-deyterh-pempth-sto-sampotaz.title": {
+    "el": "Ο Γιώργος Φανουράκης και ο Αλέξανδρος Μπαρμπούτης, κάθε δεύτερη Πέμπτη, στο Σαμποτάζ!",
+    "en": "George Fanourakis and Alexandros Barboutis, every second Thursday, on Sabotage!"
+  },
+  "live/o-giwrgos-fanoyrakhs-kai-o-ale3andros-mparmpoyths-ka8e-deyterh-pempth-sto-sampotaz.venue": {
+    "el": "Σαμποτάζ",
+    "en": "Sabotage"
+  },
+  "live/o-giwrgos-fanoyrakhs-kai-o-ale3andros-mparmpoyths-ka8e-deyterh-pempth-sto-sampotaz.city": {
+    "el": "Θεσσαλονίκη",
+    "en": "Thessaloniki"
+  },
+  "live/o-giwrgos-fanoyrakhs-kai-o-ale3andros-mparmpoyths-ka8e-deyterh-pempth-sto-sampotaz.status": {
+    "el": "upcoming",
+    "en": "upcoming"
   }
 }
