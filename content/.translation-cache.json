@@ -48,24 +48,24 @@
     "en": "Information"
   },
   "live.items[0].title": {
-    "el": "Ο Γιώργος Φανουράκης και ο Ανδρέας Σκέττος, κάθε Παρασκευή, στην κυρά-Σόφη!",
-    "en": "Giorgos Fanourakis and Andreas Skettos, every Friday, to Kyra-Sofi!"
+    "el": "Ο Γιώργος Φανουράκης και ο Αλέξανδρος Μπαρμπούτης, κάθε δεύτερη Πέμπτη, στο Σαμποτάζ!",
+    "en": "George Fanourakis and Alexandros Barboutis, every second Thursday, on Sabotage!"
   },
   "live.items[0].status": {
     "el": "upcoming",
     "en": "upcoming"
   },
   "live.items[1].title": {
-    "el": "Ο Γιώργος Φανουράκης με την Ολυμπία Καραλή κάθε Σάββατο στα 2 βήματα!",
-    "en": "Yiorgos Fanourakis with Olympia Karali every Saturday at 2 vimata!"
+    "el": "Ο Γιώργος Φανουράκης και ο Ανδρέας Σκέττος, κάθε Παρασκευή, στην κυρά-Σόφη!",
+    "en": "Giorgos Fanourakis and Andreas Skettos, every Friday, to Kyra-Sofi!"
   },
   "live.items[1].status": {
     "el": "upcoming",
     "en": "upcoming"
   },
   "live.items[2].title": {
-    "el": "Ο Γιώργος Φανουράκης με τον Ανδρέα Σκέττο στο opening live της Σκερτσόζας",
-    "en": "Yiorgos Fanourakis with Andreas Skettos at the opening live of Skertsoza"
+    "el": "Ο Γιώργος Φανουράκης με την Ολυμπία Καραλή κάθε Σάββατο στα 2 βήματα!",
+    "en": "Giorgos Fanourakis with Olympia Karali every Saturday in 2 steps!"
   },
   "live.items[2].status": {
     "el": "upcoming",
@@ -3040,8 +3040,8 @@
     "en": "Ζεστό πρωινό χειμώνα στην Θεσσαλονίκη.\n\nΑκριβώς εκείνη την στιγμή, περνάει από μπροστά μου ένας κύριος που φορούσε ένα βιολί.\n\nΚάπως έτσι αλληλεπιδρούμε με τους ανθρώπους στην ζωή μας:\n\nξεκινάμε από άλλους τόπους,\nπερπατάμε παράλληλα,\nπροσπερνάμε, μας προσπερνούν — ο καθένας με άλλον Ρυθμό —\n\nκαι στο τέλος, φτάνουμε στον Τελικό Προορισμό που όλοι γνωρίζουμε εξαρχής.\n\nγ.φ."
   },
   "live.items[0].venue": {
-    "el": "κυρά-Σόφη",
-    "en": "lady-Sofi"
+    "el": "Σαμποτάζ",
+    "en": "Sabotage"
   },
   "live.items[0].ticketsLabel": {
     "el": "Πληροφορίες",
@@ -6096,8 +6096,8 @@
     "en": "Conversation between an airplane passenger\nand an employee\nat the airport security check:\n\n-Sir, you cannot go through here (pointing to an empty lane leading to an empty x-ray).\nYou must go through there (pointing to a crowded path).\n-But the lane is empty here.\n-Yes, but this is the fast lane. For passengers who have paid.\n-But no one is coming, we will facilitate the flow.\n-That is the point of the fast lane.\nUnintentionally, the employee uttered a great truth.\nAnd right there I realized that the fast lane is a service with, theoretically, a huge risk.\nThe possibility that no one uses the fast lane\nand everyone goes through the other entrances\nor the possibility that everyone goes to the fast lane,\nboth carry the risk of it losing its meaning.\nBecause the \"service\" - hot air offered as a privilege,\nwhen it becomes a privilege for everyone, then it is one no longer.\nIt's not the fast lane's fault,\nit's the privileges we think we are granted.\nIt's all a matter of balance.\nFor a fast lane to exist,\nno company wants all of its passengers to afford it.\nParadoxical ( ; )\n\ny.f."
   },
   "live/o-giwrgos-fanoyrakhs-me-thn-olympia-karalh-ka8e-sabbato-sta-2-bhmata.title": {
-    "el": "Ο Γιώργος Φανουράκης με την Ολυμπία Καραλή κάθε Σάββατο στα 2 βήματα!",
-    "en": "Yiorgos Fanourakis with Olympia Karali every Saturday at 2 vimata!"
+    "el": "Ο Γιώργος Φανουράκης με την Ολυμπία Καραλή, κάθε Σάββατο, στα 2 βήματα!",
+    "en": "Giorgos Fanourakis with Olympia Karali, every Saturday, in 2 steps!"
   },
   "live/o-giwrgos-fanoyrakhs-me-thn-olympia-karalh-ka8e-sabbato-sta-2-bhmata.venue": {
     "el": "2 βήματα",
@@ -6132,12 +6132,12 @@
     "en": "Thessaloniki"
   },
   "live.items[1].venue": {
-    "el": "2 βήματα",
-    "en": "2 Vimata"
+    "el": "κυρά-Σόφη",
+    "en": "lady-Sofi"
   },
   "live.items[1].city": {
-    "el": "Τούμπα, Θεσσαλονίκη",
-    "en": "Toumba, Thessaloniki"
+    "el": "Θεσσαλονίκη",
+    "en": "Thessaloniki"
   },
   "music/aney-synwdeias.description": {
     "el": "Το έργο αυτό ξεκίνησε να φτιάχνεται στα ΚΤΕΛ Άνω Λιοσίων την άνοιξη του 2023, όταν εγώ με τον Νικηφόρο περιμέναμε ένα χαμένο λεωφορείο για Λάρισα κι εκείνος θυμήθηκε να φέρει το \"τεφτέρι\" του με τα ποιήματά του. Τότε τα διάβαζα και τα άκουγα ταυτόχρονα, καθώς είχαν μια πολύ σαφή μουσικότητα. Τον επόμενο χρόνο δημοσιεύθηκαν από τις εκδόσεις Ιωλκός και, έκτοτε, για τα επόμενα δύο χρόνια, μελοποιούσα, ενορχήστρωνα και έχτιζα κάτι το οποίο θα έπαιρνε σάρκα και οστά τον Οκτώβριο του 2026, ανέλπιστα, καθώς η παραγωγή που είχα κάνει ήταν πολύ σύνθετη και πληθωρική, ξεπερνώντας τους οικονομικούς και πρακτικούς μας προϋπολογισμούς. Ήταν κάτι που δεν είχα ξανακάνει ποτέ. Μέσα σε αυτό το ταξίδι, με συνοδοιπόρο τον Νικηφόρο και όλους και όλες τους συντελεστές, αυτό το όνειρο έγινε πραγματικότητα και είμαι ευτυχισμένος και ευλογημένος που έμαθα τόσα πολλά και συνδέθηκα με όλους αυτούς τους ανθρώπους που συνετέλεσαν, εμφανείς και αφανείς. \n\nΑυτό το έργο είναι φτιαγμένο με ΠΟΛΛΗ αγάπη από ΠΟΛΛΟΥΣ όμορφους ανθρώπους.\n\nΑπολαύστε ανεύθυνα.\n\n© & ℗  2026 Νικηφόρος Μπλεμένος και Γιώργος Φανουράκης. Με επιφύλαξη παντός δικαιώματος.",
@@ -6160,12 +6160,12 @@
     "en": "upcoming"
   },
   "live.items[2].venue": {
-    "el": "Σκερτσόζα",
-    "en": "Skertsoza"
+    "el": "2 βήματα",
+    "en": "2 Steps"
   },
   "live.items[2].city": {
-    "el": "Θεσσαλονίκη",
-    "en": "Thessaloniki"
+    "el": "Τούμπα, Θεσσαλονίκη",
+    "en": "Toumba, Thessaloniki"
   },
   "press/aney-synwdeias-h-poihsh-toy-nikhforoy-mplemenoy-ginetai-tragoydi-mesa-apo-th-moysikh-toy-giwrgoy-fanoyrakh.title": {
     "el": "«Άνευ συνΩδείας»: Η ποίηση του Νικηφόρου Μπλεμένου γίνεται τραγούδι μέσα από τη μουσική του Γιώργου Φανουράκη",
